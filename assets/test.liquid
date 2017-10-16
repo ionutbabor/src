@@ -1,0 +1,703 @@
+.nav-bar{
+	.large--one-quarter{
+		text-align: center !important;
+	}
+	form.input-group.search-bar{
+		float: left;
+		background: #fff;
+		color: #ccc;
+		border: none;
+		width: 100%;
+		max-width: 100%;
+
+		input{
+			background-color: #fff;
+			color: #a2a2a2 !important;
+			height: 41px;
+		}
+		.input-group-btn{
+			.icon-fallback-text{
+				background: #7BCEC6;
+				height: 41px;
+				padding: 8px 20px;
+				&:focus{
+					outline:0;
+				}
+			}
+		}
+	}
+	.move-right{
+		.grid__item{
+			padding-left: 0;
+		}
+		.social-menu{
+			margin: 5px;
+			li{
+				padding-right: 0;
+			}
+			li:first-child{
+				padding-right: 50px;
+			}
+			#content{
+				font-family: 'Quicksand', sans-serif;
+				font-size: 20px;
+				color: #fff;
+				/* font-weight: 700;*/
+			}
+			#coin-container{
+				float:none;
+				select{
+					font-family: 'Quicksand', sans-serif;
+					font-size: 20px;
+					color: #fff;
+					/*font-weight: 700;*/
+					border: none;
+					padding: 0;
+				}
+			}
+		}
+		
+		.cart-right{
+			margin: 0;
+			float: right;
+			li{
+				display: inline-block;
+				margin: 0;
+			}
+			#cart{
+				a{
+					float: none;
+				}
+			}
+			#label{
+				font-family: 'Quicksand', sans-serif;
+				font-size: 20px;
+				color: #fff;
+				position: relative;
+				top: -6px;
+			}
+		}
+		/*drop down menu*/
+		#primary_nav_wrap
+		{
+			margin-top:5px;
+		}
+
+		#primary_nav_wrap ul
+		{
+			list-style:none;
+			position:relative;
+			float:left;
+			margin:0;
+			padding:0;
+			z-index: 1;
+			text-transform: uppercase;
+			color: #fff;
+			font-family: 'Quicksand', sans-serif;
+			font-size: 20px;
+		}
+
+		#primary_nav_wrap ul a
+		{
+			display:block;
+			text-decoration:none;
+			padding:5px 15px;
+			text-transform: uppercase;
+			color: #fff;
+			font-family: 'Quicksand', sans-serif;
+			font-size: 15px;
+			.caret{
+				display: inline-block;
+				width: 0;
+				height: 0;
+				margin-left: 2px;
+				vertical-align: middle;
+				border-top: 4px dashed;
+				border-top: 4px solid\9;
+				border-right: 4px solid transparent;
+				border-left: 4px solid transparent;
+			}
+		}
+
+		#primary_nav_wrap ul li
+		{
+			position:relative;
+			float:left;
+			margin:0;
+			padding:0
+		}
+
+		#primary_nav_wrap ul li.current-menu-item
+		{
+			background:#ddd
+		}
+
+		#primary_nav_wrap ul li:hover
+		{
+			background:#000;
+		}
+
+		#primary_nav_wrap ul ul
+		{
+			display:none;
+			position:absolute;
+			top:100%;
+			left:0;
+			background:#7BCEC6;
+			padding:0;
+			text-align: left;
+		}
+
+		#primary_nav_wrap ul ul li
+		{
+			float:none;
+			width:200px
+		}
+
+		#primary_nav_wrap ul ul a
+		{
+			
+			padding:10px 15px;
+		}
+
+		#primary_nav_wrap ul ul ul
+		{
+			top:0;
+			left:100%
+		}
+
+		#primary_nav_wrap ul li:hover > ul
+		{
+			display:block
+		}
+		/* end drop down */
+		#cart{
+			position: relative;
+			i{
+				padding: 0 10px;
+			}
+			.icon-cart-count{
+				position: absolute;
+				top: -5px;
+				right: 6px;
+				color: orange;
+				font-weight: bold;
+			}
+			
+		}
+	}
+}
+
+/* begin index page */
+.template-index{
+	.slick-prev, 
+	.slick-next{
+		color: #7bcec6;
+		outline: 0;
+
+
+	}
+
+}
+/* end index page */
+
+/*begin Prosthetic Buying Guides page*/
+#guides{
+	#middle2,#middle{
+		border-bottom: 1px solid #e5e5e5;
+		margin-bottom: 20px;
+		padding-bottom: 30px;
+		/*.img-responsive{
+			width:100%;
+		}*/
+	}
+	#top{
+		border-bottom: 1px solid #e5e5e5;
+		margin-bottom: 20px;
+		.banner-page{
+			position: relative;
+			.banner-caption{
+				width: 33%;
+				position: absolute;
+				border:1px solid #969696;
+				padding: 20px;
+				top: 50%;
+				transform: translateY(-50%);
+				margin: 0 10px;
+			}
+		}
+	}
+	.btn{
+		background-color: #fafafa;
+		border-color: #ebebeb;
+		color: #000;
+		padding: 10px 42px;
+	}
+	.main{
+		padding:  10px;
+	}
+	ul{
+		list-style: none;
+		margin: 0 0 15px 0;
+	}
+	a{
+		color: #57a5cb;
+		font-size: 16px;
+	}
+
+
+	}/*end Prosthetic Buying Guides page*/
+
+	/*begin page newsletter*/
+	#newsletter{
+		#top{
+			.banner-page{
+				position: relative;
+				.img-responsive{
+					width: 100%;
+				}
+				.main{
+					top: 50%;
+					transform: translateY(-50%);
+					position: absolute;
+					width: 100%;
+					text-align: center;
+					h2{
+						color: #000;
+						text-align: center;
+						font-size: 33px;
+						font-weight: normal;
+						text-transform: inherit;
+						margin-bottom: 10px;
+					}
+
+				}
+			}
+			}/*top*/
+			#middle,
+			#middle2{
+				background: #fff;
+				padding: 40px 0;
+				.grid{
+
+					p{
+						text-align: left;
+						font-size: 25px;
+						color: #000;
+						padding: 14% 0;
+						margin: 0;
+					}
+				}
+				}/*middle*/
+				#middle2{
+					background: #ccc;
+				}
+
+				/* begin slick slider for testimonials */
+				/* Slider */
+				.testimonials{
+					padding: 10px 0;
+					.test-container{
+						margin-top: 0;
+						overflow: inherit;
+						h2{
+							position: static;
+							text-align: center;
+							margin-top: 50px;
+						}
+					}
+
+
+					.main{
+						.triangle-border {
+							position:relative;
+							padding:15px;
+							margin:1em 0 2em;
+							border:5px solid #fff;
+							color:#333;
+							background:#fff;
+							/* css3 */
+							-webkit-border-radius:10px;
+							-moz-border-radius:10px;
+							border-radius:10px;
+							p{
+								color: #000;
+								font-size: 20px;
+							}
+						}
+
+
+						.triangle-border:before {
+							content:"";
+							position:absolute;
+							bottom:-20px; /* value = - border-top-width - border-bottom-width */
+							left:10px; /* controls horizontal position */
+							border-width:20px 20px 0;
+							border-style:solid;
+							border-color:#fff transparent;
+							/* reduce the damage in FF3.0 */
+							display:block;
+							width:0;
+						}
+
+						/* creates the smaller  triangle */
+						.triangle-border:after {
+							content:"";
+							position:absolute;
+							bottom:-13px; /* value = - border-top-width - border-bottom-width */
+							left: 17px; /* value = (:before left) + (:before border-left) - (:after border-left) */
+							border-width:13px 13px 0;
+							border-style:solid;
+							border-color:#fff transparent;
+							/* reduce the damage in FF3.0 */
+							display:block;
+							width:0;
+						}
+						.test-name{
+							color: #000 !important;
+							text-transform: uppercase;
+							text-decoration: none;
+							font-size: 19px;
+						}
+					}
+					.slider {
+						width: 50%;
+						margin: 50px auto 0;
+					}
+
+					.slick-slide {
+						margin: 20px;
+					}
+
+					.slick-slide img {
+						width: 100%;
+					}
+
+					.slick-prev:before,
+					.slick-next:before {
+						color: black;
+					}
+
+
+					.slick-slide {
+						transition: all ease-in-out .3s;
+						opacity: .2;
+					}
+
+					.slick-active {
+						opacity: .5;
+					}
+
+					.slick-current {
+						opacity: 1;
+					}
+				}
+				/* end */
+
+
+				#shop{
+					background: #ccc;
+					padding: 40px 0;
+					h2{
+						font-size: 33px;
+						font-weight: bolder;
+						color: #000000;
+						margin-bottom: 35px;
+					}
+					p{
+						color: #000000;
+						font-size: 20px;
+						a{
+							color: #7BCEC6;
+						}
+					}
+				}
+
+
+				#amputee-store-stocks{
+					padding: 40px 0;
+
+					.grid-box{
+						margin-top: 30px;
+					} 
+					#left-box,
+					#middle-box,
+					#right-box{
+						margin: 0;
+						li{
+							list-style: none;
+						}
+					}
+					#left-box{
+						text-align: right;
+						position: relative;
+						left: 50px;
+						top: -15px;
+						li:nth-child(2){
+							position: relative;
+							left: -10px;
+						}
+					}
+					#middle-box{
+						text-align: center;
+					}
+					#right-box{
+						text-align: left;
+						position: relative;
+						right: 50px;
+						top: -15px;
+						li:nth-child(2){
+							position: relative;
+							left: 10px;
+						}
+					}
+					h2{
+						font-size: 25.01px;
+						margin-top: 40px;
+					}
+					.no-padding{
+						padding: 0;
+					}
+				}
+
+				#amputee-more-content{
+					background: #ccc;
+					padding: 40px 0;
+					p{
+						font-size: 20px;
+					}
+				}
+
+
+				.subtitle-2{
+					padding: 30px 0 0;
+					h2{
+						font-size: 25.01px;
+						margin-bottom: 40px;
+					}
+				}
+				.bottom{
+					background: #fff;
+					text-align:center;
+					padding-bottom: 10px;
+					.thumbnail{
+						.icon-title{
+							font-size: 23px;
+							line-height: 24px;
+							color: #000;
+							margin-bottom: 46px;
+						}
+
+					}
+				}
+				#bg-white{
+					background: #fff;
+					.thumbnail{
+						text-align: center;
+						.icon-title{
+							font-size: 25px;
+							line-height: 25px;
+							color: #000;
+						}
+					}
+				}
+				#bottom-2{
+					padding-bottom: 40px;
+					text-align: center;
+					background-image: url("{{ 'bg.png' | asset_url }}");
+					background-position: center; 
+					background-size: cover;
+					background-repeat: no-repeat;
+					color: #fff; 
+					text-align: center;
+					p{
+						font-size: 33px;
+					}
+					.block-btn{
+						display: block;
+						margin-top: 30px;
+						.btn{
+							background: transparent;
+							border: 4px solid #fff;
+							text-transform: uppercase;
+							font-size: 24.52px;
+							font-weight: bolder;
+							padding: 20px 70px;
+							border-radius: 0;
+							margin-bottom: 60px;
+						}
+					}
+					h2{
+						margin: 60px 0 15px;
+						font-size: 57.31px;
+						font-weight: bolder;
+						color: #fff;
+					}
+					.thumbnail{
+						.icon-title10, .icon-title11{
+							margin-bottom: 46px;
+						}
+						.icon-title{
+							font-size: 22.03px;
+							line-height: 24px;
+							span{
+								text-transform: uppercase;
+								color: #f68a20;
+								font-weight: bolder;
+							}
+						}
+					}
+				}
+				#bottom{
+					background: #fff;
+					h2{
+						font-size: 57.25px;
+						font-weight: bolder;
+						color: #000000;
+						margin-bottom: 35px;
+					}
+					.banner-page{
+						position: relative;
+						.img-responsive{
+							width: 100%;
+						}
+						.main{
+							top: 50%;
+							transform: translateY(-50%);
+							position: absolute;
+							width: 100%;
+							text-align: center;
+							p{
+								color: #fff;
+								text-align: center;
+								font-size: 25px;
+								margin: 0 8%;
+							}
+
+						}
+					}
+					}/*bottom*/
+				}
+				/*end page moving-lives*/
+
+
+			#top{
+				hr{
+
+				}
+				.main-content{
+					padding-bottom: 0;
+					.title-filters{
+						h2{
+							width: auto;
+							padding-top: 15px;
+							font-weight: 700;
+							font-size: 26px;
+							margin-bottom: 0;
+						}
+					}
+					.parent-filters{
+						margin-top: 15px;
+						margin-bottom: 15px;
+						ul{
+							margin: 0 25px;
+							li{
+								a{
+									font-weight: 700;
+									font-size: 26px;
+									color: #000;
+								}
+								.current{
+									border-bottom: 2px solid #7BCEC6;
+								}
+							}
+						}
+					}
+				}
+				.breadcrumb{
+					/*color: #000;*/
+					padding-left: 30px;
+					
+					span a{
+						color: #000;
+					}
+				}
+				}/* #top */
+
+
+
+
+				/* begin knitted textiles */
+				#knitted-textiles{
+					#top{
+						hr{
+
+						}
+						.main-content{
+							padding-bottom: 0;
+							.title-filters{
+								h2{
+									width: auto;
+									padding-top: 15px;
+									font-weight: 700;
+									font-size: 26px;
+									margin-bottom: 0;
+								}
+							}
+							.parent-filters{
+								margin-top: 15px;
+								margin-bottom: 15px;
+								ul{
+									margin: 0 25px;
+									li{
+										a{
+											font-weight: 700;
+											font-size: 26px;
+											color: #000;
+										}
+										.current{
+											border-bottom: 2px solid #7BCEC6;
+										}
+									}
+								}
+							}
+						}
+						.breadcrumb{
+							/*color: #000;*/
+							padding-left: 30px;
+							
+							span a{
+								color: #000;
+							}
+						}
+						}/* #top */
+						#main{
+							.grid{
+								margin-left: 0;
+								.title{
+									border-bottom: 2px solid #7BCEC6;
+									display: inline-block;
+								}
+								.one-quarters{
+									.title{
+										border-bottom: none;
+									}
+								}
+							}
+							}/*#main*/
+
+							#bottom{
+								@extend #main;
+								.large--one-third{
+									padding-left: 0;
+									ul{
+										margin: 0;
+										list-style: none;
+										li{
+											color: #7bcec6;
+										}
+									}
+								}
+							}
+						}
+/* end knitted textiles */

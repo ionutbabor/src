@@ -1,0 +1,47 @@
+/*royal slider*/
+.contentSlider {
+	width: 100%;
+}
+.contentSlider,
+.contentSlider .rsOverflow,
+.contentSlider .rsSlide,
+.contentSlider .rsVideoFrameHolder,
+.contentSlider .rsThumbs {
+	background: transparent;
+	color: #000;
+	margin-bottom: 8px;
+}
+
+.contentSlider .rsSlide,
+.contentSlider .rsOverflow {
+	background: transparent;
+}
+.contentSlider h3 {
+	font-size: 24px;
+	line-height: 31px;
+	margin: 12px 0 8px;
+	font-weight: bold;
+}
+.contentSlider img {
+	max-width: 100%;
+	height: auto;
+	display: block;
+}
+.content-slider-bg {
+	width: 100%;
+	padding: 24px 7%;
+	background: #eee;
+}
+
+
+
+
+
+.royalSlider .rsThumbsVer {
+    right: auto !important;
+    left: 0 !important;
+}
+.royalSlider .rsOverflow {
+    margin-left: 96px !important; /* width of thumbnails container */
+}
+/*end royal slider*/

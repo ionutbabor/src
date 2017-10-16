@@ -1,0 +1,64 @@
+<!-- /templates/blog.liquid -->
+
+{% paginate blog.articles by 5 %}
+
+{% include 'breadcrumb' %}
+
+<div class="grid--rev">
+
+  <div class="grid__item large--three-quarters">
+
+    {% if current_tags %}
+      <h1>{{ blog.title | link_to: blog.url }} &mdash; {{ current_tags.first }}</h1>
+    {% else %}
+      <h1>{{ blog.title }}</h1>
+    {% endif %}
+
+    {% for article in blog.articles %}
+      <h3><a href="{{ article.url }}">{{ article.title }}</a></h3>
+      {% capture author %}<strong>{{ article.author }}</strong>{% endcapture %}
+      {% capture date %}<time datetime="{{ article.published_at | date: '%Y-%m-%d' }}">{{ article.published_at | date: format: 'month_day_year' }}</time>{% endcapture %}
+      <p>{{ 'blogs.article.author_on_date_html' | t: author: author, date: date }}</p>
+
+      <div class="rte">
+        {% if article.excerpt.size > 0 %}
+          {{ article.excerpt }}
+        {% else %}
+          <p>{{ article.content | strip_html | truncatewords: 100 }}</p>
+        {% endif %}
+      </div>
+
+      <ul class="inline-list">
+        {% if blog.comments_enabled? %}
+        <li>
+          <a href="{{ article.url }}#Comments">
+            {{ 'blogs.comments.comments_with_count' | t: count: article.comments_count }}
+          </a>
+        </li>
+        {% endif %}
+
+        {% include 'tags-article' %}
+      </ul>
+
+      <p><a href="{{ article.url }}">{{ 'blogs.article.read_more' | t }} &rarr;</a></p>
+
+      {% unless forloop.last %}<hr>{% endunless %}
+
+    {% endfor %}
+
+    {% if paginate.pages > 1 %}
+      <hr>
+      <div class="pagination">
+        {{ paginate | default_pagination | replace: '&laquo; Previous', '&larr;' | replace: 'Next &raquo;', '&rarr;' }}
+      </div>
+    {% endif %}
+
+  </div>
+
+  <div class="grid__item large--one-quarter">
+    {% include 'blog-sidebar' %}
+  </div>
+
+</div>
+
+{% endpaginate %}

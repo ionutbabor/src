@@ -1,0 +1,15 @@
+
+
+
+<script type="text/javascript">
+window.sloyalty = window.sloyalty || {};
+window.sloyalty.shop = '{{ shop.permanent_domain }}';
+window.sloyalty.customer_id = '';
+window.sloyalty.digest = '';
+</script>
+
+
+<div class="sloyalty-widget"
+     data-shop="{{ shop.permanent_domain }}"
+     data-order-id="{% if order_id %}{{ order_id }}{% else %}{{ id }}{% endif %}"
+     data-order-email="{{ email }}"></div>

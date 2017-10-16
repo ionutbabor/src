@@ -1,0 +1,27 @@
+<div id="top-of-page">
+  <a href="#" id="scrollUp"><span class="triangle"></span><span class="text-link">Top of page</span></a>
+</div>
+
+
+{% comment %}scroll top of page link{% endcomment %}
+<script>
+  $(document).ready(function(){
+  
+  //Check to see if the window is top if not then display button
+  $(window).scroll(function(){
+    if ($(this).scrollTop() > 100) {
+      $('#scrollUp').fadeIn();
+    } else {
+      $('#scrollUp').fadeOut();
+    }
+  });
+  
+  //Click event to scroll to top
+  $('#scrollUp').click(function(){
+    $('html, body').animate({scrollTop : 0},800);
+    return false;
+  });
+  
+});
+</script>
+{% comment %}end scroll top of page link{% endcomment %}

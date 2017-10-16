@@ -1,0 +1,68 @@
+<!-- /templates/page.contact.liquid -->
+
+<div class="grid contact-us">
+
+  <div class="grid__item large--one-whole">
+
+    <h1>{{ page.title }}</h1>
+
+    <div class="rte">
+      {{ page.content }}
+    </div>
+
+    <div class="grid__item large--one-third">
+      <h2>Send Us an Email</h2>
+    <div class="form-vertical">
+      {% form 'contact' %}
+
+        {% if form.posted_successfully? %}
+          <p class="note form-success">
+            {{ 'contact.form.post_success' | t }}
+          </p>
+        {% endif %}
+
+        {{ form.errors | default_errors }}
+
+        <!DOCTYPE html><html><head><META HTTP-EQUIV='content-type' CONTENT='text/html; charset=UTF-8'><style>.zsFormClass{background-color:#FFFFFF;width:600px}</style> <style>.zsFontClass{color:#000000;font-family:Arial;font-size:13px}</style> <style>.manfieldbdr{border-left: 1px solid #ff6448!important} .hleft{text-align:left;} input[type=file]::-webkit-file-upload-button{cursor:pointer;}.wtcsepcode{margin:0px 15px; color:#aaa; float:left;}.wtccloudattach{float:left; color:#00acda!important; cursor:pointer; text-decoration: none!important;}.wtccloudattach:hover{text-decoration: none!important;}.wtcuploadinput{cursor:pointer; float:left; width:62px; margin-top:-20px; opacity:0; clear:both;}.wtcuploadfile{float:left;color: #00acda;}.filenamecls{margin-right:15px; float:left; margin-top:5px;} .clboth{clear:both;} #zsFileBrowseAttachments{clear:both; margin:5px 0px 10px;} .zsFontClass{vertical-align:top;} #tooltip-zc{font: normal 12px Arial, Helvetica, sans-serif; line-height:18px;position:absolute;padding:8px;margin:20px 0 0;background:#fff;border:1px solid #528dd1;-moz-border-radius:5px;-webkit-border-radius:5px;border-radius:5px;color:#eee;-webkit-box-shadow:5px 5px 20px rgba(0,0,0,0.2);-moz-box-shadow:5px 5px 20px rgba(0,0,0,0.2);z-index:10000; color:#777}.wtcmanfield{color:#f00;font-size:16px;position:relative;top:2px;left:1px;} #zsCloudAttachmentIframe{width: 100%;height: 100%;z-index: 99999!important;position: fixed;left: 0px;top:0px; border-style: none; display: none; background-color:#fff;} .wtchelpinfo{background-position: -246px -485px;width:15px;height:15px;display:inline-block;position: relative;top: 2px;background-image: url('https://css.zohostatic.com/support/913778/images/zs-mpro.png');} .zsMaxSizeMessage{font-size:13px;}</style><script src='https://js.zohostatic.com/support/static/jquery-1.8.3.min.js'></script><script src='https://js.zohostatic.com/support/fbw_v1/jquery.encoder.min.js'></script><script>var zctt = function(){var tt, mw = 400, top = 10, left = 0, doctt = document;var ieb = doctt.all ? true : false;return{showtt: function(cont, wid){if(tt == null){tt = doctt.createElement('div');tt.setAttribute('id', 'tooltip-zc');doctt.body.appendChild(tt);doctt.onmousemove = this.setpos;doctt.onclick = this.hidett;}tt.style.display = 'block';tt.innerHTML = cont;tt.style.width = wid ? wid + 'px' : 'auto';if(!wid && ieb){tt.style.width = tt.offsetWidth;}if(tt.offsetWidth > mw){tt.style.width = mw + 'px'}h = parseInt(tt.offsetHeight) + top;w = parseInt(tt.offsetWidth) + left;},hidett: function(){tt.style.display = 'none';},setpos: function(e){var u = ieb ? event.clientY + doctt.body.scrollTop : e.pageY;var l = ieb ? event.clientX + doctt.body.scrollLeft : e.pageX;var cw = doctt.body.clientWidth;var ch = doctt.body.clientHeight;if(l < 0){tt.style.left = left + 'px';tt.style.right = '';}else if((l+w+left) > cw){tt.style.left = '';tt.style.right = ((cw-l) + left) + 'px';}else{tt.style.right = '';tt.style.left = (l + left) + 'px';}if(u < 0){tt.style.top = top + 'px';tt.style.bottom = '';}else if((u + h + left) > ch){tt.style.top = '';tt.style.bottom = ((ch - u) + top) + 'px';}else{tt.style.bottom = '';tt.style.top = (u + top) + 'px';}}};}();var zsWebFormMandatoryFields = new Array('Contact Name','Email','Subject');var zsFieldsDisplayLabelArray = new Array('Last Name','Email','Subject');function zsValidateMandatoryFields(){var name = '';var email = '';var isError = 0;for(var index = 0; index < zsWebFormMandatoryFields.length; index++){isError = 0;var fieldObject = document.forms['zsWebToCase_46611000004314001'][zsWebFormMandatoryFields[index]];if(fieldObject){if(((fieldObject.value).replace(/^\s+|\s+$/g, '')).length == 0){alert(zsFieldsDisplayLabelArray[index] +' cannot be empty ');fieldObject.focus();isError = 1;return false;}else{if(fieldObject.name == 'Email'){if(!fieldObject.value.match(/[A-Za-z0-9._%\-+]+@[A-Za-z0-9.\-]+\.[a-zA-Z]{2,22}/)){isError = 1;alert('Enter a valid email-Id');fieldObject.focus();return false;}}}if(fieldObject.nodeName == 'SELECT'){if(fieldObject.options[fieldObject.selectedIndex].value == '-None-'){alert(zsFieldsDisplayLabelArray[index] +' cannot be none');fieldObject.focus();isError = 1;return false;}}if(fieldObject.type == 'checkbox'){if (fieldObject.checked == false){alert('Please accept '+zsFieldsDisplayLabelArray[index]);fieldObject.focus();isError = 1;return false;}}}}if(isError == 0){document.getElementById('zsSubmitButton_46611000004314001').setAttribute('disabled', 'disabled');}}function zsResetWebForm(webFormId){document.forms['zsWebToCase_'+webFormId].reset();document.getElementById('zsSubmitButton_46611000004314001').removeAttribute('disabled');} </script></head><div id='zohoSupportWebToCase' align='center'> <form name='zsWebToCase_46611000004314001' id='zsWebToCase_46611000004314001' action='https://help.amputeesupplies.com/support/WebToCase' method='POST' onSubmit='return zsValidateMandatoryFields()' enctype='multipart/form-data'>  <input type='hidden' name='xnQsjsdp' value='oIdSn9kTmzpthYo*kRl79w$$'/>  <input type='hidden' name='xmIwtLD' value='git98RChiEaMb8GcQ3YXtIDA2Q1fFl-7'/>  <input type='hidden' name='actionType' value='Q2FzZXM='/>  <input type='hidden' name='returnURL' value='https://amputeestore.com/search'/><table border='0' cellspacing='0' cellpadding='5' class='zsFormClass'><tr><td colspan='2' class='zsFontClass'><strong>test Web Form</strong></td></tr><br><tr ><td nowrap class='zsFontClass ' width='25%' align='left'>Last Name&nbsp;&nbsp;</td><td align='left' width='75%'><input type='text' maxlength='120' name='Contact Name' class='manfieldbdr'/></td></tr><tr ><td nowrap class='zsFontClass ' width='25%' align='left'>Email&nbsp;&nbsp;</td><td align='left' width='75%'><input type='text' maxlength='120' name='Email' value='' class='manfieldbdr'/></td></tr> <tr ><td nowrap class='zsFontClass ' width='25%' align='left'>2.  Choose specifics about your question &nbsp;&nbsp;</td><td align='left' width='75%'><select name='2.  Choose specifics about your question' value='' > <option value='-select specifics-' >-select specifics-</option> <option value='Oops! Urgent...I need to change my order' >Oops! Urgent...I need to change my order</option> <option value='You shipped the incorrect items' >You shipped the incorrect items</option> <option value='Check order status' >Check order status</option> <option value='Order Cancellations' >Order Cancellations</option> <option value='Assistance or problems placing an order' >Assistance or problems placing an order</option> <option value='Other order related questions' >Other order related questions</option> <option value='Where are my amputee supplies?' >Where are my amputee supplies?</option> <option value='File a claim for a delayed, lost, or damaged shipment' >File a claim for a delayed, lost, or damaged shipment</option> <option value='Other shipping-related questions' >Other shipping-related questions</option> <option value='Product related' >Product related</option> <option value='Sizing help' >Sizing help</option> <option value='Other product questions' >Other product questions</option> <option value='Check the status of an existing return' >Check the status of an existing return</option> <option value='I am having problems with Self-Service Returns' >I am having problems with Self-Service Returns</option> <option value='Cancel an existing return' >Cancel an existing return</option> <option value='General information about the return process' >General information about the return process</option> <option value='Other return or RMA related questions' >Other return or RMA related questions</option> <option value='Website Feedback/Suggestions' >Website Feedback/Suggestions</option> <option value='Excellent Experiences' >Excellent Experiences</option> <option value='Product Suggestions' >Product Suggestions</option> <option value='Information Security inquiry/comment' >Information Security inquiry/comment</option> <option value='Privacy inquiry/comment' >Privacy inquiry/comment</option> <option value='Below Knee Amputee' >Below Knee Amputee</option> <option value='Above Knee Amputee' >Above Knee Amputee</option> <option value='Symes Amputee' >Symes Amputee</option> <option value='Arm Amputee' >Arm Amputee</option> <option value='Pediatric Amputee' >Pediatric Amputee</option> <option value='Assistance with Paypal' >Assistance with Paypal</option> <option value='Failed order/payment verification' >Failed order/payment verification</option> <option value='Price Match Request' >Price Match Request</option> <option value='Other payment and promotion questions' >Other payment and promotion questions</option> </select></td></tr><tr ><td nowrap class='zsFontClass ' width='25%' align='left'>Subject&nbsp;&nbsp;</td><td align='left' width='75%'><input type='text' maxlength='255' name='Subject' value='' class='manfieldbdr'/></td></tr> <tr><td colspan='2' align='center' width='25%'> <input type='submit' id="zsSubmitButton_46611000004314001" class='zsFontClass' value='Submit'> &nbsp; &nbsp; <input type='button' class='zsFontClass' value='Reset' onclick="zsResetWebForm('46611000004314001')"> </td></tr><br></table></form></div></html>
+        
+
+      {% endform %}
+    </div>
+    </div>
+    
+    <div class="grid__item large--one-third">
+      
+      <h2>Have a question?</h2>
+      <h5>Maybe one of these links will help…</h5>
+      <p><a href="https://amputeestore.com/pages/returns/">Return policy and instructions</a></p>
+      <p><a href="https://amputeestore.com/pages/shipping-information/">Shipping methods and delivery estimates</a></p>
+      <p><a href="https://amputeestore.com/pages/inner-circle-rewards/">Do you offer promotional codes?</a></p>
+      <p><a href="https://amputeestore.com/pages/faq/">Frequently Asked Questions</a></p>
+      <br> <br>
+      <h2>Mailing Address</h2>
+      <p>PO Box 291342<br />
+        Los Angeles, CA  90029
+      </p>
+     <!--<p><a href="tel:18779390092">+1 (877) 939-0092</a></p>
+      <p>Available Monday - Friday</p>
+      <p>8am - 12pm Pacific Time</p>-->
+      <br>
+      <h2>AmputeeSupplies.com</h2>
+      <p>If you have questions regarding your order please send us an email.</p>
+    </div>
+      
+    <div class="grid__item large--one-third">
+      <h2>Let's Socialize</h2>
+      <a href="https://www.facebook.com/amputeestore"><i class="fa fa-facebook"></i><span>Join us on Facebook</span></a><br />
+      <a href="https://instagram.com/amputeestore/"><i class="fa fa-instagram"></i><span>Join us on Instagram</span></a><br />
+      <a href="https://twitter.com/amputeestore"><i class="fa fa-twitter"></i><span>Join us on Twitter</span></a><br />
+      <a href="https://plus.google.com/+AmputeeStore"><i class="fa fa-google-plus"></i><span>Join us on Google Plus</span></a><br />
+     <!-- <a href="https://www.pinterest.com/amputeestore/"><i class="fa fa-pinterest-p"></i><span>Join us on Pinterest</span></a><br /> -->
+    
+      
+    </div>
+
+  </div>
+
+</div>
+

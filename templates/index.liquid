@@ -1,0 +1,125 @@
+<!-- /templates/index.liquid -->
+{% section 'featured-collection-1' %}
+
+{% section 'featured-collection-2' %}
+
+
+
+<a href="{{ settings.link_feat1 }}">
+  <div class="featured-box">
+    <img src="{{ 'prosthetic-stump-socks.png' | asset_url }}" alt="Prosthetic stump socks made of wool, coolmax, x-static in different ply thickneses."  />
+    <div class="feat-caption {% if settings.position_feat1 == 'feat1_left' %}feat-left {% endif %}{% if settings.position_feat1 == 'feat1_center' %}feat-center {% endif %}{% if settings.position_feat1 == 'feat1_right' %}feat-right{% endif %}">
+      <h2 style="color: {{ settings.captioncolor_feat1 }};">{{ settings.captiontitle_feat1 }}</h2>
+      <p class="interior">{{ settings.caption_feat1 }}</p>
+      <div class="caption-button">
+        <p>{{ settings.button_feat1 }}</p>
+      </div>
+    </div>
+  </div>
+</a>
+
+<a href="{{ settings.link_feat2 }}">
+  <div class="featured-box">
+    <img src="{{ 'prosthetic-skin-care-for-amputee-hygiene.png' | asset_url }}" alt="Prosthetic skincare products for amputees to prevent chafing, excessive sweating, stump blisters & pressure sores."  />
+    <div class="feat-caption {% if settings.position_feat2 == 'feat2_left' %}feat-left {% endif %}{% if settings.position_feat2 == 'feat2_center' %}feat-center {% endif %}{% if settings.position_feat2 == 'feat2_right' %}feat-right{% endif %}">
+      <h2 style="color: {{ settings.captioncolor_feat2 }};">{{ settings.captiontitle_feat2 }}</h2>
+      <p class="interior">{{ settings.caption_feat2 }}</p>
+      <div class="caption-button">
+        <p>{{ settings.button_feat2 }}</p>
+      </div>
+    </div>
+  </div>
+</a>
+
+<a href="{{ settings.link_feat3 }}">
+  <div class="featured-box">
+    <img src="{{ 'prosthetic-sleeves-bk-amputee.png' | asset_url }}" alt="Prosthetic sleeves from major prosthetic manufacturers including Ossur, Ottobock, Syncor & Medi USA."  />
+    <div class="feat-caption {% if settings.position_feat3 == 'feat3_left' %}feat-left {% endif %}{% if settings.position_feat3 == 'feat3_center' %}feat-center {% endif %}{% if settings.position_feat3 == 'feat3_right' %}feat-right{% endif %}">
+      <h2 style="color: {{ settings.captioncolor_feat3 }};">{{ settings.captiontitle_feat3 }}</h2>
+      <p class="interior">{{ settings.caption_feat3 }}</p>
+      <div class="caption-button">
+        <p>{{ settings.button_feat3 }}</p>
+      </div>
+    </div>
+  </div>
+</a>
+
+
+
+{% comment %}<main class="wrapper main-content" role="main">{% endcomment %}
+  {% comment %}<br />
+  <div class="header-container">
+    <h2 class="page-title" style="margin-top: 30px; margin-bottom: 20px;"><a href="/collections/featured-amputee-supplies" style="font-family: 'bebas', sans-serif; color: #000; letter-spacing: 2px; font-size: 30px;">Featured Amputee Supplies</a></h2>
+  </div>{% endcomment %}
+
+{% section 'featured-collection-3' %}
+
+{% section 'amputation-level' %}
+
+{% comment %}</main>{% endcomment %}
+
+<div class="grid--full featured-collection-section">
+  <div class="yotpo yotpo-reviews-carousel" 
+data-mode="most_recent" 
+data-type="both" 
+data-count="9" 
+data-show-bottomline="1" 
+data-autoplay-enabled="1" 
+data-autoplay-speed="3000" 
+data-show-navigation="1" 
+data-header-customisation-alignment="left" 
+data-background-color="#ffffff">&nbsp;</div>
+</div>
+
+
+
+{% comment %}<div class="testimonials">
+  <div class="wrapper">
+    <div class="test-container">
+      <h2>Amputees tell their stories</h2>
+
+      <div class="test-left">
+        <i class="fa fa-quote-left"></i>
+        <p>Bill says he's never been too conscious of his prosthesis. He doesn't really think about it anymore, except when his granddaughter calls it a robot leg... </p>
+        <p class="test-name">Bill - AK Amputee</p>
+      </div>
+      <div class="test-right">
+        <i class="fa fa-quote-left"></i>
+        <p>Life with a prosthesis was difficult at first. He had expected to master it quickly and go on with his life, he had expectations... </p>
+        <p class="test-name">Jake - BK Amputee</p>
+      </div>
+      <br />
+      <a href="/blogs/news">
+        <div class="caption-button" style="width: 20%; text-align: center; float: right; position: absolute; bottom: 10%; right: 0%">
+          <p><a href="/pages/their-stories">Read Their Experiences</a></p>
+        </div>
+      </a>
+    </div>
+  </div>
+</div>{% endcomment %}
+
+<div class="grid--full">
+  <div class="grid-item">
+  
+      <h2>Amputee Store Blog</h2>
+  
+<div class="wrapper0">
+    {% for article in blogs['amputee-store-blog'].articles limit: 3 %}
+
+    <div class="grid__item large--one-third">
+
+      <div class="rte blog-excerpt">
+        {{ article.excerpt }}
+        <h3><a href="{{ article.url }}">{{ article.title }}</a></h3>
+
+        <p>{{ article.content | strip_html | truncatewords: 12 }}</p>
+      </div>
+      
+      <p><a class="collection-link" href="{{ article.url }}">Read More</a></p>
+
+    </div>
+
+    {% endfor %}
+  </div>
+  </div>
+  </div>

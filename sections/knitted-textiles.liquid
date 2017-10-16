@@ -1,0 +1,193 @@
+<div id="top">
+  <div class="main-content">
+
+    <div class="grid__item large--one-quarter title-filters">
+      <h2> Prostetic Buying Price </h2>
+    </div>
+
+    <div class="grid__item large--three-quarters parent-filters " style="border-left: 1px solid #ccc;">
+     <ul class="main-menu">
+      {% for link in linklists.submenu-new-pages.links %}
+      <li><a href="{{ link.url }}" class="menu-link {% if link.active %}current{% endif %}">{{ link.title }}</a></li>
+      {% endfor %}
+    </ul>
+  </div>
+  <hr>
+</div> <!-- main-content -->
+
+<nav class="breadcrumb" role="navigation" aria-label="breadcrumbs">
+  <a href="/" title="{{ 'general.breadcrumbs.home_link_title' | t }}">{{ 'general.breadcrumbs.home' | t }}</a>
+  <span aria-hidden="true">&rsaquo;</span>
+  <span><a href="/pages/prosthetic-buying-guides"> Prostetic Buying Price </a></span>
+  <span aria-hidden="true">&rsaquo;</span>
+  <span><a href="{{ link.url }}">{{ page.title }}</a></span>
+</nav>
+</div><!-- #top -->
+
+
+
+{% for block in section.blocks %}
+{% if block.type == 'top' %}
+
+<div id="main">
+ <div class="grid">
+  <div class="grid__item {% if block.settings.banner-img != blank %}  medium--one-half small--one-whole two-quarters {% else %} one-quarters {% endif %}">
+    <h2 class="title">{{ block.settings.title }}</h2>
+    <p>{{ block.settings.content }}</p>
+  </div>
+
+  {% if block.settings.banner-img != blank %}
+  <div class="grid__item two-quarters text-center small--one-whole">
+   <img class="img-responsive" src="{{ block.settings.banner-img | img_url: 'master' }}" alt="{{ block.settings.banner-img | remove_first: 'files/' }}">
+ </div>
+ {% endif %}
+
+</div>
+<hr>
+</div>
+
+
+{% elsif block.type == 'services' %}
+
+
+<div id="bottom">
+ <div class="grid">
+  <div class="grid__item one-quarters small--one-whole">
+    <h2 class="title">{{ block.settings.title }}</h2>
+    <h3 class="subtitle">{{ block.settings.subtitle }}</h3>
+
+    <div class="grid">
+      <div class="grid__item large--one-third small--one-whole">
+        <ul>
+          <li>{{ block.settings.content1 }}</li>
+          <li>{{ block.settings.content2 }}</li>
+          <li>{{ block.settings.content3 }}</li>
+        </ul>
+
+      </div>
+
+      <div class="grid__item large--one-third small--one-whole">
+       <ul>
+        <li>{{ block.settings.content4 }}</li>
+        <li>{{ block.settings.content5 }}</li>
+        <li>{{ block.settings.content6 }}</li>
+      </ul>
+
+    </div>
+  </div>
+
+</div>
+</div>
+</div>
+<hr>
+
+
+
+{% endif %}
+{% endfor %}
+
+
+<!-- end blog -->
+
+
+
+
+{% schema %}
+{
+  "blocks": [
+  {
+  "type": "top",
+  "name": "Content",
+  "settings": [
+  {
+  "id": "title",
+  "type": "text",
+  "label": "Title",
+  "default": "Textiles Prosthetic Buying Guide"
+},
+{
+  "id": "content",
+  "type": "textarea",
+  "label": "Content",
+  "default": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Suscipit ipsum omnis accusamus, repudiandae provident quaerat odit illo vitae dolor unde laboriosam quam. Ipsum veniam repudiandae, temporibus quos, nesciunt ullam. Mollitia!"
+},
+{
+  "id": "banner-img",
+  "type": "image_picker",
+  "label": "Image"
+}
+]
+},
+{
+  "type": "services",
+  "name": "Services",
+  "settings": [
+  {
+  "id": "title",
+  "type": "text",
+  "label": "Title",
+  "default": "Sheath Buying Guide"
+},  
+{
+  "id": "subtitle",
+  "type": "text",
+  "label": "SubTitle",
+  "default": "Articles"
+},
+{
+  "id": "content1",
+  "type": "textarea",
+  "label": "Content",
+  "default": "Lorem ipsum dolor sit amet, consectetur adipisicing elit."
+},
+{
+  "id": "content2",
+  "type": "textarea",
+  "label": "Content",
+  "default": "Lorem ipsum dolor sit amet, consectetur adipisicing elit."
+},
+{
+  "id": "content3",
+  "type": "textarea",
+  "label": "Content",
+  "default": "Lorem ipsum dolor sit amet, consectetur adipisicing elit."
+},
+{
+  "id": "content4",
+  "type": "textarea",
+  "label": "Content",
+  "default": "Lorem ipsum dolor sit amet, consectetur adipisicing elit."
+},
+{
+  "id": "content5",
+  "type": "textarea",
+  "label": "Content",
+  "default": "Lorem ipsum dolor sit amet, consectetur adipisicing elit."
+},
+{
+  "id": "content6",
+  "type": "textarea",
+  "label": "Content",
+  "default": "Lorem ipsum dolor sit amet, consectetur adipisicing elit."
+}
+
+]
+}
+
+
+
+]
+
+}
+{% endschema %}
+
+
+
+
+
+{% javascript %}
+$(document).on('ready', function() {
+
+
+});
+{% endjavascript %}

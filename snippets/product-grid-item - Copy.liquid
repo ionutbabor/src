@@ -1,0 +1,41 @@
+<!-- /snippets/product-grid-item.liquid -->
+
+{% unless grid_item_width %}
+  {% assign grid_item_width = 'large--one-quarter medium--one-half' %}
+{% endunless %}
+
+{% include 'bold-product' with product, hide_action: 'skip' %}
+
+
+{% assign on_sale = false %}
+{% if bold_compare_at_price > bold_price %}
+  {% assign on_sale = true %}
+{% endif %}
+
+{% assign sold_out = true %}
+{% if product.available %}
+  {% assign sold_out = false %}
+{% endif %}
+
+<div class="grid__item {{ grid_item_width }} product-grid">
+  <a href="{{ product.url | within: collection }}" class="grid__image">
+    <img src="{{ product.featured_image.src | img_url: 'large' }}" alt="{{ product.featured_image.alt | escape }}">
+  </a>
+
+  <p class="h6">
+    <a href="{{ product.url | within: collection }}">{{ product.title }}</a>
+  </p>
+  <p>
+  
+  <!--Yotpo Star Rating -->
+  <div class="yotpo bottomLine"
+       data-product-id="{{ product.id }}">
+  </div>
+
+    <s>{{ bold_compare_at_price | money }}</s>
+            {{ bold_price | money }}
+
+  </p>
+
+</div>
+

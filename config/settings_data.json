@@ -1,0 +1,404 @@
+{
+  "current": {
+    "link_color": "#7bcec6",
+    "text_link_color": "#3b96c2",
+    "top_page_color": "#01bcd3",
+    "product_free": "#46832f",
+    "logo_use_image": false,
+    "logo_max_width": "450",
+    "favicon_enable": true,
+    "enable_promo-bar": false,
+    "promo-bar-text": "FREE Shipping For USA Orders Over $50",
+    "promo-bar-link": "\/pages\/shipping-information",
+    "promo-bar-text-color": "#ffffff",
+    "promo-bar-color": "#7bcec6",
+    "content-header": "24\/7 HELP",
+    "enable_image1": true,
+    "link_image1": "\/collections\/prosthesis-suspension",
+    "caption_image1": "move securely",
+    "position_image1": "image1_center",
+    "button_image1": true,
+    "buttontext_image1": "shop suspension",
+    "enable_image2": true,
+    "link_image2": "\/collections\/prosthetic-remedies\/Friction-Fighting",
+    "caption_image2": "Overcome Friction",
+    "position_image2": "image2_center",
+    "button_image2": true,
+    "buttontext_image2": "shop anti-chaffing",
+    "enable_image3": true,
+    "link_image3": "\/collections\/amputee-socks",
+    "caption_image3": "build a sock supply",
+    "position_image3": "image3_center",
+    "button_image3": true,
+    "buttontext_image3": "shop socks",
+    "enable_image4": false,
+    "link_image4": "",
+    "caption_image4": "",
+    "position_image4": "image4_left",
+    "button_image4": false,
+    "buttontext_image4": "",
+    "enable_image5": false,
+    "link_image5": "",
+    "caption_image5": "",
+    "position_image5": "image5_left",
+    "button_image5": false,
+    "buttontext_image5": "",
+    "link_feat1": "\/collections\/amputee-socks\/Moisture-Management",
+    "captiontitle_feat1": "",
+    "caption_feat1": "",
+    "button_feat1": "shop coolmax socks",
+    "position_feat1": "feat1_center",
+    "link_feat2": "\/collections\/personal-care",
+    "captiontitle_feat2": "",
+    "caption_feat2": "",
+    "button_feat2": "discover comfort",
+    "position_feat2": "feat2_center",
+    "link_feat3": "\/collections\/suspension-sleeves\/Below-Knee",
+    "captiontitle_feat3": "",
+    "caption_feat3": "",
+    "button_feat3": "below knee sleeves",
+    "position_feat3": "feat3_center",
+    "footer_social_enable": true,
+    "social_twitter_link": "https:\/\/twitter.com\/amputeestore",
+    "social_facebook_link": "https:\/\/www.facebook.com\/amputeestore",
+    "footer_newsletter_enable": true,
+    "newsletter_form_action": "\/\/amputeesupplies.us3.list-manage.com\/subscribe\/post?u=9648f4674e30157257ece1bea&amp;id=55f405b2a3",
+    "cart_notes_enable": false,
+    "cart_vendor_enable": false,
+    "ajax_cart_enable": true,
+    "twittercard_handle": "@amputeestore",
+    "login-text": "<p>Creating an account is fast, easy, and free. You'll be able to manage your autoships, track your orders, write reviews, and more!<\/p>\n\n    <ul class=\"create-account\">\n      <li>See personalized recommendations<\/li>\n      <li>View inner circle rewards<\/li>\n      <li>Manage autoship & save<\/li>\n      <li>View your order history<\/li>\n      <li>Change your order history<\/li>\n      <li>Change your shipping address<\/li>\n      <li>Get exclusive offers, discounts, and more<\/li>\n    <\/ul>",
+    "product_slideshow_animation": "zoom",
+    "free-text": "Free Shipping on orders over $50",
+    "in-stock-text": "In-Stock, Ships in 24 Hours",
+    "checkout_header_image": "",
+    "checkout_use_storefront_logo": false,
+    "checkout_logo_image": "",
+    "checkout_logo_position": "center",
+    "checkout_logo_size": "large",
+    "checkout_body_background_image": "",
+    "checkout_body_background_color": "#fff",
+    "checkout_input_background_color_mode": "white",
+    "checkout_sidebar_background_image": "",
+    "checkout_sidebar_background_color": "#fafafa",
+    "checkout_heading_font": "Helvetica Neue",
+    "checkout_body_font": "Helvetica Neue",
+    "checkout_accent_color": "#0fb7bb",
+    "checkout_button_color": "#ff6600",
+    "checkout_error_color": "#ff6d6d",
+    "enable_shop_by_tags_1": true,
+    "shop_by_tags_1_title": "Shop By Color",
+    "shop_by_color_text_1": "Beige",
+    "shop_by_color_text_2": "Red",
+    "shop_by_color_text_3": "White",
+    "shop_by_color_text_4": "Pink",
+    "shop_by_color_text_5": "Silver",
+    "shop_by_color_text_6": "Blue",
+    "shop_by_color_text_7": "Gray",
+    "shop_by_color_text_8": "Black",
+    "shop_by_color_text_9": "Green",
+    "shop_by_color_text_10": "",
+    "enable_shop_by_tags_2": true,
+    "shop_by_tags_2_title": "Shop By Size",
+    "shop_by_tags_2_list_tags": "S, M, L, XL, 2X, 3X",
+    "checkout_use_header_image": false,
+    "checkout_logo": "checkout_logo.png",
+    "checkout_use_body_background_image": false,
+    "checkout_use_sidebar_background_image": false,
+    "captioncolor_feat1": "#2b2a28",
+    "color_feat1": "#e49a3b",
+    "captioncolor_feat2": "#070707",
+    "color_feat2": "#e49a3b",
+    "captioncolor_feat3": "#01010c",
+    "color_feat3": "#e49a3b",
+    "checkout_banner_background_color": "#fff",
+    "checkout_headline": "",
+    "checkout_call_to_action_color": "#8fc243",
+    "color_body_bg": "#fff",
+    "color_body_text": "#333333",
+    "color_borders": "#e5e5e5",
+    "color_footer_bg": "#f2f2f2",
+    "color_footer_social_link": "#bbbbbb",
+    "color_footer_text": "#636363",
+    "color_primary": "#747474",
+    "color_secondary": "#bbb",
+    "sections": {
+      "newsletter": {
+        "type": "newsletter",
+        "blocks": {
+          "1506336348172": {
+            "type": "content",
+            "settings": {
+              "banner-img": "shopify:\/\/shop_images\/placeholder-1920x600.png"
+            }
+          },
+          "1506340440042": {
+            "type": "our-services-1",
+            "settings": {
+              "text": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Consequatur expedita suscipit quo hic illo id adipisci facere fuga dolore odio sed, veniam vel autem blanditiis, est necessitatibus officiis, corrupti quis.",
+              "img-top": "shopify:\/\/shop_images\/placeholder.png"
+            }
+          },
+          "1506340447409": {
+            "type": "our-services-2",
+            "settings": {
+              "text": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Consequatur expedita suscipit quo hic illo id adipisci facere fuga dolore odio sed, veniam vel autem blanditiis, est necessitatibus officiis, corrupti quis.",
+              "img-top": "shopify:\/\/shop_images\/placeholder.png"
+            }
+          },
+          "1506426287657": {
+            "type": "testimonials",
+            "settings": {
+              "text": "AMPUTEES TELL THEIR STORIES",
+              "text1": "Bill says he's never been too conscious of his prosthesis. He doesn't really think about it anymore, except when his granddaughter calls it a robot leg...",
+              "text1_author": "Bill - AK Amputee",
+              "text2": "Life with a prosthesis was difficult at first. He had expected to master it quickly and go on with his life, he had expectations...",
+              "text2_author": "Jake - BK Amputee",
+              "text3": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cupiditate eius qui, officiis facilis repudiandae, eligendi tenetur beatae maxime. Incidunt commodi inventore eligendi velit odio eius quae facilis omnis et harum!",
+              "text3_author": "Andy - BK Amputee",
+              "text4": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cupiditate eius qui, officiis facilis repudiandae, eligendi tenetur beatae maxime. Incidunt commodi inventore eligendi velit odio eius quae facilis omnis et harum!",
+              "text4_author": "Jake - BK Amputee"
+            }
+          },
+          "1506344016350": {
+            "type": "shop-amputation",
+            "settings": {
+              "title": "Shop by Amputation Level",
+              "text1": "Lorem ipsum dolor sit amet",
+              "text1-url": "#",
+              "img-top1": "shopify:\/\/shop_images\/placeholder.png",
+              "text2": "Lorem ipsum dolor sit amet",
+              "text2-url": "#",
+              "img-top2": "shopify:\/\/shop_images\/placeholder.png",
+              "text3": "Lorem ipsum dolor sit amet",
+              "text3-url": "",
+              "img-top3": "shopify:\/\/shop_images\/placeholder.png",
+              "text4": "Lorem ipsum dolor sit amet",
+              "text4-url": "",
+              "img-top4": "shopify:\/\/shop_images\/placeholder.png"
+            }
+          },
+          "1506516263911": {
+            "type": "amputee-store-stocks",
+            "settings": {
+              "title": "Amputee Store Stocks The Top Prosthetic Manufacturer Brands",
+              "content": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Magnam repellat labore autem veniam debitis placeat nostrum cupiditate, velit corrupti nihil quasi commodi nisi quos esse ipsum cum ad dolorem voluptatem!",
+              "img-top1": "shopify:\/\/shop_images\/image-placeholder.jpg",
+              "img-top2": "shopify:\/\/shop_images\/image-placeholder.jpg",
+              "img-top3": "shopify:\/\/shop_images\/image-placeholder.jpg",
+              "img-top4": "shopify:\/\/shop_images\/image-placeholder.jpg",
+              "img-top5": "shopify:\/\/shop_images\/image-placeholder.jpg",
+              "img-top6": "shopify:\/\/shop_images\/image-placeholder.jpg",
+              "img-top7": "shopify:\/\/shop_images\/image-placeholder.jpg",
+              "img-top8": "shopify:\/\/shop_images\/image-placeholder.jpg",
+              "img-top9": "shopify:\/\/shop_images\/image-placeholder.jpg",
+              "content2": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Magnam repellat labore autem veniam debitis placeat nostrum cupiditate, velit corrupti nihil quasi commodi nisi quos esse ipsum cum ad dolorem voluptatem!Lorem ipsum dolor sit amet, consectetur adipisicing elit. Magnam repellat labore autem veniam debitis placeat nostrum cupiditate, velit corrupti nihil quasi commodi nisi quos esse ipsum cum ad dolorem voluptatem!"
+            }
+          }
+        },
+        "block_order": [
+          "1506336348172",
+          "1506340440042",
+          "1506340447409",
+          "1506426287657",
+          "1506344016350",
+          "1506516263911"
+        ],
+        "settings": {}
+      },
+      "guides": {
+        "type": "guides",
+        "blocks": {
+          "1506695653615": {
+            "type": "content",
+            "settings": {
+              "banner-img": "shopify:\/\/shop_images\/placeholder-1920x600.png",
+              "banner-content": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Consequatur expedita suscipit quo hic illo id adipisci facere fuga dolore odio sed, veniam vel autem blanditiis, est necessitatibus officiis, corrupti quis. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Consequatur expedita suscipit quo hic illo id adipisci facere fuga dolore odio sed, veniam vel autem blanditiis, est necessitatibus officiis, corrupti quis.Lorem ipsum dolor sit amet, consectetur adipisicing elit. Consequatur expedita suscipit quo hic illo id adipisci facere fuga dolore odio sed, veniam vel autem blanditiis, est necessitatibus officiis, corrupti quis."
+            }
+          },
+          "1506695659911": {
+            "type": "our-services-1",
+            "settings": {
+              "title-1": "Textiles Prosthetic Buying Guides",
+              "text": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Consequatur expedita suscipit quo hic illo id adipisci facere fuga dolore odio sed, veniam vel autem blanditiis, est necessitatibus officiis, corrupti quis.\n<ul>\n<li><a href=\"#\">Ultimate stick guide<\/a><\/li>\n<li><a href=\"#\">Ultimate stick guide<\/a><\/li>\n<li><a href=\"#\">Ultimate stick guide<\/a><\/li>\n<\/ul>",
+              "button-text-1": "Learn More",
+              "button-url-1": "#",
+              "img-top": "shopify:\/\/shop_images\/image-placeholder.jpg"
+            }
+          },
+          "1506695678141": {
+            "type": "our-services-2",
+            "settings": {
+              "title-2": "Personal Care Prosthetic Buying Guides",
+              "text": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Consequatur expedita suscipit quo hic illo id adipisci facere fuga dolore odio sed, veniam vel autem blanditiis, est necessitatibus officiis, corrupti quis.\n<ul>\n<li><a href=\"#\">Ultimate stick guide<\/a><\/li>\n<li><a href=\"#\">Ultimate stick guide<\/a><\/li>\n<li><a href=\"#\">Ultimate stick guide<\/a><\/li>\n<\/ul>",
+              "button-text-2": "Learn More",
+              "button-url-2": "#",
+              "img-top": "shopify:\/\/shop_images\/image-placeholder.jpg"
+            }
+          },
+          "1506695686250": {
+            "type": "our-services-1",
+            "settings": {
+              "title-1": "Textiles Prosthetic Buying Guides",
+              "text": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Consequatur expedita suscipit quo hic illo id adipisci facere fuga dolore odio sed, veniam vel autem blanditiis, est necessitatibus officiis, corrupti quis.",
+              "button-text-1": "Learn More",
+              "button-url-1": "",
+              "img-top": "shopify:\/\/shop_images\/image-placeholder.jpg"
+            }
+          }
+        },
+        "block_order": [
+          "1506695653615",
+          "1506695659911",
+          "1506695678141",
+          "1506695686250"
+        ],
+        "settings": {}
+      },
+      "knitted-textiles": {
+        "type": "knitted-textiles",
+        "blocks": {
+          "1506695744389": {
+            "type": "top",
+            "settings": {
+              "title": "Textiles Prosthetic Buying Guide",
+              "content": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Suscipit ipsum omnis accusamus, repudiandae provident quaerat odit illo vitae dolor unde laboriosam quam. Ipsum veniam repudiandae, temporibus quos, nesciunt ullam. Mollitia!",
+              "banner-img": "shopify:\/\/shop_images\/image-placeholder.jpg"
+            }
+          },
+          "1506695760812": {
+            "type": "services",
+            "settings": {
+              "title": "Sheath Buying Guide",
+              "subtitle": "Articles",
+              "content1": "<a href=\"\/pages\/what-is-x-static\">What is X-Static?<\/a>",
+              "content2": "Lorem ipsum dolor sit amet, consectetur adipisicing elit.",
+              "content3": "Lorem ipsum dolor sit amet, consectetur adipisicing elit.",
+              "content4": "Lorem ipsum dolor sit amet, consectetur adipisicing elit.",
+              "content5": "Lorem ipsum dolor sit amet, consectetur adipisicing elit.",
+              "content6": "Lorem ipsum dolor sit amet, consectetur adipisicing elit."
+            }
+          },
+          "1506695787952": {
+            "type": "top",
+            "settings": {
+              "title": "Textiles Prosthetic Buying Guide",
+              "content": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Suscipit ipsum omnis accusamus, repudiandae provident quaerat odit illo vitae dolor unde laboriosam quam. Ipsum veniam repudiandae, temporibus quos, nesciunt ullam. Mollitia!",
+              "banner-img": ""
+            }
+          },
+          "1506695803033": {
+            "type": "services",
+            "settings": {
+              "title": "Sheath Buying Guide",
+              "subtitle": "Articles",
+              "content1": "Lorem ipsum dolor sit amet, consectetur adipisicing elit.",
+              "content2": "Lorem ipsum dolor sit amet, consectetur adipisicing elit.",
+              "content3": "Lorem ipsum dolor sit amet, consectetur adipisicing elit.",
+              "content4": "Lorem ipsum dolor sit amet, consectetur adipisicing elit.",
+              "content5": "Lorem ipsum dolor sit amet, consectetur adipisicing elit.",
+              "content6": "Lorem ipsum dolor sit amet, consectetur adipisicing elit."
+            }
+          },
+          "1506934560121": {
+            "type": "top",
+            "settings": {
+              "title": "Textiles Prosthetic Buying Guide2",
+              "content": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Suscipit ipsum omnis accusamus, repudiandae provident quaerat odit illo vitae dolor unde laboriosam quam. Ipsum veniam repudiandae, temporibus quos, nesciunt ullam. Mollitia! <a href=\"#\">Read more<\/a>",
+              "banner-img": ""
+            }
+          }
+        },
+        "block_order": [
+          "1506695744389",
+          "1506695760812",
+          "1506695787952",
+          "1506695803033",
+          "1506934560121"
+        ],
+        "settings": {}
+      },
+      "collection-list": {
+        "type": "collection-list",
+        "blocks": {
+          "1507023469220": {
+            "type": "content",
+            "settings": {
+              "frontpage_linklist": "featured-amputee-supplies"
+            }
+          }
+        },
+        "block_order": [
+          "1507023469220"
+        ],
+        "settings": {}
+      },
+      "featured-collection": {
+        "type": "featured-collection",
+        "settings": {
+          "title-1": "Featured collection",
+          "collection-1": ""
+        }
+      },
+      "featured-collection-1": {
+        "type": "featured-collection-1",
+        "settings": {
+          "title-1": "Save an Extra 3-10% on Every Autoship Order",
+          "collection-1": "featured-amputee-supplies",
+          "text-link-1": "See more Autoship Prostetic Products >"
+        }
+      },
+      "featured-collection-2": {
+        "type": "featured-collection-2",
+        "settings": {
+          "title-2": "Recommended Amputee Supplies",
+          "collection-2": "above-knee-amputee-aka-prosthetic-supplies",
+          "text-link-2": "See more Recommended Amputee Supplies >"
+        }
+      },
+      "featured-collection-3": {
+        "type": "featured-collection-3",
+        "settings": {
+          "title-3": "Favorite Prosthetic Friction and Pressure Products",
+          "collection-3": "friction-fighting",
+          "text-link-3": "See more Friction and Pressure Products >"
+        }
+      },
+      "amputation-level": {
+        "type": "amputation-level",
+        "settings": {
+          "title": "Shop by Amputation Level",
+          "title-1": "Shop Below Knee Amputee Supplies",
+          "img-1": "shopify:\/\/shop_images\/placeholder.png",
+          "title-2": "Shop Below Knee Amputee Supplies",
+          "img-2": "shopify:\/\/shop_images\/placeholder.png",
+          "title-3": "Shop Below Knee Amputee Supplies",
+          "img-3": "shopify:\/\/shop_images\/placeholder.png",
+          "title-4": "Shop Below Knee Amputee Supplies",
+          "img-4": "shopify:\/\/shop_images\/placeholder.png"
+        }
+      }
+    },
+    "content_for_index": []
+  },
+  "presets": {
+    "Default": {
+      "ajax_cart_enable": true,
+      "cart_notes_enable": true,
+      "color_body_bg": "#fff",
+      "color_body_text": "#333333",
+      "color_borders": "#e5e5e5",
+      "color_footer_bg": "#f2f2f2",
+      "color_footer_social_link": "#bbbbbb",
+      "color_footer_text": "#636363",
+      "color_primary": "#747474",
+      "color_secondary": "#bbb",
+      "favicon_enable": false,
+      "footer_newsletter_enable": true,
+      "footer_social_enable": true,
+      "logo_use_image": false,
+      "social_facebook_link": "https:\/\/www.facebook.com\/shopify",
+      "social_twitter_link": "https:\/\/twitter.com\/shopify"
+    }
+  }
+}

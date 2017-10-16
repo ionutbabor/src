@@ -1,0 +1,557 @@
+<!-- /templates/collection.liquid -->
+
+{% paginate collection.products by 16 %}
+
+{% comment %}{% include 'vendors' %} {% endcomment %}
+
+<div class="normal-collection">
+
+
+
+ <!-- <div id="colect-descr">{{ collection.description }}</div> -->
+
+
+ <div id="top">
+  <div class="main-content">
+    <!-- left part -->
+    <div class="grid--full">
+      <div class="grid__item large--one-quarter title-filters medium--one-quarter">
+        {% if collection.handle contains 'personal' or collection.handle contains 'skin-care' or collection.handle contains 'cleansers' or collection.handle contains 'sweat-control' or collection.handle contains 'moisturizers' or collection.handle contains 'wound-care' %}
+        <h2><a href="/collections/personal-care" style="color: #000;">Personal Care</a></h2>
+        {% elsif collection.handle contains 'textiles' or collection.handle contains 'socks' or collection.handle contains 'shrinkers' or collection.handle contains 'sheaths' or collection.handle contains 'cosmetic-hosiery' or collection.handle contains 'textile-accessories' %}     
+        <h2><a href="/collections/prosthetic-textiles" style="color: #000;">Textiles</a></h2>
+        {% elsif collection.handle contains 'prosthesis-suspension' or collection.handle contains 'suspension-belts' or collection.handle contains 'suspension-sleeves' or collection.handle contains 'prosthetic-liners' or collection.handle contains 'suspension-accessories' %}
+        <h2><a href="/collections/prosthesis-suspension" style="color: #000;">Suspension</a></h2>
+        {% elsif collection.handle contains 'cosmetic-finishing' or collection.handle contains 'cushion-and-volume-aids' or collection.handle contains 'slip-on-aids' or collection.handle contains 'travel-and-mobility' or collection.handle contains 'arm-amputee-supplies' or collection.handle contains 'friction-fighting' or collection.handle contains 'prosthetic-remedies' %}      
+        <h2><a href="/collections/prosthetic-remedies" style="color: #000;">Remedies</a></h2>
+        {% elsif collection.handle contains 'featured-products' %}
+        <h2 style="width: 300px;"><a href="/collections/featured-products" style="color: #000;">Featured Amputee Supplies</a></h2>
+        {% endif %}
+      </div>
+      <!-- end left part -->
+
+      <!-- right part -->
+      {% unless collection.handle contains 'featured' %}
+      <div class="grid__item large--three-quarters parent-filters medium--three-quarters" style="border-left: 1px solid #ccc;">
+        <ul class="collection-tags">
+          {% if collection.handle contains 'personal' or collection.handle contains 'skin-care' or collection.handle contains 'cleansers' or collection.handle contains 'sweat-control' or collection.handle contains 'moisturizers' or collection.handle contains 'wound-care' %}
+          {% for link in linklists.personal-care.links %}
+          <li><a href="{{ link.url }}">{{ link.title }}</a></li>
+          {% endfor %}
+
+          {% elsif collection.handle contains 'textiles' or collection.handle contains 'socks' or collection.handle contains 'shrinkers' or collection.handle contains 'sheaths' or collection.handle contains 'cosmetic-hosiery' or collection.handle contains 'textile-accessories' %}
+          {% for link in linklists.prosthetic-textiles.links %}
+          <li><a href="{{ link.url }}">{{ link.title }}</a></li>
+          {% endfor %}
+
+          {% elsif collection.handle contains 'prosthesis-suspension' or collection.handle contains 'suspension-belts' or collection.handle contains 'suspension-sleeves' or collection.handle contains 'prosthetic-liners' or collection.handle contains 'suspension-accessories' %}
+          {% for link in linklists.prosthetic-suspension.links %}
+          <li><a href="{{ link.url }}">{{ link.title }}</a></li>
+          {% endfor %}
+
+          {% elsif collection.handle contains 'cosmetic-finishing' or collection.handle contains 'cushion-and-volume-aids' or collection.handle contains 'slip-on-aids' or collection.handle contains 'travel-and-mobility' or collection.handle contains 'arm-amputee-supplies' or collection.handle contains 'friction-fighting' or collection.handle contains 'prosthetic-remedies' %}
+          {% for link in linklists.prosthetic-remedies.links %}
+          <li><a href="{{ link.url }}">{{ link.title }}</a></li>
+          {% endfor %}
+          {% endif %}
+        </ul>
+      </div>
+      {% endunless %}
+      <!--end right part -->
+      <hr>
+    </div> <!-- main-content -->
+  </div>
+</div><!-- #top -->
+
+
+
+
+
+
+
+
+
+<!-- title page -->
+<div class="grid--full">
+  <div class="grid__item large--one-quarter">
+   <h2 id="title-collection">{{collection.title  |  replace_first: "Prosthetic", "" | replace: "for Amputees", "" }}</h2>
+ <!-- {% if collection.handle contains 'prosthetic-textiles' %}
+  <h2 id="title-collection">TEXTILES</h2>
+  {% endif %} -->
+</div>
+</div>
+<!-- end title page -->
+
+<!-- banner top -->
+{% if collection.image %}
+<div class="banner-page">
+ <img class="img-responsive" src="{{ collection.image.src | collection_img_url: '1920X600' }}" alt="{{ collection.image.alt | escape }}" />
+</div> 
+{% endif %}
+<!-- end banner top -->
+
+
+{% comment %}<div {% unless collection.handle == 'personal-care' or collection.handle == 'prosthetic-textiles' or collection.handle == 'prosthesis-suspension' or collection.handle == 'prosthetic-remedies' %}class="grid__item parent-filters medium-down--show large--hide"{% endunless %}{% if collection.handle == 'personal-care' or collection.handle == 'prosthetic-textiles' or collection.handle == 'prosthesis-suspension' or collection.handle == 'prosthetic-remedies' %}class="grid__item medium-down--show large--hide" style="padding-left: 0px;"{% endif %}>
+  {% if collection.handle contains 'personal' or collection.handle contains 'skin-care' or collection.handle contains 'cleansers' or collection.handle contains 'sweat-control' or collection.handle contains 'moisturizers' or collection.handle contains 'wound-care' %}
+  <select onChange="window.location.href=this.value" style="margin: 0 auto; display: block;">
+    <option>Select a Product Type</option>
+    {% for link in linklists.personal-care.links %}
+    <option value="{{ link.url }}" id="{{ link.title | handleize | split: "-" | last }}"><a href="{{ link.url }}">{{ link.title }}</a></option>
+    {% endfor %}
+  </select>
+
+  {% elsif collection.handle contains 'textile' or collection.handle contains 'socks' or collection.handle contains 'shrinkers' or collection.handle contains 'sheaths' or collection.handle contains 'cosmetic-hosiery' %}
+  <select onChange="window.location.href=this.value" style="margin: 0 auto; display: block;">
+    <option>Select a Product Type</option>
+    {% for link in linklists.prosthetic-textiles.links %}
+    <option value="{{ link.url }}" id="{{ link.title | handleize | split: "-" | last }}"><a href="{{ link.url }}">{{ link.title }}</a></option>
+    {% endfor %}
+  </select>
+
+  {% elsif collection.handle contains 'prosthesis-suspension' or collection.handle contains 'suspension-belts' or collection.handle contains 'suspension-sleeves' or collection.handle contains 'prosthetic-liners' or collection.handle contains 'suspension-accessories' %}
+  <select onChange="window.location.href=this.value" style="margin: 0 auto; display: block;">
+    <option>Select a Product Type</option>
+    {% for link in linklists.prosthetic-suspension.links %}
+    <option value="{{ link.url }}" id="{{ link.title | handleize | split: "-" | last }}"><a href="{{ link.url }}">{{ link.title }}</a></option>
+    {% endfor %}
+  </select>
+
+  {% elsif collection.handle contains 'cosmetic-finishing' or collection.handle contains 'cushion-and-volume-aids' or collection.handle contains 'slip-on-aids' or collection.handle contains 'travel-and-mobility' or collection.handle contains 'arm-amputee-supplies' or collection.handle contains 'friction-fighting' or collection.handle contains 'prosthetic-remedies' %}
+  <select onChange="window.location.href=this.value" style="margin: 0 auto; display: block;">
+    <option>Select a Product Type</option>
+    {% for link in linklists.prosthetic-remedies.links %}
+    <option value="{{ link.url }}" id="{{ link.title | handleize | split: "-" | last }}"><a href="{{ link.url }}">{{ link.title }}</a></option>
+    {% endfor %}
+  </select>
+  {% endif %}
+</div>
+
+<br class="clear">
+<br class="clear">
+
+<div class="grid__item large--two-thirds medium-down--hide text-left"> 
+  {% if collection.handle contains 'personal-care' %}
+  <ul class="added-tags personal-care" style="display: none;">
+    {% for link in linklists.personal-care-filters.links %}
+    <a href="{{ link.url }}"><li>{{ link.title }}</li></a>
+    {% endfor %}
+  </ul>
+  {% endif %}
+
+  <ul class="added-tags socks" style="display: none;">
+    {% for link in linklists.textiles-socks-filters.links %}
+    <a href="{{ link.url }}"><li>{{ link.title }}</li></a>
+    {% endfor %}
+  </ul>
+
+  <ul class="added-tags shrinkers" style="display: none;">
+    {% for link in linklists.textiles-shrinkers-filters.links %}
+    <a href="{{ link.url }}"><li>{{ link.title }}</li></a>
+    {% endfor %}
+  </ul>  
+
+  <ul class="added-tags sheaths" style="display: none;">
+    {% for link in linklists.textiles-sheaths-filters.links %}
+    <a href="{{ link.url }}"><li>{{ link.title }}</li></a>
+    {% endfor %}
+  </ul>  
+
+  <ul class="added-tags hosiery" style="display: none;">
+    {% for link in linklists.textiles-cosmetic-hosiery-filters.links %}
+    <a href="{{ link.url }}"><li>{{ link.title }}</li></a>
+    {% endfor %}
+  </ul> 
+
+  <ul class="added-tags suspension-sleeves" style="display: none;">
+    {% for link in linklists.suspension-sleeves-filters.links %}
+    <a href="{{ link.url }}"><li>{{ link.title }}</li></a>
+    {% endfor %}
+  </ul> 
+
+  <ul class="added-tags suspension-belts" style="display: none;">
+    {% for link in linklists.suspension-suspension-belts-filters.links %}
+    <a href="{{ link.url }}"><li>{{ link.title }}</li></a>
+    {% endfor %}
+  </ul>
+
+  <ul class="added-tags prosthetic-liners" style="display: none;">
+    {% for link in linklists.suspension-prosthetic-liners-filters.links %}
+    <a href="{{ link.url }}"><li>{{ link.title }}</li></a>
+    {% endfor %}
+  </ul>     
+
+  <ul class="added-tags cushion-and-volume-aids" style="display: none;">
+    {% for link in linklists.remedies-volume-and-cushion-aids-filters.links %}
+    <a href="{{ link.url }}"><li>{{ link.title }}</li></a>
+    {% endfor %}
+  </ul> 
+
+  <ul class="added-tags arm-amputee" style="display: none;">
+    {% for link in linklists.arm-amputee-supplies-filters.links %}
+    <a href="{{ link.url }}"><li>{{ link.title }}</li></a>
+    {% endfor %}
+  </ul>     
+
+
+</div>
+
+<div class="grid__item large--hide text-left" style="padding-left: 0px;">
+
+  {% if collection.handle contains 'personal-care' %}
+  <select class="added-tags personal-care" style="display: none;" onChange="window.location.href=this.value">
+    <option>Select a Filter</option>
+    {% for link in linklists.personal-care-filters.links %}
+    <option value="{{ link.url }}" id="{{ link.title | handleize | split: "-" | last }}"><a href="{{ link.url }}">{{ link.title }}</a></option>
+    {% endfor %}
+  </select>
+  {% endif %}
+
+  <select class="added-tags socks" style="display: none;" onChange="window.location.href=this.value">
+   <option>Select a Filter</option>
+   {% for link in linklists.textiles-socks-filters.links %}
+   <option value="{{ link.url }}" id="{{ link.title | handleize | split: "-" | last }}"><a href="{{ link.url }}">{{ link.title }}</a></option>
+   {% endfor %}
+ </select>
+
+ <select class="added-tags shrinkers" style="display: none;" onChange="window.location.href=this.value">
+   <option>Select a Filter</option>
+   {% for link in linklists.textiles-shrinkers-filters.links %}
+   <option value="{{ link.url }}" id="{{ link.title | handleize | split: "-" | last }}"><a href="{{ link.url }}">{{ link.title }}</a></option>
+   {% endfor %}
+ </select>  
+
+ <select class="added-tags sheaths" style="display: none;" onChange="window.location.href=this.value">
+  <option>Select a Filter</option>
+  {% for link in linklists.textiles-sheaths-filters.links %}
+  <option value="{{ link.url }}" id="{{ link.title | handleize | split: "-" | last }}"><a href="{{ link.url }}">{{ link.title }}</a></option>
+  {% endfor %}
+</select>  
+
+<select class="added-tags hosiery" style="display: none;" onChange="window.location.href=this.value">
+ <option>Select a Filter</option>
+ {% for link in linklists.textiles-cosmetic-hosiery-filters.links %}
+ <option value="{{ link.url }}" id="{{ link.title | handleize | split: "-" | last }}"><a href="{{ link.url }}">{{ link.title }}</a></option>
+ {% endfor %}
+</select> 
+
+<select class="added-tags suspension-sleeves" style="display: none;" onChange="window.location.href=this.value">
+ <option>Select a Filter</option>
+ {% for link in linklists.suspension-sleeves-filters.links %}
+ <option value="{{ link.url }}" id="{{ link.title | handleize | split: "-" | last }}"><a href="{{ link.url }}">{{ link.title }}</a></option>
+ {% endfor %}
+</select> 
+
+<select class="added-tags suspension-belts" style="display: none;" onChange="window.location.href=this.value">
+ <option>Select a Filter</option>
+ {% for link in linklists.suspension-suspension-belts-filters.links %}
+ <option value="{{ link.url }}" id="{{ link.title | handleize | split: "-" | last }}"><a href="{{ link.url }}">{{ link.title }}</a></option>
+ {% endfor %}
+</select>
+
+<select class="added-tags prosthetic-liners" style="display: none;" onChange="window.location.href=this.value">
+ <option>Select a Filter</option>
+ {% for link in linklists.suspension-prosthetic-liners-filters.links %}
+ <option value="{{ link.url }}" id="{{ link.title | handleize | split: "-" | last }}"><a href="{{ link.url }}">{{ link.title }}</a></option>
+ {% endfor %}
+</select>     
+
+<select class="added-tags cushion-and-volume-aids" style="display: none;" onChange="window.location.href=this.value">
+ <option>Select a Filter</option> 
+ {% for link in linklists.remedies-volume-and-cushion-aids-filters.links %}
+ <option value="{{ link.url }}" id="{{ link.title | handleize | split: "-" | last }}"><a href="{{ link.url }}">{{ link.title }}</a></option>
+ {% endfor %}
+</select> 
+
+<select class="added-tags arm-amputee" style="display: none;" onChange="window.location.href=this.value">
+ <option>Select a Filter</option>
+ {% for link in linklists.arm-amputee-supplies-filters.links %}
+ <option value="{{ link.url }}" id="{{ link.title | handleize | split: "-" | last }}"><a href="{{ link.url }}">{{ link.title }}</a></option>
+ {% endfor %}
+</select>    
+<br class="clear">
+</div>{% endcomment %}
+
+
+<!-- begin prosthetic-textiles collection -->
+{% if collection.handle == 'prosthetic-textiles' %}
+
+<!-- begin PROSTHETIC SOCKS -->
+<br class="clear">
+<div class="grid--full">
+  <div class="grid__item large--one-fifth medium--one-third">
+    <h2 id="title-collection">Prosthetic Socks</h2>
+  </div>
+  <div class="grid__item large--one-third medium--one-third">
+    <span id="collection-link"><a href="/collections/amputee-socks">Shop all Prosthetic Socks > </a></span>
+  </div>
+</div>
+
+<div class="grid--full">
+  {% for product in collections.amputee-socks.products limit:6 %}
+    {% comment %}
+    {% if forloop.index == 3 %}
+    {% include 'additional-content' %}
+    {% endif %}{% endcomment %}
+    {% include 'product-grid-item-less' %}
+    {% endfor %}
+  </div>
+  <hr >
+  <!-- end PROSTHETIC SOCKS -->
+
+  <!-- begin Shrinkers-->
+  <br class="clear">
+  <div class="grid--full">
+    <div class="grid__item large--one-fifth  medium--one-third">
+      <h2 id="title-collection">SHRINKERS</h2>
+    </div>
+    <div class="grid__item large--one-third medium--one-third">
+      <span id="collection-link"><a href="/collections/stump-shrinkers">Shop all SHRINKERS ></a></span>
+    </div>
+  </div>
+
+  <div class="grid--full">
+    {% for product in collections.stump-shrinkers.products limit:6 %}
+    {% include 'product-grid-item-less' %}
+    {% endfor %}
+  </div>
+  <hr>
+  <!-- end Shrinkers-->
+  <!-- end prosthetic-textiles collection -->
+
+  <!-- begin personal-care collection -->
+  {% elsif collection.handle == 'personal-care' %}
+
+  <!-- begin SKIN CARE TREATMENTS -->
+  <br class="clear">
+  <div class="grid--full">
+    <div class="grid__item large--one-fifth medium--one-third">
+      <h2 id="title-collection">Personal Care SKIN CARE TREATMENTS</h2>
+    </div>
+    <div class="grid__item large--one-third medium--one-third">
+      <span id="collection-link"><a href="/collections/skin-care-treatments">Shop all SKIN CARE TREATMENTS > </a></span>
+    </div>
+  </div>
+
+  <div class="grid--full">
+    {% for product in collections.skin-care-treatments.products limit:6 %}
+    {% comment %}
+    {% if forloop.index == 3 %}
+    {% include 'additional-content' %}
+    {% endif %}{% endcomment %}
+    {% include 'product-grid-item-less' %}
+    {% endfor %}
+  </div>
+  <hr >
+  <!-- end SKIN CARE TREATMENTS -->
+
+  <!-- begin CLEANSERS-->
+  <br class="clear">
+  <div class="grid--full">
+    <div class="grid__item large--one-fifth  medium--one-third">
+      <h2 id="title-collection">CLEANSERS</h2>
+    </div>
+    <div class="grid__item large--one-third medium--one-third">
+      <span id="collection-link"><a href="/collections/prosthetic-cleansers">Shop all CLEANSERS ></a></span>
+    </div>
+  </div>
+
+  <div class="grid--full">
+    {% for product in collections.prosthetic-cleansers.products limit:6 %}
+    {% include 'product-grid-item-less' %}
+    {% endfor %}
+  </div>
+  <hr>
+  <!-- end CLEANSERS-->
+  <!-- end personal-care collection -->
+
+  <!-- begin prosthesis-suspension collection -->
+  {% elsif collection.handle == 'prosthesis-suspension' %}
+
+  <!-- begin SKIN CARE TREATMENTS -->
+  <br class="clear">
+  <div class="grid--full">
+    <div class="grid__item large--one-fifth medium--one-third">
+      <h2 id="title-collection">Personal Care SUSPENSION SLEEVES</h2>
+    </div>
+    <div class="grid__item large--one-third medium--one-third">
+      <span id="collection-link"><a href="/collections/suspension-sleeves">Shop all SUSPENSION SLEEVES > </a></span>
+    </div>
+  </div>
+
+  <div class="grid--full">
+    {% for product in collections.suspension-sleeves.products limit:6 %}
+    {% comment %}
+    {% if forloop.index == 3 %}
+    {% include 'additional-content' %}
+    {% endif %}{% endcomment %}
+    {% include 'product-grid-item-less' %}
+    {% endfor %}
+  </div>
+  <hr >
+  <!-- end SKIN CARE TREATMENTS -->
+
+  <!-- begin SLIP-ON AIDS-->
+  <br class="clear">
+  <div class="grid--full">
+    <div class="grid__item large--one-fifth  medium--one-third">
+      <h2 id="title-collection">SLIP-ON AIDS</h2>
+    </div>
+    <div class="grid__item large--one-third medium--one-third">
+      <span id="collection-link"><a href="/collections/prosthetic-cleansers">Shop all SLIP-ON AIDS ></a></span>
+    </div>
+  </div>
+
+  <div class="grid--full">
+    {% for product in collections.Slip-on-Aids.products limit:6 %}
+    {% include 'product-grid-item-less' %}
+    {% endfor %}
+  </div>
+  <hr>
+  <!-- end SLIP-ON AIDS-->
+
+  <!-- end prosthesis-suspension collection -->
+
+
+  <!-- begin prosthetic-remedies collection -->
+  {% elsif collection.handle == 'prosthetic-remedies' %}
+
+  <!-- begin SKIN CARE TREATMENTS -->
+  <br class="clear">
+  <div class="grid--full">
+    <div class="grid__item large--one-fifth medium--one-third">
+      <h2 id="title-collection">Personal Care CUSHION AND VOLUME AIDS</h2>
+    </div>
+    <div class="grid__item large--one-third medium--one-third">
+      <span id="collection-link"><a href="/collections/suspension-sleeves">Shop all CUSHION AND VOLUME AIDS > </a></span>
+    </div>
+  </div>
+
+  <div class="grid--full">
+    {% for product in collections.cushion-and-volume-aids.products limit:6 %}
+    {% comment %}
+    {% if forloop.index == 3 %}
+    {% include 'additional-content' %}
+    {% endif %}{% endcomment %}
+    {% include 'product-grid-item-less' %}
+    {% endfor %}
+  </div>
+  <hr >
+  <!-- end SKIN CARE TREATMENTS -->
+
+  <!-- begin SLIP-ON AIDS-->
+  <br class="clear">
+  <div class="grid--full">
+    <div class="grid__item large--one-fifth  medium--one-third">
+      <h2 id="title-collection">COSMETIC FINISHING</h2>
+    </div>
+    <div class="grid__item large--one-third medium--one-third">
+      <span id="collection-link"><a href="/collections/cosmetic-finishing">Shop all COSMETIC FINISHING ></a></span>
+    </div>
+  </div>
+
+  <div class="grid--full">
+    {% for product in collections.cosmetic-finishing.products limit:6 %}
+    {% include 'product-grid-item-less' %}
+    {% endfor %}
+  </div>
+  <hr>
+  <!-- end SLIP-ON AIDS-->
+
+  <!-- end prosthetic-remedies collection -->
+
+  {% endif %}
+
+
+
+  <div class="grid--full">
+    <div class="grid__item large--one-half medium--one-half">
+      <h2 id="title-collection-current">{{collection.title | replace: "for Amputees", ""}}</h2>
+    </div>
+    <div class="grid__item large--one-half text-right  medium--one-half">
+      {% include 'collection-sorting' %}
+    </div>  
+  </div>
+
+
+  <!-- begin grid uniform -->
+  <div class="grid--full">
+    {% assign products = collection.products %}
+    {% for product in products limit:8 %}
+
+    {% include 'bold-product' with product, hide_action: 'skip' %}
+    {% include 'product-grid-item' %}
+    {% endfor %}
+
+  </div>
+  <!-- end grid uniform -->
+
+  <!-- original pagination -->
+{% comment %}
+{% if paginate.pages > 1 %}
+<hr>
+<div class="pagination">
+  {% if paginate.previous %}
+  <a href="{{ paginate.prev.url }}" style="display: inline-block;" rel="prev" >
+    <img src="{{ 'arrow-left.png' | asset_url }}">
+  </a>
+  {% endif %}
+  {{ paginate | default_pagination | replace: '&laquo; Previous', '' | replace: 'Next &raquo;', '' }}
+  {% if paginate.next.is_link %}
+  <a href="{{ paginate.next.url }}" style="display: inline-block;" rel="next" ><img src="{{ 'arrow-right.png' | asset_url }}"></a>
+  {% endif %}
+</div>
+{% endif %}
+{% endcomment %}
+<!-- end original pagination -->
+
+
+<!-- new pagination -->
+<div class="pagination">
+  {% if paginate.previous %}
+  <a class="pagination-item" style="display: inline-block;" href="{{ paginate.previous.url }}"><img src="{{ 'arrow-left.png' | asset_url }}"></a>
+  {% endif %}
+  {% for part in paginate.parts %}
+  {% if part.is_link %}
+  <span class="page"> 
+    <a href="{{ part.url }}">{{ part.title }}</a>
+  </span>
+  {% else %}
+  {% if part.title == '&hellip;' %}
+  {{ part.title }}
+  {% else %}
+  <span class="current page">{{ part.title }}</span>
+  {% endif %}
+  {% endif %}
+  {% endfor %}
+  {% if paginate.next %}
+  <a class="pagination-item" style="display: inline-block;" href="{{ paginate.next.url }}"><img src="{{ 'arrow-right.png' | asset_url }}"></a>
+  {% endif %}
+</div>
+{% endpaginate %}
+<!-- end new pagination -->
+
+</div>
+
+<!-- Yotpo Style for Collection Star Rating -->
+<style>
+div.yotpo.bottomLine .pull-left {
+  float: none;
+  margin: 0 5px 5px 0; 
+}
+div.yotpo.bottomLine.yotpo-small {
+  display: block;
+  margin: 0 5px 5px 0; 
+}
+.yotpo a.text-m {
+  display: inline-block;
+}
+</style>
+
+<hr>
+<div class="grid--full">
+  <div id="colect-descr">
+    {{ collection.description }}
+  </div> 
+</div> 
+
+{% include 'top-of-page' %} 

@@ -1,0 +1,26 @@
+ <div class="grid__item large--one-sixth medium--one-third small--one-half product-grid">
+  
+  {% assign alt_text = product.featured_image.alt %}
+
+  <a href="{{ product.url | within: collection }}" title="{{ product.title | escape }}">
+    <div class="relative product_image">
+      <img src="{{ product.featured_image | product_img_url: 'large' }}" alt="{{ alt_text | escape }}" />
+
+      
+      <p class="h6">
+       {{ product.title }}
+     </p>
+   </div>
+
+   
+    {% comment %}{% if settings.sale_banner_enabled and product.compare_at_price_max > product.price %}
+      <div class="sale_banner">Sale</div>
+    {% endif %}
+    {% for col in product.collections %}
+      {% if col.handle == 'new' %}
+        <div class="new_banner">New</div>
+      {% endif %}
+      {% endfor %}{% endcomment %}
+    </a>
+  </div>
+

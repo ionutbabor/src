@@ -1,0 +1,292 @@
+<!-- /templates/collection.liquid -->
+
+{% paginate collection.products by 16 %}
+
+{% include 'vendors' %} 
+
+  <div class="normal-collection">
+    
+    <div id="colect-descr">{{ collection.description }}</div>
+    <br class="clear">
+  
+    <div class="grid__item large--one-quarter title-filters">
+      {% if collection.handle contains 'personal' or collection.handle contains 'skin-care' or collection.handle contains 'cleansers' or collection.handle contains 'sweat-control' or collection.handle contains 'moisturizers' or collection.handle contains 'wound-care' %}
+      <h2><a href="/collections/personal-care" style="color: #000;">Personal Care</a></h2>
+      {% elsif collection.handle contains 'textiles' or collection.handle contains 'socks' or collection.handle contains 'shrinkers' or collection.handle contains 'sheaths' or collection.handle contains 'cosmetic-hosiery' or collection.handle contains 'textile-accessories' %}     
+      <h2><a href="/collections/prosthetic-textiles" style="color: #000;">Textiles</a></h2>
+      {% elsif collection.handle contains 'prosthesis-suspension' or collection.handle contains 'suspension-belts' or collection.handle contains 'suspension-sleeves' or collection.handle contains 'prosthetic-liners' or collection.handle contains 'suspension-accessories' %}
+      <h2><a href="/collections/prosthesis-suspension" style="color: #000;">Suspension</a></h2>
+      {% elsif collection.handle contains 'cosmetic-finishing' or collection.handle contains 'cushion-and-volume-aids' or collection.handle contains 'slip-on-aids' or collection.handle contains 'travel-and-mobility' or collection.handle contains 'arm-amputee-supplies' or collection.handle contains 'friction-fighting' or collection.handle contains 'prosthetic-remedies' %}      
+      <h2><a href="/collections/prosthetic-remedies" style="color: #000;">Remedies</a></h2> 
+      {% elsif collection.handle contains 'warehouse-deals' or collection.handle contains 'clearance' or collection.handle contains 'open-box' %}      
+      <h2><a href="/collections/warehouse-deals" style="color: #000;">Warehouse Deals</a></h2>
+      {% elsif collection.handle contains 'featured-products' %}
+      {% endif %}
+    </div>
+    
+    {% unless collection.handle contains 'featured' %}
+    <div class="grid__item large--three-quarters parent-filters medium-down--hide" style="border-left: 1px solid #ccc;">
+      <ul class="collection-tags">
+		{% if collection.handle contains 'personal' or collection.handle contains 'skin-care' or collection.handle contains 'cleansers' or collection.handle contains 'sweat-control' or collection.handle contains 'moisturizers' or collection.handle contains 'wound-care' %}
+        {% for link in linklists.personal-care.links %}
+        <li><a href="{{ link.url }}">{{ link.title }}</a></li>
+        {% endfor %}
+        
+        {% elsif collection.handle contains 'textiles' or collection.handle contains 'socks' or collection.handle contains 'shrinkers' or collection.handle contains 'sheaths' or collection.handle contains 'cosmetic-hosiery' or collection.handle contains 'textile-accessories' %}
+        {% for link in linklists.prosthetic-textiles.links %}
+        <li><a href="{{ link.url }}">{{ link.title }}</a></li>
+        {% endfor %}
+        
+        {% elsif collection.handle contains 'prosthesis-suspension' or collection.handle contains 'suspension-belts' or collection.handle contains 'suspension-sleeves' or collection.handle contains 'prosthetic-liners' or collection.handle contains 'suspension-accessories' %}
+        {% for link in linklists.prosthetic-suspension.links %}
+        <li><a href="{{ link.url }}">{{ link.title }}</a></li>
+        {% endfor %}
+        
+        {% elsif collection.handle contains 'warehouse-deals' or collection.handle contains 'clearance' or collection.handle contains 'open-box' %}
+        {% for link in linklists.warehouse-deals.links %}
+        <li><a href="{{ link.url }}">{{ link.title }}</a></li>
+        {% endfor %}
+        
+        {% elsif collection.handle contains 'cosmetic-finishing' or collection.handle contains 'cushion-and-volume-aids' or collection.handle contains 'slip-on-aids' or collection.handle contains 'travel-and-mobility' or collection.handle contains 'arm-amputee-supplies' or collection.handle contains 'friction-fighting' or collection.handle contains 'prosthetic-remedies' %}
+        {% for link in linklists.prosthetic-remedies.links %}
+        <li><a href="{{ link.url }}">{{ link.title }}</a></li>
+        {% endfor %}
+        {% endif %}
+      </ul>
+    </div>
+    {% endunless %}
+ 
+    <div {% unless collection.handle == 'personal-care' or collection.handle == 'prosthetic-textiles' or collection.handle == 'prosthesis-suspension' or collection.handle == 'prosthetic-remedies' %}class="grid__item parent-filters medium-down--show large--hide"{% endunless %}{% if collection.handle == 'personal-care' or collection.handle == 'prosthetic-textiles' or collection.handle == 'prosthesis-suspension' or collection.handle == 'prosthetic-remedies' %}class="grid__item medium-down--show large--hide" style="padding-left: 0px;"{% endif %}>
+		{% if collection.handle contains 'personal' or collection.handle contains 'skin-care' or collection.handle contains 'cleansers' or collection.handle contains 'sweat-control' or collection.handle contains 'moisturizers' or collection.handle contains 'wound-care' %}
+          <select onChange="window.location.href=this.value" style="margin: 0 auto; display: block;">
+            <option>Select a Product Type</option>
+        {% for link in linklists.personal-care.links %}
+            <option value="{{ link.url }}" id="{{ link.title | handleize | split: "-" | last }}"><a href="{{ link.url }}">{{ link.title }}</a></option>
+        {% endfor %}
+      </select>
+        
+        {% elsif collection.handle contains 'textile' or collection.handle contains 'socks' or collection.handle contains 'shrinkers' or collection.handle contains 'sheaths' or collection.handle contains 'cosmetic-hosiery' %}
+            <select onChange="window.location.href=this.value" style="margin: 0 auto; display: block;">
+              <option>Select a Product Type</option>
+            {% for link in linklists.prosthetic-textiles.links %}
+              <option value="{{ link.url }}" id="{{ link.title | handleize | split: "-" | last }}"><a href="{{ link.url }}">{{ link.title }}</a></option>
+        {% endfor %}
+      </select>
+        
+        {% elsif collection.handle contains 'prosthesis-suspension' or collection.handle contains 'suspension-belts' or collection.handle contains 'suspension-sleeves' or collection.handle contains 'prosthetic-liners' or collection.handle contains 'suspension-accessories' %}
+           <select onChange="window.location.href=this.value" style="margin: 0 auto; display: block;">
+            <option>Select a Product Type</option>
+              {% for link in linklists.prosthetic-suspension.links %}
+             <option value="{{ link.url }}" id="{{ link.title | handleize | split: "-" | last }}"><a href="{{ link.url }}">{{ link.title }}</a></option>
+        {% endfor %}
+      </select>
+        
+        {% elsif collection.handle contains 'cosmetic-finishing' or collection.handle contains 'cushion-and-volume-aids' or collection.handle contains 'slip-on-aids' or collection.handle contains 'travel-and-mobility' or collection.handle contains 'arm-amputee-supplies' or collection.handle contains 'friction-fighting' or collection.handle contains 'prosthetic-remedies' %}
+           <select onChange="window.location.href=this.value" style="margin: 0 auto; display: block;">
+            <option>Select a Product Type</option>
+             {% for link in linklists.prosthetic-remedies.links %}
+             <option value="{{ link.url }}" id="{{ link.title | handleize | split: "-" | last }}"><a href="{{ link.url }}">{{ link.title }}</a></option>
+        {% endfor %}
+           </select>
+      
+      {% elsif collection.handle contains 'warehouse-deals' or collection.handle contains 'open-box' or collection.handle contains 'open-box' %}
+           <select onChange="window.location.href=this.value" style="margin: 0 auto; display: block;">
+            <option>Select a Product Type</option>
+             {% for link in linklists.warehouse-deals.links %}
+             <option value="{{ link.url }}" id="{{ link.title | handleize | split: "-" | last }}"><a href="{{ link.url }}">{{ link.title }}</a></option>
+        {% endfor %}
+           </select>
+      
+        {% endif %}
+    </div>
+    
+    <br class="clear">
+    <br class="clear">
+   
+        <div class="grid__item large--two-thirds medium-down--hide text-left"> 
+      {% if collection.handle contains 'warehouse-deals' %}
+      <ul class="added-tags warehouse-deals" style="display: none;">
+        {% for link in linklists.warehouse-deals.links %}
+        <a href="{{ link.url }}"><li>{{ link.title }}</li></a>
+        {% endfor %}
+        </ul>
+      {% endif %}
+      
+       <ul class="added-tags socks" style="display: none;">
+        {% for link in linklists.textiles-socks-filters.links %}
+        <a href="{{ link.url }}"><li>{{ link.title }}</li></a>
+        {% endfor %}
+        </ul>
+      
+       <ul class="added-tags shrinkers" style="display: none;">
+        {% for link in linklists.textiles-shrinkers-filters.links %}
+        <a href="{{ link.url }}"><li>{{ link.title }}</li></a>
+        {% endfor %}
+        </ul>  
+      
+       <ul class="added-tags sheaths" style="display: none;">
+        {% for link in linklists.textiles-sheaths-filters.links %}
+        <a href="{{ link.url }}"><li>{{ link.title }}</li></a>
+        {% endfor %}
+        </ul>  
+
+         <ul class="added-tags hosiery" style="display: none;">
+        {% for link in linklists.textiles-cosmetic-hosiery-filters.links %}
+        <a href="{{ link.url }}"><li>{{ link.title }}</li></a>
+        {% endfor %}
+        </ul> 
+      
+        <ul class="added-tags suspension-sleeves" style="display: none;">
+        {% for link in linklists.suspension-sleeves-filters.links %}
+        <a href="{{ link.url }}"><li>{{ link.title }}</li></a>
+        {% endfor %}
+        </ul> 
+      
+        <ul class="added-tags suspension-belts" style="display: none;">
+        {% for link in linklists.suspension-suspension-belts-filters.links %}
+        <a href="{{ link.url }}"><li>{{ link.title }}</li></a>
+        {% endfor %}
+        </ul>
+      
+        <ul class="added-tags prosthetic-liners" style="display: none;">
+        {% for link in linklists.suspension-prosthetic-liners-filters.links %}
+        <a href="{{ link.url }}"><li>{{ link.title }}</li></a>
+        {% endfor %}
+        </ul>     
+      
+		<ul class="added-tags cushion-and-volume-aids" style="display: none;">
+        {% for link in linklists.remedies-volume-and-cushion-aids-filters.links %}
+        <a href="{{ link.url }}"><li>{{ link.title }}</li></a>
+        {% endfor %}
+        </ul> 
+      
+		<ul class="added-tags arm-amputee" style="display: none;">
+        {% for link in linklists.arm-amputee-supplies-filters.links %}
+        <a href="{{ link.url }}"><li>{{ link.title }}</li></a>
+        {% endfor %}
+        </ul>
+          
+          <ul class="added-tags warehouse-deals" style="display: none;">
+        {% for link in linklists.warehouse-deals.links %}
+        <a href="{{ link.url }}"><li>{{ link.title }}</li></a>
+        {% endfor %}
+        </ul>
+          
+           
+          
+
+  </div>
+    
+            <div class="grid__item large--hide text-left" style="padding-left: 0px;">
+              
+      {% if collection.handle contains 'personal-care' %}
+      <select class="added-tags personal-care" style="display: none;" onChange="window.location.href=this.value">
+                    <option>Select a Filter</option>
+        {% for link in linklists.personal-care-filters.links %}
+             <option value="{{ link.url }}" id="{{ link.title | handleize | split: "-" | last }}"><a href="{{ link.url }}">{{ link.title }}</a></option>
+        {% endfor %}
+        </select>
+      {% endif %}
+      
+       <select class="added-tags socks" style="display: none;" onChange="window.location.href=this.value">
+                   <option>Select a Filter</option>
+         {% for link in linklists.textiles-socks-filters.links %}
+             <option value="{{ link.url }}" id="{{ link.title | handleize | split: "-" | last }}"><a href="{{ link.url }}">{{ link.title }}</a></option>
+        {% endfor %}
+        </select>
+      
+       <select class="added-tags shrinkers" style="display: none;" onChange="window.location.href=this.value">
+                   <option>Select a Filter</option>
+         {% for link in linklists.textiles-shrinkers-filters.links %}
+             <option value="{{ link.url }}" id="{{ link.title | handleize | split: "-" | last }}"><a href="{{ link.url }}">{{ link.title }}</a></option>
+        {% endfor %}
+        </select>  
+      
+       <select class="added-tags sheaths" style="display: none;" onChange="window.location.href=this.value">
+            <option>Select a Filter</option>
+         {% for link in linklists.textiles-sheaths-filters.links %}
+             <option value="{{ link.url }}" id="{{ link.title | handleize | split: "-" | last }}"><a href="{{ link.url }}">{{ link.title }}</a></option>
+        {% endfor %}
+        </select>  
+
+         <select class="added-tags hosiery" style="display: none;" onChange="window.location.href=this.value">
+                   <option>Select a Filter</option>
+           {% for link in linklists.textiles-cosmetic-hosiery-filters.links %}
+             <option value="{{ link.url }}" id="{{ link.title | handleize | split: "-" | last }}"><a href="{{ link.url }}">{{ link.title }}</a></option>
+        {% endfor %}
+        </select> 
+      
+        <select class="added-tags suspension-sleeves" style="display: none;" onChange="window.location.href=this.value">
+                   <option>Select a Filter</option>
+          {% for link in linklists.suspension-sleeves-filters.links %}
+             <option value="{{ link.url }}" id="{{ link.title | handleize | split: "-" | last }}"><a href="{{ link.url }}">{{ link.title }}</a></option>
+        {% endfor %}
+        </select> 
+      
+        <select class="added-tags suspension-belts" style="display: none;" onChange="window.location.href=this.value">
+                   <option>Select a Filter</option>
+          {% for link in linklists.suspension-suspension-belts-filters.links %}
+             <option value="{{ link.url }}" id="{{ link.title | handleize | split: "-" | last }}"><a href="{{ link.url }}">{{ link.title }}</a></option>
+        {% endfor %}
+        </select>
+      
+        <select class="added-tags prosthetic-liners" style="display: none;" onChange="window.location.href=this.value">
+                   <option>Select a Filter</option>
+          {% for link in linklists.suspension-prosthetic-liners-filters.links %}
+             <option value="{{ link.url }}" id="{{ link.title | handleize | split: "-" | last }}"><a href="{{ link.url }}">{{ link.title }}</a></option>
+        {% endfor %}
+        </select>     
+      
+		<select class="added-tags cushion-and-volume-aids" style="display: none;" onChange="window.location.href=this.value">
+                   <option>Select a Filter</option> 
+          {% for link in linklists.remedies-volume-and-cushion-aids-filters.links %}
+             <option value="{{ link.url }}" id="{{ link.title | handleize | split: "-" | last }}"><a href="{{ link.url }}">{{ link.title }}</a></option>
+        {% endfor %}
+        </select>
+              
+              <select class="added-tags warehouse-deals" style="display: none;" onChange="window.location.href=this.value">
+                   <option>Select a Filter</option> 
+          {% for link in linklists.warehouse-deals.links %}
+             <option value="{{ link.url }}" id="{{ link.title | handleize | split: "-" | last }}"><a href="{{ link.url }}">{{ link.title }}</a></option>
+        {% endfor %}
+        </select>
+              
+              
+      
+		<select class="added-tags arm-amputee" style="display: none;" onChange="window.location.href=this.value">
+                   <option>Select a Filter</option>
+          {% for link in linklists.arm-amputee-supplies-filters.links %}
+             <option value="{{ link.url }}" id="{{ link.title | handleize | split: "-" | last }}"><a href="{{ link.url }}">{{ link.title }}</a></option>
+        {% endfor %}
+        </select>    
+    <br class="clear">
+  </div>
+
+    <div class="grid__item large--one-third text-right medium-down--hide">
+        {% include 'collection-sorting' %}
+    </div>
+
+    
+    <div class="grid-uniform" style="margin-top: 50px;">
+    {% assign products = collection.products %}
+      {% for product in products %}
+      
+      {% include 'bold-product' with product, hide_action: 'skip' %}
+        {% include 'product-grid-item' %}
+      {% endfor %}
+
+    </div>
+    
+    {% if paginate.pages > 1 %}
+      <hr>
+      <div class="pagination">
+        {% if paginate.previous.is_link %}<a href="{{ paginate.prev.url }}" style="display: inline-block;" rel="prev" ><img src="{{ 'arrow-left.png' | asset_url }}"></a>{% endif %}{{ paginate | default_pagination | replace: '&laquo; Previous', '' | replace: 'Next &raquo;', '' }}{% if paginate.next.is_link %}<a href="{{ paginate.next.url }}" style="display: inline-block;" rel="next" ><img src="{{ 'arrow-right.png' | asset_url }}"></a>{% endif %}
+      </div>
+    {% endif %}
+
+  </div>
+
+{% endpaginate %}
+
+
+

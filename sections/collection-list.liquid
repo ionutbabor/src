@@ -1,0 +1,36 @@
+<div class="grid-uniform">
+<div class="grid__item">
+  
+    {% for product in collections[block.settings.frontpage_linklist].products limit: 6 %}
+    {% include 'bold-product' with product, hide_action: 'skip' %}
+   {% comment %} {% assign grid_item_width = 'large--one-half medium--one-half' %}{% endcomment %}
+    {% include 'product-grid-item' %}
+
+    {% endfor %}
+
+  </div>
+  </div>
+
+
+
+
+
+
+
+{% schema %}
+{
+  "blocks": [
+  {
+    "type": "content",
+    "name": "Collections List",
+    "settings": [
+    {
+        "type": "collection",
+        "id": "frontpage_linklist",
+        "label": "Collections List "
+      }
+    ]
+  }
+  ]
+}
+{% endschema %}

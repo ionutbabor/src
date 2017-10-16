@@ -1,0 +1,701 @@
+<!doctype html>
+<!--[if lt IE 7]><html class="no-js lt-ie9 lt-ie8 lt-ie7" lang="en"> <![endif]-->
+<!--[if IE 7]><html class="no-js lt-ie9 lt-ie8" lang="en"> <![endif]-->
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en"> <![endif]-->
+<!--[if IE 9 ]><html class="ie9 no-js"> <![endif]-->
+<!--[if (gt IE 9)|!(IE)]><!--> <html class="no-js"> <!--<![endif]-->
+<head>
+
+  {{ 'bold-ro-checkout.css' | asset_url | stylesheet_tag }}
+
+  <script type="text/javascript">
+    (function e(){var e=document.createElement("script");e.type="text/javascript",e.async=true,e.src="//staticw2.yotpo.com/NuT1UIlxTbSur2znb49km0JEX7gsE8Xqwiqw1r1b/widget.js";var t=document.getElementsByTagName("script")[0];t.parentNode.insertBefore(e,t)})();
+  </script>
+
+  <!-- Basic page needs ================================================== -->
+  <meta name="p:domain_verify" content="b883bab1e68756876d1d0741e03bef33"/>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <meta name="author" content="Amputee Supplies Inc.">
+  <meta property="article:author" content="https://www.facebook.com/amputeestore" />
+  <meta name="google-site-verification" content="CxzHS0uQ_xP1DLzxE6F2x5edOEKU2tFqRlUnNkf1oeM" />
+  <meta name="msvalidate.01" content="41B970993C62A0780517148FEE0C0786" />
+
+  {% if settings.favicon_enable %}
+  <link rel="shortcut icon" href="{{ 'favicon.png' | asset_url }}" type="image/png" />
+  {% endif %}
+
+  <!-- Title and description ================================================== -->
+  <title>
+    {{ page_title }}{% if current_tags %}{% assign meta_tags = current_tags | join: ', ' %} &ndash; {{ 'general.meta.tags' | t: tags: meta_tags }}{% endif %}{% if current_page != 1 %} &ndash; {{ 'general.meta.page' | t: page: current_page }}{% endif %}{% unless page_title contains shop.name %} &ndash; {{ shop.name }}{% endunless %}
+  </title>
+
+  {% if page_description %}
+  <meta name="description" content="{{ page_description | escape }}">
+  {% endif %}
+
+  <!-- Helpers ================================================== -->
+  {% include 'social-meta-tags' %}
+  {% if template contains 'collection' and current_tags %}
+  <meta name="robots" content="noindex" />
+  <link rel="canonical" href="{{ shop.url }}{{ collection.url }}" />
+  {% else %}
+  <link rel="canonical" href="{{ canonical_url }}" />
+  {% endif %}
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="theme-color" content="{{ settings.color_primary }}">
+
+  <!-- CSS ================================================== -->
+  {{ 'timber.scss.css' | asset_url | stylesheet_tag }}
+  {{ 'custom.css' | asset_url | stylesheet_tag }}
+  {{ 'slick.css' | asset_url | stylesheet_tag }} 
+  {{ 'slick-theme.css' | asset_url | stylesheet_tag }}
+  
+
+  <!-- Header hook for plugins ================================================== -->
+  {{ content_for_header }}
+  {% include 'oldIE-js' %}
+
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+  <script src="//code.jquery.com/jquery-migrate-1.4.1.js"></script>
+  {{ 'modernizr.min.js' | asset_url | script_tag }} 
+  
+  {% comment %}
+    If you store has customer accounts disabled, you can remove the following JS file
+    {% endcomment %}
+    {% if template contains 'customers' %}
+    {{ 'shopify_common.js' | shopify_asset_url | script_tag }}
+    {% endif %}
+
+    <link href='//fonts.googleapis.com/css?family=Quicksand:300,400,700' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
+    <link href='//fonts.googleapis.com/css?family=Lato' rel='stylesheet' type='text/css'>
+
+
+    {{ 'jquery.fancybox.css' | asset_url | stylesheet_tag }}
+
+    <!-- custom css ninja   -->
+    
+    {{ 'flexslider.css' | asset_url | stylesheet_tag }}
+    {{ 'custom-ninja.scss.css' | asset_url | stylesheet_tag }}
+    {% comment %}product swatches style{% endcomment %}
+    {{ 'swatches.scss.css' | asset_url | stylesheet_tag }}
+
+
+
+
+    <script type="text/javascript" src="https://cdn.shopify.com/s/files/1/0824/6797/files/jquery.fancybox.pack.js?7348962287354414472"></script>
+
+    <!-- Coin app by ShopPad -->
+    <script type="text/javascript" src="//d1liekpayvooaz.cloudfront.net/apps/coin/coin.js?shop={{shop.permanent_domain}}"></script>
+
+
+    <style type="text/css">
+    @-moz-document url-prefix() {
+      .test-left, .test-right {
+        top: 22%;
+      }
+    }
+  </style> 
+
+  {{ 'bold-helper-functions.js' | asset_url | script_tag }}
+  {% include 'bold-ro-ajax-cart' %}
+  {% include 'bold-cart' %}
+
+  <!-- Start Visual Website Optimizer Asynchronous Code -->
+  <script type='text/javascript'>
+    var _vwo_code=(function(){
+      var account_id=298914,
+      settings_tolerance=2000,
+      library_tolerance=2500,
+      use_existing_jquery=false,
+      /* DO NOT EDIT BELOW THIS LINE */
+      f=false,d=document;return{use_existing_jquery:function(){return use_existing_jquery;},library_tolerance:function(){return library_tolerance;},finish:function(){if(!f){f=true;var a=d.getElementById('_vis_opt_path_hides');if(a)a.parentNode.removeChild(a);}},finished:function(){return f;},load:function(a){var b=d.createElement('script');b.src=a;b.type='text/javascript';b.innerText;b.onerror=function(){_vwo_code.finish();};d.getElementsByTagName('head')[0].appendChild(b);},init:function(){settings_timer=setTimeout('_vwo_code.finish()',settings_tolerance);var a=d.createElement('style'),b='body{opacity:0 !important;filter:alpha(opacity=0) !important;background:none !important;}',h=d.getElementsByTagName('head')[0];a.setAttribute('id','_vis_opt_path_hides');a.setAttribute('type','text/css');if(a.styleSheet)a.styleSheet.cssText=b;else a.appendChild(d.createTextNode(b));h.appendChild(a);this.load('//dev.visualwebsiteoptimizer.com/j.php?a='+account_id+'&u='+encodeURIComponent(d.URL)+'&r='+Math.random());return settings_timer;}};}());_vwo_settings_timer=_vwo_code.init();
+    </script>
+    <!-- End Visual Website Optimizer Asynchronous Code -->
+
+  </head>
+
+
+
+  <body id="{{ page_title | handle }}" class="{% if customer %}customer-logged-in {% endif %}template-{{ template | replace: '.', ' ' | truncatewords: 1, '' | handle }}" >
+    <div id="NavDrawer" class="drawer drawer--left">
+
+      <ul class="mobile-nav">
+        {% if shop.customer_accounts_enabled %}
+        {% if customer %}
+        <li class="mobile-nav__item">
+          {% if customer.first_name != blank %}
+          {% capture first_name %}<a href="/account">{{ customer.first_name }}</a>{% endcapture %}
+          {{ 'layout.customer.logged_in_as_html' | t: first_name: first_name }}
+          {% else %}
+          <a href="/account">{{ 'layout.customer.account' | t }}</a>
+          {% endif %}
+        </li>
+        <li class="mobile-nav__item">
+          {{ 'layout.customer.log_out' | t | customer_logout_link }}
+        </li>
+        {% else %}
+        <li class="mobile-nav__item">
+          {{ 'layout.customer.log_in' | t | customer_login_link }}
+        </li>
+        {% if shop.customer_accounts_optional %}
+        <li class="mobile-nav__item">
+          {{ 'layout.customer.create_account' | t | customer_register_link }}
+        </li>
+        {% endif %}
+        {% endif %}
+        {% endif %}
+      </ul>
+
+      <div class="drawer__header">
+        <div class="drawer__title h3">{{ 'layout.drawers.browse' | t }}</div>
+        <div class="drawer__close js-drawer-close">
+          <button type="button" class="icon-fallback-text">
+            <span class="icon icon-x" aria-hidden="true"></span>
+            <span class="fallback-text">{{ 'layout.drawers.close_menu' | t }}</span>
+          </button>
+        </div>
+      </div>
+      <!-- begin mobile-nav -->
+      <ul class="mobile-nav">
+        {% comment %}<li class="mobile-nav__item mobile-nav__search">
+          {% include 'search-bar' %}
+        </li>{% endcomment %}
+        <li class="mobile-nav__item"><a href="/index">Home</a></li>
+        {% for link in linklists.main-menu.links %}
+        {% assign child_list_handle = link.title | handleize %}
+        {% if linklists[child_list_handle].links != blank %}
+        <li class="mobile-nav__item{% if link.active %} mobile-nav__item--active{% endif %}" aria-haspopup="true">
+          <div class="mobile-nav__has-sublist">
+            <a href="{{ link.url }}" class="mobile-nav__link">{{ link.title | replace: "Prosthetic", "" }}</a>
+            <div class="mobile-nav__toggle">
+              <button type="button" class="icon-fallback-text mobile-nav__toggle-open">
+                <span class="icon icon-plus" aria-hidden="true"></span>
+                <span class="fallback-text">See More</span>
+              </button>
+              <button type="button" class="icon-fallback-text mobile-nav__toggle-close">
+                <span class="icon icon-minus" aria-hidden="true"></span>
+                <span class="fallback-text">{{ 'cart.general.close_cart' | t | json }}</span>
+              </button>
+            </div>
+          </div>
+          <ul class="mobile-nav__sublist">
+            {% for childlink in linklists[child_list_handle].links %}
+            <li class="mobile-nav__item {% if childlink.active %} mobile-nav__item--active{% endif %}">
+              <a href="{{ childlink.url }}" class="mobile-nav__link">{{ childlink.title | escape }}</a>
+            </li>
+            {% endfor %}
+          </ul>
+        </li>
+        {% else %}
+        <li class="mobile-nav__item{% if link.active %} mobile-nav__item--active{% endif %}">
+          <a href="{{ link.url }}" class="mobile-nav__link">{{ link.title }}</a>
+        </li>
+        {% endif %}
+        {% endfor %}
+
+        <div class="drawer__title h3">Know-How</div>
+        <hr>
+        {% for link in linklists.know-how.links %}
+        <li class="mobile-nav__item{% if link.active %} mobile-nav__item--active{% endif %}">
+          <a href="{{ link.url }}" class="mobile-nav__link">{{ link.title }}</a>
+        </li>
+        {% endfor %}
+        <!-- Coin app by ShopPad -->
+        <li id="coin-container"></li>
+      </ul>
+      <!-- //mobile-nav -->
+    </div>
+
+    <div id="CartDrawer" class="drawer drawer--right">
+      <div class="drawer__header">
+        <div class="drawer__title h3">{{ 'cart.general.title' | t }}</div>
+        <div class="drawer__close js-drawer-close">
+          <button type="button" class="icon-fallback-text">
+            <span class="icon icon-x" aria-hidden="true"></span>
+            <span class="fallback-text">{{ 'cart.general.close_cart' | t | json }}</span>
+          </button>
+        </div>
+      </div>
+      <div id="CartContainer"></div>
+    </div>
+
+    <div id="PageContainer" class="is-moved-by-drawer">
+
+      {% if template contains 'index' %}
+      <div id="fsb_placeholder">
+        {% comment %}<script>
+          var fsb_adjusted = false;
+          $( "#fsb_placeholder" ).on( "fsb_fully_loaded", function(event, p1) {
+            if ((p1=='inserted' || p1=='inserted_sticky') && !fsb_adjusted ){
+              fsb_adjusted = true;
+              var fsb_height = $("#fsb_background").height();
+              // $("<div />", {html: '<style>' + '.nav-bar{top:' + fsb_height + 'px;}' + '</style>'}).appendTo("body");
+            }
+          });
+        </script>{% endcomment %}
+      </div>
+      {% else %}
+      <div id="fsb_placeholder">
+        {% comment %}<script>
+          var fsb_adjusted = false;
+          $( "#fsb_placeholder" ).on( "fsb_fully_loaded", function(event, p1) {
+            if ((p1=='inserted' || p1=='inserted_sticky') && !fsb_adjusted ){
+              fsb_adjusted = true;
+              var fsb_height = $("#fsb_background").height();
+              $("<div />", {html: '<style>' + '@media screen and (max-width: 942px){#fsb_background{top:66px;}}.nav-bar{top:' + fsb_height + 'px;}' + '</style>'}).appendTo("body");
+            }
+          });
+        </script>{% endcomment %}
+      </div>
+      {% endif %}
+
+
+
+      <nav class="nav-bar" role="navigation">
+
+        {% if settings.enable_promo-bar %}
+        <a href="{{ settings.promo-bar-link }}">
+          <div class="promo-bar medium-down--hide">
+           {{ settings.promo-bar-text }}
+         </div>
+       </a>
+       {% endif %}
+       <div class="grid--full medium-down--hide">
+        <div class="grid__item large--one-fifth header-nav text-center">
+          <a href="/" itemprop="url" class="site-header__logo-link">
+            <img class="img-responsive" src="{{ 'logo.png' | asset_url }}" alt="Shop amputee supplies direct with confidence and save." itemprop="logo">
+          </a>
+        </div>
+        <div class="grid__item large--four-fifths medium-down--hide">
+
+          <div class="top-row">
+            <div class="move-right">
+
+              <div class="grid__item large--two-quarters">
+                {% include 'search-bar' %}
+              </div>
+
+              <div class="grid__item large--one-quarter">
+                <ul class="social-menu">
+                  <li> 
+                    <span id="content">{{settings.content-header}}</span>
+                  </li>
+                  <li>    
+                    <!-- Coin app by ShopPad -->
+                    <div id='coin-container'></div>
+                    <!-- end Coin app by ShopPad -->
+                  </li>
+                </ul>
+              </div>
+
+              <div class="grid__item large--one-quarter">
+
+                <!-- add dropdown menu -->    
+                <nav id="primary_nav_wrap">
+                  <ul>
+                    <li><a href="/account">account <span class="caret"></span></a>
+                      <ul>
+                        <li><a href="/account">Your Orders</a></li>
+                        <li><a href="#">Manage Autoship</a></li>
+                        <li><a href="#">Your Inner Circle Rewards</a></li>
+                      </ul>
+                    </li>
+                  </ul>
+                </nav>
+                <!-- add dropdown menu --> 
+
+                <ul class="cart-right">
+                  <li> 
+                   <div id="cart-main">
+                    <div id="cart">
+                      <a href="/cart" class="js-drawer-open-right" aria-controls="CartDrawer" aria-expanded="false" style="float: right;">
+                        <i class="fa fa-shopping-cart"></i>
+                        <span class="icon-cart-count" id="CartCount">{{ cart.item_count }}</span>
+                        {% comment %}Cart{% endcomment %}
+                      </a>
+                    </div>
+                  </div>  
+                </li>
+                <li>    
+                  <span id="label">Cart</span>
+                </li>
+              </ul>
+            </div>
+          </div>
+
+
+          <div class="bottom-row">
+            <ul class="main-menu">
+              {% for link in linklists.main-menu-new.links %}
+              <li><a href="{{ link.url }}" class="menu-link {% if link.active %}current{% endif %}">{{ link.title | replace: "Prosthetic", "" }}</a></li>
+              {% endfor %}
+            </ul>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <div class="large--hide medium-down--show">
+      <div class="grid--full">
+        <div class="grid__item one-third">
+          <div class="site-nav--mobile">
+            <button type="button" class="icon-fallback-text site-nav__link js-drawer-open-left" aria-controls="NavDrawer" aria-expanded="false">
+              <span class="icon icon-hamburger" aria-hidden="true" style="color: #fff; margin-right: 10px;"> MENU</span>
+              <span class="fallback-text">{{ 'layout.navigation.menu' | t }}</span>
+            </button>
+          </div>
+        </div>
+        <div class="grid__item one-third text-center">
+          <a href="/index" class="site-nav__link">
+           <img src="https://cdn.shopify.com/s/files/1/0824/6797/files/logo-small.png?3195514810683209902" style="height: 30px;">
+         </a>
+       </div>
+       <div class="grid__item one-third text-right">
+        <div class="site-nav--mobile">
+          <a href="/cart" class="js-drawer-open-right site-nav__link" aria-controls="CartDrawer" aria-expanded="false">
+            <span class="icon-fallback-text">
+              <span class="icon icon-cart" aria-hidden="true"></span>
+              <span class="fallback-text">{{ 'layout.cart.title' | t }}</span>
+
+              <span class="icon-cart-count-m" id="CartCount">{{ cart.item_count }}</span>
+
+            </span>
+          </a>
+        </div>
+      </div>
+      <div class="grid__item one-whole">
+        {% include 'search-bar'%}
+      </div>
+    </div>
+  </div>
+</nav>
+
+{% if template contains 'index' %}
+{% include 'homepage-slideshow' %}
+{% endif %}
+
+
+{% unless template contains 'index' %}
+<main class="{% if template contains 'newletter' %}wrapper{% endif %} main-content" role="main">
+  {% endunless %}
+
+  {{ content_for_layout }}
+
+</main>
+
+{% comment %}
+//was
+<main class="wrapper main-content" role="main" style="margin-top: 200px;">
+  {% endcomment %}
+
+  <div class="subscribe-section">
+    <div class="wrapper">
+      <div class="grid">
+        <div class="grid__item large--one-third">
+          <h2 class="page-title" style="border-bottom: 0px;">Subscribe</h2>
+          <p>Sign up for Amputee News and Offers</p>
+        </div>
+        <div class="grid__item large--two-thirds">
+          {% include 'newsletter' %}
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- begin site-footer -->
+  <footer class="site-footer small--text-center" role="contentinfo">
+    <div class="wrapper wrapper0">
+      <div class="grid-full medium-down--hide">
+       <div class="grid__item large--one-fifth medium--one-half">
+        <h3>Shop</h3>
+        <ul class="footer-menu">
+          {% for link in linklists.shop.links %}
+          <li><a href="{{ link.url }}">{{ link.title }}</a></li>
+          {% endfor %}
+        </ul>
+      </div>
+      <div class="grid__item large--one-fifth medium--one-half">
+        <h3>Community</h3>
+        <ul class="footer-menu">
+          {% for link in linklists.community.links %}
+          <li><a href="{{ link.url }}">{{ link.title }}</a></li>
+          {% endfor %}
+        </ul>
+        <ul class="social-menu">
+          <li><a href="https://www.facebook.com/amputeestore"><i class="fa fa-facebook"></i></a>
+            <li><a href="https://twitter.com/amputeestore"><i class="fa fa-twitter"></i></a>
+              <li><a href="https://plus.google.com/+AmputeeStore"><i class="fa fa-google-plus"></i></a>
+               <!-- <li><a href="https://www.pinterest.com/amputeestore/"><i class="fa fa-pinterest-p"></i></a>-->
+                 <li><a href="https://instagram.com/amputeestore/"><i class="fa fa-instagram"></i></a>
+                 </ul>
+               </div>
+			<!-- <div class="grid__item large--one-fifth medium--one-half">
+              <h3>Know-How</h3>
+              <ul class="footer-menu">
+                {% for link in linklists.know-how.links %}
+               	 <li><a href="{{ link.url }}">{{ link.title }}</a></li>
+                {% endfor %}
+              </ul>
+            </div>-->
+            <div class="grid__item large--one-fifth medium--one-half">
+              <h3>Amputee Store Info</h3>
+              <ul class="footer-menu">
+                {% for link in linklists.amputee-store-info.links %}
+                <li><a href="{{ link.url }}">{{ link.title }}</a></li>
+                {% endfor %}
+              </ul>
+            </div>
+            <div class="grid__item large--one-fifth medium--one-half">
+              <h3>Policies</h3>
+              <ul class="footer-menu">
+                {% for link in linklists.policies.links %}
+                <li><a href="{{ link.url }}">{{ link.title }}</a></li>
+                {% endfor %}
+              </ul>
+            </div>          
+          </div>
+
+          <div class="grid large--hide mobile-menu">
+           <div class="grid__item medium--one-whole">
+            <h3>Shop</h3>
+            <ul class="footer-menu">
+              {% for link in linklists.shop.links %}
+              <li><a href="{{ link.url }}">{{ link.title }}</a></li>
+              {% endfor %}
+            </ul>
+
+            <ul class="grid__item social-menu" style="margin-left: -6px; margin-bottom: 3px;">
+              <li><a href="https://www.facebook.com/amputeestore"><i class="fa fa-facebook"></i></a>
+                <li><a href="https://twitter.com/amputeestore"><i class="fa fa-twitter"></i></a>
+                  <li><a href="#"><i class="fa fa-google-plus"></i></a>
+                   <!-- <li><a href="https://www.pinterest.com/amputeestore/"><i class="fa fa-pinterest-p"></i></a>-->
+                     <li><a href="https://instagram.com/amputeestore/"><i class="fa fa-instagram"></i></a>
+                     </ul>
+
+                     <h3>Amputee Store Info</h3>
+                     <ul class="footer-menu">
+                      {% for link in linklists.mobile-footer-shop.links %}
+                      <li><a href="{{ link.url }}">{{ link.title }}</a></li>
+                      {% endfor %}
+                    </ul>
+                  </div>
+                </div>
+                
+                <div class="grid__item large--one-whole medium-down--hide">
+                  <div class="copyright-text">
+                    &copy; Copyright {{ 'now' | date: "%Y" }} Amputee Supplies Inc. All rights reserved. All images and content may not be
+                    used without permission. Powered by Passion. 
+                  </div>
+                </div>
+              </div> 
+            </footer>
+            <!-- //site-footer -->
+          </div>
+
+          {{ 'fastclick.min.js' | asset_url | script_tag }}
+          {{ 'timber.js' | asset_url | script_tag }}
+          {{ 'custom.js' | asset_url | script_tag }}
+          {{ 'slick.min.js' | asset_url | script_tag }}
+
+          {% comment %}{% if template contains 'product' %}
+          {{ 'imagezoom.js' | asset_url | script_tag }}
+          {% endif %}{% endcomment %}
+          {{ 'cloudzoom.js' | asset_url | script_tag }}
+
+
+          <script>
+            $( document ).ready(function() {
+              $('#size-chart img').wrapAll('<div class="sizeguide-slideshow" />');
+              $('#size-chart img').wrap('<div>');      
+
+              $('.homepage-slideshow').slick({
+                dots: true,
+                infinite: false,
+                arrows: true,
+                autoplay: true,
+                autoplaySpeed: 6000,
+                speed: 300,
+                slidesToShow: 1,
+                responsive: [
+                {
+                  breakpoint: 1024,
+                  settings: {
+                    slidesToShow: 1,
+                    infinite: true,
+                    dots: false
+                  }
+                },
+                {
+                  breakpoint: 600,
+                  settings: {
+                    slidesToShow: 1
+                  }
+                },
+                {
+                  breakpoint: 480,
+                  settings: {
+                    slidesToShow: 1,
+                    slidesToScroll: 1
+                  }
+                }
+    // You can unslick at a given breakpoint now by adding:
+    // settings: "unslick"
+    // instead of a settings object
+    ]
+  });
+
+              $(".featured-slider-nav").each(function(index) {
+
+                $(this).click(function() {
+
+                  _ = $(this);
+
+                  setTimeout(updateheight, 500);
+
+                });
+
+              });
+
+
+              $('.sizeguide-slideshow').slick({
+                dots: false,
+                infinite: true,
+                arrows: true,
+                speed: 300,
+                slidesToShow: 1,
+                adaptiveHeight: true
+              })
+          // $('.slick-next').html('<button type="button" data-role="none" class="slick-next" aria-label="next" style="display: block;"><img src="https://cdn.shopify.com/s/files/1/0824/6797/files/RightArrow.png?13758721325135386572"></button>');
+          // $('.slick-prev').html('<button type="button" data-role="none" class="slick-prev" aria-label="prev" style="display: block;"><img src="https://cdn.shopify.com/s/files/1/0824/6797/files/leftArrow.png?13758721325135386572"></button>');
+          $('.slick-next').html('<button type="button" data-role="none" class="slick-next" aria-label="next" style="display: block;"><img src="{{ 'RightArrow.png' | asset_url }}"</button>');
+          $('.slick-prev').html('<button type="button" data-role="none" class="slick-prev" aria-label="prev" style="display: block;"><img src="{{ 'leftArrow.png' | asset_url }}"></button>');
+          
+        });				
+      </script>
+
+
+
+      <script>
+        {% if newHash %}
+        $(function() {
+          timber.updateHash('{{ newHash }}');
+        });
+        {% endif %}
+        {% if resetPassword %}
+        $(function() {
+          timber.resetPasswordSuccess();
+        });
+        {% endif %}
+
+      </script>
+
+      <script type="text/javascript">
+        (function e(){var e=document.createElement("script");e.type="text/javascript",e.async=true,e.src="//staticw2.yotpo.com/NuT1UIlxTbSur2znb49km0JEX7gsE8Xqwiqw1r1b/widget.js";var t=document.getElementsByTagName("script")[0];t.parentNode.insertBefore(e,t)})();
+      </script>
+
+
+
+
+      {% if settings.ajax_cart_enable %}
+      {{ 'handlebars.min.js' | asset_url | script_tag }}
+      {% include 'ajax-cart-template' %}
+      {{ 'ajax-cart.js' | asset_url | script_tag }}
+      <script>
+        jQuery(function($) {
+          ajaxCart.init({
+            formSelector: '#AddToCartForm',
+            cartContainer: '#CartContainer',
+            addToCartSelector: '#AddToCart',
+            cartCountSelector: '#CartCount',
+            cartCostSelector: '#CartCost',
+            moneyFormat: {{ shop.money_format | json }}
+          });
+        });
+
+        jQuery('body').on('ajaxCart.afterCartLoad', function(evt, cart) {
+        // Bind to 'ajaxCart.afterCartLoad' to run any javascript after the cart has loaded in the DOM
+        timber.RightDrawer.open();
+      });
+    </script>
+    {% endif %}
+
+    <script type="text/javascript">
+      $(document).ready(function() {
+        $(".fancybox").fancybox();
+      });
+    </script>
+
+    <input type="hidden" name="_pc_params" value="{{ shop.permanent_domain }}:{{ customer.id }}" />
+
+    {% comment %}<style>
+    .yotpo-icon-double-bubble, .yotpo-stars { margin: 0 5px 0 0 !important; }
+    div.yotpo.bottomLine	{ display: inline-block; margin: 0 10px 1px 0;}
+    div.yotpo.QABottomLine	{ display: inline-block; }
+  </style>{% endcomment %}
+  {% include "sloyalty-statusbar" %}
+
+  <script type="text/javascript">
+    window.onload = function() {
+      Bold.getCart();
+    };
+  </script>
+
+  <script src="//www.codeblackbelt.com/js/modules/shipping-rates-calculator-plus/main.min.js?shop=amputee-supplies.myshopify.com"></script>
+
+  {% if template contains 'product' %}
+  {% comment %}flexslider{% endcomment %}
+  {{ 'jquery.flexslider.js' | asset_url | script_tag }}
+
+  <script type="text/javascript">
+  $(window).load(function(){
+
+    $('#carousel').flexslider({
+     animation: "slide",
+     controlNav: false,
+     animationLoop: false,
+     direction: "vertical",
+     slideshow: false,
+     itemWidth: 210,
+     itemMargin: 5,
+     asNavFor: '#slider'
+   });
+
+    $('#slider').flexslider({
+      animation: "slide",
+      controlNav: false,
+      animationLoop: false,
+      slideshow: false,
+      controlNav: "thumbnails",
+      sync: "#carousel"
+    });
+
+});
+
+  {% if settings.product_slideshow_animation == 'zoom' %}
+  CloudZoom.quickStart();
+  {% endif %} 
+
+</script>
+{% endif %}
+
+{% comment %}swatch{% endcomment %}
+<script>
+jQuery(function() {
+  jQuery('.swatch :radio').change(function() {
+    var optionIndex = jQuery(this).closest('.swatch').attr('data-option-index');
+    var optionValue = jQuery(this).val();
+    jQuery(this)
+      .closest('form')
+      .find('.single-option-selector')
+      .eq(optionIndex)
+      .val(optionValue)
+      .trigger('change');
+  });
+});
+</script>
+
+</body>
+</html>

@@ -1,0 +1,107 @@
+<div class="toolbar">
+
+  <div class="grid--full">
+    <div class="grid__item large--one-fifth small--one-half medium--two-twelfths">
+     <div class="view-mode">
+      <label>Filter by:</label> 
+    </div>
+  </div>
+
+  <div class="grid__item large--one-fifth small--one-half medium--one-quarter">
+    {% assign colItems = collection.all_vendors | size %}
+    {% if colItems > 0 %}
+    <div class="filter-brand btn-group">
+
+     <button class="btn-2 dropdown-toggle" data-toggle="dropdown">
+       <i class="icon-exchange"></i>
+       <span>Choose Brand</span>
+       <i class="icon-chevron-down"></i>
+     </button>
+
+     <ul class="dropdown-menu" role="menu">
+       {% for vendor in collection.all_vendors %}
+       {% if collection.current_vendor == vendor %}
+       <li>{{ vendor | link_to_vendor }}</li>
+       {% else %}
+       <li>{{ vendor | link_to_vendor }}</li>
+       {% endif %}
+       {% endfor %}
+     </ul>
+   </div>
+   {% endif %}
+ </div>
+
+ <div class="grid__item large--one-quarter small--one-whole medium--one-quarter">
+  {% assign colItems = collection.all_types | size %}
+  {% if colItems > 0 %}
+  <div class="filter-type btn-group">
+
+    <button class="btn-2 dropdown-toggle" data-toggle="dropdown">
+      <i class="icon-exchange"></i>
+      {% if paginate.page_size != 50 %}
+      <span>choose Tags</span>
+      {% else %}
+      <span>all</span>
+      {% endif %}  
+      <i class="icon-chevron-down"></i>
+    </button>
+
+    <ul class="dropdown-menu" role="menu"> 
+      {% for tag in collection.all_tags %}
+      {% if current_tags contains tag %}
+      
+      {% else %}
+      <li>
+        {{ tag | link_to_tag: tag }}
+      </li>
+      {% endif %}
+      {% endfor %}
+    </ul>
+    {% endif %}
+
+  </div>
+</div>
+
+
+
+
+
+<div class="grid__item large--one-third medium--one-third  text-right small--one-whole pull-right">
+  {% include 'collection-sorting' %}
+</div>
+<!-- begin grid/list view -->
+{% comment %}
+ <div class="grid__item large--one-twelfth one-sixth small--one-third">
+  <div class="btn-group view-mode">
+    <label>View as</label>
+    <a class="grid" href="grid" title="Grid view">Grid</a>  
+    <a class="list active" href="list" title="List view">List</a>  
+  </div>
+</div>
+<script>
+   
+            $(".view-mode a").click(function(e) {
+                if (!$(this).hasClass("active")) {
+                    var paging = $(".filter-show > button span").text();
+                  if(paging == 'choose'){paging = 'all'}
+                    if ($(this).hasClass("list")) {
+                        Shopify.queryParams.view = "list" + paging;
+                    } else {
+                        Shopify.queryParams.view = paging;
+                    }
+
+                    ella.sidebarAjaxClick();
+                    $(".view-mode a.active").removeClass("active");
+                    $(this).addClass("active");
+                }
+                e.preventDefault();
+            });
+      
+</script>
+{% endcomment %}
+<!-- end grid/list view -->
+
+</div><!-- grid--full -->
+</div><!-- toolbar -->
+
+

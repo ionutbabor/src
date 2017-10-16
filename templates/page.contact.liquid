@@ -1,0 +1,80 @@
+<!-- /templates/page.contact.liquid -->
+
+<div class="grid contact-us">
+
+  <div class="grid__item large--one-whole">
+
+    <h1>{{ page.title }}</h1>
+
+    <div class="rte">
+      {{ page.content }}
+    </div>
+
+    <div class="grid__item large--one-third">
+      <h2>Send Us an Email</h2>
+    <div class="form-vertical">
+      {% form 'contact' %}
+
+        {% if form.posted_successfully? %}
+          <p class="note form-success">
+            {{ 'contact.form.post_success' | t }}
+          </p>
+        {% endif %}
+
+        {{ form.errors | default_errors }}
+
+        {% assign name_attr = 'contact.form.name' | t | handle %}
+        <label for="ContactFormName" class="hidden-label">{{ 'contact.form.name' | t }}</label>
+        <input type="text" id="ContactFormName" class="input-full" name="contact[{{ name_attr }}]" placeholder="{{ 'contact.form.name' | t }}" autocapitalize="words" value="{% if form[name_attr] %}{{ form[name_attr] }}{% elsif customer %}{{ customer.name }}{% endif %}">
+
+        <label for="ContactFormEmail" class="hidden-label">{{ 'contact.form.email' | t }}</label>
+        <input type="email" id="ContactFormEmail" class="input-full" name="contact[email]" placeholder="{{ 'contact.form.email' | t }}" autocorrect="off" autocapitalize="off" value="{% if form.email %}{{ form.email }}{% elsif customer %}{{ customer.email }}{% endif %}">
+
+        {% assign name_attr = 'contact.form.phone' | t | handle %}
+        <label for="ContactFormPhone" class="hidden-label">{{ 'contact.form.phone' | t }}</label>
+        <input type="tel" id="ContactFormPhone" class="input-full" name="contact[{{ name_attr }}]" placeholder="{{ 'contact.form.phone' | t }}" pattern="[0-9\-]*" value="{% if form[name_attr] %}{{ form[name_attr] }}{% elsif customer %}{{ customer.phone }}{% endif %}">
+
+        <label for="ContactFormMessage" class="hidden-label">{{ 'contact.form.message' | t }}</label>
+        <textarea rows="10" id="ContactFormMessage" class="input-full" name="contact[body]" placeholder="{{ 'contact.form.message' | t }}">{% if form.body %}{{ form.body }}{% endif %}</textarea>
+
+        <input type="submit" class="btn right contact-submit" value="{{ 'contact.form.send' | t }}">
+
+      {% endform %}
+    </div>
+    </div>
+    
+    <div class="grid__item large--one-third">
+      <h2>Have a question?</h2>
+      <h5>Maybe one of these links will help…</h5>
+      <p><a href="https://amputeestore.com/pages/returns/"><font color="blue">Return policy and instructions</font></a></p>
+      <p><a href="http://amputee-supplies.myshopify.com/tools/checkout/front_end/login"><font color="blue">Manage Your Subscription</font></a></p>
+      <p><a href="https://amputeestore.com/pages/shipping-information/">Shipping methods and delivery estimates</a></p>
+      <p><a href="https://amputeestore.com/pages/inner-circle-rewards/">Do you offer promotional codes?</a></p>
+      <p><a href="https://amputeestore.com/pages/faq/">Frequently Asked Questions</a></p>
+      <br> <br>
+      <h2>Mailing Address</h2>
+      <p>PO Box 291342<br />
+        Los Angeles, CA  90029
+      </p>
+     <!--<p><a href="tel:18779390092">+1 (877) 939-0092</a></p>
+      <p>Available Monday - Friday</p>
+      <p>8am - 12pm Pacific Time</p>-->
+      <br>
+      <h2>AmputeeSupplies.com</h2>
+      <p>If you have questions regarding your order please send us an email.</p>
+    </div>
+    
+    <div class="grid__item large--one-third">
+      <h2>Let's Socialize</h2>
+      <a href="https://www.facebook.com/amputeestore"><i class="fa fa-facebook"></i><span>Join us on Facebook</span></a><br />
+      <a href="https://instagram.com/amputeestore/"><i class="fa fa-instagram"></i><span>Join us on Instagram</span></a><br />
+      <a href="https://twitter.com/amputeestore"><i class="fa fa-twitter"></i><span>Join us on Twitter</span></a><br />
+      <a href="https://plus.google.com/+AmputeeStore"><i class="fa fa-google-plus"></i><span>Join us on Google Plus</span></a><br />
+     <!-- <a href="https://www.pinterest.com/amputeestore/"><i class="fa fa-pinterest-p"></i><span>Join us on Pinterest</span></a><br /> -->
+    
+      
+    </div>
+
+  </div>
+
+</div>

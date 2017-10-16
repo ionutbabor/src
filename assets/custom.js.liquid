@@ -1,0 +1,370 @@
+$( document ).ready(function() {
+  
+  var url = window.location.href;  
+  var finalurl = url.split("-").pop();
+  var segment = url.split("/").length - 1 - (url.indexOf("http://")==-1?0:2);
+
+   if (segment == 2) {
+  $('.parent-filters select option').each(function() {
+    var string = $(this).attr('id');
+    
+    if (string == finalurl) {
+      $(this).attr('selected','selected');
+    }
+  })
+    }
+  
+  if (segment == 3) {
+  $('.parent-filters select option').each(function() {
+    var string = $(this).attr('id');
+    var stringtwo = url.split('/')[4];
+    var stringthree = stringtwo.split('-')[1];
+    
+    if (string == stringthree) {
+      $(this).attr('selected','selected');
+    }
+    console.log(string + ' ' + stringthree);
+  })
+    }
+  
+  if (segment == 2) {
+    $('ul.collection-tags li a').each(function() {
+    var horses = $(this).attr('href').split('/').pop();
+    var newurl = url.substring(url.lastIndexOf("/")).replace('/', '');
+    
+    if (horses == newurl) {
+      $(this).addClass('bingo');
+    }
+  })
+  }
+  
+    if (segment == 3) {
+    $('ul.collection-tags li a').each(function() {
+    var horses = $(this).attr('href').split('/')[2];
+    var newurl = url.split('/')[4];
+    
+    if (horses == newurl) {
+      $(this).addClass('bingo');
+    }
+  })
+  }
+  
+      
+  $('#size-chart').attr('style', function(i, style)
+{
+    return style.replace(/display[^;]+;?/g, '');
+});
+  
+  $('#size-trigger a').on("click", function() {
+    $('#size-chart').slideToggle(); 
+     $('img#size-close').slideToggle(); 
+    $('.sizeguide-slideshow').get(0).slick.setPosition()
+    return false;
+});
+  
+  
+  $('#size-trigger a').click(function() {
+    $('#size-trigger a i.fa').toggleClass('fa-plus fa-minus');
+    return false;
+  });
+
+
+  $('img#size-close').click(function() {
+    $(this).slideToggle();
+        $('#size-chart').slideToggle(); 
+    $('#size-trigger a i.fa').toggleClass('fa-minus fa-plus');
+    return false;
+  });
+  
+  
+$('ul.added-tags a').each(function() {
+		var driver = $(this).attr('href').split('/').pop().toLowerCase();
+        var finalurl2 = url.split("/").pop().toLowerCase();
+        
+        if (driver == finalurl2) {
+          $(this).addClass('current');
+        }
+})
+      
+  $(function() {
+    
+    if(window.location.href.indexOf("socks") > -1) {
+      $(".socks").css("display","block");
+    }
+    
+   if(window.location.href.indexOf("shrinkers") > -1) {
+      $(".shrinkers").css("display","block");
+    }
+    
+   if(window.location.href.indexOf("personal-care") > -1) {
+      $(".personal-care").css("display","block");
+    }
+    
+   if(window.location.href.indexOf("sheaths") > -1) {
+      $(".sheaths").css("display","block");
+    }
+    
+   if(window.location.href.indexOf("cosmetic-hosiery") > -1) {
+      $(".hosiery").css("display","block");
+    }
+    
+    if(window.location.href.indexOf("suspension-sleeves") > -1) {
+      $(".suspension-sleeves").css("display","block");
+    }
+    
+    if(window.location.href.indexOf("suspension-belts") > -1) {
+      $(".suspension-belts").css("display","block");
+    }
+    
+    if(window.location.href.indexOf("Prosthetic-Liners") > -1) {
+      $(".prosthetic-liners").css("display","block");
+    }
+    
+    if(window.location.href.indexOf("prosthetic-liners") > -1) {
+      $(".prosthetic-liners").css("display","block");
+    }
+
+    if(window.location.href.indexOf("Cushion-and-Volume-Aids") > -1) {
+      $(".cushion-and-volume-aids").css("display","block");
+    } 
+
+    if(window.location.href.indexOf("cushion-and-volume-aids") > -1) {
+      $(".cushion-and-volume-aids").css("display","block");
+    } 
+    
+    if(window.location.href.indexOf("arm-amputee-supplies") > -1) {
+      $(".arm-amputee").css("display","block");
+    }    
+    
+    if(window.location.href.indexOf("Prosthetic-Hooks") > -1) {
+      $(".arm-amputee").css("display","block");
+    }  
+
+  });
+  
+    $(function() {
+      var initial = window.location.href; 
+
+     if(window.location.href.indexOf("vendors?q=ALPS%20South") > -1) {
+       $('.normal-collection').hide();
+       $('.alps-south').show();
+     }
+      
+     if(window.location.href.indexOf("vendors?q=Adapt%20Labs") > -1) {
+       $('.normal-collection').hide();
+       $('.adapt-labs').show();
+     }
+      
+     if(window.location.href.indexOf("vendors?q=Amputee%20Essentials") > -1) {
+       $('.normal-collection').hide();
+       $('.essentials').show();
+     }
+      
+     if(window.location.href.indexOf("vendors?q=Arion%20International") > -1) {
+       $('.normal-collection').hide();
+       $('.arion').show();
+     }
+      
+     if(window.location.href.indexOf("vendors?q=Comfort%20Products") > -1) {
+       $('.normal-collection').hide();
+       $('.comfort').show();
+     }
+      
+     if(window.location.href.indexOf("vendors?q=Daw%20Industries") > -1) {
+       $('.normal-collection').hide();
+       $('.daw').show();
+     }
+      
+     if(window.location.href.indexOf("vendors?q=Dr.%20Greenfield") > -1) {
+       $('.normal-collection').hide();
+       $('.greenfield').show();
+     }
+      
+     if(window.location.href.indexOf("vendors?q=Dry%20Corp") > -1) {
+       $('.normal-collection').hide();
+       $('.dry-corp').show();
+     }
+
+     if(window.location.href.indexOf("vendors?q=Engineered%20Silicone%20Products") > -1) {
+       $('.normal-collection').hide();
+       $('.engineered').show();
+     }
+      
+     if(window.location.href.indexOf("vendors?q=Hosmer%20Dorrance") > -1) {
+       $('.normal-collection').hide();
+       $('.hosmer').show();
+     }   
+
+     if(window.location.href.indexOf("vendors?q=iWalk%20Free") > -1) {
+       $('.normal-collection').hide();
+       $('.iwalk').show();
+     }
+
+     if(window.location.href.indexOf("vendors?q=Juzo%20USA") > -1) {
+       $('.normal-collection').hide();
+       $('.juzo').show();
+     }
+      
+     if(window.location.href.indexOf("vendors?q=Knit-Rite") > -1) {
+       $('.normal-collection').hide();
+       $('.knit-rite').show();
+     } 
+      
+     if(window.location.href.indexOf("vendors?q=Medi%20USA") > -1) {
+       $('.normal-collection').hide();
+       $('.medi-usa').show();
+     }
+
+     if(window.location.href.indexOf("vendors?q=New%20Options%20Sports") > -1) {
+       $('.normal-collection').hide();
+       $('.new-options').show();
+     }
+      
+     if(window.location.href.indexOf("vendors?q=Ossur") > -1) {
+       $('.normal-collection').hide();
+       $('.ossur').show();
+     }
+      
+     if(window.location.href.indexOf("vendors?q=Ottobock") > -1) {
+       $('.normal-collection').hide();
+       $('.ottobock').show();
+     }
+
+     if(window.location.href.indexOf("vendors?q=Paceline%20Rx%20Textiles") > -1) {
+       $('.normal-collection').hide();
+       $('.paceline').show();
+     }
+      
+     if(window.location.href.indexOf("vendors?q=Silipos") > -1) {
+       $('.normal-collection').hide();
+       $('.silipos').show();
+     } 
+      
+     if(window.location.href.indexOf("vendors?q=Spenco%20Medical") > -1) {
+       $('.normal-collection').hide();
+       $('.spenco').show();
+     }
+
+     if(window.location.href.indexOf("vendors?q=Syncor") > -1) {
+       $('.normal-collection').hide();
+       $('.syncor').show();
+     }
+      
+     if(window.location.href.indexOf("vendors?q=Tamarack%20Habilitation%20Technologies") > -1) {
+       $('.normal-collection').hide();
+       $('.tamarak').show();
+     }       
+      
+  });
+  
+  $('.content-one, .content-two, .content-three, .content-four, .content-five, .content-six, .content-seven, .content-eight, .content-nine, .content-ten, .content-eleven, .content-twelve, .content-thirteen').hide();
+  
+  $('#trigger-one').click(function() {
+    $('.content-two, .content-three, .content-four, .content-five, .content-six, .content-seven, .content-eight, .content-nine, .content-ten, .content-twelve, .content-eleven, .content-thirteen').slideUp('fast');
+    $('.content-one').slideDown('fast');
+    $('#trigger-one i').removeClass("fa-plus").addClass("fa-minus");
+    $('#trigger-two i, #trigger-three i, #trigger-four i, #trigger-five i, #trigger-six i, #trigger-seven i, #trigger-eight i, #trigger-nine i, #trigger-ten i, #trigger-eleven i, #trigger-twelve i, #trigger-thirteen i').removeClass("fa-minus").addClass("fa-plus");
+        return false;
+  })
+  
+    $('#trigger-two').click(function() {
+    $('.content-one, .content-three, .content-four, .content-five, .content-six, .content-seven, .content-eight, .content-nine, .content-ten, .content-twelve, .content-eleven, .content-thirteen').slideUp('fast');
+    $('.content-two').slideDown('fast');
+    $('#trigger-two i').removeClass("fa-plus").addClass("fa-minus");      
+    $('#trigger-one i, #trigger-three i, #trigger-four i, #trigger-five i, #trigger-six i, #trigger-seven i, #trigger-eight i, #trigger-nine i, #trigger-ten i, #trigger-eleven i, #trigger-twelve i, #trigger-thirteen i').removeClass("fa-minus").addClass("fa-plus");
+      return false;
+    })
+    
+    $('#trigger-three').click(function() {
+    $('.content-two, .content-one, .content-four, .content-five, .content-six, .content-seven, .content-eight, .content-nine, .content-ten, .content-twelve, .content-eleven, .content-thirteen').slideUp('fast');
+    $('.content-three').slideDown('fast');
+    $('#trigger-three i').removeClass("fa-plus").addClass("fa-minus");
+    $('#trigger-two i, #trigger-one i, #trigger-four i, #trigger-five i, #trigger-six i, #trigger-seven i, #trigger-eight i, #trigger-nine i, #trigger-ten i, #trigger-eleven i, #trigger-twelve i, #trigger-thirteen i').removeClass("fa-minus").addClass("fa-plus");
+      return false;
+    })
+
+    $('#trigger-four').click(function() {
+    $('.content-two, .content-three, .content-one, .content-five, .content-six, .content-seven, .content-eight, .content-nine, .content-ten, .content-twelve, .content-eleven, .content-thirteen').slideUp('fast');
+    $('.content-four').slideDown('fast');
+    $('#trigger-four i').removeClass("fa-plus").addClass("fa-minus");
+    $('#trigger-two i, #trigger-three i, #trigger-one i, #trigger-five i, #trigger-six i, #trigger-seven i, #trigger-eight i, #trigger-nine i, #trigger-ten i, #trigger-eleven i, #trigger-twelve i, #trigger-thirteen i').removeClass("fa-minus").addClass("fa-plus");
+     return false;
+    })
+    
+    $('#trigger-five').click(function() {
+    $('.content-two, .content-three, .content-four, .content-one, .content-six, .content-seven, .content-eight, .content-nine, .content-ten, .content-twelve, .content-eleven, .content-thirteen').slideUp('fast');
+    $('.content-five').slideDown('fast');
+    $('#trigger-five i').removeClass("fa-plus").addClass("fa-minus");
+    $('#trigger-two i, #trigger-three i, #trigger-one i, #trigger-three i, #trigger-six i, #trigger-seven i, #trigger-eight i, #trigger-nine i, #trigger-ten i, #trigger-eleven i, #trigger-twelve i, #trigger-thirteen i').removeClass("fa-minus").addClass("fa-plus");
+     return false;
+    })
+    
+    $('#trigger-six').click(function() {
+    $('.content-two, .content-three, .content-four, .content-five, .content-one, .content-seven, .content-eight, .content-nine, .content-ten, .content-twelve, .content-eleven, .content-thirteen').slideUp('fast');
+    $('.content-six').slideDown('fast');
+    $('#trigger-six i').removeClass("fa-plus").addClass("fa-minus");
+    $('#trigger-two i, #trigger-three i, #trigger-one i, #trigger-five i, #trigger-four i, #trigger-seven i, #trigger-eight i, #trigger-nine i, #trigger-ten i, #trigger-eleven i, #trigger-twelve i, #trigger-thirteen i').removeClass("fa-minus").addClass("fa-plus");
+     return false;
+    })
+    
+    $('#trigger-seven').click(function() {
+    $('.content-two, .content-three, .content-four, .content-five, .content-one, .content-six, .content-eight, .content-nine, .content-ten, .content-twelve, .content-eleven, .content-thirteen').slideUp('fast');
+    $('.content-seven').slideDown('fast');
+    $('#trigger-seven i').removeClass("fa-plus").addClass("fa-minus");
+    $('#trigger-two i, #trigger-three i, #trigger-one i, #trigger-five i, #trigger-four i, #trigger-six i, #trigger-eight i, #trigger-nine i, #trigger-ten i, #trigger-eleven i, #trigger-twelve i, #trigger-thirteen i').removeClass("fa-minus").addClass("fa-plus");
+     return false;
+    })   
+    
+    $('#trigger-eight').click(function() {
+    $('.content-two, .content-three, .content-four, .content-five, .content-one, .content-six, .content-seven, .content-nine, .content-ten, .content-twelve, .content-eleven, .content-thirteen').slideUp('fast');
+    $('.content-eight').slideDown('fast');
+    $('#trigger-eight i').removeClass("fa-plus").addClass("fa-minus");
+    $('#trigger-two i, #trigger-three i, #trigger-one i, #trigger-five i, #trigger-four i, #trigger-six i, #trigger-seven i, #trigger-nine i, #trigger-ten i, #trigger-eleven i, #trigger-twelve i, #trigger-thirteen i').removeClass("fa-minus").addClass("fa-plus");
+     return false;
+    })  
+    
+    $('#trigger-nine').click(function() {
+    $('.content-two, .content-three, .content-four, .content-five, .content-one, .content-six, .content-eight, .content-seven, .content-ten, .content-twelve, .content-eleven, .content-thirteen').slideUp('fast');
+    $('.content-nine').slideDown('fast');
+    $('#trigger-nine i').removeClass("fa-plus").addClass("fa-minus");
+    $('#trigger-two i, #trigger-three i, #trigger-one i, #trigger-five i, #trigger-four i, #trigger-six i, #trigger-eight i, #trigger-seven i, #trigger-ten i, #trigger-eleven i, #trigger-twelve i, #trigger-thirteen i').removeClass("fa-minus").addClass("fa-plus");
+     return false;
+    }) 
+    
+    $('#trigger-ten').click(function() {
+    $('.content-two, .content-three, .content-four, .content-five, .content-one, .content-six, .content-eight, .content-nine, .content-seven, .content-twelve, .content-eleven, .content-thirteen').slideUp('fast');
+    $('.content-ten').slideDown('fast');
+    $('#trigger-ten i').removeClass("fa-plus").addClass("fa-minus");
+    $('#trigger-two i, #trigger-three i, #trigger-one i, #trigger-five i, #trigger-four i, #trigger-six i, #trigger-eight i, #trigger-nine i, #trigger-seven i, #trigger-eleven i, #trigger-twelve i, #trigger-thirteen i').removeClass("fa-minus").addClass("fa-plus");
+     return false;
+    }) 
+    
+    $('#trigger-eleven').click(function() {
+    $('.content-two, .content-three, .content-four, .content-five, .content-one, .content-six, .content-eight, .content-nine, .content-ten, .content-seven, .content-twelve, .content-thirteen').slideUp('fast');
+    $('.content-eleven').slideDown('fast');
+    $('#trigger-eleven i').removeClass("fa-plus").addClass("fa-minus");
+    $('#trigger-two i, #trigger-three i, #trigger-one i, #trigger-five i, #trigger-four i, #trigger-six i, #trigger-eight i, #trigger-nine i, #trigger-ten i, #trigger-seven i, #trigger-twelve i, #trigger-thirteen i').removeClass("fa-minus").addClass("fa-plus");
+     return false;
+    }) 
+    
+    $('#trigger-twelve').click(function() {
+    $('.content-two, .content-three, .content-four, .content-five, .content-one, .content-six, .content-eight, .content-nine, .content-ten, .content-seven, .content-eleven, .content-thirteen').slideUp('fast');
+    $('.content-twelve').slideDown('fast');
+    $('#trigger-twelve i').removeClass("fa-plus").addClass("fa-minus");
+    $('#trigger-two i, #trigger-three i, #trigger-one i, #trigger-five i, #trigger-four i, #trigger-six i, #trigger-eight i, #trigger-nine i, #trigger-ten i, #trigger-eleven i, #trigger-seven i, #trigger-thirteen i').removeClass("fa-minus").addClass("fa-plus");
+     return false;
+    })  
+    
+    $('#trigger-thirteen').click(function() {
+    $('.content-two, .content-three, .content-four, .content-five, .content-one, .content-six, .content-eight, .content-nine, .content-ten, .content-twelve, .content-eleven, .content-seven').slideUp('fast');
+    $('.content-thirteen').slideDown('fast');
+    $('#trigger-thirteen i').removeClass("fa-plus").addClass("fa-minus");
+    $('#trigger-two i, #trigger-three i, #trigger-one i, #trigger-five i, #trigger-four i, #trigger-six i, #trigger-eight i, #trigger-nine i, #trigger-ten i, #trigger-eleven i, #trigger-twelve i, #trigger-seven i').removeClass("fa-minus").addClass("fa-plus");
+     return false;
+    })  
+    
+    if ($('#size-chart').is(':empty')){
+	$('#size-trigger').hide();
+    }
+  
+});

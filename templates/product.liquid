@@ -1,0 +1,322 @@
+{% include 'bold-product' with product, hide_action: 'break' %}{% if bold_hidden_product %}{% break %}{%endif %}
+<!-- /templates/product.liquid -->
+
+<div itemscope itemtype="http://schema.org/Product">
+
+  <meta itemprop="url" content="{{ shop.url }}{{ product.url }}">
+  <meta itemprop="image" content="{{ product.featured_image.src | img_url: 'grande' }}">
+
+  {% assign current_variant = bold_selected_or_first_available_variant %}
+  {% assign my_description = product.description | split: '<!-- split -->'  %}
+
+  {% include 'breadcrumb' %}
+  
+
+  <div class="grid--full product-single">
+    <div class="grid__item large--one-half text-center">
+      {% comment %}<div class="product-single__photos" id="ProductPhoto">
+        {% assign featured_image = product.featured_image %}
+        <img src="{{ featured_image | img_url: 'original' }}" alt="{{ featured_image.alt | escape }}" id="ProductPhotoImg" data-imagezoom="true">
+      </div>
+
+     {% if product.images.size > 1 %}
+      <ul class="product-single__thumbnails grid-uniform" id="ProductThumbs">
+
+        {% for image in product.images %}
+        <li class="grid__item one-quarter">
+          <a href="{{ image.src | img_url: 'large' }}" class="product-single__thumbnail">
+            <img src="{{ image.src | img_url: 'compact' }}" alt="{{ image.alt | escape }}">
+          </a>
+        </li>
+        {% endfor %}
+
+      </ul>
+      {% endif %}
+      {% endcomment %}
+
+      <!-- begin flexslider product -->
+      {% include 'product-images' %}
+      <!-- end flexslider product -->
+    </div>
+
+
+    <div class="grid__item large--one-half">
+
+      <h1 itemprop="name">{{ product.title }}</h1>
+
+      <div class="grid--full">
+        <div class="grid__item large--one-third">
+         <p class="vendor-title">by {{ product.vendor | replace: "-", " " | link_to_vendor }}</p>
+       </div>
+       <div class="grid__item large--one-third">
+        <div class="yotpo bottomLine"
+        data-appkey="NuT1UIlxTbSur2znb49km0JEX7gsE8Xqwiqw1r1b"
+        data-domain="{{ shop.permanent_domain | escape }}"
+        data-product-id="{{ product.id }}"
+        data-product-models="{{ product.id }}"
+        data-name="{{ product.title | escape }}"
+        data-url="{{ shop.url }}{{ product.url }}"
+        data-image-url="{{ product.featured_image | product_img_url: 'large' |replace: '?', '%3F' | replace: '&','%26'}}"
+        data-description="{{ product.description | escape }}"
+        data-bread-crumbs="{% for tag in product.tags %}{{ tag | escape }};{% endfor %}">
+      </div>
+    </div>
+    <div class="grid__item large--one-third">
+      <div class='yotpo QABottomLine'
+      data-appkey='NuT1UIlxTbSur2znb49km0JEX7gsE8Xqwiqw1r1b'
+      data-product-id='{{ product.id }}'></div>
+    </div>
+  </div>
+
+  <div itemprop="offers" itemscope itemtype="http://schema.org/Offer">
+    <meta itemprop="priceCurrency" content="{{ shop.currency }}">
+
+    <link itemprop="availability" href="http://schema.org/{% if product.available %}InStock{% else %}OutOfStock{% endif %}">
+
+    <form action="/cart/add" method="post" enctype="multipart/form-data" id="AddToCartForm" class="form-vertical shapp_qb_prod">
+
+      <span id="ProductPrice" class="h2" itemprop="price">
+        {{ current_variant.price | money }}
+      </span>
+      {% if bold_compare_at_price_max > bold_price %}
+      <p id="ComparePrice">
+        {{ current_variant.compare_at_price | money }}
+      </p>
+      {% endif %}
+
+      {% if product.tags contains 'Free Ship Near Price' %}
+      <div class="instock-freeship-alert">
+        <p class="green">{{settings.free-text}}</p>
+      </div>
+      {% endif %}
+
+      {% if product.available %}
+      <p class="text-left in-stock">{{settings.in-stock-text}}</p>
+      {% endif %}
+
+      <br class="clear">
+
+
+      <div class="line-separator"></div> 
+      <br class="clear">
+
+      {% if product.tags contains 'Size Chart' %}
+      <div id="size-trigger" style="max-width:200px !important;width:200px !important;">
+        <a href="#!"><img src="{{ 'ruler.png' | asset_url }}"> Size Chart <i class="fa fa-plus"></i></a>
+      </div>
+      {% endif %}
+
+      <img src="{{ 'close.png' | asset_url }}" id="size-close" style="display: none;">
+
+      <div id="size-chart" style="display: none;">
+        {{ my_description[1] }}
+      </div>
+      <select name="id" id="productSelect" class="product-single__variants">
+        {% for variant in product.variants %}
+        {% include 'bold-hidden-variants' with variant, bold_loop: 'loop' %}
+
+        {% if variant.available %}
+        <option value="{{ variant.id }}" data-price="{{ variant.price | money_without_currency | remove: ',' }}">{{ variant.title }} - {{ variant.price | money }}</option>
+        {% else %}
+        <option disabled="disabled">
+          {{ variant.title }} - {{ 'products.product.sold_out' | t }}
+        </option>
+        {% endif %}
+        {% endfor %}
+      </select>
+
+
+
+      {% if product.available and product.variants.size > 1 %}
+      {% for option in product.options %}
+      {% if forloop.first == true %} {% else %}{% include 'swatch' with option %}{% endif %}
+      
+      {% endfor %}
+      {% endif %}
+
+
+
+
+
+
+      {% comment %}{% if product.tags contains 'Select Option' %}
+      <div class="options-alert">
+        <p>(Please select all available options)</p>
+      </div>
+      {% endif %}{% endcomment %}
+
+
+      {% comment %}<div class="line-separator"></div>{% endcomment %}
+
+      <input name="shopify_customer_id" type="hidden" value="{{ customer.id }}" > 
+      <input name="email" type="hidden" value="{{ customer.email }}" > 
+      <input name="address1" type="hidden" value="{{ customer.default_address.address1 }}" > 
+      <input name="address2" type="hidden" value="{{ customer.default_address.address2 }}" > 
+      <input name="city" type="hidden" value="{{ customer.default_address.city }}" > 
+      <input name="company" type="hidden" value="{{ customer.default_address.company }}" > 
+      <input name="country" type="hidden" value="{{ customer.default_address.country }}" > 
+      <input name="first_name" type="hidden" value="{{ customer.default_address.first_name }}" > 
+      <input name="last_name" type="hidden" value="{{ customer.default_address.last_name }}" > 
+      <input name="phone" type="hidden" value="{{ customer.default_address.phone }}" > 
+      <input name="province" type="hidden" value="{{ customer.default_address.province }}" > 
+      <input name="zip" type="hidden" value="{{ customer.default_address.zip }}" >
+      {% include 'bold-ro' with product %}
+
+      <br class="clear">
+
+
+      {% comment %}<div class="quantity-field">
+       <button type="button" class="ajaxcart__qty-adjust ajaxcart__qty--minus" data-id="{{id}}" data-qty="{{itemMinus}}">&minus;</button>
+       <input type="text" class="ajaxcart__qty-num" id="Quantity" name="quantity" min="1" value="{{itemQty}}" placeholder="1" data-id="{{id}}" aria-label="quantity" pattern="[0-9]*">
+       <button type="button" class="ajaxcart__qty-adjust ajaxcart__qty--plus" data-id="{{id}}" data-qty="{{itemAdd}}">+</button>
+     </div>{% endcomment %} 
+
+
+     <div class="add-to-cart">
+      <div class="quantity">
+      {% assign quantityOptions = '1,2,3,4,5,6,7,8,9,10' | split:',' %}
+      <label for="quantity" >QTY: </label>
+      <select id="quantity" name="quantity">
+        {% for q in quantityOptions %}
+        <option value="{{ q }}">{{ q }}</option>
+        {% endfor %}
+      </select>
+      </div>
+
+      <button type="submit" name="add" id="AddToCart" class="btn addtocart">
+        <!-- bold-ro-liquid --> <div class="bold_add_to_orders" style="display: inline-block;"> </div> <!-- bold-ro-liquid -->
+        {{ 'products.product.add_to_cart' | t }}
+      </button>
+    </div>
+
+
+    {% if product.tags contains 'Shipping Alert' %}
+    <div class="shipping-alert">
+      <p>*This product will delay your order by approximately 4-7 days.</p>
+    </div>
+    {% endif %}
+
+    {% if product.tags contains 'free-shipping' %}
+    <div class="free-shipping">
+      <img src="{{ 'truck.png' | asset_url }}"><p>Free Shipping on This Item</p>
+    </div>
+    {% endif %}
+
+  </form>
+
+
+  {% unless qb_loaded == 'true' %}
+  <div class="shappify-qty-msg">{{bold_selected_or_first_available_variant.metafields.shappify_qb.pricing_html}}</div>
+  {% assign qb_loaded = 'true' %}
+  {% endunless %}
+  <br>
+</div>
+
+<div class="product-description rte" itemprop="description">
+ {{ my_description[0] }}
+</div>
+</div>
+</div>
+
+
+{% comment %}{% if product.metafields.yotpo.reviews_count and product.metafields.yotpo.reviews_count != "0" %}
+<div itemprop="aggregateRating" itemscope itemtype="http://schema.org/AggregateRating">
+ <span itemprop="itemReviewed">{{ product.title }}</span>
+ has a rating of <span itemprop="ratingValue">{{ product.metafields.yotpo.reviews_average }}</span> stars
+ based on <span itemprop="ratingCount">{{ product.metafields.yotpo.reviews_count }}</span> reviews.
+</div>
+{% endif %}{% endcomment %}
+</div>
+</main>
+
+<div class="sub-description">
+  <div class="wrapper0">
+   {{ my_description[2] }}
+ </div>
+</div>
+
+<main class="wrapper main-content" role="main">
+
+  <div class="yotpo yotpo-main-widget"
+  data-product-id="{{ product.id }}"
+  data-name="{{ product.title | escape }}"
+  data-url="{{ shop.url }}{{ product.url }}"
+  data-image-url="{{ product.featured_image | product_img_url: "large" |replace: '?', '%3F' | replace: '&','%26'}}"
+  data-description="{{ product.description | escape }}">
+</div>
+
+
+
+
+
+
+{% comment %}
+  To take advantage of a callback on the select dropdown, add option_selection.js
+  and customize the JS in timber.productPage as needed.
+
+  Currently, timber.productPage does the following:
+    - Hides your <select> tag from above
+    - Breaks out the product variants into separate product options, if more than one exists
+    - Generates a <select> tag for each product option
+    - Enables/disables elements based on variant availability
+
+  Callback notes:
+    - Keep the callback available to the global scope (window.selectCallback) so that advanced
+      addons can override it.
+      * E.g. multiple currencies http://docs.shopify.com/manual/configuration/store-customization/currencies-and-translations/currencies/how-to-toggle-between-two-currencies
+      {% endcomment %}
+      {{ 'option_selection.js' | shopify_asset_url | script_tag }}
+      <script>
+        var selectCallback = function(variant, selector) {
+          // BEGIN SWATCHES
+          if (variant) {
+            var form = jQuery('#' + selector.domIdPrefix).closest('form');
+            for (var i=0,length=variant.options.length; i<length; i++) {
+              var radioButton = form.find('.swatch[data-option-index="' + i + '"] :radio[value="' + variant.options[i] +'"]');
+              if (radioButton.size()) {
+                radioButton.get(0).checked = true;
+              }
+            }
+          }
+// END SWATCHES
+
+timber.productPage({
+  money_format: "{{ shop.money_format }}",
+  variant: variant,
+  selector: selector
+});
+
+};
+
+jQuery(function($) {
+  new Shopify.OptionSelectors('productSelect', {
+    product: 	bold_product_json[{{ product.id }}],
+    onVariantSelected: selectCallback,
+    enableHistoryState: true
+  });
+
+  {% if bold_variants_size > 1 %}
+  {% for option in product.options %}
+  $('.single-option-selector:eq({{ forloop.index0 }})')
+  .filter(function() { return $(this).find('option').size() > 1  })
+  .prepend('<option value="" selected="selected" autocomplete="off">Select ' + {{ product.options[forloop.index0] | json }} + '</option>')
+  .val('')
+  .trigger('change');
+  {% endfor %}
+  {% endif %}
+
+    // Hide selectors if we only have 1 variant and its title contains 'Default'.
+    {% if bold_variants_size == 1 and product.variants.first.title contains 'Default' or product.variants.first.title contains '1+' %}
+    $('.selector-wrapper').hide();
+    {% endif %}
+  });
+
+</script>
+
+{% include 'related-products' %}
+
+<style>
+.hover_modal {
+ pointer-events: none !Important; 
+}
+</style>

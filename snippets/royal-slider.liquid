@@ -1,0 +1,97 @@
+
+
+    <div id="slider1" class="royalSlider rsDefault img-responsive">
+      {% for image in product.images %}
+
+      <a class="rsImg" data-rsdelay="1000" data-rsbigimg="{{ image.src | product_img_url: 'large' }}" href="{{ image.src | product_img_url: 'large' }}" {% if image.alt contains "youtube" or image.alt contains "youtu.be" or image.alt contains "vimeo" %} data-rsVideo="{{ image.alt }}"{% endif %}>
+        <img  width="96" height="96" class="rsTmb" src="{{ image.src | product_img_url: 'small' }}" alt="{{ image.alt }}">
+      </a>
+
+      {% endfor %}
+
+    </div>
+    
+
+
+
+
+
+ <!-- begin royal slider + magnific poput -->
+ {{ 'royalslider.css' | asset_url | stylesheet_tag }}
+ {{ 'rs-minimal-white.css' | asset_url | stylesheet_tag }}
+ {{ 'rs-default.css' | asset_url | stylesheet_tag }}
+ {{ 'magnific-popup.css' | asset_url | stylesheet_tag }}
+
+
+ {{ 'jquery-1.8.3.min.js' | asset_url | script_tag }} 
+ {{ 'jquery.royalslider.min.js' | asset_url | script_tag }}
+ {{ 'jquery.magnific-popup.min.js' | asset_url | script_tag }}
+ <!-- end royal slider + magnific poput -->
+
+ <!-- begin royal slider + magnific poput -->
+ <script>jQuery(document).ready(function($) {
+  $('#slider1').royalSlider({
+    autoHeight: true,
+    arrowsNav: true,
+    arrowsNavAutoHide: false,
+    fadeinLoadedSlide: true,
+    controlNavigation: 'thumbnails',
+    globalCaption: true,
+    imageScaleMode: 'none',
+    imageAlignCenter: false,
+    loop: false,
+    loopRewind: false,
+    numImagesToPreload: 1,
+    slidesOrientation: 'horizontal',
+    keyboardNavEnabled: true,
+    navigateByClick: false,
+    thumbs: {
+      appendSpan: true,
+      firstMargin: true,
+      arrowsAutoHide:  true,
+      orientation: 'vertical'
+    },
+    video: {
+      youTubeCode: '<iframe src="https://www.youtube.com/embed/%id%?rel=1&autoplay=1&showinfo=0" frameborder="no"></iframe>'
+    }
+  });
+  
+  
+// magnific poput
+var items = [];
+
+var slider = $("#slider1").data("royalSlider"); 
+$.each(slider.slides, function(index, value) { 
+ items.push({
+  src:value.image
+});
+}) 
+
+slider.ev.on("rsSlideClick", function(n) { 
+  $.magnificPopup.open({ 
+    items: items, 
+    type: 'image',
+//         closeMarkup: '<button class="img-close mfp-close"><i class="fa fa-fw fa-times"></i></button>',
+gallery: { 
+  enabled: true,
+  navigateByImgClick: true,
+           tPrev: 'Previous (Left arrow key)', // title for left button
+         tNext: 'Next (Right arrow key)', // title for right button
+        tCounter: '<span class="mfp-counter">%curr% of %total%</span>' // markup of counter
+      }, 
+    }, slider.currSlideId ); 
+});
+
+
+
+$('.img-close').click(function(){
+  $('#slider1').magnificPopup('close');
+});
+
+// end magnific poput
+
+
+
+});
+  </script>
+  <!-- end royal slider + magnific poput -->

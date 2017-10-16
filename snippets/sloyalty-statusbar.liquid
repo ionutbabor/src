@@ -1,0 +1,69 @@
+
+
+
+{% if customer %} {% assign digest = customer.id | append:customer.email | append:'60a1282e-4029-4cde-9cc5-8832cffeba50' | md5 %} {% endif %}
+
+<script type="text/javascript">
+window.sloyalty = window.sloyalty || {};
+window.sloyalty.shop = 'amputeestore.com';
+
+window.sloyalty.customer_id = '{% if customer %}{{ customer.id }}{% endif %}';
+window.sloyalty.digest = '{% if customer %}{{ digest }}{% endif %}';
+
+</script>
+
+
+
+
+  
+
+
+{% if customer %}
+{% assign digest = customer.id | append:customer.email | append:'60a1282e-4029-4cde-9cc5-8832cffeba50' | md5 %}
+
+<div class="sloyalty-loyalty-widget"
+     data-digest="{{ digest }}"
+     data-shop="amputeestore.com"
+     data-customer="{{ customer.id }}"></div>
+{% else %}
+<div class="sloyalty-loyalty-widget"
+     data-shop="amputeestore.com"></div>
+{% endif %}
+
+
+
+
+
+
+<div class="sloyalty-referral-widget"
+     data-shop="amputeestore.com"
+     data-customer="{% if customer %}{{ customer.id }}{% endif %}"></div>
+
+
+
+
+
+
+{% if customer %}
+{% assign digest = customer.id | append:customer.email | append:'60a1282e-4029-4cde-9cc5-8832cffeba50' | md5 %}
+
+<div class="sloyalty-standalone-share-widget"
+     data-shop="amputeestore.com"
+     data-customer="{{ customer.id }}"
+     data-digest="{{ digest }}"></div>
+{% else %}
+<div class="sloyalty-standalone-share-widget"
+     data-shop="amputeestore.com"
+     data-customer=""></div>
+{% endif %}
+
+
+
+
+
+
+<div class="sloyalty-fans-widget"
+     data-shop="amputeestore.com"
+     data-customer="{% if customer %}{{ customer.id }}{% endif %}"></div>
+
+

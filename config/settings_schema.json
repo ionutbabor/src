@@ -1,0 +1,670 @@
+[
+  {
+    "name": "Colors",
+    "settings": [
+      {
+        "type": "color",
+        "id": "link_color",
+        "label": "Link Color",
+        "default": "#7BCEC6"
+      },
+      {
+        "type": "color",
+        "id": "text_link_color",
+        "label": "Content Link Color",
+        "default": "#57a5cb"
+      },
+      {
+        "type": "color",
+        "id": "top_page_color",
+        "label": "Top of Page link background",
+        "default": "#01bcd3"
+      },
+      {
+        "type": "color",
+        "id": "product_free",
+        "label": "Product Free Shipping Text",
+        "default": "#46832f"
+      },
+      {
+        "type": "color",
+        "id": "cart_money",
+        "label": "Cart Money Color",
+        "default": "#b64343"
+      }
+    ]
+  },
+  {
+    "name": "Amputee Store Theme",
+    "settings": [
+      {
+        "type": "header",
+        "content": "Timber Framework"
+      },
+      {
+        "type": "paragraph",
+        "content": "v2.1.0"
+      },
+      {
+        "type": "paragraph",
+        "content": "Theme settings allow designers to provide an easy way for any user to customize the look and feel of their shop without having to delve into HTML or CSS code. Please see our [help page on theme settings](http:\/\/docs.shopify.com\/themes\/theme-templates\/settings) to learn more about how you can make the theme customizable."
+      },
+      {
+        "type": "paragraph",
+        "content": "Review [Timber's documentation](http:\/\/shopify.github.io\/Timber\/) for any development help."
+      }
+    ]
+  },
+  {
+    "name": "Header",
+    "settings": [
+      {
+        "type": "header",
+        "content": "Logo"
+      },
+      {
+        "type": "checkbox",
+        "id": "logo_use_image",
+        "label": "Use Custom Logo"
+      },
+      {
+        "type": "image",
+        "id": "logo.png",
+        "label": "Custom Logo",
+        "max-width": 450,
+        "max-height": 200,
+        "info": "Maximum logo dimensions are 450px wide by 200px high. The uploaded file will be resized to fit within those constraints."
+      },
+      {
+        "type": "text",
+        "id": "logo_max_width",
+        "label": "Max Logo Width",
+        "default": "450",
+        "info": "Defines the CSS max-width."
+      },
+      {
+        "type": "header",
+        "content": "Favicon"
+      },
+      {
+        "type": "checkbox",
+        "id": "favicon_enable",
+        "label": "Use custom icon?"
+      },
+      {
+        "type": "image",
+        "id": "favicon.png",
+        "label": "16px x 16px png",
+        "max-width": 16,
+        "max-height": 16
+      },
+      {
+        "type": "checkbox",
+        "id": "enable_promo-bar",
+        "label": "Promo Bar Enabled?"
+      },
+      {
+        "type": "text",
+        "id": "promo-bar-text",
+        "label": "Promo Bar Text"
+      },
+      {
+        "type": "text",
+        "id": "promo-bar-link",
+        "label": "Promo Bar Link Target"
+      },
+      {
+        "type": "color",
+        "id": "promo-bar-text-color",
+        "label": "Promo Bar Text Color",
+        "default": "#ffffff"
+      },
+      {
+        "type": "color",
+        "id": "promo-bar-color",
+        "label": "Promo Bar Background Color",
+        "default": "#e49a3b"
+      },
+      {
+        "type": "header",
+        "content": "Text"
+      },
+      {
+        "type": "text",
+        "id": "content-header",
+        "label": "24\/7 HELP",
+        "default": "24\/7 HELP"
+      }
+    ]
+  },
+  {
+    "name": "Homepage Slideshow",
+    "settings": [
+      {
+        "type": "checkbox",
+        "id": "enable_image1",
+        "label": "Image #1 Enabled?"
+      },
+      {
+        "type": "image",
+        "id": "newimage1.jpg",
+        "label": "Image #1 (Desktop)"
+      },
+      {
+        "type": "image",
+        "id": "newimage1m.jpg",
+        "label": "Image #1 (Mobile)"
+      },
+      {
+        "type": "text",
+        "id": "link_image1",
+        "label": "Image #1 Link"
+      },
+      {
+        "type": "text",
+        "id": "caption_image1",
+        "label": "Image #1 Caption Text"
+      },
+      {
+        "type": "radio",
+        "id": "position_image1",
+        "label": "Image #1 Caption Position",
+        "options": [
+          {
+            "value": "image1_left",
+            "label": "Left"
+          },
+          {
+            "value": "image1_center",
+            "label": "Center"
+          },
+          {
+            "value": "image1_right",
+            "label": "Right"
+          }
+        ],
+        "default": "image1_left"
+      },
+      {
+        "type": "checkbox",
+        "id": "button_image1",
+        "label": "Image #1 Button Enabled?"
+      },
+      {
+        "type": "text",
+        "id": "buttontext_image1",
+        "label": "Image #1 Button Text"
+      },
+      {
+        "type": "checkbox",
+        "id": "enable_image2",
+        "label": "Image #2 Enabled?"
+      },
+      {
+        "type": "image",
+        "id": "newimage2.jpg",
+        "label": "Image #2 (Desktop)"
+      },
+      {
+        "type": "image",
+        "id": "newimage2m.jpg",
+        "label": "Image #2 (Mobile)"
+      },
+      {
+        "type": "text",
+        "id": "link_image2",
+        "label": "Image #2 Link"
+      },
+      {
+        "type": "text",
+        "id": "caption_image2",
+        "label": "Image #2 Caption Text"
+      },
+      {
+        "type": "radio",
+        "id": "position_image2",
+        "label": "Image #2 Caption Position",
+        "options": [
+          {
+            "value": "image2_left",
+            "label": "Left"
+          },
+          {
+            "value": "image2_center",
+            "label": "Center"
+          },
+          {
+            "value": "image2_right",
+            "label": "Right"
+          }
+        ],
+        "default": "image2_left"
+      },
+      {
+        "type": "checkbox",
+        "id": "button_image2",
+        "label": "Image #2 Button Enabled?"
+      },
+      {
+        "type": "text",
+        "id": "buttontext_image2",
+        "label": "Image #2 Button Text"
+      },
+      {
+        "type": "checkbox",
+        "id": "enable_image3",
+        "label": "Image #3 Enabled?"
+      },
+      {
+        "type": "image",
+        "id": "newimage3.jpg",
+        "label": "Image #3 (Desktop)"
+      },
+      {
+        "type": "image",
+        "id": "newimage3m.jpg",
+        "label": "Image #3 (Mobile)"
+      },
+      {
+        "type": "text",
+        "id": "link_image3",
+        "label": "Image #3 Link"
+      },
+      {
+        "type": "text",
+        "id": "caption_image3",
+        "label": "Image #3 Caption Text"
+      },
+      {
+        "type": "radio",
+        "id": "position_image3",
+        "label": "Image #3 Caption Position",
+        "options": [
+          {
+            "value": "image3_left",
+            "label": "Left"
+          },
+          {
+            "value": "image3_center",
+            "label": "Center"
+          },
+          {
+            "value": "image3_right",
+            "label": "Right"
+          }
+        ],
+        "default": "image3_left"
+      },
+      {
+        "type": "checkbox",
+        "id": "button_image3",
+        "label": "Image #3 Button Enabled?"
+      },
+      {
+        "type": "text",
+        "id": "buttontext_image3",
+        "label": "Image #3 Button Text"
+      },
+      {
+        "type": "checkbox",
+        "id": "enable_image4",
+        "label": "Image #4 Enabled?"
+      },
+      {
+        "type": "image",
+        "id": "newimage4.jpg",
+        "label": "Image #4 (Desktop)"
+      },
+      {
+        "type": "image",
+        "id": "newimage4m.jpg",
+        "label": "Image #4 (Mobile)"
+      },
+      {
+        "type": "text",
+        "id": "link_image4",
+        "label": "Image #4 Link"
+      },
+      {
+        "type": "text",
+        "id": "caption_image4",
+        "label": "Image #4 Caption Text"
+      },
+      {
+        "type": "radio",
+        "id": "position_image4",
+        "label": "Image #4 Caption Position",
+        "options": [
+          {
+            "value": "image4_left",
+            "label": "Left"
+          },
+          {
+            "value": "image4_center",
+            "label": "Center"
+          },
+          {
+            "value": "image4_right",
+            "label": "Right"
+          }
+        ],
+        "default": "image4_left"
+      },
+      {
+        "type": "checkbox",
+        "id": "button_image4",
+        "label": "Image #4 Button Enabled?"
+      },
+      {
+        "type": "text",
+        "id": "buttontext_image4",
+        "label": "Image #4 Button Text"
+      },
+      {
+        "type": "checkbox",
+        "id": "enable_image5",
+        "label": "Image #5 Enabled?"
+      },
+      {
+        "type": "image",
+        "id": "image5.jpg",
+        "label": "Image #5 (Desktop)"
+      },
+      {
+        "type": "image",
+        "id": "image5m.jpg",
+        "label": "Image #5 (Mobile)"
+      },
+      {
+        "type": "text",
+        "id": "link_image5",
+        "label": "Image #5 Link"
+      },
+      {
+        "type": "text",
+        "id": "caption_image5",
+        "label": "Image #5 Caption Text"
+      },
+      {
+        "type": "radio",
+        "id": "position_image5",
+        "options": [
+          {
+            "value": "image5_left",
+            "label": "Left"
+          },
+          {
+            "value": "image5_center",
+            "label": "Center"
+          },
+          {
+            "value": "image5_right",
+            "label": "Right"
+          }
+        ],
+        "default": "image5_left"
+      },
+      {
+        "type": "checkbox",
+        "id": "button_image5",
+        "label": "Image #5 Button Enabled?"
+      },
+      {
+        "type": "text",
+        "id": "buttontext_image5",
+        "label": "Image #5 Button Text"
+      }
+    ]
+  },
+  {
+    "name": "Homepage Featured Images",
+    "settings": [
+      {
+        "type": "image",
+        "id": "feat1.png",
+        "label": "Featured Image #1"
+      },
+      {
+        "type": "text",
+        "id": "link_feat1",
+        "label": "Featured Image #1 Link"
+      },
+      {
+        "type": "text",
+        "id": "captiontitle_feat1",
+        "label": "Featured Image #1 Caption Title"
+      },
+      {
+        "type": "text",
+        "id": "caption_feat1",
+        "label": "Featured Image #1 Caption"
+      },
+      {
+        "type": "text",
+        "id": "button_feat1",
+        "label": "Featured Image #1 Button Text"
+      },
+      {
+        "type": "radio",
+        "id": "position_feat1",
+        "label": "Featured Image #1 Text Alignment",
+        "options": [
+          {
+            "value": "feat1_left",
+            "label": "Left"
+          },
+          {
+            "value": "feat1_center",
+            "label": "Center"
+          },
+          {
+            "value": "feat1_right",
+            "label": "Right"
+          }
+        ],
+        "default": "feat1_left"
+      },
+      {
+        "type": "image",
+        "id": "feat2.png",
+        "label": "Featured Image #2"
+      },
+      {
+        "type": "text",
+        "id": "link_feat2",
+        "label": "Featured Image #2 Link"
+      },
+      {
+        "type": "text",
+        "id": "captiontitle_feat2",
+        "label": "Featured Image #2 Caption Title"
+      },
+      {
+        "type": "text",
+        "id": "caption_feat2",
+        "label": "Featured Image #2 Caption"
+      },
+      {
+        "type": "text",
+        "id": "button_feat2",
+        "label": "Featured Image #2 Button Text"
+      },
+      {
+        "type": "radio",
+        "id": "position_feat2",
+        "label": "Featured Image #2 Text Alignment",
+        "options": [
+          {
+            "value": "feat2_left",
+            "label": "Left"
+          },
+          {
+            "value": "feat2_center",
+            "label": "Center"
+          },
+          {
+            "value": "feat2_right",
+            "label": "Right"
+          }
+        ],
+        "default": "feat2_left"
+      },
+      {
+        "type": "image",
+        "id": "feat3.png",
+        "label": "Featured Image #3"
+      },
+      {
+        "type": "text",
+        "id": "link_feat3",
+        "label": "Featured Image #3 Link"
+      },
+      {
+        "type": "text",
+        "id": "captiontitle_feat3",
+        "label": "Featured Image #3 Caption Title"
+      },
+      {
+        "type": "text",
+        "id": "caption_feat3",
+        "label": "Featured Image #3 Caption"
+      },
+      {
+        "type": "text",
+        "id": "button_feat3",
+        "label": "Featured Image #3 Button Text"
+      },
+      {
+        "type": "radio",
+        "id": "position_feat3",
+        "label": "Featured Image #3 Text Alignment",
+        "options": [
+          {
+            "value": "feat3_left",
+            "label": "Left"
+          },
+          {
+            "value": "feat3_center",
+            "label": "Center"
+          },
+          {
+            "value": "feat3_right",
+            "label": "Right"
+          }
+        ],
+        "default": "feat3_left"
+      }
+    ]
+  },
+  {
+    "name": "Footer",
+    "settings": [
+      {
+        "type": "checkbox",
+        "id": "footer_social_enable",
+        "label": "Show social media links"
+      },
+      {
+        "type": "text",
+        "id": "social_twitter_link",
+        "label": "Twitter link"
+      },
+      {
+        "type": "text",
+        "id": "social_facebook_link",
+        "label": "Facebook link"
+      },
+      {
+        "type": "checkbox",
+        "id": "footer_newsletter_enable",
+        "label": "Show Newsletter Field"
+      },
+      {
+        "type": "text",
+        "id": "newsletter_form_action",
+        "label": "MailChimp Form Action URL",
+        "info": "[Where do I find my MailChimp form action URL?](http:\/\/docs.shopify.com\/support\/configuration\/store-customization\/where-do-i-get-my-mailchimp-form-action)"
+      }
+    ]
+  },
+  {
+    "name": "Cart Page",
+    "settings": [
+      {
+        "type": "checkbox",
+        "id": "cart_notes_enable",
+        "label": "Allow notes with orders"
+      },
+      {
+        "type": "checkbox",
+        "id": "cart_vendor_enable",
+        "label": "Show product vendor"
+      },
+      {
+        "type": "checkbox",
+        "id": "ajax_cart_enable",
+        "label": "Enable Ajax Cart Drawer",
+        "info": "[View Documentation](http:\/\/shopify.com\/timber#ajax-cart)"
+      }
+    ]
+  },
+  {
+    "name": "Social Sharing",
+    "settings": [
+      {
+        "type": "text",
+        "id": "twittercard_handle",
+        "label": "Twitter Handle",
+        "default": "@"
+      }
+    ]
+  },
+  {
+    "name": "Login Page",
+    "settings": [
+      {
+        "type": "textarea",
+        "id": "login-text",
+        "label": "Login paragraph"
+      }
+    ]
+  },
+  {
+    "name": "Product Page",
+    "settings": [
+      {
+        "type": "select",
+        "id": "product_slideshow_animation",
+        "label": "Product Image Gallery",
+        "options": [
+          {
+            "value": "none",
+            "label": "None"
+          },
+          {
+            "value": "slide",
+            "label": "Slide"
+          },
+          {
+            "value": "fade",
+            "label": "Fade"
+          },
+          {
+            "value": "zoom",
+            "label": "Hover to Zoom"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "id": "free-text",
+        "label": "Free Shipping text"
+      },
+      {
+        "type": "text",
+        "id": "in-stock-text",
+        "label": "In stock text"
+      }
+    ]
+  }
+]

@@ -1,0 +1,108 @@
+ <!-- begin amputation-level -->
+<div class="grid--full">
+  <h2>{{section.settings.title}}</h2>
+
+  <div class="grid__item grid-item1 large--one-quarter medium--one-half">
+     <a href="#" class="collection-link">
+    <div class="grid__item large--one-half medium--one-half small--one-half">
+    <div class="caption">{{section.settings.title-1}}</div>
+  </div>
+  <div class="grid__item grid-item0  large--one-half medium--one-half small--one-half">
+    <img class="img-responsive" src="{{ section.settings.img-1 | img_url: 'original' }}" alt="product-image" />
+  </div>
+ </a>
+</div>
+
+<div class="grid__item grid-item2 large--one-quarter medium--one-half">
+ <a href="#" class="collection-link">
+  <div class="grid__item grid-item0 large--one-half medium--one-half small--one-half">
+    <div class="caption">{{section.settings.title-2}}</div>
+  </div>
+  <div class="grid__item grid-item0  large--one-half medium--one-half small--one-half">
+    <img class="img-responsive" src="{{ section.settings.img-2 | img_url: 'original' }}" alt="product-image" />
+  </div>
+  </a>
+</div>
+<div class="grid__item grid-item2 large--one-quarter medium--one-half">
+  <a href="#" class="collection-link">
+  <div class="grid__item grid-item0 large--one-half medium--one-half small--one-half">
+    <div class="caption">{{section.settings.title-3}}</div>
+  </div>
+  <div class="grid__item grid-item0  large--one-half medium--one-half small--one-half">
+    <img class="img-responsive" src="{{ section.settings.img-3 | img_url: 'original' }}" alt="product-image" />
+  </div>
+  </a>
+</div>
+<div class="grid__item grid-item2 large--one-quarter medium--one-half">
+  <a href="#" class="collection-link">
+  <div class="grid__item grid-item0 large--one-half medium--one-half small--one-half">
+    <div class="caption">{{section.settings.title-4}}</div>
+  </div>
+  <div class="grid__item grid-item0  large--one-half medium--one-half small--one-half">
+    <img class="img-responsive" src="{{ section.settings.img-4 | img_url: 'original' }}" alt="product-image" />
+  </div>
+  </a>
+</div>
+</div>
+
+
+
+{% schema %}
+{
+  "name": "Amputation Level",
+  "class": "featured-collection-section",
+  "settings": [
+  {
+    "type": "text",
+    "id": "title",
+    "label": "Title",
+    "default": "Shop by Amputation Level"
+  },
+  {
+    "type": "text",
+    "id": "title-1",
+    "label": "Title 1",
+    "default": "Shop Below Knee Amputee Supplies"
+  },
+  {
+    "id": "img-1",
+    "type": "image_picker",
+    "label": "Image 1"
+  },
+  {
+    "type": "text",
+    "id": "title-2",
+    "label": "Title 2",
+    "default": "Shop Below Knee Amputee Supplies"
+  },
+  {
+    "id": "img-2",
+    "type": "image_picker",
+    "label": "Image 2"
+  },
+  {
+    "type": "text",
+    "id": "title-3",
+    "label": "Title 3",
+    "default": "Shop Below Knee Amputee Supplies"
+  },
+  {
+    "id": "img-3",
+    "type": "image_picker",
+    "label": "Image 3"
+  },
+  {
+    "type": "text",
+    "id": "title-4",
+    "label": "Title 4",
+    "default": "Shop Below Knee Amputee Supplies"
+  },
+  {
+    "id": "img-4",
+    "type": "image_picker",
+    "label": "Image 4"
+  }
+  ]
+}
+{% endschema %}
+

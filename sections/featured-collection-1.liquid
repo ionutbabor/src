@@ -1,0 +1,43 @@
+  <!-- begin featured-collection-1 -->
+
+  {% assign collection = collections[section.settings.collection-1] %}
+  {% assign products = collections[section.settings.collection-1].products %}
+  
+
+
+  <div class="grid--full">
+
+    <div class="grid-item header-line">
+      <span class="title-collection">{{section.settings.title-1}}</span><span id="collection-link"><a href="/collections/{{section.settings.collection-1}}"> {{section.settings.text-link-1}}</a></span>
+    </div>
+
+
+    {% include 'product-loop' %}
+  </div>
+
+
+  {% schema %}
+  {
+    "name": "Featured collection 1",
+    "class": "featured-collection-section",
+    "settings": [
+    {
+      "type": "text",
+      "id": "title-1",
+      "label": "Heading",
+      "default": "Featured collection"
+    },
+    {
+      "type": "collection",
+      "id": "collection-1",
+      "label": "Collection"
+    },
+    {
+      "type": "text",
+      "id": "text-link-1",
+      "label": "Text link"
+    }
+    ]
+  }
+  {% endschema %}
+

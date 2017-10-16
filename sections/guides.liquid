@@ -1,0 +1,194 @@
+{% comment %}<div class="grid">
+  <div class="grid__item large--two-thirds push--large--one-sixth">
+    {% section 'newsletter' %}
+    <h2>{{ page.title }}</h2>
+    <div class="rte">
+      {{ page.content }}
+    </div>
+  </div>
+</div>{% endcomment %}
+<div id="top">
+  <div class="main-content">
+
+    <div class="grid__item large--one-quarter title-filters">
+      <h2>{{ page.title }}</h2>
+    </div>
+
+    <div class="grid__item large--three-quarters parent-filters medium-down--hide" style="border-left: 1px solid #ccc;">
+     <ul class="main-menu">
+      {% for link in linklists.submenu-new-pages.links %}
+      <li><a href="{{ link.url }}" class="menu-link {% if link.active %}current{% endif %}">{{ link.title }}</a></li>
+      {% endfor %}
+    </ul>
+  </div>
+  <hr>
+</div> <!-- main-content -->
+
+<nav class="breadcrumb" role="navigation" aria-label="breadcrumbs">
+  <a href="/" title="{{ 'general.breadcrumbs.home_link_title' | t }}">{{ 'general.breadcrumbs.home' | t }}</a>
+  <span aria-hidden="true">&rsaquo;</span>
+  <span><a href="#"> Prostetic Buying Price </a></span>
+  <span aria-hidden="true">&rsaquo;</span>
+  <span><a href="{{ link.url }}">{{ page.title }}</a></span>
+</nav>
+</div><!-- #top -->
+
+
+
+{% for block in section.blocks %}
+{% if block.type == 'content' %}
+
+<div id="top">
+  <div class="banner-page">
+   <img class="img-responsive" src="{{ block.settings.banner-img | img_url: 'master' }}" alt="{{ block.settings.banner-img | remove_first: 'files/' }}">
+    <div class="banner-caption">
+    {{block.settings.banner-content}}
+  </div>
+ </div>
+ <div class="main">
+  {{ page.content }}
+</div>
+</div><!-- #top --> 
+
+{% elsif block.type == 'our-services-1' %}
+
+<div id="middle" class="main">
+  <h2>{{block.settings.title-1}}</h2>
+  <div class="grid">
+    <div class="grid__item large--one-half">
+     {% if block.settings.text != blank %}
+     <p>{{ block.settings.text }}</p>
+     {% endif %}
+     {% if block.settings.button-text-1 != blank %}
+     <a class="btn" href="{{ block.settings.button-url-1 }}">{{ block.settings.button-text-1 }}</a>
+     {% endif %}
+   </div>
+   <div class="grid__item large--one-half text-center">
+    <img class="img-responsive" src="{{ block.settings.img-top | img_url: 'original' }}" alt="{{ block.settings.img-top | remove_first: 'files/' }}" >
+  </div>
+</div>
+</div><!-- #middle -->
+
+
+{% elsif block.type == 'our-services-2' %}
+
+<div id="middle2" class="main">
+
+  <h2>{{block.settings.title-2}}</h2>
+  <div class="grid">
+   <div class="grid__item large--one-half">
+    <img class="img-responsive" src="{{ block.settings.img-top | img_url: 'original' }}" alt="{{ block.settings.img-top | remove_first: 'files/' }}">
+  </div>
+  <div class="grid__item large--one-half">
+   {% if block.settings.text != blank %}
+   <p>{{ block.settings.text }}</p>
+   {% endif %}
+   {% if block.settings.button-text-2 != blank %}
+   <a class="btn" href="{{ block.settings.button-url-2 }}">{{ block.settings.button-text-2 }}</a>
+   {% endif %}
+ </div>
+</div>
+</div><!-- #middle -->
+
+{% endif %}
+{% endfor %}
+
+
+
+
+
+
+
+{% schema %}
+{
+  "blocks": [
+  {
+    "type": "content",
+    "name": "Banner image & text",
+    "settings": [
+    {
+      "id": "banner-img",
+      "type": "image_picker",
+      "label": "Image"
+    },
+    {
+      "id": "banner-content",
+      "type": "textarea",
+      "label": "Banner content:",
+      "default":"Lorem ipsum dolor sit amet, consectetur adipisicing elit. Consequatur expedita suscipit quo hic illo id adipisci facere fuga dolore odio sed, veniam vel autem blanditiis, est necessitatibus officiis, corrupti quis."
+    }
+    ]
+  },
+  {
+    "type": "our-services-1",
+    "name": "Our Services 1",
+    "settings": [
+    {
+      "id": "title-1",
+      "type": "text",
+      "label": "Title:",
+      "default": "Textiles Prosthetic Buying Guides"
+    },
+    {
+      "id": "text",
+      "type": "textarea",
+      "label": "Content",
+      "default":"Lorem ipsum dolor sit amet, consectetur adipisicing elit. Consequatur expedita suscipit quo hic illo id adipisci facere fuga dolore odio sed, veniam vel autem blanditiis, est necessitatibus officiis, corrupti quis."
+    },
+    {
+      "id": "button-text-1",
+      "type": "text",
+      "label": "Button text",
+      "default": "Learn More"
+    },
+    {
+      "id": "button-url-1",
+      "type": "text",
+      "label": "Button URL link"
+    },
+    {
+      "id": "img-top",
+      "type": "image_picker",
+      "label": "Image"
+    }
+    ]
+  },
+  {
+    "type": "our-services-2",
+    "name": "Our Services 2",
+    "settings": [
+    {
+      "id": "title-2",
+      "type": "text",
+      "label": "Title:",
+      "default": "Personal Care Prosthetic Buying Guides"
+    },
+    {
+      "id": "text",
+      "type": "textarea",
+      "label": "Content",
+      "default":"Lorem ipsum dolor sit amet, consectetur adipisicing elit. Consequatur expedita suscipit quo hic illo id adipisci facere fuga dolore odio sed, veniam vel autem blanditiis, est necessitatibus officiis, corrupti quis."
+    },
+    {
+      "id": "button-text-2",
+      "type": "text",
+      "label": "Button text",
+      "default": "Learn More"
+    },
+    {
+      "id": "button-url-2",
+      "type": "text",
+      "label": "Button URL link"
+    },
+    {
+      "id": "img-top",
+      "type": "image_picker",
+      "label": "Image"
+    }
+    ]
+  }
+
+
+  ]
+}
+{% endschema %}

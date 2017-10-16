@@ -1,0 +1,20 @@
+{% assign product_found = false %}
+{% assign skip = false %}
+
+{% capture new_row %}
+    <br class="clear product_clear" />
+{% endcapture %}
+
+{% for product in products limit: 7 %}
+
+  {% if product.id == skip_product.id or skip == true %}
+    {% assign product_found = true %}
+  {% else %}
+    {% if forloop.rindex0 == 0 and product_found == false and forloop.length != products.count and template != 'search' %}
+      {% assign skip = true %}
+    {% else %}
+      {% include 'product-thumbnail' with product-loop %}
+    {% endif %}    
+  {% endif %}
+  
+{% endfor %}

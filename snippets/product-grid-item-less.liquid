@@ -1,0 +1,34 @@
+<!-- /snippets/product-grid-item.liquid -->
+
+{% unless grid_item_width %}
+{% assign grid_item_width = 'large--one-quarter medium--one-half' %}
+{% endunless %}
+
+{% include 'bold-product' with product, hide_action: 'skip' %}
+
+
+{% assign on_sale = false %}
+{% if bold_compare_at_price > bold_price %}
+{% assign on_sale = true %}
+{% endif %}
+
+{% assign sold_out = true %}
+{% if product.available %}
+{% assign sold_out = false %}
+{% endif %}
+
+<div class="grid__item large--one-sixth medium--one-half small--one-half product-grid-new product-grid">
+  <a href="{{ product.url | within: collection }}" class="grid__image">
+    <img src="{{ product.featured_image.src | img_url: 'large' }}" alt="{{ product.featured_image.alt | escape }}">
+    
+    <p class="h6">
+     {{ product.title }}
+   </p>
+ </a>
+ <!--  <p>
+   <s>{{ bold_compare_at_price | money }}</s>
+   {{ bold_price | money }}
+ </p> -->
+
+</div>
+
