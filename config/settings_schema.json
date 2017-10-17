@@ -663,6 +663,11 @@
         "id": "ajax_cart_enable",
         "label": "Enable Ajax Cart Drawer",
         "info": "[View Documentation](http:\/\/shopify.com\/timber#ajax-cart)"
+      },
+      {
+        "type": "text",
+        "id": "cart_subtitle",
+        "label": "Cart subtitle"
       }
     ]
   },

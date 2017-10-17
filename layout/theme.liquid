@@ -264,9 +264,16 @@
        {% endif %}
        <div class="grid--full medium-down--hide">
         <div class="grid__item large--one-fifth header-nav text-center">
+          {% if template contains 'index' %}
+          <div class="site-header__logo-link">
+            <img class="img-responsive" src="{{ 'logo.png' | asset_url }}" alt="Shop amputee supplies direct with confidence and save." itemprop="logo">
+          </div>
+          
+          {% else %}
           <a href="/" itemprop="url" class="site-header__logo-link">
             <img class="img-responsive" src="{{ 'logo.png' | asset_url }}" alt="Shop amputee supplies direct with confidence and save." itemprop="logo">
           </a>
+          {% endif %}
         </div>
         <div class="grid__item large--four-fifths medium-down--hide">
 
@@ -596,9 +603,6 @@
         (function e(){var e=document.createElement("script");e.type="text/javascript",e.async=true,e.src="//staticw2.yotpo.com/NuT1UIlxTbSur2znb49km0JEX7gsE8Xqwiqw1r1b/widget.js";var t=document.getElementsByTagName("script")[0];t.parentNode.insertBefore(e,t)})();
       </script>
 
-
-
-
       {% if settings.ajax_cart_enable %}
       {{ 'handlebars.min.js' | asset_url | script_tag }}
       {% include 'ajax-cart-template' %}
@@ -696,6 +700,8 @@ jQuery(function() {
   });
 });
 </script>
+
+
 
 </body>
 </html>

@@ -135,7 +135,7 @@ For info on test orders:
             <div class="border-box">
             <span class="cart__mini-labels qty">{% comment %}{{ 'cart.label.quantity' | t }}{% endcomment %}Qty: </span>
             {% comment %}<input type="number" name="updates[]" id="updates_{{ item.id }}" value="{{ item.quantity }}" min="0">{% endcomment %}
-            <select id="updates_{{ item.id }}" name="updates[]"> 
+            <select id="updates_{{ item.id }}" name="updates[]" class="quantity"> 
               {% for i in (1..10) %} {% assign q = i %}
               <option value="{{ q }}"{% if item.quantity == q %} selected{% endif %}>{{ i }}</option>
               {% endfor %}
@@ -225,9 +225,12 @@ For info on test orders:
 The cart is empty
 {% endcomment %}
 <div class="grid--full text-center">
-<h2>{{ 'cart.general.title' | t }}</h2>
+<h2 class="text-left">{{ 'cart.general.title' | t }}</h2>
+<h2 class="subtitle">{{ settings.cart_subtitle}}</h2>
 <p>{{ 'cart.general.empty' | t }}</p>
+{{ 'empty_cart.png' | asset_url | img_tag , 'empty-cart', 'img-responsive'}}
 <p>{{ 'cart.general.continue_browsing_html' | t }}</p>
+
 </div>
 {% endif %}
 <script>
