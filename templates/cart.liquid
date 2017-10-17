@@ -55,7 +55,7 @@ For info on test orders:
   <input type="hidden" name="variant_id[{{ forloop.index0 }}]" value="{{ item.variant.id }}">
   <input type="hidden" name="quantity[{{ forloop.index0 }}]" value="{{ item.quantity }}">
   <div class="cart__row">
-    <div class="grid--full cart__row--table-large">
+    <div class="grid cart__row--table-large">
 
       <div class="grid__item large--one-half">
         <div class="grid__item">
@@ -124,7 +124,7 @@ For info on test orders:
       </div>
 
       <div class="grid__item large--one-half">
-        <div class="grid--full cart__row--table-large">
+        <div class="grid cart__row--table-large">
 
           <div class="grid__item one-third">
             <span class="cart__mini-labels">{{ 'cart.label.price' | t }}</span>
@@ -132,13 +132,15 @@ For info on test orders:
           </div>
 
           <div class="grid__item one-third text-center">
-            <span class="cart__mini-labels">{{ 'cart.label.quantity' | t }}Qty:</span>
+            <div class="border-box">
+            <span class="cart__mini-labels qty">{% comment %}{{ 'cart.label.quantity' | t }}{% endcomment %}Qty: </span>
             {% comment %}<input type="number" name="updates[]" id="updates_{{ item.id }}" value="{{ item.quantity }}" min="0">{% endcomment %}
             <select id="updates_{{ item.id }}" name="updates[]"> 
               {% for i in (1..10) %} {% assign q = i %}
               <option value="{{ q }}"{% if item.quantity == q %} selected{% endif %}>{{ i }}</option>
               {% endfor %}
             </select>
+            </div>
           </div>
 
           <div class="grid__item one-third text-right">
@@ -154,7 +156,7 @@ For info on test orders:
   {% endfor %}
 
   <div class="cart__row">
-    <div class="grid__item">
+    <div class="grid">
       {% comment %}
       Optional, add a textarea for special notes
       - Your theme settings can turn this on or off. Default is on.
@@ -168,16 +170,16 @@ For info on test orders:
       {% endif %}
 
       <div class="grid__item large--one-third medium--one-whole">
-        <a class="btn" href="/collections/all" title="Continue shopping">Continue shopping</a>
+        <a class="btn continue hidden-xs" href="/collections/all" title="Continue shopping">Continue shopping</a>
       </div>
 
-      <div class="grid__item large--one-third medium--one-half small--one-half">
+      <div class="grid__item large--one-third medium--one-whole small--one-whole">
        <p>All orders are processed in {{ shop.currency }} at the most recent exchange rate available.</p>
-        <p><b>International taxes & duties</b> are the responsibility of the buyer and are not pre-paid.  Please read our  <a href="https://amputeestore.com/pages/shipping-information" target="_blank">our Shipping Policy.</a></p>
-        <p> Domestic shipping & taxes calculated at checkout.</p>
+        <p><b>International taxes &amp; duties</b> are the responsibility of the buyer and are not pre-paid.  Please read <a href="/pages/shipping-information" target="_blank">our Shipping Policy.</a></p>
+        <p>Domestic shipping &amp; taxes calculated at checkout.</p>
       </div>
 
-      <div class="grid__item text-right{% if settings.cart_notes_enable %} large--one-half{% endif %} large--one-third medium--one-half small--one-half">
+      <div class="grid__item text-right{% if settings.cart_notes_enable %} large--one-half{% endif %} large--one-third medium--one-whole small--one-whole">
         <div class="border-line">
         <p>
           <span class="cart__subtotal-title">{{ 'cart.general.subtotal' | t }}</span>
@@ -185,6 +187,7 @@ For info on test orders:
         </p>
         
         <p><em>{{ 'cart.general.shipping_at_checkout' | t }}</em></p>
+        <p>Shipping &amp; taxes calculated at checkout.</p>
         <input name="shopify_customer_id" type="hidden" value="{{ customer.id }}" > 
         <input name="email" type="hidden" value="{{ customer.email }}" > 
         <input name="address1" type="hidden" value="{{ customer.default_address.address1 }}" > 
@@ -200,9 +203,10 @@ For info on test orders:
         {% include 'bold-ro-cart' %}
         <input type="submit" name="update" class="btn--secondary update-cart" value="{{ 'cart.general.update' | t }}">
         <input type="submit" name="checkout" class="btn" value="{{ 'cart.general.checkout' | t }}">
-        <p>or</p>
+        
         {% if additional_checkout_buttons and show_paypal %}
-        <div>{{ content_for_additional_checkout_buttons }}</div>
+        <p class="separation-line"><span>OR</span></p>
+        <div class="text-center">{{ content_for_additional_checkout_buttons }}</div>
         {% endif %}
 
       </div>
@@ -220,9 +224,11 @@ For info on test orders:
 {% comment %}
 The cart is empty
 {% endcomment %}
+<div class="grid--full text-center">
 <h2>{{ 'cart.general.title' | t }}</h2>
 <p>{{ 'cart.general.empty' | t }}</p>
 <p>{{ 'cart.general.continue_browsing_html' | t }}</p>
+</div>
 {% endif %}
 <script>
   $(document).on("click",".recurring_div, .one_time_div", function() {
@@ -233,5 +239,7 @@ The cart is empty
       $('.additional-checkout-buttons').show();
     }
   });
+
+  $("#paypal-express-button").prepend('CHECK OUT WITH ');
 
 </script>

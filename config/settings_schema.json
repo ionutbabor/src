@@ -28,6 +28,24 @@
       },
       {
         "type": "color",
+        "id": "btn_bkg_2",
+        "label": "Second Button Background Color",
+        "default": "#fafafa"
+      },
+      {
+        "type": "color",
+        "id": "hover_btn_bkg_2",
+        "label": "Second Button Hover Background Color",
+        "default": "#ff5900"
+      },
+      {
+        "type": "color",
+        "id": "btn_bkg",
+        "label": "Button Background Color",
+        "default": "#FF6600"
+      },
+      {
+        "type": "color",
         "id": "cart_money",
         "label": "Cart Money Color",
         "default": "#b64343"
@@ -162,6 +180,11 @@
       },
       {
         "type": "text",
+        "id": "alt_image1",
+        "label": "Image #1 alt tag text"
+      },
+      {
+        "type": "text",
         "id": "caption_image1",
         "label": "Image #1 Caption Text"
       },
@@ -214,6 +237,11 @@
         "type": "text",
         "id": "link_image2",
         "label": "Image #2 Link"
+      },
+      {
+        "type": "text",
+        "id": "alt_image2",
+        "label": "Image #2 alt tag text"
       },
       {
         "type": "text",
@@ -272,6 +300,11 @@
       },
       {
         "type": "text",
+        "id": "alt_image3",
+        "label": "Image #3 alt tag text"
+      },
+      {
+        "type": "text",
         "id": "caption_image3",
         "label": "Image #3 Caption Text"
       },
@@ -324,6 +357,11 @@
         "type": "text",
         "id": "link_image4",
         "label": "Image #4 Link"
+      },
+      {
+        "type": "text",
+        "id": "alt_image4",
+        "label": "Image #4 alt tag text"
       },
       {
         "type": "text",
@@ -382,6 +420,11 @@
       },
       {
         "type": "text",
+        "id": "alt_image5",
+        "label": "Image #5 alt tag text"
+      },
+      {
+        "type": "text",
         "id": "caption_image5",
         "label": "Image #5 Caption Text"
       },
@@ -436,6 +479,11 @@
       },
       {
         "type": "text",
+        "id": "alt_feat1",
+        "label": "Featured Image #1 Alt tag text"
+      },
+      {
+        "type": "text",
         "id": "caption_feat1",
         "label": "Featured Image #1 Caption"
       },
@@ -481,6 +529,11 @@
       },
       {
         "type": "text",
+        "id": "alt_feat2",
+        "label": "Featured Image #1 Alt tag text"
+      },
+      {
+        "type": "text",
         "id": "caption_feat2",
         "label": "Featured Image #2 Caption"
       },
@@ -523,6 +576,11 @@
         "type": "text",
         "id": "captiontitle_feat3",
         "label": "Featured Image #3 Caption Title"
+      },
+      {
+        "type": "text",
+        "id": "alt_feat3",
+        "label": "Featured Image #1 Alt tag text"
       },
       {
         "type": "text",
