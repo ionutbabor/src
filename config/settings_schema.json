@@ -623,6 +623,11 @@
         "label": "Show social media links"
       },
       {
+        "type": "checkbox",
+        "id": "show_payment_type",
+        "label": "Show payment type logo"
+      },
+      {
         "type": "text",
         "id": "social_twitter_link",
         "label": "Twitter link"

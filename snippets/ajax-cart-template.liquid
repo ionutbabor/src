@@ -5,9 +5,9 @@
   the ajax cart plugin. Use the raw liquid tags to keep the
   handlebar.js template tags as available hooks.
 
-{% endcomment %}
+  {% endcomment %}
   <script id="CartTemplate" type="text/template">
-  {% raw %}
+    {% raw %}
     <form action="/cart" method="post" novalidate class="cart">
       <div class="ajaxcart__inner">
         {{#items}}
@@ -16,27 +16,31 @@
             <div class="grid">
               <div class="grid__item one-quarter">
                 <a href="{{url}}" class="ajaxcart__product-image"><img src="{{img}}" alt=""></a>
+
+
               </div>
               <div class="grid__item three-quarters">
                 <p>
                   <a href="{{url}}" class="ajaxcart__product-name">{{name}}</a>
                   {{#if variation}}
-                    <span class="ajaxcart__product-meta">{{variation}}</span>
+                  <span class="ajaxcart__product-meta">{{variation}}</span>
                   {{/if}}
                   
                   {{{bold_recurring_desc}}}
                   
                   {% endraw %}{% if settings.cart_vendor_enable %}{% raw %}
-                    <span class="ajaxcart__product-meta">{{ vendor }}</span>
+                  <span class="ajaxcart__product-meta">{{ vendor }}</span>
                   {% endraw %}{% endif %}{% raw %}
                 </p>
 
                 <div class="grid--full display-table">
                   <div class="grid__item display-table-cell one-half">
                     <div class="ajaxcart__qty">
+
                       <button type="button" class="ajaxcart__qty-adjust ajaxcart__qty--minus" data-id="{{id}}" data-qty="{{itemMinus}}">&minus;</button>
                       <input type="text" class="ajaxcart__qty-num" value="{{itemQty}}" min="0" data-id="{{id}}" aria-label="quantity" pattern="[0-9]*">
                       <button type="button" class="ajaxcart__qty-adjust ajaxcart__qty--plus" data-id="{{id}}" data-qty="{{itemAdd}}">+</button>
+                      <button type="button" class="ajaxcart__qty-adjust ajaxcart__qty--remove" data-id="{{id}}" data-qty="{{itemMinus}}">Delete</button>
                     </div>
                   </div>
                   <div class="grid__item display-table-cell one-half text-right">
@@ -44,61 +48,68 @@
                   </div>
                 </div>
               </div>
+
+
             </div>
           </div>
         </div>
         {{/items}}
 
         {% endraw %}{% if settings.cart_notes_enable %}{% raw %}
-          <div>
-            <label for="CartSpecialInstructions">{% endraw %}Special Instructions for Our Team{% raw %}</label>
-            <textarea name="note" class="input-full" id="CartSpecialInstructions">{{ note }}</textarea>
-          </div>
+        <div>
+          <label for="CartSpecialInstructions">{% endraw %}Special Instructions for Our Team{% raw %}</label>
+          <textarea name="note" class="input-full" id="CartSpecialInstructions">{{ note }}</textarea>
+        </div>
         {% endraw %}{% endif %}{% raw %}
       </div>
       <div class="ajaxcart__footer">
-        <div class="grid--full">
+        <div class="grid">
           <div class="grid__item two-thirds">
-            <p>{% endraw %}{{ 'cart.general.subtotal' | t }}{% raw %}</p>
+            <p class="text-left">{% endraw %}{{ 'cart.general.subtotal' | t }}{% raw %}</p>
           </div>
           <div class="grid__item one-third text-right">
             <p>{{{totalPrice}}}</p>
           </div>
         </div>
-       
-        <p class="text-center">{% endraw %}{{ 'cart.general.shipping_at_checkout' | t }}{% raw %}</p>
+
+        <p class="green-text">{% endraw %}{{ 'cart.general.shipping_at_checkout' | t }}{% raw %}</p>
+        <p>Shipping and taxes calculated at checkout.</p>
         <button type="submit" class="btn btn--full cart__checkout" name="checkout">
           {% endraw %}{{ 'cart.general.checkout' | t }}{% raw %}
         </button>
         {% endraw %}{% if additional_checkout_buttons and show_paypal %}
-         <div>{{ content_for_additional_checkout_buttons }}</div>
+        <p class="separation-line"><span>OR</span></p>
+        <div>{{ content_for_additional_checkout_buttons }}</div>
         {% endif %}{% raw %}
       </div>
       
-      <br>
-      <p> All orders are processed in {% endraw %}{{ shop.currency }}{% raw %} at the most recent exchange rate available.</p>
-      <p><b>International taxes &amp; duties</b> are the responsibility of the buyer and are not pre-paid.  Please read <a href="https://amputeestore.com/pages/shipping-information" target="_blank">our Shipping Policy.</a></p>
-      <p> Domestic shipping &amp; taxes calculated at checkout.</p>
+      
       
       <div class="shipping-rates-calculator-desktop-container shipping-rates-calculator-mobile-container"></div>
     </form>
-  {% endraw %}
+    {% endraw %}
+
+    <script>
+      $("#paypal-express-button").prepend('CHECK OUT WITH ');
+    </script>
+
+
   </script>
   <script id="AjaxQty" type="text/template">
-  {% raw %}
+    {% raw %}
     <div class="ajaxcart__qty">
       <button type="button" class="ajaxcart__qty-adjust ajaxcart__qty--minus" data-id="{{id}}" data-qty="{{itemMinus}}">&minus;</button>
       <input type="text" name="updates[]" class="ajaxcart__qty-num" value="{{itemQty}}" min="0" data-id="{{id}}" aria-label="quantity" pattern="[0-9]*">
       <button type="button" class="ajaxcart__qty-adjust ajaxcart__qty--plus" data-id="{{id}}" data-qty="{{itemAdd}}">+</button>
     </div>
-  {% endraw %}
+    {% endraw %}
   </script>
   <script id="JsQty" type="text/template">
-  {% raw %}
+    {% raw %}
     <div class="js-qty">
       <button type="button" class="js-qty__adjust js-qty__adjust--minus" data-id="{{id}}" data-qty="{{itemMinus}}">&minus;</button>
       <input type="text" class="js-qty__num" value="{{itemQty}}" min="1" data-id="{{id}}" aria-label="quantity" pattern="[0-9]*" name="{{inputName}}" id="{{inputId}}">
       <button type="button" class="js-qty__adjust js-qty__adjust--plus" data-id="{{id}}" data-qty="{{itemAdd}}">+</button>
     </div>
-  {% endraw %}
+    {% endraw %}
   </script>

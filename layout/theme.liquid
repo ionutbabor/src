@@ -213,7 +213,8 @@
         <div class="drawer__title h3">{{ 'cart.general.title' | t }}</div>
         <div class="drawer__close js-drawer-close">
           <button type="button" class="icon-fallback-text">
-            <span class="icon icon-x" aria-hidden="true"></span>
+            {% comment %}<span class="icon icon-x" aria-hidden="true"></span>{% endcomment %}
+            <span>{{ 'close.png' | asset_url | img_tag }}</span>
             <span class="fallback-text">{{ 'cart.general.close_cart' | t | json }}</span>
           </button>
         </div>
@@ -317,11 +318,17 @@
                   <li> 
                    <div id="cart-main">
                     <div id="cart">
-                      <a href="/cart" class="js-drawer-open-right" aria-controls="CartDrawer" aria-expanded="false" style="float: right;">
+                      {% if template == "cart" %}
+                        <i class="fa fa-shopping-cart"></i>
+                        <span class="icon-cart-count" id="CartCount">{{ cart.item_count }}</span>
+                      {%else%}
+                      <a href="/cart" class="js-drawer-open-right" >
                         <i class="fa fa-shopping-cart"></i>
                         <span class="icon-cart-count" id="CartCount">{{ cart.item_count }}</span>
                         {% comment %}Cart{% endcomment %}
                       </a>
+                      {%endif%}
+                    
                     </div>
                   </div>  
                 </li>
@@ -462,6 +469,11 @@
                 <li><a href="{{ link.url }}">{{ link.title }}</a></li>
                 {% endfor %}
               </ul>
+
+              {% if settings.show_payment_type %}
+              {% include 'payment' %}
+              {% endif %}
+
             </div>          
           </div>
 

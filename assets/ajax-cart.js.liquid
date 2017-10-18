@@ -15,26 +15,26 @@
 
   Customized version of Shopify's jQuery API
   (c) Copyright 2009-2015 Shopify Inc. Author: Caroline Schnapp. All Rights Reserved.
-==============================================================================*/
-if ((typeof ShopifyAPI) === 'undefined') { ShopifyAPI = {}; }
+  ==============================================================================*/
+  if ((typeof ShopifyAPI) === 'undefined') { ShopifyAPI = {}; }
 
 /*============================================================================
   API Helper Functions
-==============================================================================*/
-function attributeToString(attribute) {
-  if ((typeof attribute) !== 'string') {
-    attribute += '';
-    if (attribute === 'undefined') {
-      attribute = '';
+  ==============================================================================*/
+  function attributeToString(attribute) {
+    if ((typeof attribute) !== 'string') {
+      attribute += '';
+      if (attribute === 'undefined') {
+        attribute = '';
+      }
     }
-  }
-  return jQuery.trim(attribute);
-};
+    return jQuery.trim(attribute);
+  };
 
 /*============================================================================
   API Functions
-==============================================================================*/
-ShopifyAPI.onCartUpdate = function(cart) {
+  ==============================================================================*/
+  ShopifyAPI.onCartUpdate = function(cart) {
   // alert('There are now ' + cart.item_count + ' items in the cart.');
 };
 
@@ -70,48 +70,48 @@ ShopifyAPI.onError = function(XMLHttpRequest, textStatus) {
   POST to cart/add.js returns the JSON of the cart
     - Allow use of form element instead of just id
     - Allow custom error callback
-==============================================================================*/
-ShopifyAPI.addItemFromForm = function(form, callback, errorCallback) {
-  var params = {
-    type: 'POST',
-    url: '/cart/add.js',
-    data: jQuery(form).serialize(),
-    dataType: 'json',
-    success: function(line_item) {
-      if ((typeof callback) === 'function') {
-        callback(line_item, form);
-        setTimeout(function(){
-          if(mixed_cart == true){
-            console.log('subscription');
-            $('.additional-checkout-button').hide();
-          }else{
-            console.log('one-time');
+    ==============================================================================*/
+    ShopifyAPI.addItemFromForm = function(form, callback, errorCallback) {
+      var params = {
+        type: 'POST',
+        url: '/cart/add.js',
+        data: jQuery(form).serialize(),
+        dataType: 'json',
+        success: function(line_item) {
+          if ((typeof callback) === 'function') {
+            callback(line_item, form);
+            setTimeout(function(){
+              if(mixed_cart == true){
+                console.log('subscription');
+                $('.additional-checkout-button').hide();
+              }else{
+                console.log('one-time');
+              }
+            },1000);
           }
-        },1000);
-      }
-      else {
-        ShopifyAPI.onItemAdded(line_item, form);
-        setTimeout(function(){
-          if(mixed_cart == true){
-            console.log('subscription');
-            $('.additional-checkout-button').hide();
-          }else{
-            console.log('one-time');
+          else {
+            ShopifyAPI.onItemAdded(line_item, form);
+            setTimeout(function(){
+              if(mixed_cart == true){
+                console.log('subscription');
+                $('.additional-checkout-button').hide();
+              }else{
+                console.log('one-time');
+              }
+            },1000);
           }
-        },1000);
-      }
-    },
-    error: function(XMLHttpRequest, textStatus) {
-      if ((typeof errorCallback) === 'function') {
-        errorCallback(XMLHttpRequest, textStatus);
-      }
-      else {
-        ShopifyAPI.onError(XMLHttpRequest, textStatus);
-      }
-    }
-  };
-  jQuery.ajax(params);
-};
+        },
+        error: function(XMLHttpRequest, textStatus) {
+          if ((typeof errorCallback) === 'function') {
+            errorCallback(XMLHttpRequest, textStatus);
+          }
+          else {
+            ShopifyAPI.onError(XMLHttpRequest, textStatus);
+          }
+        }
+      };
+      jQuery.ajax(params);
+    };
 
 // Get from cart.js returns the cart in JSON
 ShopifyAPI.getCart = function(callback) {
@@ -151,10 +151,10 @@ ShopifyAPI.changeItem = function(variant_id, quantity, callback) {
 
 /*============================================================================
   Ajax Shopify Add To Cart
-==============================================================================*/
-var ajaxCart = (function(module, $) {
+  ==============================================================================*/
+  var ajaxCart = (function(module, $) {
 
-  'use strict';
+    'use strict';
 
   // Public functions
   var init, loadCart;
@@ -170,8 +170,8 @@ var ajaxCart = (function(module, $) {
 
   /*============================================================================
     Initialise the plugin and define global options
-  ==============================================================================*/
-  init = function (options) {
+    ==============================================================================*/
+    init = function (options) {
 
     // Default settings
     settings = {
@@ -262,8 +262,8 @@ var ajaxCart = (function(module, $) {
   };
 
   cartUpdateCallback = function (cart) {
-    
-    
+
+
     var bold_qb_ajax = function (cart){
 
       // Update quantity and price
@@ -284,7 +284,7 @@ var ajaxCart = (function(module, $) {
   };
 
   buildCart = function (cart) {
-    
+
     //Bold: Ensure the cart's line items have been updated with their option information
     if(typeof(BOLD) === 'object' && BOLD.helpers && typeof(BOLD.helpers.cleanCart) === 'function' )
       cart = BOLD.helpers.cleanCart(cart);
@@ -295,39 +295,40 @@ var ajaxCart = (function(module, $) {
     // Show empty cart
     if (cart.item_count === 0) {
       $cartContainer
-        .append('<p>' + {{ 'cart.general.empty' | t | json }} + '</p>');
+      .append('<div class="text-center">'+'<h2>'+'Your cart is empty'+'</h2>'+'<p>' + {{ 'cart.general.empty' | t | json }} + '</p>' + '<img src="https://cdn.shopify.com/s/files/1/0824/6797/t/30/assets/cart_empty_small.png?4525077073945843451" />'+ '</div>');
+
       cartCallback(cart);
       return;
     }
 
     // Handlebars.js cart layout
     var items = [],
-        item = {},
-        data = {},
-        source = $("#CartTemplate").html(),
-        template = Handlebars.compile(source);
+    item = {},
+    data = {},
+    source = $("#CartTemplate").html(),
+    template = Handlebars.compile(source);
 
     // Add each item to our handlebars.js data
     $.each(cart.items, function(index, cartItem) {
       var itemAdd = cartItem.quantity + 1,
-          itemMinus = cartItem.quantity - 1,
-          itemQty = cartItem.quantity;
+      itemMinus = cartItem.quantity - 1,
+      itemQty = cartItem.quantity;
 
       /* Hack to get product image thumbnail
        *   - If image is not null
        *     - Remove file extension, add _small, and re-add extension
        *     - Create server relative link
        *   - A hard-coded url of no-image
-      */
+       */
 
-      if (cartItem.image != null){
+       if (cartItem.image != null){
         var prodImg = cartItem.image.replace(/(\.[^.]*)$/, "_small$1").replace('http:', '');
       } else {
         var prodImg = "//cdn.shopify.com/s/assets/admin/no-image-medium-cc9732cb976dd349a0df1d39816fbcc7.gif";
       }
 
       var prodName = cartItem.product_title,
-          prodVariation = cartItem.variant_title;
+      prodVariation = cartItem.variant_title;
 
       if (prodVariation == 'Default Title') {
         prodVariation = false;
@@ -374,19 +375,24 @@ var ajaxCart = (function(module, $) {
     // Add or remove from the quantity
     $body.on('click', '.ajaxcart__qty-adjust', function() {
       var el = $(this),
-          id = el.data('id'),
-          qtySelector = el.siblings('.ajaxcart__qty-num'),
-          qty = parseInt(qtySelector.val().replace(/\D/g, ''));
+      id = el.data('id'),
+      qtySelector = el.siblings('.ajaxcart__qty-num'),
+      qty = parseInt(qtySelector.val().replace(/\D/g, ''));
 
       var qty = validateQty(qty);
 
       // Add or subtract from the current quantity
+      if (el.hasClass('ajaxcart__qty--remove')) {
+        qty = 0;
+      } else
       if (el.hasClass('ajaxcart__qty--plus')) {
         qty = qty + 1;
       } else {
         qty = qty - 1;
         if (qty <= 0) qty = 0;
       }
+
+
 
       // If it has a data-id, update the cart.
       // Otherwise, just update the input's number
@@ -400,8 +406,8 @@ var ajaxCart = (function(module, $) {
     // Update quantity based on input on change
     $body.on('change', '.ajaxcart__qty-num', function() {
       var el = $(this),
-          id = el.data('id'),
-          qty = parseInt(el.val().replace(/\D/g, ''));
+      id = el.data('id'),
+      qty = parseInt(el.val().replace(/\D/g, ''));
 
       var qty = validateQty(qty);
 
@@ -443,7 +449,7 @@ var ajaxCart = (function(module, $) {
   };
 
   adjustCartCallback = function (cart) {
-    
+
     var bold_qb_ajax = function (cart){
 
       // Update quantity and price
@@ -473,20 +479,20 @@ var ajaxCart = (function(module, $) {
     if ($('input[type="number"]', $cartContainer).length) {
       $('input[type="number"]', $cartContainer).each(function() {
         var el = $(this),
-            currentQty = el.val();
+        currentQty = el.val();
 
         var itemAdd = currentQty + 1,
-            itemMinus = currentQty - 1,
-            itemQty = currentQty;
+        itemMinus = currentQty - 1,
+        itemQty = currentQty;
 
         var source   = $("#AjaxQty").html(),
-            template = Handlebars.compile(source),
-            data = {
-              id: el.data('id'),
-              itemQty: itemQty,
-              itemAdd: itemAdd,
-              itemMinus: itemMinus
-            };
+        template = Handlebars.compile(source),
+        data = {
+          id: el.data('id'),
+          itemQty: itemQty,
+          itemAdd: itemAdd,
+          itemMinus: itemMinus
+        };
 
         // Append new quantity selector then remove original
         el.after(template(data)).remove();
@@ -509,24 +515,24 @@ var ajaxCart = (function(module, $) {
     if (numInputs.length) {
       numInputs.each(function() {
         var el = $(this),
-            currentQty = el.val(),
-            inputName = el.attr('name'),
-            inputId = el.attr('id');
+        currentQty = el.val(),
+        inputName = el.attr('name'),
+        inputId = el.attr('id');
 
         var itemAdd = currentQty + 1,
-            itemMinus = currentQty - 1,
-            itemQty = currentQty;
+        itemMinus = currentQty - 1,
+        itemQty = currentQty;
 
         var source   = $("#JsQty").html(),
-            template = Handlebars.compile(source),
-            data = {
-              id: el.data('id'),
-              itemQty: itemQty,
-              itemAdd: itemAdd,
-              itemMinus: itemMinus,
-              inputName: inputName,
-              inputId: inputId
-            };
+        template = Handlebars.compile(source),
+        data = {
+          id: el.data('id'),
+          itemQty: itemQty,
+          itemAdd: itemAdd,
+          itemMinus: itemMinus,
+          inputName: inputName,
+          inputId: inputId
+        };
 
         // Append new quantity selector then remove original
         el.after(template(data)).remove();
@@ -535,9 +541,9 @@ var ajaxCart = (function(module, $) {
       // Setup listeners to add/subtract from the input
       $('.js-qty__adjust').on('click', function() {
         var el = $(this),
-            id = el.data('id'),
-            qtySelector = el.siblings('.js-qty__num'),
-            qty = parseInt(qtySelector.val().replace(/\D/g, ''));
+        id = el.data('id'),
+        qtySelector = el.siblings('.js-qty__num'),
+        qty = parseInt(qtySelector.val().replace(/\D/g, ''));
 
         var qty = validateQty(qty);
 

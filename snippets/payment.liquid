@@ -1,0 +1,22 @@
+<style>
+  .methods-of-payment img { padding: 0.2em; }
+  .lt-ie9 .methods-of-payment, .ie8 .methods-of-payment, .oldie .methods-of-payment { display: none; }
+</style>
+<span class="methods-of-payment">
+  {% comment %}<img src="{{ 'amazon_payments' | payment_type_img_url }}" height="35" alt="amazon payments" />{% endcomment %}
+  <img src="{{ 'apple_pay' | payment_type_img_url }}" height="35" alt="apple pay" />
+  <img src="{{ 'american_express' | payment_type_img_url }}" height="35" alt="american express" />
+  {% comment %}<img src="{{ 'bitcoin' | payment_type_img_url }}" height="35" alt="bitcoin" />
+  <img src="{{ 'dankort' | payment_type_img_url }}" height="35" alt="dankort" />{% endcomment %}
+  {% comment %}<img src="{{ 'diners_club' | payment_type_img_url }}" height="35" alt="diners club" />{% endcomment %}
+  <img src="{{ 'discover' | payment_type_img_url }}" height="35" alt="discover" />
+  {% comment %}<img src="{{ 'dogecoin' | payment_type_img_url }}" height="35" alt="dogecoin" />{% endcomment %}
+  {% comment %}<img src="{{ 'dwolla' | payment_type_img_url }}" height="35" alt="dwolla" />{% endcomment %}
+  {% comment %}<img src="{{ 'forbrugsforeningen' | payment_type_img_url }}" height="35" alt="forbrugsforeningen" />{% endcomment %}
+  {% comment %}<img src="{{ 'jcb' | payment_type_img_url }}" height="35" alt="jcb" />{% endcomment %}
+  {% comment %}<img src="{{ 'litecoin' | payment_type_img_url }}" height="35" alt="litecoin" />{% endcomment %}
+  <img src="{{ 'maestro' | payment_type_img_url }}" height="35" alt="maestro" />
+  <img src="{{ 'master' | payment_type_img_url }}" height="35" alt="master" />
+  <img src="{{ 'paypal' | payment_type_img_url }}" height="35" alt="paypal" />
+  <img src="{{ 'visa' | payment_type_img_url }}" height="35" alt="visa" />
+</span>

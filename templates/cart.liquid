@@ -21,14 +21,14 @@ For info on test orders:
     <div class="cart__row medium-down--hide cart__header-labels">
       <div class="grid--full">
         <div class="grid__item large--one-half">
-          <div class="grid__item">
+      
             <div class="grid__item two-thirds push--one-third">
               {{ 'cart.label.product' | t }}
             </div>
-          </div>
+       
         </div>
         <div class="grid__item large--one-half">
-          <div class="grid--full">
+         
             <div class="grid__item one-third medium-down--one-third">
               {{ 'cart.label.price' | t }}
             </div>
@@ -39,7 +39,7 @@ For info on test orders:
               {{ 'cart.label.total' | t }}
             </div>
           </div>
-        </div>
+     
       </div>
     </div>
 
@@ -55,10 +55,10 @@ For info on test orders:
   <input type="hidden" name="variant_id[{{ forloop.index0 }}]" value="{{ item.variant.id }}">
   <input type="hidden" name="quantity[{{ forloop.index0 }}]" value="{{ item.quantity }}">
   <div class="cart__row">
-    <div class="grid cart__row--table-large">
+    <div class="grid--full cart__row--table-large">
 
       <div class="grid__item large--one-half">
-        <div class="grid__item">
+    
 
           <div class="grid__item one-third">
             <a href="{{ item.url | within: collections.all }}" class="cart__image">
@@ -72,7 +72,8 @@ For info on test orders:
 
           </div>
 
-          <div class="grid__item two-thirds">
+          <div class="grid__item two-thirds info-collumn">
+            <div class="description">
             <a href="{{ item.url }}" class="h4">
               {{ item.product.title }}
             </a>
@@ -119,12 +120,13 @@ For info on test orders:
               <small>{{ 'cart.general.remove' | t }}</small>
             </a>
           </div>
+          </div>
 
-        </div>
+    
       </div>
 
       <div class="grid__item large--one-half">
-        <div class="grid cart__row--table-large">
+        <div class="grid--full cart__row--table-large">
 
           <div class="grid__item one-third">
             <span class="cart__mini-labels">{{ 'cart.label.price' | t }}</span>

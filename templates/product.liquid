@@ -45,10 +45,10 @@
       <h1 itemprop="name">{{ product.title }}</h1>
 
       <div class="grid--full">
-        <div class="grid__item large--one-third">
+        <div class="grid__item large--one-sixth medium--one-third">
          <p class="vendor-title">by {{ product.vendor | replace: "-", " " | link_to_vendor }}</p>
        </div>
-       <div class="grid__item large--one-third">
+       <div class="grid__item large--one-quarter medium--one-third">
         <div class="yotpo bottomLine"
         data-appkey="NuT1UIlxTbSur2znb49km0JEX7gsE8Xqwiqw1r1b"
         data-domain="{{ shop.permanent_domain | escape }}"
@@ -60,8 +60,9 @@
         data-description="{{ product.description | escape }}"
         data-bread-crumbs="{% for tag in product.tags %}{{ tag | escape }};{% endfor %}">
       </div>
+        
     </div>
-    <div class="grid__item large--one-third">
+    <div class="grid__item large--one-quarter medium--one-third">
       <div class='yotpo QABottomLine'
       data-appkey='NuT1UIlxTbSur2znb49km0JEX7gsE8Xqwiqw1r1b'
       data-product-id='{{ product.id }}'></div>
