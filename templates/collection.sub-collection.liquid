@@ -7,7 +7,7 @@
    <div id="top">
     <div class="main-content">
       <!-- left part -->
-      <div class="grid--full">
+      <div class="grid--full grid-padding">
         <div class="grid__item large--one-quarter title-filters medium--one-quarter">
           {% if collection.handle contains 'personal' or collection.handle contains 'skin-care' or collection.handle contains 'cleansers' or collection.handle contains 'sweat-control' or collection.handle contains 'moisturizers' or collection.handle contains 'wound-care' %}
           <h2><a href="/collections/personal-care" style="color: #000;">Personal Care</a></h2>
@@ -66,7 +66,7 @@
   {% include 'toolbar' %}
   <!-- end filter -->
 
-  <div class="grid--full">
+  <div class="grid--full grid-padding">
     <div class="grid__item large--one-half medium--one-half">
      <!--  <h2 id="title-collection-current">{{collection.title | replace: "for Amputees", ""}}</h2> -->
    </div>
@@ -77,7 +77,7 @@
 
 
 <!-- begin grid uniform -->
-<div class="grid--full">
+<div class="grid--full grid-padding">
   {% assign products = collection.products %}
   {% for product in products limit:8 %}
 
@@ -136,7 +136,7 @@ div.yotpo.bottomLine.yotpo-small {
 </style>
 
 <hr>
-<div class="grid--full">
+<div class="grid--full grid-padding">
   <div id="colect-descr">
     {{ collection.description }}
   </div> 

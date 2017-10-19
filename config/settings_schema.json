@@ -2,6 +2,12 @@
   {
     "name": "Colors",
     "settings": [
+       {
+        "type": "color",
+        "id": "initial_color",
+        "label": "Default Color",
+        "default": "#000"
+      },
       {
         "type": "color",
         "id": "link_color",
@@ -28,27 +34,39 @@
       },
       {
         "type": "color",
-        "id": "btn_bkg_2",
-        "label": "Second Button Background Color",
-        "default": "#fafafa"
-      },
-      {
-        "type": "color",
-        "id": "hover_btn_bkg_2",
-        "label": "Second Button Hover Background Color",
-        "default": "#ff5900"
-      },
-      {
-        "type": "color",
         "id": "btn_bkg",
         "label": "Button Background Color",
         "default": "#FF6600"
       },
       {
         "type": "color",
+        "id": "hover_btn_bkg_2",
+        "label": "Button Hover Background Color",
+        "default": "#ff5900"
+      },
+      {
+        "type": "color",
         "id": "cart_money",
         "label": "Cart Money Color",
         "default": "#b64343"
+      },
+      {
+        "type": "color",
+        "id": "btn_bkg_2",
+        "label": "Cart Continue Shopping Button",
+        "default": "#fafafa"
+      },
+      {
+        "type": "color",
+        "id": "stars_color",
+        "label": "Stars Color",
+        "default": "#fdda01"
+      },
+      {
+        "type": "color",
+        "id": "login_color",
+        "label": "Sign in / Login Color",
+        "default": "#fa8a10"
       }
     ]
   },

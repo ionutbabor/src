@@ -14,7 +14,7 @@
  <div id="top">
   <div class="main-content">
     <!-- left part -->
-    <div class="grid--full">
+    <div class="grid--full grid-padding">
       <div class="grid__item large--one-quarter title-filters medium--one-quarter">
         {% if collection.handle contains 'personal' or collection.handle contains 'skin-care' or collection.handle contains 'cleansers' or collection.handle contains 'sweat-control' or collection.handle contains 'moisturizers' or collection.handle contains 'wound-care' %}
         <h2><a href="/collections/personal-care" style="color: #000;">Personal Care</a></h2>
@@ -72,7 +72,7 @@
 
 {% if collection.image != blank %}
 <!-- title page -->
-<div class="grid--full">
+<div class="grid--full grid-padding">
   <div class="grid__item large--one-quarter">
    <h2 id="title-collection">{{collection.title  |  replace_first: "Prosthetic", "" | replace: "for Amputees", "" }}</h2>
  <!-- {% if collection.handle contains 'prosthetic-textiles' %}
@@ -278,16 +278,14 @@
 
 <!-- begin PROSTHETIC SOCKS -->
 <br class="clear">
-<div class="grid--full">
-  <div class="grid__item large--one-fifth medium--one-third">
-    <h2 id="title-collection">Prosthetic Socks</h2>
-  </div>
-  <div class="grid__item large--one-third medium--one-third">
-    <span id="collection-link"><a href="/collections/amputee-socks">Shop all Prosthetic Socks > </a></span>
-  </div>
+<div class="grid--full grid-padding">
+
+<span id="title-collection">Prosthetic Socks</span>
+<span id="collection-link"><a href="/collections/amputee-socks">Shop all Prosthetic Socks > </a></span>
+
 </div>
 
-<div class="grid--full">
+<div class="grid--full grid-padding">
   {% for product in collections.amputee-socks.products limit:6 %}
     {% comment %}
     {% if forloop.index == 3 %}
@@ -301,16 +299,14 @@
 
   <!-- begin Shrinkers-->
   <br class="clear">
-  <div class="grid--full">
-    <div class="grid__item large--one-fifth  medium--one-third">
-      <h2 id="title-collection">SHRINKERS</h2>
-    </div>
-    <div class="grid__item large--one-third medium--one-third">
+  <div class="grid--full grid-padding">
+
+      <span id="title-collection">Shrinkers</span>
       <span id="collection-link"><a href="/collections/stump-shrinkers">Shop all SHRINKERS ></a></span>
-    </div>
+ 
   </div>
 
-  <div class="grid--full">
+  <div class="grid--full grid-padding">
     {% for product in collections.stump-shrinkers.products limit:6 %}
     {% include 'product-grid-item-less' %}
     {% endfor %}
@@ -324,16 +320,12 @@
 
   <!-- begin SKIN CARE TREATMENTS -->
   <br class="clear">
-  <div class="grid--full">
-    <div class="grid__item large--one-fifth medium--one-third">
-      <h2 id="title-collection">Personal Care SKIN CARE TREATMENTS</h2>
-    </div>
-    <div class="grid__item large--one-third medium--one-third">
+  <div class="grid--full grid-padding">
+      <span id="title-collection">Personal Care Skin Care Treatments</span>
       <span id="collection-link"><a href="/collections/skin-care-treatments">Shop all SKIN CARE TREATMENTS > </a></span>
-    </div>
   </div>
 
-  <div class="grid--full">
+  <div class="grid--full grid-padding">
     {% for product in collections.skin-care-treatments.products limit:6 %}
     {% comment %}
     {% if forloop.index == 3 %}
@@ -347,16 +339,12 @@
 
   <!-- begin CLEANSERS-->
   <br class="clear">
-  <div class="grid--full">
-    <div class="grid__item large--one-fifth  medium--one-third">
-      <h2 id="title-collection">CLEANSERS</h2>
-    </div>
-    <div class="grid__item large--one-third medium--one-third">
+  <div class="grid--full grid-padding">
+      <span id="title-collection">Cleansers</span>
       <span id="collection-link"><a href="/collections/prosthetic-cleansers">Shop all CLEANSERS ></a></span>
-    </div>
   </div>
 
-  <div class="grid--full">
+  <div class="grid--full grid-padding">
     {% for product in collections.prosthetic-cleansers.products limit:6 %}
     {% include 'product-grid-item-less' %}
     {% endfor %}
@@ -370,16 +358,14 @@
 
   <!-- begin SKIN CARE TREATMENTS -->
   <br class="clear">
-  <div class="grid--full">
-    <div class="grid__item large--one-fifth medium--one-third">
-      <h2 id="title-collection">Personal Care SUSPENSION SLEEVES</h2>
-    </div>
-    <div class="grid__item large--one-third medium--one-third">
+  <div class="grid--full grid-padding">
+
+      <span id="title-collection">Personal Care Suspension Sleeves</span>
       <span id="collection-link"><a href="/collections/suspension-sleeves">Shop all SUSPENSION SLEEVES > </a></span>
-    </div>
+
   </div>
 
-  <div class="grid--full">
+  <div class="grid--full grid-padding">
     {% for product in collections.suspension-sleeves.products limit:6 %}
     {% comment %}
     {% if forloop.index == 3 %}
@@ -393,16 +379,12 @@
 
   <!-- begin SLIP-ON AIDS-->
   <br class="clear">
-  <div class="grid--full">
-    <div class="grid__item large--one-fifth  medium--one-third">
-      <h2 id="title-collection">SLIP-ON AIDS</h2>
-    </div>
-    <div class="grid__item large--one-third medium--one-third">
+  <div class="grid--full grid-padding">
+      <span id="title-collection">Slip-on Aids</span>
       <span id="collection-link"><a href="/collections/prosthetic-cleansers">Shop all SLIP-ON AIDS ></a></span>
-    </div>
   </div>
 
-  <div class="grid--full">
+  <div class="grid--full grid-padding">
     {% for product in collections.Slip-on-Aids.products limit:6 %}
     {% include 'product-grid-item-less' %}
     {% endfor %}
@@ -418,16 +400,14 @@
 
   <!-- begin SKIN CARE TREATMENTS -->
   <br class="clear">
-  <div class="grid--full">
-    <div class="grid__item large--one-fifth medium--one-third">
-      <h2 id="title-collection">Personal Care CUSHION AND VOLUME AIDS</h2>
-    </div>
-    <div class="grid__item large--one-third medium--one-third">
+  <div class="grid--full grid-padding">
+
+      <span id="title-collection">Personal Care Cushion and Volume Aids</span>
       <span id="collection-link"><a href="/collections/suspension-sleeves">Shop all CUSHION AND VOLUME AIDS > </a></span>
-    </div>
+
   </div>
 
-  <div class="grid--full">
+  <div class="grid--full grid-padding">
     {% for product in collections.cushion-and-volume-aids.products limit:6 %}
     {% comment %}
     {% if forloop.index == 3 %}
@@ -441,16 +421,12 @@
 
   <!-- begin SLIP-ON AIDS-->
   <br class="clear">
-  <div class="grid--full">
-    <div class="grid__item large--one-fifth  medium--one-third">
-      <h2 id="title-collection">COSMETIC FINISHING</h2>
-    </div>
-    <div class="grid__item large--one-third medium--one-third">
+  <div class="grid--full grid-padding">
+      <span id="title-collection">Cosmetic Finishing</span>
       <span id="collection-link"><a href="/collections/cosmetic-finishing">Shop all COSMETIC FINISHING ></a></span>
-    </div>
   </div>
 
-  <div class="grid--full">
+  <div class="grid--full grid-padding">
     {% for product in collections.cosmetic-finishing.products limit:6 %}
     {% include 'product-grid-item-less' %}
     {% endfor %}
@@ -464,7 +440,7 @@
 
 
 
-  <div class="grid--full">
+  <div class="grid--full grid-padding">
     <div class="grid__item large--one-half medium--one-half">
       <h2 id="title-collection-current">{{collection.title | replace: "for Amputees", ""}}</h2>
     </div>
@@ -475,7 +451,7 @@
 
 
   <!-- begin grid uniform -->
-  <div class="grid--full">
+  <div class="grid--full grid-padding">
     {% assign products = collection.products %}
     {% for product in products limit:8 %}
 
@@ -549,7 +525,7 @@ div.yotpo.bottomLine.yotpo-small {
 </style>
 
 <hr>
-<div class="grid--full">
+<div class="grid--full grid-padding">
   <div id="colect-descr">
     {{ collection.description }}
   </div> 
