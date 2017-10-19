@@ -295,7 +295,7 @@ ShopifyAPI.changeItem = function(variant_id, quantity, callback) {
     // Show empty cart
     if (cart.item_count === 0) {
       $cartContainer
-      .append('<div class="text-center">'+'<h2>'+'Your cart is empty'+'</h2>'+'<p>' + {{ 'cart.general.empty' | t | json }} + '</p>' + '<img src="https://cdn.shopify.com/s/files/1/0824/6797/t/30/assets/cart_empty_small.png?4525077073945843451" />'+ '</div>');
+      .append('<div class="text-center">'+'<h2>'+'Your cart is empty'+'</h2>'+'<p>' + {{ 'cart.general.empty' | t | json }} + '</p>' + '<img class="img-ajax" src="https://cdn.shopify.com/s/files/1/0824/6797/t/30/assets/cart_empty_small.png?4525077073945843451" />'+ '</div>');
 
       cartCallback(cart);
       return;
