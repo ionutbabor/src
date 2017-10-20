@@ -1,13 +1,13 @@
 <div class="toolbar">
 
-  <div class="grid--full">
+  <div class="grid--full grid-padding">
     <div class="grid__item large--one-fifth small--one-half medium--two-twelfths">
      <div class="view-mode">
       <label>Filter by:</label> 
     </div>
   </div>
 
-  <div class="grid__item large--one-fifth small--one-half medium--one-quarter">
+  {% comment %}<div class="grid__item large--one-fifth small--one-half medium--one-quarter">
     {% assign colItems = collection.all_vendors | size %}
     {% if colItems > 0 %}
     <div class="filter-brand btn-group">
@@ -60,7 +60,7 @@
     {% endif %}
 
   </div>
-</div>
+</div>{% endcomment %}
 
 
 

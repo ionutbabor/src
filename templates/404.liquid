@@ -1,10 +1,16 @@
 <!-- /templates/404.liquid -->
-<h1>{{ 'general.404.title' | t }}</h1>
-<h2> Well this is embarrassing…</h2> 
-<img src="https://cdn.shopify.com/s/files/1/0824/6797/files/404-error.png?12052940687291107587" alt=“Page Not Found” style="width:300px;height:250px;"/>
-<h3> The page you requested was not found.</h3> 
-<p>That crazy world wide web must have directed you to the wrong location. You may have clicked an expired link or mistyped the address.  Some web addresses are case sensitive.<br><br>{{ 'general.404.subtext_html' | t }} If you need further assistance please <a href="https://amputeestore.com/pages/contact-us/">contact us</a>. <br><br></p><h3>Or search for what you’re looking for below.</h3>
-<form action="/search" method="get" class="input-group search-bar" role="search" style="max-width: 100%;">
+<div class="grid--full grid-padding text-center">
+  
+
+{% comment %}<h1>{{ 'general.404.title' | t }}</h1>{% endcomment %}
+<h2> We can't find the page you requested...</h2> 
+{% comment %}<img src="https://cdn.shopify.com/s/files/1/0824/6797/files/404-error.png?12052940687291107587" alt=“Page Not Found” style="width:300px;height:250px;"/>{% endcomment %}
+{{ 'img-404.PNG' | asset_url | img_tag }}
+{% comment %}<h3> The page you requested was not found.</h3> {% endcomment %}
+<p>You may have clicked an expired link or mistyped the address.  Some web addresses are case sensitive.</p>
+<h3>Search for what you’re looking for below.</h3>
+
+<form action="/search" method="get" class="input-group search-bar form-page404" role="search">
   {% comment %}<input type="hidden" name="type" value="product">{% endcomment %}
   <input type="search" name="q" value="{{ search.terms | escape }}" class="input-group-field" aria-label="{{ 'general.search.placeholder' | t }}">
   <span class="input-group-btn">
@@ -14,6 +20,7 @@
     </button>
   </span>
 </form>
+<p><a class="btn empty-cart-btn" href="/collections/all">Continue shopping</a></p>
 <!-- Google adsense -->
 <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
 <!-- 2016.11 Large Mobile Banner -->
@@ -21,6 +28,9 @@
      style="display:inline-block;width:320px;height:100px"
      data-ad-client="ca-pub-8012410116055621"
      data-ad-slot="6472688720"></ins>
+
+
+</div>
 <script>
 (adsbygoogle = window.adsbygoogle || []).push({});
 </script>

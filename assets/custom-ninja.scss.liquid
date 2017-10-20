@@ -40,7 +40,6 @@
 }
 .breadcrumb{
 	color: #747474!important;
-	padding-left: 30px;
 	padding-top: 5px;
 	margin-bottom: 10px;
 	a{
@@ -50,8 +49,17 @@
 	span{
 		color: {{settings.initial_color}};
 	}
-
-
+}
+.empty-cart-btn{
+	border-radius: 0;
+	padding: 12px 44px;
+	font-weight: 400;
+	font-size: 18px;
+	background-color: {{settings.login_color}};
+	margin:20px 0;
+	&:hover{
+		background-color:{{settings.hover_btn_bkg_2}};
+	}
 }
 
 /*.yotpo .yotpo-bottomline .yotpo-icon-star, .yotpo .yotpo-bottomline .yotpo-icon-half-star, .yotpo .yotpo-bottomline .yotpo-icon-empty-star{
@@ -424,7 +432,16 @@
 	/*-------------------------END lobal style---------------------*/
 	/*-------------------------END global style---------------------*/
 	/*-------------------------END global style---------------------*/
+	.form-page404{
+		float: none!important;
+		margin:0 auto;
+		input{
+			border: 1px solid #000;
+			border-radius: 20px!important;
+			font-family: "FontAwesome"
+		}
 
+	}
 
 	/* begin cart page */
 	.template-cart{
@@ -455,16 +472,7 @@
 			margin: 45px 0 35px;
 			max-width: 100%;
 		}
-		.empty-cart-btn{
-			border-radius: 0;
-			padding: 12px 44px;
-			font-weight: 400;
-			font-size: 18px;
-			background-color: {{settings.btn_bkg}};
-			&:hover{
-				background-color:{{settings.hover_btn_bkg_2}};
-			}
-		}
+		
 		.paragraph{
 			font-size: 18px;
 			color: #565656;
@@ -628,26 +636,26 @@
 					.grid-item1{
 						background-color: #fafafa;
 						.bkg-box{
-						background-color: #fafafa;
-					}
+							background-color: #fafafa;
+						}
 					}
 					.grid-item2{
 						padding-left: 30px;
 						.bkg-box{
-						background-color: #fafafa;
-					}
+							background-color: #fafafa;
+						}
 					}
 					.grid-item3{
 						padding-left: 30px;
 						.bkg-box{
-						background-color: #fafafa;
-					}
+							background-color: #fafafa;
+						}
 					}
 					.grid-item4{
 						padding-left: 30px;
 						.bkg-box{
-						background-color: #fafafa;
-					}
+							background-color: #fafafa;
+						}
 					}
 					
 					.featured-collection-section{
@@ -731,7 +739,7 @@
 								.product_rp_div{
 									border:1px solid #ccc;
 									background-color: #e0e0e0;
-								
+
 									.recurring_title{
 										display: none;
 									}
@@ -1406,7 +1414,7 @@
 																							display: inline-block;
 																							border-left: 30px solid transparent;
 																							border-right: 30px solid transparent;
-																							border-bottom: 30px solid {{ settings.top_page_color }};
+																							border-bottom: 30px solid {{ settings.link_color }};
 
 																						}
 																						.text-link{
@@ -1456,6 +1464,20 @@
 
 																					/* begin collection  */
 																					.template-collection{
+																						.collection-tags{
+																							li{
+																								a{
+																									font-size: 20px!important;
+																									font-weight: 500!important;
+																									&:hover{
+																										color: {{settings.link_color}}!important;
+																									}
+																								}
+																							}
+																						}
+																						#colect-descr{
+																							margin-bottom: 40px;
+																						}
 																						.bottom-row{
 																							.main-menu{
 																								.current{
@@ -1605,12 +1627,16 @@
 
 																								/* begin sub-collection */
 																								#sub-collection{
+																									.first-line{
+																										margin: 5px 0;;
+																									}
 																									.breadcrumb{
 																										color: #333;
 																										a{
 																											@extend .breadcrumb;
 																										}
 																									}
+
 																									.thumbnail {
 																										position: relative;
 																										#corner{
@@ -1645,7 +1671,7 @@
 																										position: relative;
 																										display: block;
 																										letter-spacing: 0.025em;
-																										border-bottom: 1px solid #e9e9e9;
+																										/*border-bottom: 1px solid #e9e9e9;*/
 																										background-color: #f7f7f7;
 																										margin-bottom: 20px;
 																									}
@@ -1678,13 +1704,15 @@
 																										margin: 0 12px 0 0;
 																									}
 																									.toolbar .view-mode {
-																										float: left;
-																										text-align: left;
-																										margin: 15px 0px 0 15px;
+																										/*float: left;
+																										text-align: left;*/
+																										margin: 15px 0px 0 0;
 																									}
 																									.toolbar .view-mode label {
 																										margin: 0;
 																										font-size: 20px;
+																										text-transform: initial;
+																										letter-spacing: 0;
 																									}
 																									.toolbar .btn-group label {
 																										margin-top: 11px;

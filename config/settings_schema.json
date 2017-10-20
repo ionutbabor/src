@@ -12,19 +12,13 @@
         "type": "color",
         "id": "link_color",
         "label": "Link Color",
-        "default": "#7BCEC6"
+        "default": "#7bcec6"
       },
       {
         "type": "color",
         "id": "text_link_color",
         "label": "Content Link Color",
         "default": "#57a5cb"
-      },
-      {
-        "type": "color",
-        "id": "top_page_color",
-        "label": "Top of Page link background",
-        "default": "#01bcd3"
       },
       {
         "type": "color",
@@ -750,6 +744,12 @@
         "type": "text",
         "id": "in-stock-text",
         "label": "In stock text"
+      },
+      {
+        "type": "text",
+        "id": "out-stock-text",
+        "label": "Out of stock text",
+        "default": "*This product will delay your order by approximately 4-7 days."
       }
     ]
   }
