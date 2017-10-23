@@ -58,7 +58,7 @@
       </div>
       {% endunless %}
       <!--end right part -->
-      <hr>
+      {% comment %}<hr>{% endcomment %}
     </div> <!-- main-content -->
   </div>
 </div><!-- #top -->
@@ -70,7 +70,7 @@
 
 
 
-{% if collection.image != blank %}
+{% comment %}{% if collection.image != blank %}
 <!-- title page -->
 <div class="grid--full grid-padding">
   <div class="grid__item large--one-quarter">
@@ -81,7 +81,7 @@
 </div>
 </div>
 <!-- end title page -->
-{% endif %}
+{% endif %}{% endcomment %}
 
 <!-- banner top -->
 {% if collection.image %}

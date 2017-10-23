@@ -165,63 +165,69 @@
       </span>
       {% if bold_compare_at_price_max > bold_price %}
       <p id="ComparePrice">
-         {% if product.compare_at_price_varies %}{{ product.compare_at_price_min | money }}-{{ product.compare_at_price_max | money }}{% else %}{{ current_variant.compare_at_price | money }}{% endif %}
-        
-      </p>
-      {% endif %}
+       {% if product.compare_at_price_varies %}{{ product.compare_at_price_min | money }}-{{ product.compare_at_price_max | money }}{% else %}{{ current_variant.compare_at_price | money }}{% endif %}
 
-      {% if product.tags contains 'Free Ship Near Price' %}
-      <div class="instock-freeship-alert">
-        <p class="green">{{settings.free-text}}</p>
-      </div>
-      {% endif %}
+     </p>
+     {% endif %}
 
-      {% if product.available %}
-      <p class="text-left in-stock">{{settings.in-stock-text}}</p>
-      {% endif %}
+     {% if product.tags contains 'Free Ship Near Price' %}
+     <div class="instock-freeship-alert">
+      <p class="green">{{settings.free-text}}</p>
+    </div>
+    {% endif %}
 
-      <br class="clear">
+    {% if product.available %}
+    <p class="text-left in-stock">{{settings.in-stock-text}}</p>
+    {% endif %}
+
+    <br class="clear">
 
 
-      <div class="line-separator"></div> 
-      <br class="clear">
-
-      {% if product.tags contains 'Size Chart' %}
-      <div id="size-trigger">
-        <a href="#!"><img src="{{ 'ruler.png' | asset_url }}"> View Size Chart</a>
-      </div>
-      {% endif %}
-
-      <img src="{{ 'close.png' | asset_url }}" id="size-close" style="display: none;">
-
-      <div id="size-chart" style="display: none;">
-        {{ my_description[1] }}
-      </div>
-      <select name="id" id="productSelect" class="product-single__variants">
-        {% for variant in product.variants %}
-        {% include 'bold-hidden-variants' with variant, bold_loop: 'loop' %}
-
-        {% if variant.available %}
-        <option value="{{ variant.id }}" data-price="{{ variant.price | money_without_currency | remove: ',' }}">{{ variant.title }} - {{ variant.price | money }}</option>
-        {% else %}
-        <option disabled="disabled">
-          {{ variant.title }} - {{ 'products.product.sold_out' | t }}
-        </option>
-        {% endif %}
-        {% endfor %}
-      </select>
+    <div class="line-separator"></div> 
+    <br class="clear">
 
 
 
-      {% if product.available and product.variants.size > 1 %}
-      {% for option in product.options %}
-      {% capture option_index %}option{{ forloop.index }}{% endcapture %}
-      {% assign option_values = product.variants | map: option_index | uniq %}
-      {% if option_values.size <= 3 %}
-      {% include 'swatch' with option %}
+    {% if product.tags contains 'Size Chart' %}
+    <div id="size-trigger">
+      <a href="#!"><img src="{{ 'ruler.png' | asset_url }}"> View Size Chart</a>
+    </div>
+    {% endif %}
+
+    <img src="{{ 'close.png' | asset_url }}" id="size-close" style="display: none;">
+
+    <div id="size-chart" style="display: none;">
+      {{ my_description[1] }}
+    </div>
+
+    {% if product.available %}
+
+    <select name="id" id="productSelect" class="product-single__variants">
+      {% for variant in product.variants %}
+      {% include 'bold-hidden-variants' with variant, bold_loop: 'loop' %}
+
+      {% if variant.available %}
+      <option value="{{ variant.id }}" data-price="{{ variant.price | money_without_currency | remove: ',' }}">{{ variant.title }} - {{ variant.price | money }}</option>
+      {% else %}
+      <option disabled="disabled">
+        {{ variant.title }} - {{ 'products.product.sold_out' | t }}
+      </option>
       {% endif %}
       {% endfor %}
-      {% endif %}
+    </select>
+
+     {% endif %}
+
+
+    {% if product.available and product.variants.size > 1 %}
+    {% for option in product.options %}
+    {% capture option_index %}option{{ forloop.index }}{% endcapture %}
+    {% assign option_values = product.variants | map: option_index | uniq %}
+    {% if option_values.size <= 3 %}
+    {% include 'swatch' with option %}
+    {% endif %}
+    {% endfor %}
+    {% endif %}
 
 
 
@@ -259,7 +265,7 @@
        <input type="text" class="ajaxcart__qty-num" id="Quantity" name="quantity" min="1" value="{{itemQty}}" placeholder="1" data-id="{{id}}" aria-label="quantity" pattern="[0-9]*">
        <button type="button" class="ajaxcart__qty-adjust ajaxcart__qty--plus" data-id="{{id}}" data-qty="{{itemAdd}}">+</button>
      </div>{% endcomment %} 
-
+   {% if product.available %}
 
      <div class="add-to-cart">
       <div class="quantity">
@@ -271,12 +277,21 @@
           {% endfor %}
         </select>
       </div>
+      
 
       <button type="submit" name="add" id="AddToCart" class="btn addtocart">
         <!-- bold-ro-liquid --> <div class="bold_add_to_orders" style="display: inline-block;"> </div> <!-- bold-ro-liquid -->
         {{ 'products.product.add_to_cart' | t }}
       </button>
     </div>
+
+    {%else%}
+    <button type="submit" name="add" id="AddToCart" class="btn addtocart disabled" disabled>
+      <!-- bold-ro-liquid --> <div class="bold_add_to_orders"> </div> <!-- bold-ro-liquid -->
+      {{ 'products.product.sold_out' | t }}
+    </button>
+
+    {%endif%}
 
 
     {% if product.tags contains 'Shipping Alert' %}
@@ -317,16 +332,16 @@
 
 
 <div class="grid--full grid-padding">
-     {{ my_description[0] }}
-<hr>
+ {{ my_description[0] }}
+ <hr>
 
-<p>Section with three products</p>
-<hr>
-    {{ my_description[2] }}
-<hr>
+ <p>Section with three products</p>
+ <hr>
+ {{ my_description[2] }}
+ <hr>
 
 
-<main class="main-content" >
+ <main class="main-content" >
   <div class="yotpo yotpo-main-widget"
   data-product-id="{{ product.id }}"
   data-name="{{ product.title | escape }}"
@@ -388,15 +403,15 @@ jQuery(function($) {
     enableHistoryState: true
   });
 
-  {% if bold_variants_size > 1 %}
-  {% for option in product.options %}
-  $('.single-option-selector:eq({{ forloop.index0 }})')
-  .filter(function() { return $(this).find('option').size() > 1  })
-  .prepend('<option value="" selected="selected" autocomplete="off">Select ' + {{ product.options[forloop.index0] | json }} + '</option>')
-  .val('')
-  .trigger('change');
-  {% endfor %}
-  {% endif %}
+  // {% if bold_variants_size > 1 %}
+  // {% for option in product.options %}
+  // $('.single-option-selector:eq({{ forloop.index0 }})')
+  // .filter(function() { return $(this).find('option').size() > 1  })
+  // .prepend('<option value="" selected="selected" autocomplete="off">Select ' + {{ product.options[forloop.index0] | json }} + '</option>')
+  // .val('')
+  // .trigger('change');
+  // {% endfor %}
+  // {% endif %}
 
     // Hide selectors if we only have 1 variant and its title contains 'Default'.
     {% if bold_variants_size == 1 and product.variants.first.title contains 'Default' or product.variants.first.title contains '1+' %}

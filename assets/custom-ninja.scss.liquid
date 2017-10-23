@@ -17,6 +17,9 @@
 .no-padding{
 	padding: 0;
 }
+.grid-padding{
+	padding: 0 30px;
+}
 
 #carousel-top-panel{
 	.headline{
@@ -65,7 +68,10 @@
 /*.yotpo .yotpo-bottomline .yotpo-icon-star, .yotpo .yotpo-bottomline .yotpo-icon-half-star, .yotpo .yotpo-bottomline .yotpo-icon-empty-star{
 	color: {{settings.stars_color}};
 	}*/
-
+	.visible-xs{
+		display:none;
+	}
+	
 	input, textarea, select{
 		border:1px solid #a1a1a1;
 	}
@@ -126,8 +132,23 @@
 			}
 		}
 	}
-
-
+	.collection-grid-item{
+		position: relative;
+		text-align: center;
+		.collection-grid-item__content{
+			position: absolute;
+			bottom: 30px;
+			border:1px solid #000;
+			background-color: #fff;
+			color: #000;
+			padding: 4px;
+			width: 112px;
+			left: 50%;
+			margin-left: -55px;
+			font-weight: 600;
+		}
+	}
+	
 
 	#CartContainer{
 		.img-ajax{
@@ -614,6 +635,13 @@
 
 				/* begin index page */
 				.template-index{
+					.homepage-collection-grid{
+						display: none;
+					}
+					.grid--full .grid__item .grid__item{
+						padding-left: 0;
+					}
+
 					.yotpo-reviews-carousel .carousel-display-wrapper .yotpo-carousel .carousel-review-title{
 						margin-left: 30%;
 						text-transform: capitalize;
@@ -633,28 +661,32 @@
 						padding: 36% 0;
 					}
 
+
+					.bkg-box{
+						background-color: #fafafa;
+						float:left;
+						/*padding-left: 20px;*/
+					}
 					.grid-item1{
 						background-color: #fafafa;
-						.bkg-box{
-							background-color: #fafafa;
-						}
+						padding-left: 30px;
 					}
 					.grid-item2{
 						padding-left: 30px;
-						.bkg-box{
-							background-color: #fafafa;
+						.caption{
+							padding: 36% 0 36% 6px;
 						}
 					}
 					.grid-item3{
 						padding-left: 30px;
-						.bkg-box{
-							background-color: #fafafa;
+						.caption{
+							padding: 36% 0 36% 6px;
 						}
 					}
 					.grid-item4{
 						padding-left: 30px;
-						.bkg-box{
-							background-color: #fafafa;
+						.caption{
+							padding: 36% 0 36% 6px;
 						}
 					}
 					
@@ -676,7 +708,7 @@
 							}
 						}
 						.header-line{
-							margin-bottom: 20px;
+							margin-bottom: 25px;
 						}
 
 					}
@@ -689,9 +721,7 @@
 				transform: scale(0.95);*/
 				opacity:0.8;
 			}
-			.feat-center {
-				left: 0;
-			}
+			
 		}
 
 
@@ -1464,6 +1494,11 @@
 
 																					/* begin collection  */
 																					.template-collection{
+																						.banner-page{
+																							img{
+																								max-width: 100%;
+																							}
+																						}
 																						.collection-tags{
 																							li{
 																								a{
@@ -1570,7 +1605,8 @@
 																								.form-horizontal{
 																									margin-bottom: 10px;
 																								}
-																								@media only screen and (max-width: 767px) { 
+																								@media only screen and (max-width: 942px) { 
+
 																								}
 																								@media only screen and (min-width: 768px) and (max-width: 959px){
 
@@ -1976,7 +2012,23 @@
 
 																									/*=============================GLOBAL RESPONSIVE=============================*/
 																									@media (max-width: 480px) {
-																										.grid--full{
+																										.slides_carousel li{
+																											width: 95px!important;
+																										}
+																										.collection-link{
+																											font-size: 14px;
+																										}
+
+																										.slider-button p{
+																											font-size: 22px!important;
+																											letter-spacing: 2px;
+
+																										}
+																										.slider-caption h1{
+																											font-size: 22px!important;
+
+																										}
+																										.grid-padding{
 																											padding: 0 10px;
 																										}
 																										.subscribe-section{
@@ -2001,13 +2053,24 @@
 																												}
 																											}
 																										}
+																										
+																										.yotpo-reviews-carousel .carousel-display-wrapper #carousel-top-panel .headline{
+																											font-size: 16px!important;
+																										}
+																										#title-collection, .template-collection #title-collection-current{
+																											font-size: 16px;
+																										}
 																										/*index page*/
 																										.template-index{
-																											.featured-box{
-																												.feat-center{
-																													padding: 0;
+																											.wrapper0{
+																												.collection-link{
+																													font-size: 20px!important;
 																												}
 																											}
+																											.slick-prev, .slick-next{
+																												display: none!important;
+																											}
+																											h2{font-size: 16px;}
 																										}
 
 																										#guides{
@@ -2035,7 +2098,16 @@
 																											}/* (max-width: 480px) */
 
 																											@media only screen and (min-width: 481px) and (max-width: 767px){
-																												.grid--full{
+																												.template-index{
+																													h2{font-size: 16px;}
+																												}
+																												.yotpo-reviews-carousel .carousel-display-wrapper #carousel-top-panel .headline{
+																													font-size: 16px!important;
+																												}
+																												#title-collection, .template-collection #title-collection-current{
+																													font-size: 16px;
+																												}
+																												.grid-padding{
 																													padding: 0 20px;
 																												}
 																												#guides{
@@ -2062,136 +2134,195 @@
 																													}/* (min-width: 481px) and (max-width: 767px) */
 
 																													@media only screen and (max-width: 768px){
-																														#carousel{
+																														.flex-control-thumbs li, .flex-control-thumbs li:first-child {
+																															width: 16%;
+																															vertical-align: top;
+																															margin: 15px 5% 0 0;
+																														}
+																														.visible-xs{
+																															display:block;
+																														}
+																														.hidden-xs{
 																															display: none;
 																														}
-																														#slider .flex-control-nav{
-																															display: block;
+																														
+																														.slider-button{
+																															width: 80%!important;
 																														}
+																														
 																														/*index page*/
 																														.template-index{
-																															.featured-collection-section{
+																															.wrapper0{
+																																text-align: center;
+																																.grid__item{
+																																	padding-left: 0;
+																																}
+																															}
+																															.grid-item2{
+																																padding-left: 0;
+																																margin-bottom: 30px;
+																															}
+																															.homepage-collection-grid{
+																																display: block;
+																																margin-top: 50px;
+																															}
+																															/*.featured-collection-section{
 																																.product-grid{
 																																	padding: 0;
 																																}
-																															}
-																														} 
-																													}
-																													@media only screen and (min-width: 768px) and (max-width: 959px){
-																														#guides{
-																															.banner-page{
-																																.banner-caption {
-																																	width: 70%;
-																																	padding: 10px;
+																																}*/
+																																.grid-item1{
+																																	padding-left: 0;
+																																	margin-bottom: 30px;
+
 																																}
 																															}
+																															.template-product{
+																																.breadcrumb{
+																																	display: none;
+																																}
+																															} 
 																														}
-																														/*begin top*/
-																														#top{
-																															.main-content{
-																																.title-filters{
-																																	h2{
-																																		padding-top: 10px;
-																																		margin-bottom: 10px;
+																														@media only screen and (min-width: 768px) and (max-width: 959px){
+																															.template-index{
+																																h2{font-size: 22px;}
+																															}
+																															.yotpo-reviews-carousel .carousel-display-wrapper #carousel-top-panel .headline{
+																																font-size: 22px!important;
+																															}
+																															#title-collection, .template-collection #title-collection-current{
+																																font-size: 22px;
+																															}
+																															.grid-padding{
+																																padding: 0 20px;
+																															}
+																															#guides{
+																																.banner-page{
+																																	.banner-caption {
+																																		width: 70%;
+																																		padding: 10px;
 																																	}
 																																}
-																																hr{
-																																	margin: 30px 0 10px;
+																															}
+																															/*begin top*/
+																															#top{
+																																.main-content{
+																																	.title-filters{
+																																		h2{
+																																			padding-top: 10px;
+																																			margin-bottom: 10px;
+																																		}
+																																	}
+																																	hr{
+																																		margin: 30px 0 10px;
+																																	}
 																																}
-																															}
-																															}/*end top*/
-																														}
-
-																														@media only screen and (max-width: 942px){
-																															/* begin cart page */
-																															.template-cart{
-																																.cbb-shipping-rates-calculator{
-																																	width: 100%;
-																																}
-																															}
-																															#fsb_background{
-																																top:0!important;
-																																position: fixed!important;
-																															}
-																														}
-																														@media only screen and (min-width: 943px){
-																															#fsb_background{
-																																z-index: 1000!important;
-																															}
-																															.template-cart{
-																																.cbb-shipping-rates-calculator{
-																																	width: 32.2%;
-																																}
+																																}/*end top*/
 																															}
 
-																														}
-																														@media only screen and (min-width: 943px) and (max-width: 1240px){
-																															.nav-bar{
-																																.move-right{
-																																	.social-menu{
-																																		#content{
-																																			font-size: 17px;
-																																		}
-																																		li:first-child{
-																																			padding-right: 5px;
-																																		}
-																																		#coin-container{
-																																			/*float: right;*/
-																																			select{
+																															@media only screen and (max-width: 942px){
+																																#carousel{
+																																	display: none;
+																																}
+																																/*#slider .flex-control-nav{
+																																	display: block;
+																																}*/
+																																/* begin cart page */
+																																.template-cart{
+																																	.cbb-shipping-rates-calculator{
+																																		width: 100%;
+																																	}
+																																}
+																																#fsb_background{
+																																	top:0!important;
+																																	position: fixed!important;
+																																}
+																															}
+																															@media only screen and (min-width: 943px){
+																																#fsb_background{
+																																	z-index: 1000!important;
+																																}
+																																.template-cart{
+																																	.cbb-shipping-rates-calculator{
+																																		width: 32.2%;
+																																	}
+																																}
+
+																															}
+																															@media only screen and (min-width: 943px) and (max-width: 1240px){
+																																.template-index{
+																																	h2{font-size: 22px;}
+																																}
+																																.yotpo-reviews-carousel .carousel-display-wrapper #carousel-top-panel .headline{
+																																	font-size: 22px!important;
+																																}
+																																#title-collection, .template-collection #title-collection-current{
+																																	font-size: 22px;
+																																}
+																																.nav-bar{
+																																	.move-right{
+																																		.social-menu{
+																																			#content{
 																																				font-size: 17px;
 																																			}
-																																		}
-																																	}
-																																	#primary_nav_wrap{
-																																		ul{
-																																			a{
-																																				padding: 2px;
+																																			li:first-child{
+																																				padding-right: 5px;
+																																			}
+																																			#coin-container{
+																																				/*float: right;*/
+																																				select{
+																																					font-size: 17px;
+																																				}
 																																			}
 																																		}
-																																	}
-																																	.cart-right{
-																																		#label{
-																																			font-size: 17px;
-																																			top:0;
+																																		#primary_nav_wrap{
+																																			ul{
+																																				a{
+																																					padding: 2px;
+																																				}
+																																			}
+																																		}
+																																		.cart-right{
+																																			#label{
+																																				font-size: 17px;
+																																				top:0;
+																																			}
+																																		}
+																																		#cart{
+																																			.icon-cart-count{
+																																				font-size: 17px;
+																																				line-height: 17px;
+																																				right: 11px;
+																																			}
+
 																																		}
 																																	}
-																																	#cart{
-																																		.icon-cart-count{
-																																			font-size: 17px;
-																																			line-height: 17px;
-																																			right: 11px;
+																																}
+																																.fa-shopping-cart{
+																																	font-size: 24px;
+																																}
+																																.bottom-row{
+																																	top:77px;
+																																	width: 75.5%;
+																																}
+																																ul.main-menu li a{
+																																	font-size: 24px;
+																																}
+																																}/* (min-width: 960px) and (max-width: 1199px) */
+
+																																@media (min-width: 1200px) {
+																																	.wrapper0{
+																																		margin: 0 10%;
+																																		max-width: 100%;
+																																	}
+
+																																	/*index page*/
+																																	.template-index{
+																																		.slick-slider{
+																																			margin-bottom: 70px;
 																																		}
-
 																																	}
-																																}
-																															}
-																															.fa-shopping-cart{
-																																font-size: 24px;
-																															}
-																															.bottom-row{
-																																top:77px;
-																																width: 75.5%;
-																															}
-																															ul.main-menu li a{
-																																font-size: 24px;
-																															}
-																															}/* (min-width: 960px) and (max-width: 1199px) */
 
-																															@media (min-width: 1200px) {
-																																.wrapper0{
-																																	margin: 0 10%;
-																																	max-width: 100%;
-																																}
-																																.grid-padding{
-																																	padding: 0 30px;
-																																}
-																																/*index page*/
-																																.template-index{
-																																	.slick-slider{
-																																		margin-bottom: 70px;
-																																	}
-																																}
-
-																																}/* (min-width: 1200px) */
+																																	}/* (min-width: 1200px) */
 
 

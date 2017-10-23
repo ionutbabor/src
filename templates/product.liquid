@@ -14,7 +14,7 @@
   <div id="top">
     <div class="main-content">
       <!-- left part -->
-      <div class="grid--full grid-padding">
+      <div class="grid--full grid-padding hidden-xs">
         <div class="grid__item large--one-quarter title-filters medium--one-quarter">
 
           {% if product.tags contains 'Textiles' %}
@@ -56,8 +56,8 @@
       <!-- right part -->
 
       <div class="grid__item large--three-quarters parent-filters medium--three-quarters" style="border-left: 1px solid #ccc;">
-        {% comment %}<ul class="collection-tags">
-          {% if product.tags contains 'personal' or product.tags contains 'skin-care' or product.tags contains 'cleansers' or product.tags contains 'sweat-control' or product.tags contains 'moisturizers' or product.tags contains 'wound-care' %}
+        <ul>
+          {% if product.tags contains 'socks' %}
           {% for link in linklists.personal-care.links %}
           <li><a href="{{ link.url }}">{{ link.title }}</a></li>
           {% endfor %}
@@ -77,7 +77,7 @@
           <li><a href="{{ link.url }}">{{ link.title }}</a></li>
           {% endfor %}
           {% endif %}
-        </ul>{% endcomment %}
+        </ul>
       </div>
 
       <!--end right part -->
@@ -119,60 +119,63 @@
       <!-- begin flexslider product -->
       {% include 'product-images' %}
       <!-- end flexslider product -->
+
     </div>
 
 
     <div class="grid__item large--one-half">
+      <div class="hidden-xs">
 
       <h1 itemprop="name">{{ product.title }}</h1>
 
       <div class="grid">
         <div class="grid__item large--one-sixth medium--one-third">
-        <p class="vendor-title">by {{ product.vendor | link_to_vendor }}</p>
-         {% comment %}<p class="vendor-title">by {{ product.vendor | replace: "-", " " | link_to_vendor }}</p>{% endcomment %}
-         
-       </div>
-       <div class="grid__item large--one-quarter medium--one-third">
-        <div class="yotpo bottomLine"
-        data-appkey="NuT1UIlxTbSur2znb49km0JEX7gsE8Xqwiqw1r1b"
-        data-domain="{{ shop.permanent_domain | escape }}"
-        data-product-id="{{ product.id }}"
-        data-product-models="{{ product.id }}"
-        data-name="{{ product.title | escape }}"
-        data-url="{{ shop.url }}{{ product.url }}"
-        data-image-url="{{ product.featured_image | product_img_url: 'large' |replace: '?', '%3F' | replace: '&','%26'}}"
-        data-description="{{ product.description | escape }}"
-        data-bread-crumbs="{% for tag in product.tags %}{{ tag | escape }};{% endfor %}">
+          <p class="vendor-title">by {{ product.vendor | link_to_vendor }}</p>
+          {% comment %}<p class="vendor-title">by {{ product.vendor | replace: "-", " " | link_to_vendor }}</p>{% endcomment %}
+
+        </div>
+        <div class="grid__item large--one-quarter medium--one-third">
+          <div class="yotpo bottomLine"
+          data-appkey="NuT1UIlxTbSur2znb49km0JEX7gsE8Xqwiqw1r1b"
+          data-domain="{{ shop.permanent_domain | escape }}"
+          data-product-id="{{ product.id }}"
+          data-product-models="{{ product.id }}"
+          data-name="{{ product.title | escape }}"
+          data-url="{{ shop.url }}{{ product.url }}"
+          data-image-url="{{ product.featured_image | product_img_url: 'large' |replace: '?', '%3F' | replace: '&','%26'}}"
+          data-description="{{ product.description | escape }}"
+          data-bread-crumbs="{% for tag in product.tags %}{{ tag | escape }};{% endfor %}">
+        </div>
+
       </div>
-
+      <div class="grid__item large--one-quarter medium--one-third">
+        <div class='yotpo QABottomLine'
+        data-appkey='NuT1UIlxTbSur2znb49km0JEX7gsE8Xqwiqw1r1b'
+        data-product-id='{{ product.id }}'></div>
+      </div>
     </div>
-    <div class="grid__item large--one-quarter medium--one-third">
-      <div class='yotpo QABottomLine'
-      data-appkey='NuT1UIlxTbSur2znb49km0JEX7gsE8Xqwiqw1r1b'
-      data-product-id='{{ product.id }}'></div>
     </div>
-  </div>
 
-  <div itemprop="offers" itemscope itemtype="http://schema.org/Offer">
-    <meta itemprop="priceCurrency" content="{{ shop.currency }}">
+    <div itemprop="offers" itemscope itemtype="http://schema.org/Offer">
+      <meta itemprop="priceCurrency" content="{{ shop.currency }}">
 
-    <link itemprop="availability" href="http://schema.org/{% if product.available %}InStock{% else %}OutOfStock{% endif %}">
+      <link itemprop="availability" href="http://schema.org/{% if product.available %}InStock{% else %}OutOfStock{% endif %}">
 
-    <form action="/cart/add" method="post" enctype="multipart/form-data" id="AddToCartForm" class="form-vertical shapp_qb_prod">
+      <form action="/cart/add" method="post" enctype="multipart/form-data" id="AddToCartForm" class="form-vertical shapp_qb_prod">
 
-      <span id="ProductPrice" class="h2" itemprop="price">
-        {% comment %}{{ current_variant.price | money }}{% endcomment %}
-        {% if product.price_varies %}{{ product.price_min | money }}-{{ product.price_max | money }}{% else %}{{ current_variant.price | money }}{% endif %}
-      </span>
-      {% if bold_compare_at_price_max > bold_price %}
-      <p id="ComparePrice">
+        <span id="ProductPrice" class="h2" itemprop="price">
+          {% comment %}{{ current_variant.price | money }}{% endcomment %}
+          {% if product.price_varies %}{{ product.price_min | money }}-{{ product.price_max | money }}{% else %}{{ current_variant.price | money }}{% endif %}
+        </span>
+        {% if bold_compare_at_price_max > bold_price %}
+        <p id="ComparePrice">
          {% if product.compare_at_price_varies %}{{ product.compare_at_price_min | money }}-{{ product.compare_at_price_max | money }}{% else %}{{ current_variant.compare_at_price | money }}{% endif %}
-        
-      </p>
-      {% endif %}
 
-      {% if product.tags contains 'Free Ship Near Price' %}
-      <div class="instock-freeship-alert">
+       </p>
+       {% endif %}
+
+       {% if product.tags contains 'Free Ship Near Price' %}
+       <div class="instock-freeship-alert">
         <p class="green">{{settings.free-text}}</p>
       </div>
       {% endif %}
@@ -203,7 +206,7 @@
         {% include 'bold-hidden-variants' with variant, bold_loop: 'loop' %}
 
         {% if variant.available %}
-        <option value="{{ variant.id }}" data-price="{{ variant.price | money_without_currency | remove: ',' }}">{{ variant.title }} - {{ variant.price | money }}</option>
+        <option value="{{ variant.id }}" data-price="{{ variant.price | money_without_currency | remove: ',' }}" class="test">{{ variant.title }} - {{ variant.price | money }}</option>
         {% else %}
         <option disabled="disabled">
           {{ variant.title }} - {{ 'products.product.sold_out' | t }}
@@ -261,7 +264,7 @@
        <button type="button" class="ajaxcart__qty-adjust ajaxcart__qty--plus" data-id="{{id}}" data-qty="{{itemAdd}}">+</button>
      </div>{% endcomment %} 
 
-
+  
      <div class="add-to-cart">
       <div class="quantity">
         {% assign quantityOptions = '1,2,3,4,5,6,7,8,9,10' | split:',' %}
@@ -275,7 +278,7 @@
 
       <button type="submit" name="add" id="AddToCart" class="btn addtocart">
         <!-- bold-ro-liquid --> <div class="bold_add_to_orders" style="display: inline-block;"> </div> <!-- bold-ro-liquid -->
-        {{ 'products.product.add_to_cart' | t }}
+      {{ 'products.product.add_to_cart' | t }}
       </button>
     </div>
 
@@ -389,15 +392,15 @@ jQuery(function($) {
     enableHistoryState: true
   });
 
-  {% if bold_variants_size > 1 %}
-  {% for option in product.options %}
-  $('.single-option-selector:eq({{ forloop.index0 }})')
-  .filter(function() { return $(this).find('option').size() > 1  })
-  .prepend('<option value="" selected="selected" autocomplete="off">Select ' + {{ product.options[forloop.index0] | json }} + '</option>')
-  .val('')
-  .trigger('change');
-  {% endfor %}
-  {% endif %}
+  // {% if bold_variants_size > 1 %}
+  // {% for option in product.options %}
+  // $('.single-option-selector:eq({{ forloop.index0 }})')
+  // .filter(function() { return $(this).find('option').size() > 1  })
+  // .prepend('<option value="" selected="selected" autocomplete="off">Select ' + {{ product.options[forloop.index0] | json }} + '</option>')
+  // .val('')
+  // .trigger('change');
+  // {% endfor %}
+  // {% endif %}
 
     // Hide selectors if we only have 1 variant and its title contains 'Default'.
     {% if bold_variants_size == 1 and product.variants.first.title contains 'Default' or product.variants.first.title contains '1+' %}
@@ -417,3 +420,4 @@ jQuery(function($) {
  pointer-events: none !Important; 
 }
 </style>
+

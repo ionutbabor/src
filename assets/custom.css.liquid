@@ -165,8 +165,8 @@ html {
   }
 
   .featured-box {
-    float: left;
-    width: 33.3333333333333%;
+   /* float: left;
+    width: 33.3333333333333%;*/
     text-align: center;
     position: relative;
   }
@@ -176,15 +176,13 @@ html {
   }
 
   .feat-caption {
-    width: 50%;
+    width: 240px;
     position: absolute;
-    display: table-cell;
-    top: 0;
-    bottom: 0;
+    transform: translateY(-50%);
+    top:50%;
     left:0;
     right:0;
     margin: auto;
-    height: 30%;
   }
 
   .feat-caption h2 {
@@ -198,9 +196,9 @@ html {
     right: 40%;
   }
 
-  .feat-center {
+ /* .feat-center {
     left: 5%;
-  }
+  }*/
 
   .feat-right {
     left: 40%;
@@ -278,9 +276,7 @@ html {
   }
 
   .slider-caption.align-center {
-    width: 55%;
     position: absolute;
-    display: table-cell;
     top: 0;
     bottom: 0;
     left: 0;
@@ -455,7 +451,7 @@ input.required.email {
 
 input.sign_up {
   float: left;
-  width: 31%;
+  width: 30%;
   -webkit-border-radius: 20px;
   -moz-border-radius: 20px;
   border-radius: 20px;
@@ -1251,9 +1247,9 @@ span.next a, span.prev a {
 }
 
 @media (max-width: 700px) {
-  .slider-caption .slider-button {
+/*  .slider-caption .slider-button {
    position: static;
- }
+ }*/
 
  .slider-caption h1 {
   font-size: 27px !important;
@@ -1289,7 +1285,8 @@ span.next a, span.prev a {
 
   .slider-caption.align-center {
     height: 62% !important;
-    width: 80% !important;
+    width: 100% !important;
+    text-align: center;
   }
   
   /*.template-index {
@@ -1334,12 +1331,11 @@ span.next a, span.prev a {
 
     .featured-box {
       padding: 20px 20px 0px 20px;
-      width: 100%;
     }
 
-    .feat-caption {
+    /*.feat-caption {
       padding: 10px;
-    }
+    }*/
 
     .testimonials {
       display: none;

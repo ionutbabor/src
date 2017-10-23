@@ -1,12 +1,12 @@
 <!-- /templates/index.liquid -->
+{% section 'index-collection-grid' %}
 {% section 'featured-collection-1' %}
 
 {% section 'featured-collection-2' %}
 
 
-
 <a href="{{ settings.link_feat1 }}">
-  <div class="featured-box">
+  <div class="featured-box grid__item large--one-third medium--one-whole small--one-whole">
     <img src="{{ 'prosthetic-stump-socks.png' | asset_url }}" alt="{{settings.alt_feat1}}"  />
     <div class="feat-caption {% if settings.position_feat1 == 'feat1_left' %}feat-left {% endif %}{% if settings.position_feat1 == 'feat1_center' %}feat-center {% endif %}{% if settings.position_feat1 == 'feat1_right' %}feat-right{% endif %}">
       <h2 style="color: {{ settings.captioncolor_feat1 }};">{{ settings.captiontitle_feat1 }}</h2>
@@ -19,7 +19,7 @@
 </a>
 
 <a href="{{ settings.link_feat2 }}">
-  <div class="featured-box">
+  <div class="featured-box grid__item large--one-third medium--one-whole small--one-whole">
     <img src="{{ 'prosthetic-skin-care-for-amputee-hygiene.png' | asset_url }}" alt="{{settings.alt_feat2}}"  />
     <div class="feat-caption {% if settings.position_feat2 == 'feat2_left' %}feat-left {% endif %}{% if settings.position_feat2 == 'feat2_center' %}feat-center {% endif %}{% if settings.position_feat2 == 'feat2_right' %}feat-right{% endif %}">
       <h2 style="color: {{ settings.captioncolor_feat2 }};">{{ settings.captiontitle_feat2 }}</h2>
@@ -32,7 +32,7 @@
 </a>
 
 <a href="{{ settings.link_feat3 }}">
-  <div class="featured-box">
+  <div class="featured-box grid__item large--one-third medium--one-whole small--one-whole">
     <img src="{{ 'prosthetic-sleeves-bk-amputee.png' | asset_url }}" alt="{{settings.alt_feat3}}"  />
     <div class="feat-caption {% if settings.position_feat3 == 'feat3_left' %}feat-left {% endif %}{% if settings.position_feat3 == 'feat3_center' %}feat-center {% endif %}{% if settings.position_feat3 == 'feat3_right' %}feat-right{% endif %}">
       <h2 style="color: {{ settings.captioncolor_feat3 }};">{{ settings.captiontitle_feat3 }}</h2>
@@ -52,9 +52,9 @@
     <h2 class="page-title" style="margin-top: 30px; margin-bottom: 20px;"><a href="/collections/featured-amputee-supplies" style="font-family: 'bebas', sans-serif; color: #000; letter-spacing: 2px; font-size: 30px;">Featured Amputee Supplies</a></h2>
   </div>{% endcomment %}
 
-{% section 'featured-collection-3' %}
+  {% section 'featured-collection-3' %}
 
-{% section 'amputation-level' %}
+  {% section 'amputation-level' %}
 
 {% comment %}</main>{% endcomment %}
 
@@ -70,19 +70,19 @@ data-show-navigation="1"
 data-header-customisation-alignment="left" 
 data-background-color="#ffffff">&nbsp;</div>{% endcomment %}
 <div class="yotpo yotpo-reviews-carousel" 
- data-header-customisation-enabled="1" 
- data-header-customisation-color="#333" 
- data-header-customisation-font-size="30" 
- data-header-customisation-text="Real Reviews From Real People" 
- data-header-customisation-alignment="left" 
- data-background-color="transparent" 
- data-mode="most_recent" 
- data-type="both" 
- data-count="9" 
- data-show-bottomline="1" 
- data-autoplay-enabled="1" 
- data-autoplay-speed="3000" 
- data-show-navigation="1">&nbsp;</div>
+data-header-customisation-enabled="1" 
+data-header-customisation-color="#333" 
+data-header-customisation-font-size="30" 
+data-header-customisation-text="Real Reviews From Real People" 
+data-header-customisation-alignment="left" 
+data-background-color="transparent" 
+data-mode="most_recent" 
+data-type="both" 
+data-count="9" 
+data-show-bottomline="1" 
+data-autoplay-enabled="1" 
+data-autoplay-speed="3000" 
+data-show-navigation="1">&nbsp;</div>
 </div>
 
 
@@ -114,26 +114,26 @@ data-background-color="#ffffff">&nbsp;</div>{% endcomment %}
 
 <div class="grid--full grid-padding">
   <div class="grid-item">
-  
-      <h2>Amputee Store Blog</h2>
-  
-<div class="wrapper0">
-    {% for article in blogs['amputee-store-blog'].articles limit: 3 %}
+    
+    <h2>Amputee Store Blog</h2>
+    
+    <div class="wrapper0">
+      {% for article in blogs['amputee-store-blog'].articles limit: 3 %}
 
-    <div class="grid__item large--one-third">
+      <div class="grid__item large--one-third">
 
-      <div class="rte blog-excerpt">
-        {{ article.excerpt }}
-        <h3><a href="{{ article.url }}">{{ article.title }}</a></h3>
+        <div class="rte blog-excerpt">
+          {{ article.excerpt }}
+          <h3><a href="{{ article.url }}">{{ article.title }}</a></h3>
 
-        <p>{{ article.content | strip_html | truncatewords: 12 }}</p>
+          <p>{{ article.content | strip_html | truncatewords: 12 }}</p>
+        </div>
+        
+        <p><a class="collection-link" href="{{ article.url }}">Read More</a></p>
+
       </div>
-      
-      <p><a class="collection-link" href="{{ article.url }}">Read More</a></p>
 
+      {% endfor %}
     </div>
-
-    {% endfor %}
   </div>
-  </div>
-  </div>
+</div>
