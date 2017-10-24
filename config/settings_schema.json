@@ -61,6 +61,12 @@
         "id": "login_color",
         "label": "Sign in / Login Color",
         "default": "#fa8a10"
+      },
+      {
+        "type": "color",
+        "id": "input_color",
+        "label": "Input Background",
+        "default": "#fedcb8"
       }
     ]
   },

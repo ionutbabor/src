@@ -121,7 +121,7 @@
   <body id="{{ page_title | handle }}" class="{% if customer %}customer-logged-in {% endif %}template-{{ template | replace: '.', ' ' | truncatewords: 1, '' | handle }}" >
     <div id="NavDrawer" class="drawer drawer--left">
 
-      <ul class="mobile-nav">
+      <ul class="mobile-nav accounts-links">
         {% if shop.customer_accounts_enabled %}
         {% if customer %}
         <li class="mobile-nav__item">
@@ -149,11 +149,13 @@
       </ul>
 
       <div class="drawer__header">
-        <div class="drawer__title h3">{{ 'layout.drawers.browse' | t }}</div>
+        {% comment %}<div class="drawer__title h3">{{ 'layout.drawers.browse' | t }}</div>{% endcomment %}
+        <div class="drawer__title h3">Shop Prosthetic Products</div>
         <div class="drawer__close js-drawer-close">
           <button type="button" class="icon-fallback-text">
-            <span class="icon icon-x" aria-hidden="true"></span>
-            <span class="fallback-text">{{ 'layout.drawers.close_menu' | t }}</span>
+            {% comment %}<span class="icon icon-x" aria-hidden="true"></span>{% endcomment %}
+            <span>{{ 'close.png' | asset_url | img_tag }}</span>
+            {% comment %}<span class="fallback-text">{{ 'layout.drawers.close_menu' | t }}</span>{% endcomment %}
           </button>
         </div>
       </div>
@@ -171,11 +173,12 @@
             <a href="{{ link.url }}" class="mobile-nav__link">{{ link.title | replace: "Prosthetic", "" }}</a>
             <div class="mobile-nav__toggle">
               <button type="button" class="icon-fallback-text mobile-nav__toggle-open">
-                <span class="icon icon-plus" aria-hidden="true"></span>
+                <span class="fa fa-angle-down" aria-hidden="true"></span>
                 <span class="fallback-text">See More</span>
               </button>
               <button type="button" class="icon-fallback-text mobile-nav__toggle-close">
-                <span class="icon icon-minus" aria-hidden="true"></span>
+                {% comment %}<span class="icon icon-minus" aria-hidden="true"></span>{% endcomment %}
+                <span class="fa fa-angle-up" aria-hidden="true"></span>
                 <span class="fallback-text">{{ 'cart.general.close_cart' | t | json }}</span>
               </button>
             </div>
@@ -195,10 +198,10 @@
         {% endif %}
         {% endfor %}
 
-        <div class="drawer__title h3">Know-How</div>
-        <hr>
+        <div class="drawer__title h3 subtitle">Know-How</div>
+        <hr class="nav-separation">
         {% for link in linklists.know-how.links %}
-        <li class="mobile-nav__item{% if link.active %} mobile-nav__item--active{% endif %}">
+        <li class="mobile-nav__item subtitle-item{% if link.active %} mobile-nav__item--active{% endif %}">
           <a href="{{ link.url }}" class="mobile-nav__link">{{ link.title }}</a>
         </li>
         {% endfor %}
@@ -319,8 +322,8 @@
                    <div id="cart-main">
                     <div id="cart">
                       {% if template == "cart" %}
-                        <i class="fa fa-shopping-cart"></i>
-                        <span class="icon-cart-count" id="CartCount">{{ cart.item_count }}</span>
+                      <i class="fa fa-shopping-cart"></i>
+                      <span class="icon-cart-count" id="CartCount">{{ cart.item_count }}</span>
                       {%else%}
                       <a href="/cart" class="js-drawer-open-right" >
                         <i class="fa fa-shopping-cart"></i>
@@ -328,7 +331,7 @@
                         {% comment %}Cart{% endcomment %}
                       </a>
                       {%endif%}
-                    
+
                     </div>
                   </div>  
                 </li>
@@ -369,22 +372,45 @@
        </div>
        <div class="grid__item one-third text-right">
         <div class="site-nav--mobile">
-          <a href="/cart" class="js-drawer-open-right site-nav__link" aria-controls="CartDrawer" aria-expanded="false">
-            <span class="icon-fallback-text">
-              <span class="icon icon-cart" aria-hidden="true"></span>
-              <span class="fallback-text">{{ 'layout.cart.title' | t }}</span>
+          <div class="move-right">
 
-              <span class="icon-cart-count-m" id="CartCount">{{ cart.item_count }}</span>
 
-            </span>
-          </a>
+
+
+
+            <div class="grid__item large--one-quarter">
+              <ul class="cart-right">
+                <li>    
+                  <div class="help-item"><a href="#">?</a></div>
+                </li>
+                <li> 
+                 <div id="cart-main">
+                  <div id="cart">
+                    {% if template == "cart" %}
+                    <i class="fa fa-shopping-cart"></i>
+                    <span class="icon-cart-count" id="CartCount">{{ cart.item_count }}</span>
+                    {%else%}
+                    <a href="/cart" class="js-drawer-open-right" >
+                      <i class="fa fa-shopping-cart"></i>
+                      <span class="icon-cart-count" id="CartCount">{{ cart.item_count }}</span>
+                      {% comment %}Cart{% endcomment %}
+                    </a>
+                    {%endif%}
+
+                  </div>
+                </div>  
+              </li>
+            </ul>
+          </div>
         </div>
-      </div>
-      <div class="grid__item one-whole">
-        {% include 'search-bar'%}
+
       </div>
     </div>
+    <div class="grid__item one-whole">
+      {% include 'search-bar'%}
+    </div>
   </div>
+</div>
 </nav>
 
 {% if template contains 'index' %}
@@ -477,7 +503,7 @@
             </div>          
           </div>
 
-          <div class="grid large--hide mobile-menu">
+          <div class="grid--full large--hide mobile-menu">
            <div class="grid__item medium--one-whole">
             <h3>Shop</h3>
             <ul class="footer-menu">
@@ -501,6 +527,9 @@
                       {% endfor %}
                     </ul>
                   </div>
+                  {% if settings.show_payment_type %}
+                  {% include 'payment' %}
+                  {% endif %}
                 </div>
                 
                 <div class="grid__item large--one-whole medium-down--hide">
@@ -544,13 +573,14 @@
                   settings: {
                     slidesToShow: 1,
                     infinite: true,
-                    dots: false
+                    dots: true
                   }
                 },
                 {
                   breakpoint: 600,
                   settings: {
-                    slidesToShow: 1
+                    slidesToShow: 1,
+                    dots: true
                   }
                 },
                 {
@@ -666,63 +696,63 @@
   {{ 'jquery.flexslider.js' | asset_url | script_tag }}
 
   <script type="text/javascript">
-  $(window).load(function(){
+    $(window).load(function(){
 
-    $('#carousel').flexslider({
-     animation: "slide",
-     controlNav: false,
-     animationLoop: false,
-     direction: "vertical",
-     slideshow: false,
-     itemWidth: 210,
-     itemMargin: 5,
-     asNavFor: '#slider'
-   });
+      $('#carousel').flexslider({
+       animation: "slide",
+       controlNav: false,
+       animationLoop: false,
+       direction: "vertical",
+       slideshow: false,
+       itemWidth: 210,
+       itemMargin: 5,
+       asNavFor: '#slider'
+     });
 
-     $('#carousel-2').flexslider({
-     animation: "slide",
-     controlNav: false,
-     animationLoop: false,
-     direction: "vertical",
-     slideshow: false,
-     itemWidth: 210,
-     itemMargin: 5,
-     asNavFor: '#slider'
-   });
+      $('#carousel-2').flexslider({
+       animation: "slide",
+       controlNav: false,
+       animationLoop: false,
+       direction: "vertical",
+       slideshow: false,
+       itemWidth: 210,
+       itemMargin: 5,
+       asNavFor: '#slider'
+     });
 
-    $('#slider').flexslider({
-      animation: "slide",
-      controlNav: false,
-      animationLoop: false,
-      slideshow: false,
-      controlNav: "thumbnails",
-      sync: "#carousel"
+      $('#slider').flexslider({
+        animation: "slide",
+        controlNav: false,
+        animationLoop: false,
+        slideshow: false,
+        controlNav: "thumbnails",
+        sync: "#carousel"
+      });
+
     });
 
-});
+    {% if settings.product_slideshow_animation == 'zoom' %}
+    CloudZoom.quickStart();
+    {% endif %} 
 
-  {% if settings.product_slideshow_animation == 'zoom' %}
-  CloudZoom.quickStart();
-  {% endif %} 
+  </script>
+  {% endif %}
 
-</script>
-{% endif %}
-
-{% comment %}swatch{% endcomment %}
-<script>
-jQuery(function() {
-  jQuery('.swatch :radio').change(function() {
-    var optionIndex = jQuery(this).closest('.swatch').attr('data-option-index');
-    var optionValue = jQuery(this).val();
-    jQuery(this)
-      .closest('form')
-      .find('.single-option-selector')
-      .eq(optionIndex)
-      .val(optionValue)
-      .trigger('change');
-  });
-});
-</script>
+  {% comment %}swatch{% endcomment %}
+  <script>
+    jQuery(function() {
+      jQuery('.swatch :radio').change(function() {
+        var optionIndex = jQuery(this).closest('.swatch').attr('data-option-index');
+        var optionValue = jQuery(this).val();
+        jQuery(this)
+        .closest('form')
+        .find('.single-option-selector')
+        .eq(optionIndex)
+        .val(optionValue)
+        .trigger('change');
+      });
+    });
+  </script>
 
 
 

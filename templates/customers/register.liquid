@@ -1,8 +1,8 @@
 <!-- /templates/customers/register.liquid -->
 
-<div class="grid">
+<div class="grid--full grid-padding">
 
-  <div class="grid__item large--one-third push--large--one-third text-center">
+  <div class="grid__item large--one-third push--large--one-third medium--three-quarters push--medium--one-eighth">
 
     <h1>{{ 'customer.register.title' | t }}</h1>
 
@@ -35,7 +35,7 @@
         </p>
       
       
-        <a href="{{ shop.url }}">{{ 'customer.register.cancel' | t }}</a>
+        <a href="{{ shop.url }}">< {{ 'customer.register.cancel' | t }}</a>
 
       {% endform %}
     </div>
