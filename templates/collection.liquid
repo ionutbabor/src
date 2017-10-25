@@ -8,6 +8,7 @@
 
 
 
+
  <!-- <div id="colect-descr">{{ collection.description }}</div> -->
 
 
@@ -15,7 +16,7 @@
   <div class="main-content">
     <!-- left part -->
     <div class="grid--full grid-padding">
-      <div class="grid__item large--one-quarter title-filters medium--one-quarter">
+      <div class="grid__item large--one-quarter title-filters medium--one-whole">
         {% if collection.handle contains 'personal' or collection.handle contains 'skin-care' or collection.handle contains 'cleansers' or collection.handle contains 'sweat-control' or collection.handle contains 'moisturizers' or collection.handle contains 'wound-care' %}
         <h2><a href="/collections/personal-care" style="color: #000;">Personal Care</a></h2>
         {% elsif collection.handle contains 'textiles' or collection.handle contains 'socks' or collection.handle contains 'shrinkers' or collection.handle contains 'sheaths' or collection.handle contains 'cosmetic-hosiery' or collection.handle contains 'textile-accessories' %}     
@@ -32,7 +33,7 @@
 
       <!-- right part -->
       {% unless collection.handle contains 'featured' %}
-      <div class="grid__item large--three-quarters parent-filters medium--three-quarters" style="border-left: 1px solid #ccc;">
+      <div class="grid__item large--three-quarters parent-filters medium-down--hide" style="border-left: 1px solid #ccc;">
         <ul class="collection-tags">
           {% if collection.handle contains 'personal' or collection.handle contains 'skin-care' or collection.handle contains 'cleansers' or collection.handle contains 'sweat-control' or collection.handle contains 'moisturizers' or collection.handle contains 'wound-care' %}
           {% for link in linklists.personal-care.links %}
@@ -65,7 +66,15 @@
 
 
 
-
+  {% if collection.handle contains 'personal' or collection.handle contains 'skin-care' or collection.handle contains 'cleansers' or collection.handle contains 'sweat-control' or collection.handle contains 'moisturizers' or collection.handle contains 'wound-care' %}
+  {% section 'xs-personal-collection' %}
+  {% elsif collection.handle contains 'textiles' or collection.handle contains 'socks' or collection.handle contains 'shrinkers' or collection.handle contains 'sheaths' or collection.handle contains 'cosmetic-hosiery' or collection.handle contains 'textile-accessories' %}
+  {% section 'xs-textiles-collection' %}
+  {% elsif collection.handle contains 'prosthesis-suspension' or collection.handle contains 'suspension-belts' or collection.handle contains 'suspension-sleeves' or collection.handle contains 'prosthetic-liners' or collection.handle contains 'suspension-accessories' %}
+  {% section 'xs-suspension-collection' %}
+  {% elsif collection.handle contains 'cosmetic-finishing' or collection.handle contains 'cushion-and-volume-aids' or collection.handle contains 'slip-on-aids' or collection.handle contains 'travel-and-mobility' or collection.handle contains 'arm-amputee-supplies' or collection.handle contains 'friction-fighting' or collection.handle contains 'prosthetic-remedies' %}
+  {% section 'xs-remedies-collection' %}
+  {%endif%}
 
 
 
@@ -85,7 +94,7 @@
 
 <!-- banner top -->
 {% if collection.image %}
-<div class="banner-page">
+<div class="banner-page medium-down--hide">
  <img class="img-responsive" src="{{ collection.image.src | collection_img_url: '1920X600' }}" alt="{{ collection.image.alt | escape }}" />
 </div> 
 {% endif %}
@@ -273,19 +282,21 @@
 </div>{% endcomment %}
 
 
+
+
 <!-- begin prosthetic-textiles collection -->
 {% if collection.handle == 'prosthetic-textiles' %}
 
 <!-- begin PROSTHETIC SOCKS -->
-<br class="clear">
-<div class="grid--full grid-padding">
+<br class="clear medium-down--hide">
+<div class="grid--full grid-padding medium-down--hide">
 
 <span id="title-collection">Prosthetic Socks</span>
 <span id="collection-link"><a href="/collections/amputee-socks">Shop all Prosthetic Socks > </a></span>
 
 </div>
 
-<div class="grid--full grid-padding">
+<div class="grid--full grid-padding medium-down--hide">
   {% for product in collections.amputee-socks.products limit:6 %}
     {% comment %}
     {% if forloop.index == 3 %}
@@ -294,19 +305,19 @@
     {% include 'product-grid-item-less' %}
     {% endfor %}
   </div>
-  <hr >
+  <hr class="medium-down--hide">
   <!-- end PROSTHETIC SOCKS -->
 
   <!-- begin Shrinkers-->
-  <br class="clear">
-  <div class="grid--full grid-padding">
+  <br class="clear medium-down--hide">
+  <div class="grid--full grid-padding medium-down--hide">
 
       <span id="title-collection">Shrinkers</span>
       <span id="collection-link"><a href="/collections/stump-shrinkers">Shop all SHRINKERS ></a></span>
  
   </div>
 
-  <div class="grid--full grid-padding">
+  <div class="grid--full grid-padding medium-down--hide">
     {% for product in collections.stump-shrinkers.products limit:6 %}
     {% include 'product-grid-item-less' %}
     {% endfor %}
@@ -319,13 +330,13 @@
   {% elsif collection.handle == 'personal-care' %}
 
   <!-- begin SKIN CARE TREATMENTS -->
-  <br class="clear">
-  <div class="grid--full grid-padding">
+  <br class="clear medium-down--hide">
+  <div class="grid--full grid-padding medium-down--hide">
       <span id="title-collection">Personal Care Skin Care Treatments</span>
       <span id="collection-link"><a href="/collections/skin-care-treatments">Shop all SKIN CARE TREATMENTS > </a></span>
   </div>
 
-  <div class="grid--full grid-padding">
+  <div class="grid--full grid-padding medium-down--hide">
     {% for product in collections.skin-care-treatments.products limit:6 %}
     {% comment %}
     {% if forloop.index == 3 %}
@@ -334,22 +345,22 @@
     {% include 'product-grid-item-less' %}
     {% endfor %}
   </div>
-  <hr >
+  <hr class="medium-down--hide">
   <!-- end SKIN CARE TREATMENTS -->
 
   <!-- begin CLEANSERS-->
-  <br class="clear">
-  <div class="grid--full grid-padding">
+  <br class="clear medium-down--hide">
+  <div class="grid--full grid-padding medium-down--hide">
       <span id="title-collection">Cleansers</span>
       <span id="collection-link"><a href="/collections/prosthetic-cleansers">Shop all CLEANSERS ></a></span>
   </div>
 
-  <div class="grid--full grid-padding">
+  <div class="grid--full grid-padding medium-down--hide">
     {% for product in collections.prosthetic-cleansers.products limit:6 %}
     {% include 'product-grid-item-less' %}
     {% endfor %}
   </div>
-  <hr>
+  <hr class="medium-down--hide">
   <!-- end CLEANSERS-->
   <!-- end personal-care collection -->
 
@@ -357,15 +368,15 @@
   {% elsif collection.handle == 'prosthesis-suspension' %}
 
   <!-- begin SKIN CARE TREATMENTS -->
-  <br class="clear">
-  <div class="grid--full grid-padding">
+  <br class="clear medium-down--hide">
+  <div class="grid--full grid-padding medium-down--hide">
 
       <span id="title-collection">Personal Care Suspension Sleeves</span>
       <span id="collection-link"><a href="/collections/suspension-sleeves">Shop all SUSPENSION SLEEVES > </a></span>
 
   </div>
 
-  <div class="grid--full grid-padding">
+  <div class="grid--full grid-padding medium-down--hide">
     {% for product in collections.suspension-sleeves.products limit:6 %}
     {% comment %}
     {% if forloop.index == 3 %}
@@ -374,22 +385,22 @@
     {% include 'product-grid-item-less' %}
     {% endfor %}
   </div>
-  <hr >
+  <hr class="medium-down--hide">
   <!-- end SKIN CARE TREATMENTS -->
 
   <!-- begin SLIP-ON AIDS-->
-  <br class="clear">
-  <div class="grid--full grid-padding">
+  <br class="clear medium-down--hide">
+  <div class="grid--full grid-padding medium-down--hide">
       <span id="title-collection">Slip-on Aids</span>
       <span id="collection-link"><a href="/collections/Slip-on-Aids">Shop all SLIP-ON AIDS ></a></span>
   </div>
 
-  <div class="grid--full grid-padding">
+  <div class="grid--full grid-padding medium-down--hide">
     {% for product in collections.Slip-on-Aids.products limit:6 %}
     {% include 'product-grid-item-less' %}
     {% endfor %}
   </div>
-  <hr>
+  <hr class="medium-down--hide">
   <!-- end SLIP-ON AIDS-->
 
   <!-- end prosthesis-suspension collection -->
@@ -399,15 +410,15 @@
   {% elsif collection.handle == 'prosthetic-remedies' %}
 
   <!-- begin SKIN CARE TREATMENTS -->
-  <br class="clear">
-  <div class="grid--full grid-padding">
+  <br class="clear medium-down--hide">
+  <div class="grid--full grid-padding medium-down--hide">
 
       <span id="title-collection">Personal Care Cushion and Volume Aids</span>
       <span id="collection-link"><a href="/collections/cushion-and-volume-aids">Shop all CUSHION AND VOLUME AIDS > </a></span>
 
   </div>
 
-  <div class="grid--full grid-padding">
+  <div class="grid--full grid-padding medium-down--hide">
     {% for product in collections.cushion-and-volume-aids.products limit:6 %}
     {% comment %}
     {% if forloop.index == 3 %}
@@ -416,22 +427,22 @@
     {% include 'product-grid-item-less' %}
     {% endfor %}
   </div>
-  <hr >
+  <hr class="medium-down--hide">
   <!-- end SKIN CARE TREATMENTS -->
 
   <!-- begin SLIP-ON AIDS-->
-  <br class="clear">
-  <div class="grid--full grid-padding">
+  <br class="clear medium-down--hide">
+  <div class="grid--full grid-padding medium-down--hide">
       <span id="title-collection">Cosmetic Finishing</span>
       <span id="collection-link"><a href="/collections/cosmetic-finishing">Shop all COSMETIC FINISHING ></a></span>
   </div>
 
-  <div class="grid--full grid-padding">
+  <div class="grid--full grid-padding medium-down--hide">
     {% for product in collections.cosmetic-finishing.products limit:6 %}
     {% include 'product-grid-item-less' %}
     {% endfor %}
   </div>
-  <hr>
+  <hr class="medium-down--hide">
   <!-- end SLIP-ON AIDS-->
 
   <!-- end prosthetic-remedies collection -->

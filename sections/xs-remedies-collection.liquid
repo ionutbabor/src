@@ -1,0 +1,109 @@
+{%- assign collection_image_size = 'x630' -%}
+
+<div class="homepage-collection-grid large--hide" data-section-id="{{ section.id }}" data-section-type="index-collection">
+  <div class="grid--full grid-padding">
+    {% if section.settings.title != blank %}
+    <h4 class="home__subtitle">{{ section.settings.title}}</h4>
+    {% endif %}
+
+    <div class="grid grid--full">
+      {% for block in section.blocks limit: section.blocks.size %}
+
+      {%- assign collection = collections[block.settings.collection] -%}
+      {%- assign collection_image_url = '' -%}
+      {% if collection.image %}
+      {% capture collection_image_url %}{{ collection | img_url: collection_image_size, crop: 'top' }}{% endcapture %}
+      {% elsif collection.products.first %}
+      {% capture collection_image_url %}{{ collection.products.first | img_url: collection_image_size, crop: 'top' }}{% endcapture %}
+      {% endif %}
+
+      <div class="grid__item large--one-third medium--one-half small--one-half" {{ block.shopify_attributes }}>
+        <div class="collection-grid-item homepage-image">
+          <a href="{% if collection.empty? %}#{% else %}{{ collection.url }}{% endif %}" class="collection-grid-item__link">
+            <!--   <div class="collection-grid-item__overlay" style="background-image: url({{ collection_image_url }})">
+                {% if collection.empty? %}
+                  {% capture current %}{% cycle 1, 2, 3, 4, 5, 6 %}{% endcapture %}
+                  {{ 'collection-' | append: current | placeholder_svg_tag: 'placeholder-svg' }}
+                {% endif %}
+              </div> -->
+              <div class="collection-grid-item__overlay"> 
+                <img src="{{ collection_image_url }}" alt="">
+                {% if collection.empty? %}
+                {% capture current %}{% cycle 1, 2, 3, 4, 5, 6 %}{% endcapture %}
+                {{ 'collection-' | append: current | placeholder_svg_tag: 'placeholder-svg' }}
+                {% endif %}
+              </div>
+
+
+
+              <div class="collection-grid-item__content">
+                {% unless block.settings.title == '' %}<h2 class="title--flex home__title">{{ block.settings.title }}</h2>{% endunless %}
+                {% unless block.settings.link_text == '' %}<div class="{{ section.settings.button_style }}"> {{ block.settings.link_text }}</div>{% endunless %}
+              </div>
+              <div class="image-overlay {{ section.settings.overlay }}"></div>
+            </a>
+          </div>
+        </div>
+        {% endfor %}
+      </div>
+    </div>
+
+    {% if section.blocks.size == 0 %}
+    <div class="text-center">{{ 'home_page.onboarding.no_content' | t }}</div>
+    {% endif %}
+  </div>
+
+  {% schema %}
+  {
+  "name": "Mobile Collection list",
+  "class": "index-section",
+  "max_blocks": 12,
+  "settings": [
+  {
+  "type": "text",
+  "id": "title",
+  "label": "Heading",
+   "default": "Shop by Category"
+}
+
+],
+"blocks": [
+{
+  "type": "featured_collection",
+  "name": "Collection",
+  "settings": [
+  {
+  "label": "Collection",
+  "id": "collection",
+  "type": "collection"
+},
+{
+  "type": "text",
+  "id": "title",
+  "label": "Headline"
+},
+{
+  "type": "text",
+  "id": "link_text",
+  "label": "Buton Text",
+  "default": "View products"
+}
+]
+}
+],
+"presets": [
+{
+  "name": "Collection list",
+  "category": "Collection",
+"blocks": [
+{
+  "type": "featured_collection"
+},
+{
+  "type": "featured_collection"
+}
+]
+}
+]
+}
+{% endschema %}

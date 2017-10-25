@@ -75,8 +75,9 @@
           </div>
           {% else %}
           <a href="{{ image | product_img_url: 'master' }}" class="fancybox" data-fancybox-group="{{ product.id }}" title="{{ image.alt | escape }}">
-            <img src="{{ image | product_img_url: 'grande' }}" data-src-retina="{{ image | product_img_url: '1024x1024' }}" alt="{{ image.alt | escape }}" data-index="{{ forloop.index0 }}" data-image-id="{{ image.id }}" data-cloudzoom="zoomImage: '{{ image | product_img_url: 'master' }}', tintColor: '{{ settings.shop_bg_color }}', zoomPosition: 'inside', zoomOffsetX: 0, hoverIntentDelay: 100, touchStartDelay: 250" class="cloudzoom {% if featured_image.id == image.id %}featured_image{% endif %}" />
+            <img src="{{ image | product_img_url: 'large' }}" data-src-retina="{{ image | product_img_url: '1024x1024' }}" alt="{{ image.alt | escape }}" data-index="{{ forloop.index0 }}" data-image-id="{{ image.id }}" data-cloudzoom="zoomImage: '{{ image | product_img_url: 'master' }}', zoomPosition: 'inside', zoomOffsetX: 0, hoverIntentDelay: 100, touchStartDelay: 250" class="cloudzoom {% if featured_image.id == image.id %}featured_image{% endif %}" />
           </a>
+         
           {% endif %}
         </li>
         {% endfor %}

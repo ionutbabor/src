@@ -189,7 +189,8 @@
       {
         "type": "image",
         "id": "newimage1m.jpg",
-        "label": "Image #1 (Mobile)"
+        "label": "Image #1 (Mobile)",
+        "info": "Recommended size image 900x550"
       },
       {
         "type": "text",
@@ -249,7 +250,8 @@
       {
         "type": "image",
         "id": "newimage2m.jpg",
-        "label": "Image #2 (Mobile)"
+        "label": "Image #2 (Mobile)",
+        "info": "Recommended size image 900x550"
       },
       {
         "type": "text",
@@ -309,7 +311,8 @@
       {
         "type": "image",
         "id": "newimage3m.jpg",
-        "label": "Image #3 (Mobile)"
+        "label": "Image #3 (Mobile)",
+        "info": "Recommended size image 900x550"
       },
       {
         "type": "text",
@@ -369,7 +372,8 @@
       {
         "type": "image",
         "id": "newimage4m.jpg",
-        "label": "Image #4 (Mobile)"
+        "label": "Image #4 (Mobile)",
+        "info": "Recommended size image 900x550"
       },
       {
         "type": "text",
@@ -423,13 +427,14 @@
       },
       {
         "type": "image",
-        "id": "image5.jpg",
+        "id": "newimage5.jpg",
         "label": "Image #5 (Desktop)"
       },
       {
         "type": "image",
-        "id": "image5m.jpg",
-        "label": "Image #5 (Mobile)"
+        "id": "newimage5m.jpg",
+        "label": "Image #5 (Mobile)",
+        "info": "Recommended size image 900x550"
       },
       {
         "type": "text",

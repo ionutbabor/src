@@ -1,6 +1,11 @@
 /*-------------------------BEGIN global style---------------------*/
 /*-------------------------BEGIN global style---------------------*/
 /*-------------------------BEGIN global style---------------------*/
+.homepage-slideshow{
+	img{
+		max-width: 100%;
+	}
+}
 .methods-of-payment{
 	.methods-of-payment img { padding: 0.2em; }
 	.lt-ie9 .methods-of-payment, .ie8 .methods-of-payment, .oldie .methods-of-payment { display: none; }
@@ -22,6 +27,11 @@
 	}
 }
 #NavDrawer{
+
+	.mobile-nav__toggle-close, .mobile-nav__toggle-open{
+		float: right;
+		font-size: 18px;
+	}
 	padding: 0;
 	.nav-separation{
 		margin:15px 0 0px;
@@ -533,8 +543,8 @@
 					top: -3px;
 					right: 11px;
 					background-color: {{settings.btn_bkg}};
-					border-radius: 50%;
-					padding: 1px 5px 0px 5px;
+					border-radius: 40%;
+					padding: 2px 4px 2px 4px;
 				}
 
 			}
@@ -568,7 +578,7 @@
 		}
 		.form-vertical{
 			.text-link{
-			color: {{settings.text_link_color}};
+				color: {{settings.text_link_color}};
 			}
 			input{
 				background: {{settings.input_color}};
@@ -2176,9 +2186,15 @@
 
 																									/*=============================GLOBAL RESPONSIVE=============================*/
 																									@media (max-width: 480px) {
-																										.slides_carousel li{
-																											width: 95px!important;
+																										.slides_carousel li .thumbnail{
+
+																											width: 47px;
+																											height: 47px;
 																										}
+																										.nav-bar form.input-group.search-bar input{
+																											border-radius: 3px;
+																										}
+																										
 																										.collection-link{
 																											font-size: 14px;
 																										}
@@ -2223,6 +2239,7 @@
 																										}
 																										#title-collection, .template-collection #title-collection-current{
 																											font-size: 16px;
+																											text-transform: uppercase;
 																										}
 																										/*index page*/
 																										.template-index{
@@ -2262,9 +2279,15 @@
 																											}
 																											}/*end top*/
 
+
 																											}/* (max-width: 480px) */
 
 																											@media only screen and (min-width: 481px) and (max-width: 767px){
+																												.slides_carousel li .thumbnail{
+
+																													width: 70px;
+																													height: 70px;
+																												}
 																												.template-index{
 																													h2{font-size: 16px;}
 																												}
@@ -2273,6 +2296,7 @@
 																												}
 																												#title-collection, .template-collection #title-collection-current{
 																													font-size: 16px;
+																													text-transform: uppercase;
 																												}
 																												.grid-padding{
 																													padding: 0 20px;
@@ -2323,7 +2347,18 @@
 																														.slider-button{
 																															width: 80%!important;
 																														}
-																														
+																														.template-collection{
+																															.large--one-quarter:nth-child(3),.large--one-quarter:nth-child(7) {
+																																.thumbnail{
+																																	border-left:1px solid #e5e5e5; 
+																																}
+																															}
+																															.large--one-quarter:first-child,.large--one-quarter:nth-child(2){
+																																.thumbnail{
+																																	border-bottom:transparent; 
+																																}
+																															} 
+																														}
 																														/*index page*/
 																														.template-index{
 
@@ -2367,6 +2402,7 @@
 																															}
 																															#title-collection, .template-collection #title-collection-current{
 																																font-size: 22px;
+																																text-transform: uppercase;
 																															}
 																															.grid-padding{
 																																padding: 0 20px;
@@ -2396,8 +2432,47 @@
 																															}
 
 																															@media only screen and (max-width: 942px){
+
+																																.template-collection{
+																																	#top{
+																																		.main-content{
+																																			.title-filters{
+																																				h2{
+																																					margin-bottom: 15px;
+																																					font-size: 24px;
+																																				}
+																																			}
+																																		}
+																																	}
+																																}   
+																																.slides_carousel li{
+																																	width: 16%!important;
+																																	vertical-align: top;
+																																	margin: 0 5% 0 0;
+																																	
+																																	.thumbnail{
+																																		border: 1px solid #ccc;
+																																		background-size: cover;
+
+																																	}
+																																}
+																																
 																																.nav-bar .move-right .cart-right{
 																																	padding: 0;
+																																	.mobile-search{
+																																		a{
+																																			padding: 5px;
+																																			.fa-search{
+																																				color: #fff;
+																																				font-size: 18px;
+																																				position: relative;
+																																				top: -3px;
+																																				left: -6px;
+																																			}
+
+																																		}
+																																		
+																																	}
 																																}
 																																.site-nav--mobile{
 																																	margin-left: 0;
@@ -2410,7 +2485,7 @@
 																																	padding: 10px 0;
 																																}
 																																.move-right{
-																																	padding: 8px 0
+																																	padding: 8px 0;
 																																}
 																																.nav-bar{
 																																	.move-right{
@@ -2418,8 +2493,8 @@
 																																			.icon-cart-count{
 																																				font-size: 15px;
 																																				line-height: 15px;
-																																				right: 0px;
-																																				top: -1px;
+																																				right: 1px;
+																																				top: -6px;
 																																			}
 																																			i{
 																																				padding: 0 0 0 10px;
@@ -2429,9 +2504,17 @@
 
 																																	}
 																																}
+																																#slider{
+																																	margin-bottom: 0;
+																																}
 
 																																#carousel{
 																																	display: none;
+																																}
+																																#carousel-2{
+																																	.flex-direction-nav{
+																																		display: none;
+																																	}
 																																}
 																																/*#slider .flex-control-nav{
 																																	display: block;
@@ -2456,9 +2539,15 @@
 																																			width: 32.2%;
 																																		}
 																																	}
+																																	
 
 																																}
 																																@media only screen and (min-width: 943px) and (max-width: 1240px){
+																																	.medium-down--hide{
+																																		.move-right .cart-right{
+																																			padding: 0;
+																																		}
+																																	}
 																																	.template-index{
 																																		h2{font-size: 22px;}
 																																	}

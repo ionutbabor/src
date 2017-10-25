@@ -170,9 +170,14 @@
         {% if linklists[child_list_handle].links != blank %}
         <li class="mobile-nav__item{% if link.active %} mobile-nav__item--active{% endif %}" aria-haspopup="true">
           <div class="mobile-nav__has-sublist">
-            <a href="{{ link.url }}" class="mobile-nav__link">{{ link.title | replace: "Prosthetic", "" }}</a>
+            
             <div class="mobile-nav__toggle">
-              <button type="button" class="icon-fallback-text mobile-nav__toggle-open">
+              <div class="grid--full">
+              <div class="grid__item large--one-half medium--one-half small--one-half">
+                <a href="#" class="mobile-nav__link">{{ link.title | replace: "Prosthetic", "" }}</a>
+              </div>
+              <div class="grid__item large--one-half medium--one-half small--one-half text-right">
+                <button type="button" class="icon-fallback-text mobile-nav__toggle-open">
                 <span class="fa fa-angle-down" aria-hidden="true"></span>
                 <span class="fallback-text">See More</span>
               </button>
@@ -181,6 +186,12 @@
                 <span class="fa fa-angle-up" aria-hidden="true"></span>
                 <span class="fallback-text">{{ 'cart.general.close_cart' | t | json }}</span>
               </button>
+                
+              </div>
+              </div>
+
+              
+              
             </div>
           </div>
           <ul class="mobile-nav__sublist">
@@ -380,6 +391,11 @@
 
             <div class="grid__item large--one-quarter">
               <ul class="cart-right">
+                {% if template contains 'page' or template contains 'product' %}
+                <li class="mobile-search">    
+                  <a href="#"><i class="fa fa-search" aria-hidden="true"></i></a>
+                </li>
+                {%endif%}
                 <li>    
                   <div class="help-item"><a href="#">?</a></div>
                 </li>
@@ -388,12 +404,12 @@
                   <div id="cart">
                     {% if template == "cart" %}
                     <i class="fa fa-shopping-cart"></i>
-                    <span class="icon-cart-count" id="CartCount">{{ cart.item_count }}</span>
+                    <span class="icon-cart-count" id="CartCount2">{{ cart.item_count }}</span>
                     {%else%}
                     <a href="/cart" class="js-drawer-open-right" >
                       <i class="fa fa-shopping-cart"></i>
-                      <span class="icon-cart-count" id="CartCount">{{ cart.item_count }}</span>
-                      {% comment %}Cart{% endcomment %}
+                      <span class="icon-cart-count" id="CartCount2">{{ cart.item_count }}</span>
+                     
                     </a>
                     {%endif%}
 
@@ -402,13 +418,24 @@
               </li>
             </ul>
           </div>
+          {% comment %}<a href="/cart" class="js-drawer-open-right site-nav__link" aria-controls="CartDrawer" aria-expanded="false">
+                  <span class="icon-fallback-text">
+                    <span class="icon icon-cart" aria-hidden="true"></span>
+                    <span class="fallback-text">{{ 'layout.cart.title' | t }}</span>
+                    
+                    <span class="icon-cart-count-m" id="CartCount">{{ cart.item_count }}</span>
+                    
+                  </span>
+                </a>{% endcomment %}
         </div>
 
       </div>
     </div>
+    {% if template contains 'index' or template contains 'collection' or template contains 'login' or template contains 'register' or template contains 'cart' or template contains '404'%}
     <div class="grid__item one-whole">
       {% include 'search-bar'%}
     </div>
+    {%endif%}
   </div>
 </div>
 </nav>
