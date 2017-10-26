@@ -16,7 +16,7 @@
   <div class="main-content">
     <!-- left part -->
     <div class="grid--full grid-padding">
-      <div class="grid__item large--one-quarter title-filters medium--one-whole">
+      {% comment %}<div class="grid__item large--one-quarter title-filters medium--one-whole">
         {% if collection.handle contains 'personal' or collection.handle contains 'skin-care' or collection.handle contains 'cleansers' or collection.handle contains 'sweat-control' or collection.handle contains 'moisturizers' or collection.handle contains 'wound-care' %}
         <h2><a href="/collections/personal-care" style="color: #000;">Personal Care</a></h2>
         {% elsif collection.handle contains 'textiles' or collection.handle contains 'socks' or collection.handle contains 'shrinkers' or collection.handle contains 'sheaths' or collection.handle contains 'cosmetic-hosiery' or collection.handle contains 'textile-accessories' %}     
@@ -28,13 +28,27 @@
         {% elsif collection.handle contains 'featured-products' %}
         <h2 style="width: 300px;"><a href="/collections/featured-products" style="color: #000;">Featured Amputee Supplies</a></h2>
         {% endif %}
+      </div>{% endcomment %}
+
+      <div class="grid__item large--one-quarter title-filters medium--one-whole">
+        {% if collection.handle contains 'personal' %}
+        <h2><a href="/collections/personal-care" >Personal Care</a></h2>
+        {% elsif collection.handle contains 'textiles' %}     
+        <h2><a href="/collections/prosthetic-textiles" >Textiles</a></h2>
+        {% elsif collection.handle contains 'prosthesis-suspension' %}
+        <h2><a href="/collections/prosthesis-suspension" >Suspension</a></h2>
+        {% elsif collection.handle contains 'prosthetic-remedies' %}      
+        <h2><a href="/collections/prosthetic-remedies" >Remedies</a></h2>
+        {% elsif collection.handle contains 'featured-products' %}
+        <h2 style="width: 300px;"><a href="/collections/featured-products" >Featured Amputee Supplies</a></h2>
+        {% endif %}
       </div>
       <!-- end left part -->
 
       <!-- right part -->
       {% unless collection.handle contains 'featured' %}
       <div class="grid__item large--three-quarters parent-filters medium-down--hide" style="border-left: 1px solid #ccc;">
-        <ul class="collection-tags">
+        {% comment %}<ul class="collection-tags">
           {% if collection.handle contains 'personal' or collection.handle contains 'skin-care' or collection.handle contains 'cleansers' or collection.handle contains 'sweat-control' or collection.handle contains 'moisturizers' or collection.handle contains 'wound-care' %}
           {% for link in linklists.personal-care.links %}
           <li><a href="{{ link.url }}">{{ link.title }}</a></li>
@@ -51,6 +65,28 @@
           {% endfor %}
 
           {% elsif collection.handle contains 'cosmetic-finishing' or collection.handle contains 'cushion-and-volume-aids' or collection.handle contains 'slip-on-aids' or collection.handle contains 'travel-and-mobility' or collection.handle contains 'arm-amputee-supplies' or collection.handle contains 'friction-fighting' or collection.handle contains 'prosthetic-remedies' %}
+          {% for link in linklists.prosthetic-remedies.links %}
+          <li><a href="{{ link.url }}">{{ link.title }}</a></li>
+          {% endfor %}
+          {% endif %}
+        </ul>{% endcomment %}
+        <ul class="collection-tags">
+          {% if collection.handle contains 'personal' %}
+          {% for link in linklists.personal-care.links %}
+          <li><a href="{{ link.url }}">{{ link.title }}</a></li>
+          {% endfor %}
+
+          {% elsif collection.handle contains 'textiles' %}
+          {% for link in linklists.prosthetic-textiles.links %}
+          <li><a href="{{ link.url }}">{{ link.title }}</a></li>
+          {% endfor %}
+
+          {% elsif collection.handle contains 'prosthesis-suspension' %}
+          {% for link in linklists.prosthetic-suspension.links %}
+          <li><a href="{{ link.url }}">{{ link.title }}</a></li>
+          {% endfor %}
+
+          {% elsif collection.handle contains 'friction-fighting' or collection.handle contains 'prosthetic-remedies' %}
           {% for link in linklists.prosthetic-remedies.links %}
           <li><a href="{{ link.url }}">{{ link.title }}</a></li>
           {% endfor %}
