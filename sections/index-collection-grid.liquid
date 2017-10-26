@@ -11,11 +11,9 @@
 
       {%- assign collection = collections[block.settings.collection] -%}
       {%- assign collection_image_url = '' -%}
-      {% if collection.image %}
-      {% capture collection_image_url %}{{ collection | img_url: collection_image_size, crop: 'top' }}{% endcapture %}
-      {% elsif collection.products.first %}
+     
       {% capture collection_image_url %}{{ collection.products.first | img_url: collection_image_size, crop: 'top' }}{% endcapture %}
-      {% endif %}
+      
 
       <div class="grid__item large--one-third medium--one-half small--one-half" {{ block.shopify_attributes }}>
         <div class="collection-grid-item homepage-image">
@@ -48,14 +46,14 @@
       </div>
     </div>
 
-    {% if section.blocks.size == 0 %}
+    {% comment %}{% if section.blocks.size == 0 %}
     <div class="text-center">{{ 'home_page.onboarding.no_content' | t }}</div>
-    {% endif %}
+    {% endif %}{% endcomment %}
   </div>
 
   {% schema %}
   {
-  "name": "Collection list",
+  "name": "Mobile Collections list",
   "class": "index-section",
   "max_blocks": 12,
   "settings": [
@@ -63,7 +61,7 @@
   "type": "text",
   "id": "title",
   "label": "Heading",
-  "default": "Collection list"
+  "default": "Mobile Collection list"
 }
 
 ],
@@ -80,8 +78,7 @@
 {
   "type": "text",
   "id": "title",
-  "label": "Headline",
-  "default": "Featured collection"
+  "label": "Headline"
 },
 {
   "type": "text",

@@ -56,7 +56,39 @@
       <!-- right part -->
 
       <div class="grid__item large--three-quarters parent-filters medium--three-quarters" style="border-left: 1px solid #ccc;">
-        <ul>
+
+
+        <ul class="collection-tags">
+          {% if product.tags contains 'Textiles' %}
+          {% for link in linklists.prosthetic-textiles.links %}
+          <li><a href="{{ link.url }}">{{ link.title }}</a></li>
+          {% endfor %}
+
+          {% elsif product.tags contains 'Personal Care' %}
+          {% for link in linklists.personal-care.links %}
+          <li><a href="{{ link.url }}">{{ link.title }}</a></li>
+          {% endfor %}
+
+          {% elsif product.tags contains 'Prosthesis Suspension' or product.tags contains 'Suspension Belts' or product.tags contains 'Suspension Sleeves' or product.tags contains 'Prosthetic Liners' or product.tags contains 'Suspension Accessories' %}
+          {% for link in linklists.prosthetic-suspension.links %}
+          <li><a href="{{ link.url }}">{{ link.title }}</a></li>
+          {% endfor %}
+
+          {% elsif product.tags contains 'socks' %}
+          {% for link in linklists.personal-care.links %}
+          <li><a href="{{ link.url }}">{{ link.title }}</a></li>
+          {% endfor %}
+
+          {% elsif product.tags contains 'prosthetic-remedies' %}
+          {% for link in linklists.prosthetic-remedies.links %}
+          <li><a href="{{ link.url }}">{{ link.title }}</a></li>
+          {% endfor %}
+          {%endif%}
+        </ul>
+
+
+
+        {% comment %}<ul>
           {% if product.tags contains 'socks' %}
           {% for link in linklists.personal-care.links %}
           <li><a href="{{ link.url }}">{{ link.title }}</a></li>
@@ -77,11 +109,11 @@
           <li><a href="{{ link.url }}">{{ link.title }}</a></li>
           {% endfor %}
           {% endif %}
-        </ul>
+        </ul>{% endcomment %}
       </div>
 
       <!--end right part -->
-      <hr>
+      <hr class="separator">
     </div> <!-- main-content -->
   </div>
 </div><!-- #top -->
@@ -126,34 +158,34 @@
     <div class="grid__item large--one-half">
       <div class="hidden-xs">
 
-      <h1 itemprop="name">{{ product.title }}</h1>
+        <h1 itemprop="name">{{ product.title }}</h1>
 
-      <div class="grid">
-        <div class="grid__item large--one-sixth medium--one-third">
-          <p class="vendor-title">by {{ product.vendor | link_to_vendor }}</p>
-          {% comment %}<p class="vendor-title">by {{ product.vendor | replace: "-", " " | link_to_vendor }}</p>{% endcomment %}
+        <div class="grid">
+          <div class="grid__item large--one-sixth medium--one-third">
+            <p class="vendor-title">by {{ product.vendor | link_to_vendor }}</p>
+            {% comment %}<p class="vendor-title">by {{ product.vendor | replace: "-", " " | link_to_vendor }}</p>{% endcomment %}
+
+          </div>
+          <div class="grid__item large--one-quarter medium--one-third">
+            <div class="yotpo bottomLine"
+            data-appkey="NuT1UIlxTbSur2znb49km0JEX7gsE8Xqwiqw1r1b"
+            data-domain="{{ shop.permanent_domain | escape }}"
+            data-product-id="{{ product.id }}"
+            data-product-models="{{ product.id }}"
+            data-name="{{ product.title | escape }}"
+            data-url="{{ shop.url }}{{ product.url }}"
+            data-image-url="{{ product.featured_image | product_img_url: 'large' |replace: '?', '%3F' | replace: '&','%26'}}"
+            data-description="{{ product.description | escape }}"
+            data-bread-crumbs="{% for tag in product.tags %}{{ tag | escape }};{% endfor %}">
+          </div>
 
         </div>
         <div class="grid__item large--one-quarter medium--one-third">
-          <div class="yotpo bottomLine"
-          data-appkey="NuT1UIlxTbSur2znb49km0JEX7gsE8Xqwiqw1r1b"
-          data-domain="{{ shop.permanent_domain | escape }}"
-          data-product-id="{{ product.id }}"
-          data-product-models="{{ product.id }}"
-          data-name="{{ product.title | escape }}"
-          data-url="{{ shop.url }}{{ product.url }}"
-          data-image-url="{{ product.featured_image | product_img_url: 'large' |replace: '?', '%3F' | replace: '&','%26'}}"
-          data-description="{{ product.description | escape }}"
-          data-bread-crumbs="{% for tag in product.tags %}{{ tag | escape }};{% endfor %}">
+          <div class='yotpo QABottomLine'
+          data-appkey='NuT1UIlxTbSur2znb49km0JEX7gsE8Xqwiqw1r1b'
+          data-product-id='{{ product.id }}'></div>
         </div>
-
       </div>
-      <div class="grid__item large--one-quarter medium--one-third">
-        <div class='yotpo QABottomLine'
-        data-appkey='NuT1UIlxTbSur2znb49km0JEX7gsE8Xqwiqw1r1b'
-        data-product-id='{{ product.id }}'></div>
-      </div>
-    </div>
     </div>
 
     <div itemprop="offers" itemscope itemtype="http://schema.org/Offer">
@@ -264,7 +296,7 @@
        <button type="button" class="ajaxcart__qty-adjust ajaxcart__qty--plus" data-id="{{id}}" data-qty="{{itemAdd}}">+</button>
      </div>{% endcomment %} 
 
-  
+
      <div class="add-to-cart">
       <div class="quantity">
         {% assign quantityOptions = '1,2,3,4,5,6,7,8,9,10' | split:',' %}
@@ -278,7 +310,7 @@
 
       <button type="submit" name="add" id="AddToCart" class="btn addtocart">
         <!-- bold-ro-liquid --> <div class="bold_add_to_orders" style="display: inline-block;"> </div> <!-- bold-ro-liquid -->
-      {{ 'products.product.add_to_cart' | t }}
+        {{ 'products.product.add_to_cart' | t }}
       </button>
     </div>
 
@@ -329,6 +361,8 @@
     {{ my_description[2] }}
   </div>
 </div>
+
+<div id="cbb-frequently-bought-box"></div>
 
 <main class="grid--full grid-padding main-content" >
 

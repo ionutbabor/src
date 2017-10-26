@@ -1,0 +1,46 @@
+  <!-- begin last-minute-checkout -->
+
+  {% assign collection = collections[section.settings.collection-1] %}
+  {% assign products = collections[section.settings.collection-1].products %}
+  
+
+
+  <div class="grid--full grid-padding">
+
+    <div class="grid__item header-line">
+      <span id="title-collection">{{section.settings.title-1}}</span><span id="collection-link"><a href="/collections/{{section.settings.collection-1}}"> {{section.settings.text-link-1}}</a></span>
+    </div>
+ 
+
+    
+
+
+    {% include 'product-loop' %}
+  </div>
+
+
+  {% schema %}
+  {
+    "name": "Don't Forget Collection",
+    "class": "featured-collection-section",
+    "settings": [
+    {
+      "type": "text",
+      "id": "title-1",
+      "label": "Heading",
+      "default": "Don't Forget"
+    },
+    {
+      "type": "collection",
+      "id": "collection-1",
+      "label": "Collection"
+    },
+    {
+      "type": "text",
+      "id": "text-link-1",
+      "label": "Text link"
+    }
+    ]
+  }
+  {% endschema %}
+

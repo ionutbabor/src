@@ -11,13 +11,11 @@
 
       {%- assign collection = collections[block.settings.collection] -%}
       {%- assign collection_image_url = '' -%}
-      {% if collection.image %}
-      {% capture collection_image_url %}{{ collection | img_url: collection_image_size, crop: 'top' }}{% endcapture %}
-      {% elsif collection.products.first %}
+     
       {% capture collection_image_url %}{{ collection.products.first | img_url: collection_image_size, crop: 'top' }}{% endcapture %}
-      {% endif %}
+      
 
-      <div class="grid__item large--one-third medium--one-half small--one-half" {{ block.shopify_attributes }}>
+      <div class="grid__item large--one-whole medium--one-whole small--one-whole" {{ block.shopify_attributes }}>
         <div class="collection-grid-item homepage-image">
           <a href="{% if collection.empty? %}#{% else %}{{ collection.url }}{% endif %}" class="collection-grid-item__link">
             <!--   <div class="collection-grid-item__overlay" style="background-image: url({{ collection_image_url }})">
@@ -26,7 +24,8 @@
                   {{ 'collection-' | append: current | placeholder_svg_tag: 'placeholder-svg' }}
                 {% endif %}
               </div> -->
-              <div class="collection-grid-item__overlay"> 
+              <div class="grid--full">
+              <div class="grid__item large--one-quarter medium--one-quarter small--one-quarter collection-grid-item__overlay"> 
                 <img src="{{ collection_image_url }}" alt="">
                 {% if collection.empty? %}
                 {% capture current %}{% cycle 1, 2, 3, 4, 5, 6 %}{% endcapture %}
@@ -36,14 +35,20 @@
 
 
 
-              <div class="collection-grid-item__content">
+              <div class="grid__item large--three-quarters medium--three-quarters small--three-quarters">
+                
                 {% unless block.settings.title == '' %}<h2 class="title--flex home__title">{{ block.settings.title }}</h2>{% endunless %}
-                {% unless block.settings.link_text == '' %}<div class="{{ section.settings.button_style }}"> {{ block.settings.link_text }}</div>{% endunless %}
+                <p class="categ-title">{% unless block.settings.link_text == '' %}{{ block.settings.link_text }}{% endunless %}<span><i class="fa fa-arrow-right" aria-hidden="true"></i></span></p>
+                
+                
               </div>
-              <div class="image-overlay {{ section.settings.overlay }}"></div>
+              
+              </div>
+              {% comment %}<div class="image-overlay {{ section.settings.overlay }}"></div>{% endcomment %}
             </a>
           </div>
         </div>
+        <hr class="separator">
         {% endfor %}
       </div>
     </div>
@@ -55,7 +60,7 @@
 
   {% schema %}
   {
-  "name": "Mobile Collection list",
+  "name": "Mobile Other Collections",
   "class": "index-section",
   "max_blocks": 12,
   "settings": [
@@ -63,7 +68,7 @@
   "type": "text",
   "id": "title",
   "label": "Heading",
-   "default": "Shop by Category"
+  "default": "Other Prosthetic Categories"
 }
 
 ],

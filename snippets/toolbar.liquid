@@ -7,6 +7,19 @@
     </div>
   </div>
 
+
+
+
+
+
+
+
+
+
+
+
+
+
   <div class="grid__item large--one-fifth small--one-half medium--one-quarter">
     {% assign colItems = collection.all_vendors | size %}
     {% if colItems > 0 %}
@@ -29,10 +42,8 @@
      </ul>
    </div>
    {% endif %}
- </div>
 
- <div class="grid__item large--one-quarter small--one-whole medium--one-quarter">
-  {% assign colItems = collection.all_types | size %}
+   {% assign colItems = collection.all_types | size %}
   {% if colItems > 0 %}
   <div class="filter-type btn-group">
 
@@ -58,10 +69,77 @@
       {% endfor %}
     </ul>
     {% endif %}
+ </div>
+
+ {% comment %}<div class="grid__item large--one-quarter small--one-whole medium--one-quarter">
+  
 
     
 
   </div>
+
+   <div class="clearfix filter">
+   <p>Browse by tag:</p>
+   <select class="coll-filter">
+     <option value="">All</option>
+     {% for tag in collection.all_tags %}
+     {% if current_tags contains tag %}
+     <option value="{{ tag | handle }}" selected>{{ tag }}</option>
+     {% else %}
+     <option value="{{ tag | handle }}">{{ tag }}</option>
+     {% endif %}
+     {% endfor %}
+   </select>
+ </div>
+
+
+ <ul class="clearfix filters">
+  
+  <li class="clearfix filter">
+    <select class="coll-filter">
+      <option value="all">Amputation Level</option>
+      {% for link in linklists.amputation-level.links %}
+      {% assign c = link.object %}
+      {% if collection.handle == c.handle %}
+      <option value="{{ c.handle }}" selected>{{ link.title }}</option>
+      {% else %}
+      <option value="{{ c.handle }}">{{ link.title }}</option>
+      {% endif %}
+      {% endfor %}
+    </select>
+  </li>
+  
+  <li class="clearfix filter">
+    {% assign tags = 'Yes, No' | split: ',' %}
+    <label>Select Model</label>
+    <select class="coll-filter">
+      <option value="">Hole-In-The Toe</option>
+      {% for t in tags %}
+      {% assign tag = t | strip %}
+      {% if current_tags contains tag %}
+      <option value="{{ tag | handle }}" selected>{{ tag }}</option>
+      {% elsif collection.all_tags contains tag %}
+      <option value="{{ tag | handle }}">{{ tag }}</option>
+      {% endif %}
+      {% endfor %}
+    </select>
+  </li>
+  <li class="clearfix filter">
+    {% assign tags = '1999, 2000, 2001, 2002, 2003, 2004, 2005, 2006, 2007, 2008, 2009, 2010, 2011, 2012, 2013, 2014, 2015, 2016, 2017, 2018' | split: ',' %}
+    <label>Select Year</label>
+    <select class="coll-filter">
+      <option value="">All</option>
+      {% for t in tags %}
+      {% assign tag = t | strip %}
+      {% if current_tags contains tag %}
+      <option value="{{ tag | handle }}" selected>{{ tag }}</option>
+      {% elsif collection.all_tags contains tag %}
+      <option value="{{ tag | handle }}">{{ tag }}</option>
+      {% endif %}
+      {% endfor %}
+    </select>
+  </li>
+</ul>{% endcomment %}
 </div>
 
 
@@ -103,7 +181,7 @@
 {% endcomment %}
 <!-- end grid/list view -->
 
-</div><!-- grid--full -->
+</div><!-- grid-full -->
 </div><!-- toolbar -->
 
 

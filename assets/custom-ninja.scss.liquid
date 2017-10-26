@@ -639,18 +639,19 @@
 
 	/* begin cart page */
 	.template-cart{
+		.header-line{
+			margin: 20px 0 20px;
+			#title-collection{
+				text-transform: capitalize;
+			}
+
+		}
 		.cart__row{
 			.grid--full{
-				padding: 0;
 				.grid__item{
-
 					.grid__item{
 						padding-left: 0;
 					}
-				/*.info-collumn{
-					float: left;
-					position: relative;
-					}*/
 				}
 			}
 			.cart__image img{
@@ -766,7 +767,7 @@
 						position: absolute;	
 						bottom: 108px;
 						border-bottom: 1px solid #ccc;
-						width: 400px;
+						/*width: 400px;*/
 						text-align: center;
 						left: 0;
 						right: 0;
@@ -940,6 +941,9 @@
 
 							/* begin product page */
 							.template-product{
+								.separator{
+									margin: 5px;
+								}
 								.product_rp_div{
 									border:1px solid #ccc;
 									background-color: #e0e0e0;
@@ -1460,8 +1464,8 @@
 															margin: 0 25px;
 															li{
 																a{
-																	font-weight: 700;
-																	font-size: 26px;
+																	font-weight: 500;
+																	font-size: 20px;
 																	color: #000;
 																}
 																.current{
@@ -1668,6 +1672,23 @@
 
 																					/* begin collection  */
 																					.template-collection{
+																						.separator{
+																							margin: 0 0 10px;
+																						}
+																						.categ-title{
+																							padding: 15% 0;
+																							margin-bottom: 0;
+																							text-align: left;
+																							color: #000;
+																							span{
+																								float: right;
+																								margin-right: 20px;
+
+																							}
+																							.fa-arrow-right{
+																								font-size: 18px;	
+																							}
+																						}
 																						.banner-page{
 																							img{
 																								max-width: 100%;
@@ -1676,8 +1697,8 @@
 																						.collection-tags{
 																							li{
 																								a{
-																									font-size: 20px!important;
-																									font-weight: 500!important;
+																									/*font-size: 20px!important;
+																									font-weight: 500!important;*/
 																									&:hover{
 																										color: {{settings.link_color}}!important;
 																									}
@@ -1715,15 +1736,15 @@
 																										border-bottom: 2px solid #7BCEC6;
 																									}
 																								}
-																								.parent-filters{
+																								/*.parent-filters{
 																									margin-top: 15px;
 																									margin-bottom: 15px;
 																									ul{
 																										margin: 0 25px;
 																										li{
 																											a{
-																												font-weight: 700;
-																												font-size: 26px;
+																												font-weight: 500;
+																												font-size: 20px;
 																												color: #000;
 																											}
 																											.current{
@@ -1731,10 +1752,10 @@
 																											}
 																										}
 																									}
+																									}*/
 																								}
-																							}
 
-																							}/* #top */
+																								}/* #top */
 
 
 																							/*#title-collection{
@@ -2233,6 +2254,11 @@
 																												}
 																											}
 																										}
+																										.template-collection {
+																											.categ-title{
+																												padding: 12% 0;
+																											}
+																										}
 																										
 																										.yotpo-reviews-carousel .carousel-display-wrapper #carousel-top-panel .headline{
 																											font-size: 16px!important;
@@ -2548,6 +2574,13 @@
 																																			padding: 0;
 																																		}
 																																	}
+																																	.template-cart{
+																																		.border-line{
+																																			.separation-line{
+																																				bottom: 152px;
+																																			}
+																																		} 
+																																	} 
 																																	.template-index{
 																																		h2{font-size: 22px;}
 																																	}
