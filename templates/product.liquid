@@ -298,19 +298,29 @@
 
 
      <div class="add-to-cart">
-      <div class="quantity">
-        {% assign quantityOptions = '1,2,3,4,5,6,7,8,9,10' | split:',' %}
+      <div class="quantity-box">
+        {% comment %}{% assign quantityOptions = '1,2,3,4,5,6,7,8,9,10' | split:',' %}
         <label for="quantity" >QTY: </label>
         <select id="quantity" name="quantity">
           {% for q in quantityOptions %}
           <option value="{{ q }}">{{ q }}</option>
           {% endfor %}
+        </select>{% endcomment %}
+
+
+        <span class="qty">{% comment %}{{ 'cart.label.quantity' | t }}{% endcomment %}QTY: </span>
+        {% comment %}<input type="number" name="updates[]" id="updates_{{ item.id }}" value="{{ item.quantity }}" min="0">{% endcomment %}
+        <select id="quantity" name="quantity" class="quantity"> 
+          {% for i in (1..10) %} {% assign q = i %}
+          <option value="{{ q }}"{% if item.quantity == q %} selected{% endif %}>{{ i }}</option>
+          {% endfor %}
         </select>
+        
       </div>
 
       <button type="submit" name="add" id="AddToCart" class="btn addtocart">
-        <!-- bold-ro-liquid --> <div class="bold_add_to_orders" style="display: inline-block;"> </div> <!-- bold-ro-liquid -->
-        {{ 'products.product.add_to_cart' | t }}
+        <!-- bold-ro-liquid --> <div class="title-box"><div class="bold_add_to_orders" style="display: inline-block;">{{ 'btn-icon.png' | asset_url | img_tag: shop.name }} ADD AUTO RE-STOCK TO CART</div> <!-- bold-ro-liquid -->
+       {{ 'products.product.add_to_cart' | t }}</div>
       </button>
     </div>
 
@@ -454,4 +464,7 @@ jQuery(function($) {
  pointer-events: none !Important; 
 }
 </style>
+
+
+
 
