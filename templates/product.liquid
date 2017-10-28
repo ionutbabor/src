@@ -319,7 +319,7 @@
       </div>
 
       <button type="submit" name="add" id="AddToCart" class="btn addtocart">
-        <!-- bold-ro-liquid --> <div class="title-box"><div class="bold_add_to_orders" style="display: inline-block;">{{ 'btn-icon.png' | asset_url | img_tag: shop.name }} ADD AUTO RE-STOCK TO CART</div> <!-- bold-ro-liquid -->
+        <!-- bold-ro-liquid --> <div class="title-box"><div class="bold_add_to_orders" style="display: inline-block;">{% comment %}{{ 'btn-icon.png' | asset_url | img_tag: shop.name }} ADD AUTO RE-STOCK TO CART{% endcomment %}</div> <!-- bold-ro-liquid -->
        {{ 'products.product.add_to_cart' | t }}</div>
       </button>
     </div>
