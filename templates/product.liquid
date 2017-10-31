@@ -156,7 +156,7 @@
 
 
     <div class="grid__item large--one-half">
-      <div class="hidden-xs">
+      <div class="my-hidden-xs">
 
         <h1 itemprop="name">{{ product.title }}</h1>
 
@@ -196,13 +196,12 @@
       <form action="/cart/add" method="post" enctype="multipart/form-data" id="AddToCartForm" class="form-vertical shapp_qb_prod">
 
         <span id="ProductPrice" class="h2" itemprop="price">
-          {% comment %}{{ current_variant.price | money }}{% endcomment %}
           {% if product.price_varies %}{{ product.price_min | money }}-{{ product.price_max | money }}{% else %}{{ current_variant.price | money }}{% endif %}
         </span>
+
         {% if bold_compare_at_price_max > bold_price %}
         <p id="ComparePrice">
          {% if product.compare_at_price_varies %}{{ product.compare_at_price_min | money }}-{{ product.compare_at_price_max | money }}{% else %}{{ current_variant.compare_at_price | money }}{% endif %}
-
        </p>
        {% endif %}
 
@@ -216,44 +215,49 @@
       <p class="text-left in-stock">{{settings.in-stock-text}}</p>
       {% endif %}
 
-      <br class="clear">
+      
+      {% comment %}<br class="clear">
+      <div class="line-separator"></div>
+      <br class="clear"> {% endcomment %}
+      <hr>
 
-
-      <div class="line-separator"></div> 
-      <br class="clear">
+     <div class="size-box">
 
       {% if product.tags contains 'Size Chart' %}
       <div id="size-trigger">
-        <a href="#!"><img src="{{ 'ruler.png' | asset_url }}"> View Size Chart</a>
+        <a href="#!"><img src="{{ 'ruler.png' | asset_url }}">Size Chart Guide</a>
       </div>
       {% endif %}
+
+      <select name="id" id="productSelect" class="product-single__variants">
+        {% for variant in product.variants %}
+        {% include 'bold-hidden-variants' with variant, bold_loop: 'loop' %}
+
+        {% if variant.available %}
+        <option value="{{ variant.id }}" data-price="{{ variant.price | money_without_currency | remove: ',' }}">{{ variant.title }} - {{ variant.price | money }}</option>
+        {% else %}
+        <option disabled="disabled">
+          {{ variant.title }} - {{ 'products.product.sold_out' | t }}
+        </option>
+        {% endif %}
+        
+        {% endfor %}
+      </select>
+
+    </div>
 
       <img src="{{ 'close.png' | asset_url }}" id="size-close" style="display: none;">
 
       <div id="size-chart" style="display: none;">
         {{ my_description[1] }}
       </div>
-      <select name="id" id="productSelect" class="product-single__variants">
-        {% for variant in product.variants %}
-        {% include 'bold-hidden-variants' with variant, bold_loop: 'loop' %}
 
-        {% if variant.available %}
-        <option value="{{ variant.id }}" data-price="{{ variant.price | money_without_currency | remove: ',' }}" class="test">{{ variant.title }} - {{ variant.price | money }}</option>
-        {% else %}
-        <option disabled="disabled">
-          {{ variant.title }} - {{ 'products.product.sold_out' | t }}
-        </option>
-        {% endif %}
-        {% endfor %}
-      </select>
-
-
-
-      {% if product.available and product.variants.size > 1 %}
+    
+      {% if product.available and product.options.first != 'Title' %}
       {% for option in product.options %}
       {% capture option_index %}option{{ forloop.index }}{% endcapture %}
       {% assign option_values = product.variants | map: option_index | uniq %}
-      {% if option_values.size <= 3 %}
+      {% if option_values.size <= 3 and forloop.first != true %}
       {% include 'swatch' with option %}
       {% endif %}
       {% endfor %}
@@ -287,7 +291,7 @@
       <input name="zip" type="hidden" value="{{ customer.default_address.zip }}" >
       {% include 'bold-ro' with product %}
 
-      <br class="clear">
+     {% comment %} <br class="clear">{% endcomment %}
 
 
       {% comment %}<div class="quantity-field">
@@ -319,9 +323,10 @@
       </div>
 
       <button type="submit" name="add" id="AddToCart" class="btn addtocart">
-        <!-- bold-ro-liquid --> <div class="title-box"><div class="bold_add_to_orders" style="display: inline-block;">{% comment %}{{ 'btn-icon.png' | asset_url | img_tag: shop.name }} ADD AUTO RE-STOCK TO CART{% endcomment %}</div> <!-- bold-ro-liquid -->
-       {{ 'products.product.add_to_cart' | t }}</div>
+        <!-- bold-ro-liquid --> {% comment %}<div class="title-box">{% endcomment %}<div class="bold_add_to_orders" style="display: inline-block;">{% comment %}{{ 'btn-icon.png' | asset_url | img_tag: shop.name }} ADD AUTO RE-STOCK TO CART{% endcomment %}</div> <!-- bold-ro-liquid -->
+        <span id="AddToCartText">{{ 'products.product.add_to_cart' | t }}</span>{% comment %}</div>{% endcomment %}
       </button>
+
     </div>
 
 
@@ -374,8 +379,7 @@
 
 <div id="cbb-frequently-bought-box"></div>
 
-<main class="grid--full grid-padding main-content" >
-
+<main class="grid--full grid-padding" >
   <div class="yotpo yotpo-main-widget"
   data-product-id="{{ product.id }}"
   data-name="{{ product.title | escape }}"
@@ -445,6 +449,12 @@ jQuery(function($) {
   // .trigger('change');
   // {% endfor %}
   // {% endif %}
+  
+
+  // Add label if only one product option and it isn't 'Title'. Could be 'Size'.
+  {% if product.options.size == 1 and product.options.first != 'Title' %}
+  $('.selector-wrapper:eq(0)').prepend('<label for="productSelect-option-0">{{ product.options.first | escape }}</label>');
+  {% endif %}
 
     // Hide selectors if we only have 1 variant and its title contains 'Default'.
     {% if bold_variants_size == 1 and product.variants.first.title contains 'Default' or product.variants.first.title contains '1+' %}

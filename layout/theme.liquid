@@ -173,21 +173,21 @@
             
             <div class="mobile-nav__toggle">
               <div class="grid--full">
-              <div class="grid__item large--one-half medium--one-half small--one-half">
-                <a href="#" class="mobile-nav__link">{{ link.title | replace: "Prosthetic", "" }}</a>
-              </div>
-              <div class="grid__item large--one-half medium--one-half small--one-half text-right">
-                <button type="button" class="icon-fallback-text mobile-nav__toggle-open">
-                <span class="fa fa-angle-down" aria-hidden="true"></span>
-                <span class="fallback-text">See More</span>
-              </button>
-              <button type="button" class="icon-fallback-text mobile-nav__toggle-close">
-                {% comment %}<span class="icon icon-minus" aria-hidden="true"></span>{% endcomment %}
-                <span class="fa fa-angle-up" aria-hidden="true"></span>
-                <span class="fallback-text">{{ 'cart.general.close_cart' | t | json }}</span>
-              </button>
-                
-              </div>
+                <div class="grid__item large--one-half medium--one-half small--one-half">
+                  <a href="#" class="mobile-nav__link">{{ link.title | replace: "Prosthetic", "" }}</a>
+                </div>
+                <div class="grid__item large--one-half medium--one-half small--one-half text-right">
+                  <button type="button" class="icon-fallback-text mobile-nav__toggle-open">
+                    <span class="fa fa-angle-down" aria-hidden="true"></span>
+                    <span class="fallback-text">See More</span>
+                  </button>
+                  <button type="button" class="icon-fallback-text mobile-nav__toggle-close">
+                    {% comment %}<span class="icon icon-minus" aria-hidden="true"></span>{% endcomment %}
+                    <span class="fa fa-angle-up" aria-hidden="true"></span>
+                    <span class="fallback-text">{{ 'cart.general.close_cart' | t | json }}</span>
+                  </button>
+                  
+                </div>
               </div>
 
               
@@ -385,10 +385,6 @@
         <div class="site-nav--mobile">
           <div class="move-right">
 
-
-
-
-
             <div class="grid__item large--one-quarter">
               <ul class="cart-right">
                 {% if template contains 'page' or template contains 'product' %}
@@ -409,7 +405,7 @@
                     <a href="/cart" class="js-drawer-open-right" >
                       <i class="fa fa-shopping-cart"></i>
                       <span class="icon-cart-count" id="CartCount2">{{ cart.item_count }}</span>
-                     
+                      
                     </a>
                     {%endif%}
 
@@ -427,31 +423,31 @@
                     
                   </span>
                 </a>{% endcomment %}
+              </div>
+
+            </div>
+          </div>
+          {% if template contains 'index' or template contains 'collection' or template contains 'login' or template contains 'register' or template contains 'cart' or template contains '404'%}
+          <div class="grid__item one-whole">
+            {% include 'search-bar'%}
+          </div>
+          {%endif%}
         </div>
-
       </div>
-    </div>
-    {% if template contains 'index' or template contains 'collection' or template contains 'login' or template contains 'register' or template contains 'cart' or template contains '404'%}
-    <div class="grid__item one-whole">
-      {% include 'search-bar'%}
-    </div>
-    {%endif%}
-  </div>
-</div>
-</nav>
+    </nav>
 
-{% if template contains 'index' %}
-{% include 'homepage-slideshow' %}
-{% endif %}
+    {% if template contains 'index' %}
+    {% include 'homepage-slideshow' %}
+    {% endif %}
 
 
-{% unless template contains 'index' %}
-<main class="{% if template contains 'newletter' %}wrapper{% endif %} main-content" role="main">
-  {% endunless %}
+    {% unless template contains 'index' %}
+    <main class="{% if template contains 'newletter' %}wrapper{% endif %} main-content" role="main">
+      {% endunless %}
 
-  {{ content_for_layout }}
+      {{ content_for_layout }}
 
-</main>
+    </main>
 
 {% comment %}
 //was
@@ -522,11 +518,6 @@
                 <li><a href="{{ link.url }}">{{ link.title }}</a></li>
                 {% endfor %}
               </ul>
-
-              {% if settings.show_payment_type %}
-              {% include 'payment' %}
-              {% endif %}
-
             </div>          
           </div>
 
@@ -560,11 +551,17 @@
                 </div>
                 
                 <div class="grid__item large--one-whole medium-down--hide">
+                  {% if settings.show_payment_type %}
+                  {% include 'payment' %}
+                  {% endif %}
                   <div class="copyright-text">
                     &copy; Copyright {{ 'now' | date: "%Y" }} Amputee Supplies Inc. All rights reserved. All images and content may not be
                     used without permission. Powered by Passion. 
                   </div>
                 </div>
+
+                
+
               </div> 
             </footer>
             <!-- //site-footer -->
@@ -782,30 +779,30 @@
   </script>
 
   <script>
-  /* Product Tag Filters - Good for any number of filters on any type of collection pages */
-  var collFilters = jQuery('.coll-filter');
-  collFilters.change(function() {
-    var newTags = [];
-    collFilters.each(function() {
-      if (jQuery(this).val()) {
-        newTags.push(jQuery(this).val());
+    /* Product Tag Filters - Good for any number of filters on any type of collection pages */
+    var collFilters = jQuery('.coll-filter');
+    collFilters.change(function() {
+      var newTags = [];
+      collFilters.each(function() {
+        if (jQuery(this).val()) {
+          newTags.push(jQuery(this).val());
+        }
+      });
+      if (newTags.length) {
+        var query = newTags.join('+');
+        window.location.href = jQuery('{{ 'tag' | link_to_tag: 'tag' }}').attr('href').replace('/' + 'tag', '/' + query);
+      }
+      else {
+        {% if collection.handle %}
+        window.location.href = '/collections/{{ collection.handle }}';
+        {% elsif collection.products.first.type == collection.title %}
+        window.location.href = '{{ collection.title | url_for_type }}';
+        {% elsif collection.products.first.vendor == collection.title %}
+        window.location.href = '{{ collection.title | url_for_vendor }}';
+        {% endif %}
       }
     });
-    if (newTags.length) {
-      var query = newTags.join('+');
-      window.location.href = jQuery('{{ 'tag' | link_to_tag: 'tag' }}').attr('href').replace('/' + 'tag', '/' + query);
-    }
-    else {
-      {% if collection.handle %}
-      window.location.href = '/collections/{{ collection.handle }}';
-      {% elsif collection.products.first.type == collection.title %}
-      window.location.href = '{{ collection.title | url_for_type }}';
-      {% elsif collection.products.first.vendor == collection.title %}
-      window.location.href = '{{ collection.title | url_for_vendor }}';
-      {% endif %}
-    }
-  });
-</script>
+  </script>
 
 
 

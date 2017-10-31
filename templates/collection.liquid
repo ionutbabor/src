@@ -532,7 +532,7 @@
 <!-- new pagination -->
 <div class="pagination">
   {% if paginate.previous %}
-  <a class="pagination-item" style="display: inline-block;" href="{{ paginate.previous.url }}"><img src="{{ 'arrow-left.png' | asset_url }}"></a>
+  <a class="pagination-item" style="display: inline-block;" href="{{ paginate.previous.url }}">BACK <img src="{{ 'arrow-left.png' | asset_url }}"></a>
   {% endif %}
   {% for part in paginate.parts %}
   {% if part.is_link %}
@@ -548,7 +548,7 @@
   {% endif %}
   {% endfor %}
   {% if paginate.next %}
-  <a class="pagination-item" style="display: inline-block;" href="{{ paginate.next.url }}"><img src="{{ 'arrow-right.png' | asset_url }}"></a>
+  <a class="pagination-item" style="display: inline-block;" href="{{ paginate.next.url }}"><img src="{{ 'arrow-right.png' | asset_url }}"> NEXT</a>
   {% endif %}
 </div>
 {% endpaginate %}
@@ -583,6 +583,7 @@ div.yotpo.bottomLine.yotpo-small {
 
 <div class="grid--full grid-padding">
   <div id="colect-descr">
+    <h1>{{ collection.title }}</h1>
     {{ collection.description }}
   </div> 
 </div> 

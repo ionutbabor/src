@@ -1,0 +1,152 @@
+<!-- /templates/collection.textiles.liquid -->
+
+{% paginate collection.products by 16 %}
+
+<div class="normal-collection">
+ 
+ <div id="top">
+  <div class="main-content">
+    <!-- left part -->
+    <div class="grid--full grid-padding">
+      <div class="grid__item large--one-quarter title-filters medium--one-whole">   
+        <h2><a href="/collections/prosthetic-textiles">Textiles</a></h2>
+      </div>
+      <!-- end left part -->
+
+      <!-- right part -->
+      <div class="grid__item large--three-quarters parent-filters medium-down--hide" style="border-left: 1px solid #ccc;">
+        <ul class="collection-tags">
+          {% for link in linklists.prosthetic-textiles.links %}
+          <li><a href="{{ link.url }}">{{ link.title }}</a></li>
+          {% endfor %}
+        </ul>
+      </div>
+      <!--end right part -->
+      {% comment %}<hr>{% endcomment %}
+    </div> <!-- main-content -->
+  </div>
+</div><!-- #top -->
+
+{% section 'xs-textiles-collection' %}
+
+<!-- banner top -->
+{% if collection.image %}
+<div class="banner-page medium-down--hide">
+ <img class="img-responsive" src="{{ collection.image.src | collection_img_url: '1920X600' }}" alt="{{ collection.image.alt | escape }}" />
+</div> 
+{% endif %}
+<!-- end banner top -->
+
+
+<!-- begin PROSTHETIC SOCKS -->
+<br class="clear medium-down--hide">
+<div class="grid--full grid-padding medium-down--hide">
+
+  <span id="title-collection">Prosthetic Socks</span>
+  <span id="collection-link"><a href="/collections/amputee-socks">Shop all Prosthetic Socks > </a></span>
+
+</div>
+
+<div class="grid--full grid-padding medium-down--hide">
+  {% for product in collections.amputee-socks.products limit:6 %}
+    {% comment %}
+    {% if forloop.index == 3 %}
+    {% include 'additional-content' %}
+    {% endif %}{% endcomment %}
+    {% include 'product-grid-item-less' %}
+    {% endfor %}
+  </div>
+  <hr class="medium-down--hide">
+  <!-- end PROSTHETIC SOCKS -->
+
+  <!-- begin Shrinkers-->
+  <br class="clear medium-down--hide">
+  <div class="grid--full grid-padding medium-down--hide">
+
+    <span id="title-collection">Shrinkers</span>
+    <span id="collection-link"><a href="/collections/stump-shrinkers">Shop all SHRINKERS ></a></span>
+
+  </div>
+
+  <div class="grid--full grid-padding medium-down--hide">
+    {% for product in collections.stump-shrinkers.products limit:6 %}
+    {% include 'product-grid-item-less' %}
+    {% endfor %}
+  </div>
+  <hr>
+  <!-- end Shrinkers-->
+  <!-- end prosthetic-textiles collection -->
+
+  <div class="grid--full grid-padding">
+    <div class="grid__item large--one-half medium--one-half">
+      <h2 id="title-collection-current">{{collection.title | replace: "for Amputees", ""}}</h2>
+    </div>
+    <div class="grid__item large--one-half text-right  medium--one-half">
+      {% include 'collection-sorting' %}
+    </div>  
+  </div>
+
+
+  <!-- begin grid uniform -->
+  <div class="grid--full grid-padding">
+    {% assign products = collection.products %}
+    {% for product in products limit:8 %}
+
+    {% include 'bold-product' with product, hide_action: 'skip' %}
+    {% include 'product-grid-item' %}
+    {% endfor %}
+
+  </div>
+  <!-- end grid uniform -->
+
+<!-- new pagination -->
+<div class="pagination">
+  {% if paginate.previous %}
+  <a class="pagination-item" style="display: inline-block;" href="{{ paginate.previous.url }}"><img src="{{ 'arrow-left.png' | asset_url }}"></a>
+  {% endif %}
+  {% for part in paginate.parts %}
+  {% if part.is_link %}
+  <span class="page"> 
+    <a href="{{ part.url }}">{{ part.title }}</a>
+  </span>
+  {% else %}
+  {% if part.title == '&hellip;' %}
+  {{ part.title }}
+  {% else %}
+  <span class="current page">{{ part.title }}</span>
+  {% endif %}
+  {% endif %}
+  {% endfor %}
+  {% if paginate.next %}
+  <a class="pagination-item" style="display: inline-block;" href="{{ paginate.next.url }}"><img src="{{ 'arrow-right.png' | asset_url }}"></a>
+  {% endif %}
+</div>
+{% endpaginate %}
+<!-- end new pagination -->
+
+</div>
+
+<!-- Yotpo Style for Collection Star Rating -->
+<style>
+div.yotpo.bottomLine .pull-left {
+  float: none;
+  margin: 0 5px 5px 0; 
+}
+div.yotpo.bottomLine.yotpo-small {
+  display: block;
+  margin: 0 5px 5px 0; 
+}
+.yotpo a.text-m {
+  display: inline-block;
+}
+</style>
+
+{% section 'mobile-others-collection2' %}
+
+<div class="grid--full grid-padding">
+  <div id="colect-descr">
+    {{ collection.description }}
+  </div> 
+</div> 
+
+{% include 'top-of-page' %} 

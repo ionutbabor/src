@@ -2,12 +2,12 @@
 <div class="grid--full">
   
 
-    <div class="visible-xs">
+    <div class="my-visible-xs">
       <h1 itemprop="name">{{ product.title }}</h1>
 
       <div class="grid--full">
-        <div class="grid__item large--one-sixth medium--one-third small--one-whole>
-          <p class="vendor-title">by {{ product.vendor | link_to_vendor }}</p>
+        <div class="grid__item large--one-sixth medium--one-third small--one-whole">
+          <p class="vendor-title"> by {{ product.vendor | link_to_vendor }}</p>
           {% comment %}<p class="vendor-title">by {{ product.vendor | replace: "-", " " | link_to_vendor }}</p>{% endcomment %}
         </div>
 
