@@ -532,7 +532,7 @@
 <!-- new pagination -->
 <div class="pagination">
   {% if paginate.previous %}
-  <a class="pagination-item" style="display: inline-block;" href="{{ paginate.previous.url }}">BACK <img src="{{ 'arrow-left.png' | asset_url }}"></a>
+  <a class="pagination-item" style="display: inline-block;" href="{{ paginate.previous.url }}"><img src="{{ 'arrow-left.png' | asset_url }}"><span class="arrow-text">Back</span></a>
   {% endif %}
   {% for part in paginate.parts %}
   {% if part.is_link %}
@@ -548,7 +548,7 @@
   {% endif %}
   {% endfor %}
   {% if paginate.next %}
-  <a class="pagination-item" style="display: inline-block;" href="{{ paginate.next.url }}"><img src="{{ 'arrow-right.png' | asset_url }}"> NEXT</a>
+  <a class="pagination-item" style="display: inline-block;" href="{{ paginate.next.url }}"><span class="arrow-text">Next</span> <img src="{{ 'arrow-right.png' | asset_url }}"></a>
   {% endif %}
 </div>
 {% endpaginate %}
@@ -571,6 +571,8 @@ div.yotpo.bottomLine.yotpo-small {
 }
 </style>
 
+<hr>
+{% comment %}begin main collection list menu only for mobile{% endcomment %}
 {% if collection.handle contains 'personal' %}
 {% section 'mobile-others-collection1' %}
 {% elsif collection.handle contains 'textiles' %}
@@ -580,6 +582,7 @@ div.yotpo.bottomLine.yotpo-small {
 {% elsif collection.handle contains 'prosthetic-remedies' %}
 {% section 'mobile-others-collection4' %}
 {%endif%}
+{% comment %}end  main collection list menu only for mobile{% endcomment %}
 
 <div class="grid--full grid-padding">
   <div id="colect-descr">

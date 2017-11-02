@@ -1,0 +1,107 @@
+<!-- /snippets/subcollection-mobile-menu.liquid -->
+<div class="grid--full large--hide">
+
+  <ul class="mobile-collection-tags grid-padding">
+    {% if collection.handle contains 'personal' or collection.handle contains 'skin-care' or collection.handle contains 'cleansers' or collection.handle contains 'sweat-control' or collection.handle contains 'moisturizers' or collection.handle contains 'wound-care' %}
+    <h2>Other Personal Care Categories</h2>
+    {% for link in linklists.personal-care.links %}
+    <li {% if link.active %}class="hidden" {% endif %}">
+      <a href="{{ link.url }}" class="menu-link">
+     
+          <div class="grid__item large--one-quarter medium--one-quarter small--one-quarter">
+
+            {% assign collection = link.object %}
+            {% if collection.image %}
+            <img src="{{ collection | img_url: 'grande' }}"  alt="{{ collection.title | escape }}" />
+            {% else %}
+            <img src="{{ collection.products.first | img_url: 'grande' }}"  alt="{{ collection.title | escape }}"  />
+            {% endif %}
+
+          </div>
+          <div class="grid__item large--three-quarters medium--three-quarters small--three-quarters">
+           
+            <p class="categ-title">{{ link.title }} <span><i class="fa fa-arrow-right" aria-hidden="true"></i></span></p>
+         </div>
+     </a>
+   </li>
+   {% endfor %}
+
+   {% elsif collection.handle contains 'textiles' or collection.handle contains 'socks' or collection.handle contains 'shrinkers' or collection.handle contains 'sheaths' or collection.handle contains 'cosmetic-hosiery' or collection.handle contains 'textile-accessories' %}
+    <h2>Other Textiles Categories</h2>
+   {% for link in linklists.prosthetic-textiles.links %}
+   <li {% if link.active %}class="hidden" {% endif %}">
+      <a href="{{ link.url }}" class="menu-link">
+     
+          <div class="grid__item large--one-quarter medium--one-quarter small--one-quarter">
+
+            {% assign collection = link.object %}
+            {% if collection.image %}
+            <img src="{{ collection | img_url: 'grande' }}"  alt="{{ collection.title | escape }}" />
+            {% else %}
+            <img src="{{ collection.products.first | img_url: 'grande' }}"  alt="{{ collection.title | escape }}"  />
+            {% endif %}
+
+          </div>
+          <div class="grid__item large--three-quarters medium--three-quarters small--three-quarters">
+           
+            <p class="categ-title">{{ link.title }} <span><i class="fa fa-arrow-right" aria-hidden="true"></i></span></p>
+         </div>
+     </a>
+   </li>
+   {% endfor %}
+
+   {% elsif collection.handle contains 'prosthesis-suspension' or collection.handle contains 'suspension-belts' or collection.handle contains 'suspension-sleeves' or collection.handle contains 'prosthetic-liners' or collection.handle contains 'suspension-accessories' %}
+   <h2>Other Suspension Categories</h2>
+   {% for link in linklists.prosthetic-suspension.links %}
+   <li {% if link.active %} class="hidden" {% endif %}>
+      <a href="{{ link.url }}" class="menu-link">
+     
+          <div class="grid__item large--one-quarter medium--one-quarter small--one-quarter">
+
+            {% assign collection = link.object %}
+            {% if collection.image %}
+            <img src="{{ collection | img_url: 'grande' }}"  alt="{{ collection.title | escape }}" />
+            {% else %}
+            <img src="{{ collection.products.first | img_url: 'grande' }}"  alt="{{ collection.title | escape }}"  />
+            {% endif %}
+
+          </div>
+          <div class="grid__item large--three-quarters medium--three-quarters small--three-quarters">
+           
+            <p class="categ-title">{{ link.title }} <span><i class="fa fa-arrow-right" aria-hidden="true"></i></span></p>
+         </div>
+     </a>
+   </li>
+   {% endfor %}
+
+   {% elsif collection.handle contains 'cosmetic-finishing' or collection.handle contains 'cushion-and-volume-aids' or collection.handle contains 'slip-on-aids' or collection.handle contains 'travel-and-mobility' or collection.handle contains 'arm-amputee-supplies' or collection.handle contains 'friction-fighting' or collection.handle contains 'prosthetic-remedies' %}
+   <h2>Other Remedies Categories</h2>
+   {% for link in linklists.prosthetic-remedies.links %}
+   <li {% if link.active %}class="hidden" {% endif %}">
+      <a href="{{ link.url }}" class="menu-link">
+     
+          <div class="grid__item large--one-quarter medium--one-quarter small--one-quarter">
+
+            {% assign collection = link.object %}
+            {% if collection.image %}
+            <img src="{{ collection | img_url: 'grande' }}"  alt="{{ collection.title | escape }}" />
+            {% else %}
+            <img src="{{ collection.products.first | img_url: 'grande' }}"  alt="{{ collection.title | escape }}"  />
+            {% endif %}
+
+          </div>
+          <div class="grid__item large--three-quarters medium--three-quarters small--three-quarters">
+           
+            <p class="categ-title">{{ link.title }} <span><i class="fa fa-arrow-right" aria-hidden="true"></i></span></p>
+         </div>
+     </a>
+   </li>
+   {% endfor %}
+   {% endif %}
+ </ul>
+
+<hr>
+</div>
+
+
+

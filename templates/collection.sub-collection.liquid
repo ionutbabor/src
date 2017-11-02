@@ -8,7 +8,7 @@
     <div class="main-content">
       <!-- left part -->
       <div class="grid--full grid-padding">
-        <div class="grid__item large--one-quarter title-filters medium--one-quarter">
+        <div class="grid__item large--one-quarter title-filters medium--one-whole">
           {% if collection.handle contains 'personal' or collection.handle contains 'skin-care' or collection.handle contains 'cleansers' or collection.handle contains 'sweat-control' or collection.handle contains 'moisturizers' or collection.handle contains 'wound-care' %}
           <h2><a href="/collections/personal-care" style="color: #000;">Personal Care</a></h2>
           {% elsif collection.handle contains 'textiles' or collection.handle contains 'socks' or collection.handle contains 'shrinkers' or collection.handle contains 'sheaths' or collection.handle contains 'cosmetic-hosiery' or collection.handle contains 'textile-accessories' %}     
@@ -25,7 +25,7 @@
 
         <!-- right part -->
         {% unless collection.handle contains 'featured' %}
-        <div class="grid__item large--three-quarters parent-filters medium--three-quarters" style="border-left: 1px solid #ccc;">
+        <div class="grid__item large--three-quarters parent-filters medium-down--hide" style="border-left: 1px solid #ccc;">
           <ul class="collection-tags">
             {% if collection.handle contains 'personal' or collection.handle contains 'skin-care' or collection.handle contains 'cleansers' or collection.handle contains 'sweat-control' or collection.handle contains 'moisturizers' or collection.handle contains 'wound-care' %}
             {% for link in linklists.personal-care.links %}
@@ -94,7 +94,7 @@
 <!-- new pagination -->
 <div class="pagination">
   {% if paginate.previous %}
-  <a class="pagination-item" style="display: inline-block;" href="{{ paginate.previous.url }}"><img src="{{ 'arrow-left.png' | asset_url }}"></a>
+  <a class="pagination-item" style="display: inline-block;" href="{{ paginate.previous.url }}"><img src="{{ 'arrow-left.png' | asset_url }}"><span class="arrow-text">Back</span></a>
   {% endif %}
   {% for part in paginate.parts %}
   {% if part.is_link %}
@@ -110,7 +110,7 @@
   {% endif %}
   {% endfor %}
   {% if paginate.next %}
-  <a class="pagination-item" style="display: inline-block;" href="{{ paginate.next.url }}"><img src="{{ 'arrow-right.png' | asset_url }}"></a>
+  <a class="pagination-item" style="display: inline-block;" href="{{ paginate.next.url }}"><span class="arrow-text">Next</span> <img src="{{ 'arrow-right.png' | asset_url }}"></a>
   {% endif %}
 </div>
 {% endpaginate %}
@@ -136,8 +136,11 @@ div.yotpo.bottomLine.yotpo-small {
 </style>
 
 <hr>
+{% include 'subcollection-mobile-menu' %}
+
 <div class="grid--full grid-padding">
   <div id="colect-descr">
+    <h1>{{ collection.title }}</h1>
     {{ collection.description }}
   </div> 
 </div> 

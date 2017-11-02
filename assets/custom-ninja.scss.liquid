@@ -1,10 +1,16 @@
 /*-------------------------BEGIN global style---------------------*/
 /*-------------------------BEGIN global style---------------------*/
 /*-------------------------BEGIN global style---------------------*/
+
 .pagination{
 	.pagination-item{
 		color:{{settings.link_color}};
+		.arrow-text{
+			color: #000;
+			font-size: 16px;
+		}
 	}
+
 }
 .homepage-slideshow{
 	img{
@@ -93,12 +99,20 @@
 .yotpo-reviews-carousel .carousel-display-wrapper #carousel-top-panel{
 	border-bottom: 1px solid #e3e3e3!important;
 }
-.yotpo a{
-	color: {{settings.text_link_color}}!important;
-	&:hover{
+.yotpo{
+	a{
 		color: {{settings.text_link_color}}!important;
+		&:hover{
+			color: {{settings.text_link_color}}!important;
+		}
 	}
-}
+	.yotpo-pager{
+		.yotpo-icon-left-arrow, .yotpo-icon-right-arrow{
+			color:{{settings.link_color}}!important;
+		}
+	}
+
+} 
 .no-padding{
 	padding: 0;
 }
@@ -194,12 +208,12 @@
 		/*margin-top: 173px;*/
 		transition-duration: 0s; transform: translate3d(0px, 0px, 0px)!important;
 		li{
-			width: 96px!important;
+			width: 76px!important;
 			margin-bottom: 5px;
 			margin-right: 2px!important;
 			cursor: pointer;
 			.thumbnail{
-				width: 96px;
+				width: 76px;
 				height: 100px;
 				-webkit-transition: all 0.5s;
 				transition: all 0.5s;
@@ -549,8 +563,10 @@
 					top: -3px;
 					right: 11px;
 					background-color: {{settings.btn_bkg}};
-					border-radius: 40%;
-					padding: 2px 4px 2px 4px;
+					border-radius: 50%;
+					/*padding: 2px 4px 2px 4px;*/
+					height: 20px;
+					width: 20px;
 				}
 
 			}
@@ -911,6 +927,7 @@
 
 		/* begin product page */
 		.template-product{
+
 			hr{
 				margin: 0;
 			}
@@ -1723,37 +1740,63 @@
 																						/* end sub-pages template */
 
 
-
 																						/* begin collection  */
 																						.template-collection{
-																							h1{
-																								font-size: 30px;
-																							}
-																							.separator{
-																								margin: 0 0 10px;
-																							}
-																							.categ-title{
-																								padding: 15% 0;
-																								margin-bottom: 0;
-																								text-align: left;
-																								color: #000;
-																								span{
-																									float: right;
-																									margin-right: 20px;
+																							/*.bottom-line{
+																								margin: 0 0 30px;
+																								}*/
+																								.mobile-collection-tags{
+																									list-style: none;
+																									margin:0;
+																									.grid__item{
+																										padding-left: 0;
+																									}
+																									li{
+																										border-bottom: 1px solid #e5e5e5; 
+																										margin-bottom: 10px;
+																									}
+																									li:last-child{
+																										border-bottom: none;
+																										margin-bottom: 0;
+																									}
+																									.hidden{
+																										display: none;
+																									}
+																									.menu-link{
+																										width: 100%;
+																									}
+
 
 																								}
-																								.fa-arrow-right{
-																									font-size: 18px;	
+																								h1{
+																									font-size: 30px;
 																								}
-																							}
-																							.banner-page{
-																								img{
-																									max-width: 100%;
+																								.separator{
+																									margin: 0 0 10px;
 																								}
-																							}
-																							.collection-tags{
-																								li{
-																									a{
+																								.categ-title{
+																									padding: 13.5% 0 13.5% 10px;
+																									margin-bottom: 0;
+																									text-align: left;
+																									color: #000;
+																									font-size: 16px;
+																									span{
+																										float: right;
+																										margin-right: 20px;
+
+																									}
+																									.fa-arrow-right{
+																										font-size: 18px;	
+																									}
+																								}
+																								.banner-page{
+																									img{
+																										max-width: 100%;
+																									}
+																								}
+																								.collection-tags{
+																									li{
+																										a{
 																									/*font-size: 20px!important;
 																									font-weight: 500!important;*/
 																									&:hover{
@@ -2265,6 +2308,19 @@
 																									/*=============================GLOBAL RESPONSIVE=============================*/
 																									@media (max-width: 480px) {
 																										.template-product{
+																											.product-single h1{
+																												font-size: 20px;
+																											}
+																											.slides_carousel li{
+																												width: 52px !important;
+																												margin: 0 0 10px 0!important;
+
+																											}
+																											.skincare-prod{
+																												hr{
+																													display: none;
+																												}
+																											}
 																											.add-to-cart{
 																												width: 100%;
 																												padding: 18px 10px;
@@ -2296,7 +2352,7 @@
 																										.slides_carousel li .thumbnail{
 
 																											width: 47px;
-																											height: 47px;
+																											height: 60px;
 																										}
 																										.nav-bar form.input-group.search-bar input{
 																											border-radius: 3px;
@@ -2342,7 +2398,7 @@
 																										}
 																										.template-collection {
 																											.categ-title{
-																												padding: 12% 0;
+																												padding: 12% 0 12% 10px;
 																											}
 																										}
 																										
@@ -2412,11 +2468,15 @@
 																															}
 																														}
 																													}
+																													.slides_carousel li{
+
+																														margin: 0 0 10px 0!important;
+																													}
 
 																												}
 																												.slides_carousel li .thumbnail{
 																													width: 70px;
-																													height: 70px;
+																													height: 86px;
 																												}
 																												.template-index{
 																													h2{font-size: 16px;}
@@ -2455,9 +2515,7 @@
 																													}/* (min-width: 481px) and (max-width: 767px) */
 
 																													@media only screen and (max-width: 768px){
-																														.nav-bar .move-right #cart .icon-cart-count{
-																															right: 0;
-																														}
+																														
 
 																														.fa-shopping-cart{
 																															font-size: 24px;
@@ -2518,6 +2576,15 @@
 																																}
 																															}
 																															.template-product{
+																																.skincare-prod{
+																																	h2{
+																																		text-align:left;
+																																		border-bottom: 1px solid #000;
+																																	}
+																																	img{
+																																		margin-bottom: 15px;
+																																	}
+																																}
 																																
 																																.breadcrumb{
 																																	display: none;
@@ -2531,6 +2598,7 @@
 																																.fancybox-title-float-wrap .child{
 																																	display: none;
 																																}
+																																
 
 																															} 
 																														}
@@ -2635,11 +2703,19 @@
 																																			}
 																																		}
 																																	}
+																																	#sub-collection{
+																																		.breadcrumb{
+																																			display: none;
+																																		}
+																																		.first-line{
+																																			display: none;
+																																		}
+																																	}
 																																}   
 																																.slides_carousel li{
-																																	width: 16%!important;
+																																	/*width: 16%!important;*/
 																																	vertical-align: top;
-																																	margin: 0 5% 0 0;
+																																	margin: 0 8px 10px 0!important;
 																																	
 																																	.thumbnail{
 																																		border: 1px solid #ccc;
@@ -2682,9 +2758,8 @@
 																																	.move-right{
 																																		#cart{
 																																			.icon-cart-count{
-																																				font-size: 15px;
-																																				line-height: 15px;
-																																				right: 1px;
+																																				
+																																				right:0;
 																																				top: -6px;
 																																			}
 																																			i{
@@ -2818,6 +2893,21 @@
 																																		}
 
 																																		}/* (min-width: 1200px) */
+																																		@media only screen and (min-width: 943px) and (max-width: 1340px){
+																																			.my-collumn{
+																																				display: none;
+
+																																			}
+																																			.my-collumn-2{
+																																				width: 100%;
+																																			}
+																																			#carousel-2{
+																																				display: block !important;
+																																				.slides_carousel li{
+																																					margin-right: 8px!important;
+																																				}
+																																			}
+																																		}
 
 
 

@@ -11,40 +11,38 @@
 
       {%- assign collection = collections[block.settings.collection] -%}
       {%- assign collection_image_url = '' -%}
-     
+
       {% capture collection_image_url %}{{ collection.products.first | img_url: collection_image_size, crop: 'top' }}{% endcapture %}
       
 
       <div class="grid__item large--one-whole medium--one-whole small--one-whole" {{ block.shopify_attributes }}>
         <div class="collection-grid-item homepage-image">
           <a href="{% if collection.empty? %}#{% else %}{{ collection.url }}{% endif %}" class="collection-grid-item__link">
-            <!--   <div class="collection-grid-item__overlay" style="background-image: url({{ collection_image_url }})">
-                {% if collection.empty? %}
+           
+              <div class="grid--full">
+                <div class="grid__item large--one-quarter medium--one-quarter small--one-quarter collection-grid-item__overlay">
+
+                  {% if block.settings.thumb-image != blank %}
+                  <img src="{{ block.settings.thumb-image | img_url: collection_image_size , crop: 'top' }}" alt="{{ block.settings.thumb-image.alt | escape }}" />
+                  {% else %}
+
+                  <img src="{{ collection_image_url }}" alt="amputee-product">
+                  {% if collection.empty? %}
                   {% capture current %}{% cycle 1, 2, 3, 4, 5, 6 %}{% endcapture %}
                   {{ 'collection-' | append: current | placeholder_svg_tag: 'placeholder-svg' }}
-                {% endif %}
-              </div> -->
-              <div class="grid--full">
-              <div class="grid__item large--one-quarter medium--one-quarter small--one-quarter collection-grid-item__overlay"> 
-                <img src="{{ collection_image_url }}" alt="">
-                {% if collection.empty? %}
-                {% capture current %}{% cycle 1, 2, 3, 4, 5, 6 %}{% endcapture %}
-                {{ 'collection-' | append: current | placeholder_svg_tag: 'placeholder-svg' }}
-                {% endif %}
-              </div>
+                  {% endif %}
 
+                  {%endif%}
+                </div>
 
+                <div class="grid__item large--three-quarters medium--three-quarters small--three-quarters">
 
-              <div class="grid__item large--three-quarters medium--three-quarters small--three-quarters">
-                
-                {% unless block.settings.title == '' %}<h2 class="title--flex home__title">{{ block.settings.title }}</h2>{% endunless %}
-                <p class="categ-title">{% unless block.settings.link_text == '' %}{{ block.settings.link_text }}{% endunless %}<span><i class="fa fa-arrow-right" aria-hidden="true"></i></span></p>
-                
-                
+                  <p class="categ-title">{% unless block.settings.link_text == '' %}{{ block.settings.link_text }}{% endunless %}<span><i class="fa fa-arrow-right" aria-hidden="true"></i></span></p>
+
+                </div>
+
               </div>
               
-              </div>
-              {% comment %}<div class="image-overlay {{ section.settings.overlay }}"></div>{% endcomment %}
             </a>
           </div>
         </div>
@@ -53,62 +51,60 @@
       </div>
     </div>
 
-    {% comment %}{% if section.blocks.size == 0 %}
-    <div class="text-center">{{ 'home_page.onboarding.no_content' | t }}</div>
-    {% endif %}{% endcomment %}
   </div>
 
   {% schema %}
   {
-  "name": "Mobile Other Collections",
-  "class": "index-section",
-  "max_blocks": 12,
-  "settings": [
-  {
-  "type": "text",
-  "id": "title",
-  "label": "Heading",
-  "default": "Other Prosthetic Categories"
-}
+    "name": "Mobile Other Collections",
+    "class": "index-section",
+    "max_blocks": 12,
+    "settings": [
+    {
+      "type": "text",
+      "id": "title",
+      "label": "Heading",
+      "default": "Other Prosthetic Categories"
+    }
 
-],
-"blocks": [
-{
-  "type": "featured_collection",
-  "name": "Collection",
-  "settings": [
-  {
-  "label": "Collection",
-  "id": "collection",
-  "type": "collection"
-},
-{
-  "type": "text",
-  "id": "title",
-  "label": "Headline"
-},
-{
-  "type": "text",
-  "id": "link_text",
-  "label": "Buton Text",
-  "default": "View products"
-}
-]
-}
-],
-"presets": [
-{
-  "name": "Collection list",
-  "category": "Collection",
-"blocks": [
-{
-  "type": "featured_collection"
-},
-{
-  "type": "featured_collection"
-}
-]
-}
-]
-}
-{% endschema %}
+    ],
+    "blocks": [
+    {
+      "type": "featured_collection",
+      "name": "Collection",
+      "settings": [
+      {
+        "label": "Thumbnail image collection",
+        "id": "thumb-image",
+        "type": "image_picker",
+        "info": "Image size recommended 630x630"
+      },
+      {
+        "label": "Collection",
+        "id": "collection",
+        "type": "collection"
+      },
+      {
+        "type": "text",
+        "id": "link_text",
+        "label": "Buton Text",
+        "default": "View products"
+      }
+      ]
+    }
+    ],
+    "presets": [
+    {
+      "name": "Collection list",
+      "category": "Collection",
+      "blocks": [
+      {
+        "type": "featured_collection"
+      },
+      {
+        "type": "featured_collection"
+      }
+      ]
+    }
+    ]
+  }
+  {% endschema %}

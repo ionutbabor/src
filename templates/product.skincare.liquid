@@ -14,7 +14,7 @@
   <div id="top">
     <div class="main-content">
       <!-- left part -->
-      <div class="grid--full grid-padding">
+      <div class="grid--full grid-padding hidden-xs">
         <div class="grid__item large--one-quarter title-filters medium--one-quarter">
 
           {% if product.tags contains 'Textiles' %}
@@ -56,8 +56,40 @@
       <!-- right part -->
 
       <div class="grid__item large--three-quarters parent-filters medium--three-quarters" style="border-left: 1px solid #ccc;">
-        {% comment %}<ul class="collection-tags">
-          {% if product.tags contains 'personal' or product.tags contains 'skin-care' or product.tags contains 'cleansers' or product.tags contains 'sweat-control' or product.tags contains 'moisturizers' or product.tags contains 'wound-care' %}
+
+
+        <ul class="collection-tags">
+          {% if product.tags contains 'Textiles' %}
+          {% for link in linklists.prosthetic-textiles.links %}
+          <li><a href="{{ link.url }}">{{ link.title }}</a></li>
+          {% endfor %}
+
+          {% elsif product.tags contains 'Personal Care' %}
+          {% for link in linklists.personal-care.links %}
+          <li><a href="{{ link.url }}">{{ link.title }}</a></li>
+          {% endfor %}
+
+          {% elsif product.tags contains 'Prosthesis Suspension' or product.tags contains 'Suspension Belts' or product.tags contains 'Suspension Sleeves' or product.tags contains 'Prosthetic Liners' or product.tags contains 'Suspension Accessories' %}
+          {% for link in linklists.prosthetic-suspension.links %}
+          <li><a href="{{ link.url }}">{{ link.title }}</a></li>
+          {% endfor %}
+
+          {% elsif product.tags contains 'socks' %}
+          {% for link in linklists.personal-care.links %}
+          <li><a href="{{ link.url }}">{{ link.title }}</a></li>
+          {% endfor %}
+
+          {% elsif product.tags contains 'prosthetic-remedies' %}
+          {% for link in linklists.prosthetic-remedies.links %}
+          <li><a href="{{ link.url }}">{{ link.title }}</a></li>
+          {% endfor %}
+          {%endif%}
+        </ul>
+
+
+
+        {% comment %}<ul>
+          {% if product.tags contains 'socks' %}
           {% for link in linklists.personal-care.links %}
           <li><a href="{{ link.url }}">{{ link.title }}</a></li>
           {% endfor %}
@@ -81,7 +113,7 @@
       </div>
 
       <!--end right part -->
-      <hr>
+      <hr class="separator">
     </div> <!-- main-content -->
   </div>
 </div><!-- #top -->
@@ -339,7 +371,7 @@
 
 
 
-<div class="grid--full grid-padding">
+<div class="grid--full grid-padding skincare-prod">
  {{ my_description[0] }}
  <hr>
 
@@ -349,7 +381,7 @@
  <hr>
 
 
- <main class="main-content" >
+ <main>
   <div class="yotpo yotpo-main-widget"
   data-product-id="{{ product.id }}"
   data-name="{{ product.title | escape }}"
