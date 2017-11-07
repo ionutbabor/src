@@ -387,7 +387,7 @@
 
             <div class="grid__item large--one-quarter">
               <ul class="cart-right">
-                {% if template contains 'page' or template contains 'product' %}
+                {% if template contains 'product' %}
                 <li class="mobile-search">    
                   <a href="#"><i class="fa fa-search" aria-hidden="true"></i></a>
                 </li>
@@ -427,7 +427,7 @@
 
             </div>
           </div>
-          {% if template contains 'index' or template contains 'collection' or template contains 'login' or template contains 'register' or template contains 'cart' or template contains '404'%}
+          {% if template contains 'index' or template contains 'page' or template contains 'collection' or template contains 'login' or template contains 'register' or template contains 'cart' or template contains '404'%}
           <div class="grid__item one-whole">
             {% include 'search-bar'%}
           </div>

@@ -37,8 +37,8 @@
 
 
               <div class="collection-grid-item__content">
-                {% unless block.settings.title == '' %}<h2 class="title--flex home__title">{{ block.settings.title }}</h2>{% endunless %}
-                {% unless block.settings.link_text == '' %}<div class="{{ section.settings.button_style }}"> {{ block.settings.link_text }}</div>{% endunless %}
+               
+                {% unless block.settings.link_text == '' %}{{ block.settings.link_text }}{% endunless %}
               </div>
               <div class="image-overlay {{ section.settings.overlay }}"></div>
             </a>

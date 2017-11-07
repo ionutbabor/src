@@ -1,33 +1,37 @@
 <!-- /templates/page.sub-pages.liquid -->
 
 <div id="top">
-	<div class="main-content">
+  <div class="main-content">
+    <div class="grid--full grid-padding">
+      <div class="grid__item large--one-quarter title-filters medium-down--hide">
+        <h2>{{ page.title }}</h2>
+      </div>
 
-		<div class="grid__item large--one-quarter title-filters">
-			<h2> Prostetic Buying Price </h2>
-		</div>
+      <div class="grid__item large--three-quarters parent-filters medium-down--hide">
+       <ul class="main-menu">
+        {% for link in linklists.submenu-new-pages.links %}
+        <li><a href="{{ link.url }}" class="menu-link {% if link.active %}current{% endif %}">{{ link.title }}</a></li>
+        {% endfor %}
+      </ul>
+    </div>
+  </div>
+</div> <!-- main-content -->
 
-		<div class="grid__item large--three-quarters parent-filters " style="border-left: 1px solid #ccc;">
-			<ul class="main-menu">
-				{% for link in linklists.submenu-new-pages.links %}
-				<li><a href="{{ link.url }}" class="menu-link {% if link.active %}current{% endif %}">{{ link.title }}</a></li>
-				{% endfor %}
-			</ul>
-		</div>
-		<hr>
-	</div> <!-- main-content -->
+<hr>
 
-	<nav class="breadcrumb" role="navigation" aria-label="breadcrumbs">
-		<a href="/" title="{{ 'general.breadcrumbs.home_link_title' | t }}">{{ 'general.breadcrumbs.home' | t }}</a>
-		<span aria-hidden="true">&rsaquo;</span>
-		<span><a href="/pages/prosthetic-buying-guides"> Prostetic Buying Price </a></span>
-		<span aria-hidden="true">&rsaquo;</span>
-		<span><a href="{{ link.url }}">{{ page.title }}</a></span>
-	</nav>
+<div class="grid--full grid-padding page-breadcrumb">
+  <nav class="breadcrumb" role="navigation" aria-label="breadcrumbs">
+    <a href="/" title="{{ 'general.breadcrumbs.home_link_title' | t }}">{{ 'general.breadcrumbs.home' | t }}</a>
+    <span aria-hidden="true">&rsaquo;</span>
+    <span><a href="#"> Prostetic Buying Price </a></span>
+    <span aria-hidden="true">&rsaquo;</span>
+    <span><a href="{{ link.url }}">{{ page.title }}</a></span>
+  </nav>
+</div>
 </div><!-- #top -->
 
 <div id="sub-pages">
-<div class="grid">
+<div class="grid--full grid-padding">
 	<div class="grid__item one-quarters"> 
 		<h1>{{ page.title }}</h1>
 		<div class="rte">
