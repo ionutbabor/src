@@ -1,16 +1,16 @@
-<!-- /templates/page.sub-pages.liquid -->
+<!-- /templates/page.guide-article-textile.liquid -->
 
 <div id="top">
   <div class="main-content">
     <div class="grid--full grid-padding">
       <div class="grid__item large--one-quarter title-filters medium-down--hide">
-        <h2>{{ page.title }}</h2>
+        <h2 class="no-border-line">Prosthetic Guides</h2>
       </div>
 
       <div class="grid__item large--three-quarters parent-filters medium-down--hide">
        <ul class="main-menu">
         {% for link in linklists.submenu-new-pages.links %}
-        <li><a href="{{ link.url }}" class="menu-link {% if link.active %}current{% endif %}">{{ link.title }}</a></li>
+        <li><a href="{{ link.url }}" class="menu-link {% if link.title == 'Prosthetic Textiles' %} current {% endif %} ">{{ link.title }}</a></li>
         {% endfor %}
       </ul>
     </div>
@@ -23,7 +23,9 @@
   <nav class="breadcrumb" role="navigation" aria-label="breadcrumbs">
     <a href="/" title="{{ 'general.breadcrumbs.home_link_title' | t }}">{{ 'general.breadcrumbs.home' | t }}</a>
     <span aria-hidden="true">&rsaquo;</span>
-    <span><a href="#"> Prostetic Buying Price </a></span>
+    <span><a href="/pages/prosthetic-guides-to-learn-about-prosthetic-products"> Prosthetic Guides </a></span>
+    <span aria-hidden="true">&rsaquo;</span>
+    <span><a href="/pages/prosthetic-textiles-guide-for-stump-socks-sheaths-shinkers"> Prosthetic Textiles </a></span>
     <span aria-hidden="true">&rsaquo;</span>
     <span><a href="{{ link.url }}">{{ page.title }}</a></span>
   </nav>

@@ -5,12 +5,7 @@
 {% comment %}{% include 'vendors' %}{% endcomment %} 
 
 <div class="normal-collection">
-
-
-
-
  <!-- <div id="colect-descr">{{ collection.description }}</div> -->
-
 
  <div id="top">
   <div class="main-content">
@@ -34,11 +29,11 @@
         {% if collection.handle contains 'personal' %}
         <h2><a href="/collections/personal-care" >Personal Care</a></h2>
         {% elsif collection.handle contains 'textiles' %}     
-        <h2><a href="/collections/prosthetic-textiles" >Textiles</a></h2>
+        <h2><a href="/collections/prosthetic-textiles" >Prosthetic Textiles</a></h2>
         {% elsif collection.handle contains 'prosthesis-suspension' %}
-        <h2><a href="/collections/prosthesis-suspension" >Suspension</a></h2>
-        {% elsif collection.handle contains 'prosthetic-remedies' %}      
-        <h2><a href="/collections/prosthetic-remedies" >Remedies</a></h2>
+        <h2><a href="/collections/prosthesis-suspension" >Sleeves, Linners &amp; More</a></h2>
+        {% elsif collection.handle contains 'prosthetic-gel-products' %}      
+        <h2><a href="/collections/prosthetic-gel-products" >Gel Solutions</a></h2>
         {% elsif collection.handle contains 'featured-products' %}
         <h2 style="width: 300px;"><a href="/collections/featured-products" >Featured Amputee Supplies</a></h2>
         {% endif %}
@@ -86,8 +81,8 @@
           <li><a href="{{ link.url }}">{{ link.title }}</a></li>
           {% endfor %}
 
-          {% elsif collection.handle contains 'friction-fighting' or collection.handle contains 'prosthetic-remedies' %}
-          {% for link in linklists.prosthetic-remedies.links %}
+          {% elsif collection.handle contains 'friction-fighting' or collection.handle contains 'prosthetic-gel-products' %}
+          {% for link in linklists.prosthetic-gel-products-for-amputees.links %}
           <li><a href="{{ link.url }}">{{ link.title }}</a></li>
           {% endfor %}
           {% endif %}
