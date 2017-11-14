@@ -2,73 +2,73 @@
   {
     "name": "Colors",
     "settings": [
-       {
-        "type": "color",
-        "id": "initial_color",
-        "label": "Default Color",
-        "default": "#000"
-      },
-      {
-        "type": "color",
-        "id": "link_color",
-        "label": "Link Color",
-        "default": "#7bcec6"
-      },
-      {
-        "type": "color",
-        "id": "text_link_color",
-        "label": "Content Link Color",
-        "default": "#57a5cb"
-      },
-      {
-        "type": "color",
-        "id": "product_free",
-        "label": "Product Free Shipping Text",
-        "default": "#46832f"
-      },
-      {
-        "type": "color",
-        "id": "btn_bkg",
-        "label": "Button Background Color",
-        "default": "#FF6600"
-      },
-      {
-        "type": "color",
-        "id": "hover_btn_bkg_2",
-        "label": "Button Hover Background Color",
-        "default": "#ff5900"
-      },
-      {
-        "type": "color",
-        "id": "cart_money",
-        "label": "Cart Money Color",
-        "default": "#b64343"
-      },
-      {
-        "type": "color",
-        "id": "btn_bkg_2",
-        "label": "Cart Continue Shopping Button",
-        "default": "#fafafa"
-      },
-      {
-        "type": "color",
-        "id": "stars_color",
-        "label": "Stars Color",
-        "default": "#fdda01"
-      },
-      {
-        "type": "color",
-        "id": "login_color",
-        "label": "Sign in / Login Color",
-        "default": "#fa8a10"
-      },
-      {
-        "type": "color",
-        "id": "input_color",
-        "label": "Input Background",
-        "default": "#fedcb8"
-      }
-    ]
+     {
+      "type": "color",
+      "id": "initial_color",
+      "label": "Default Color",
+      "default": "#000"
+    },
+    {
+      "type": "color",
+      "id": "link_color",
+      "label": "Link Color",
+      "default": "#7bcec6"
+    },
+    {
+      "type": "color",
+      "id": "text_link_color",
+      "label": "Content Link Color",
+      "default": "#57a5cb"
+    },
+    {
+      "type": "color",
+      "id": "product_free",
+      "label": "Product Free Shipping Text",
+      "default": "#46832f"
+    },
+    {
+      "type": "color",
+      "id": "btn_bkg",
+      "label": "Button Background Color",
+      "default": "#FF6600"
+    },
+    {
+      "type": "color",
+      "id": "hover_btn_bkg_2",
+      "label": "Button Hover Background Color",
+      "default": "#ff5900"
+    },
+    {
+      "type": "color",
+      "id": "cart_money",
+      "label": "Cart Money Color",
+      "default": "#b64343"
+    },
+    {
+      "type": "color",
+      "id": "btn_bkg_2",
+      "label": "Cart Continue Shopping Button",
+      "default": "#fafafa"
+    },
+    {
+      "type": "color",
+      "id": "stars_color",
+      "label": "Stars Color",
+      "default": "#fdda01"
+    },
+    {
+      "type": "color",
+      "id": "login_color",
+      "label": "Sign in / Login Color",
+      "default": "#fa8a10"
+    },
+    {
+      "type": "color",
+      "id": "input_color",
+      "label": "Input Background",
+      "default": "#fedcb8"
+    }
+  ]
   },
   {
     "name": "Amputee Store Theme",
@@ -481,287 +481,648 @@
         "label": "Image #5 Button Text"
       }
     ]
-  },
-  {
-    "name": "Homepage Featured Images",
-    "settings": [
-      {
-        "type": "image",
-        "id": "feat1.png",
-        "label": "Featured Image #1"
-      },
-      {
-        "type": "text",
-        "id": "link_feat1",
-        "label": "Featured Image #1 Link"
-      },
-      {
-        "type": "text",
-        "id": "captiontitle_feat1",
-        "label": "Featured Image #1 Caption Title"
-      },
-      {
-        "type": "text",
-        "id": "alt_feat1",
-        "label": "Featured Image #1 Alt tag text"
-      },
-      {
-        "type": "text",
-        "id": "caption_feat1",
-        "label": "Featured Image #1 Caption"
-      },
-      {
-        "type": "text",
-        "id": "button_feat1",
-        "label": "Featured Image #1 Button Text"
-      },
-      {
-        "type": "radio",
-        "id": "position_feat1",
-        "label": "Featured Image #1 Text Alignment",
-        "options": [
-          {
-            "value": "feat1_left",
-            "label": "Left"
-          },
-          {
-            "value": "feat1_center",
-            "label": "Center"
-          },
-          {
-            "value": "feat1_right",
-            "label": "Right"
-          }
-        ],
-        "default": "feat1_left"
-      },
-      {
-        "type": "image",
-        "id": "feat2.png",
-        "label": "Featured Image #2"
-      },
-      {
-        "type": "text",
-        "id": "link_feat2",
-        "label": "Featured Image #2 Link"
-      },
-      {
-        "type": "text",
-        "id": "captiontitle_feat2",
-        "label": "Featured Image #2 Caption Title"
-      },
-      {
-        "type": "text",
-        "id": "alt_feat2",
-        "label": "Featured Image #1 Alt tag text"
-      },
-      {
-        "type": "text",
-        "id": "caption_feat2",
-        "label": "Featured Image #2 Caption"
-      },
-      {
-        "type": "text",
-        "id": "button_feat2",
-        "label": "Featured Image #2 Button Text"
-      },
-      {
-        "type": "radio",
-        "id": "position_feat2",
-        "label": "Featured Image #2 Text Alignment",
-        "options": [
-          {
-            "value": "feat2_left",
-            "label": "Left"
-          },
-          {
-            "value": "feat2_center",
-            "label": "Center"
-          },
-          {
-            "value": "feat2_right",
-            "label": "Right"
-          }
-        ],
-        "default": "feat2_left"
-      },
-      {
-        "type": "image",
-        "id": "feat3.png",
-        "label": "Featured Image #3"
-      },
-      {
-        "type": "text",
-        "id": "link_feat3",
-        "label": "Featured Image #3 Link"
-      },
-      {
-        "type": "text",
-        "id": "captiontitle_feat3",
-        "label": "Featured Image #3 Caption Title"
-      },
-      {
-        "type": "text",
-        "id": "alt_feat3",
-        "label": "Featured Image #1 Alt tag text"
-      },
-      {
-        "type": "text",
-        "id": "caption_feat3",
-        "label": "Featured Image #3 Caption"
-      },
-      {
-        "type": "text",
-        "id": "button_feat3",
-        "label": "Featured Image #3 Button Text"
-      },
-      {
-        "type": "radio",
-        "id": "position_feat3",
-        "label": "Featured Image #3 Text Alignment",
-        "options": [
-          {
-            "value": "feat3_left",
-            "label": "Left"
-          },
-          {
-            "value": "feat3_center",
-            "label": "Center"
-          },
-          {
-            "value": "feat3_right",
-            "label": "Right"
-          }
-        ],
-        "default": "feat3_left"
-      }
-    ]
-  },
-  {
-    "name": "Footer",
-    "settings": [
-      {
-        "type": "checkbox",
-        "id": "footer_social_enable",
-        "label": "Show social media links"
-      },
-      {
-        "type": "checkbox",
-        "id": "show_payment_type",
-        "label": "Show payment type logo"
-      },
-      {
-        "type": "text",
-        "id": "social_twitter_link",
-        "label": "Twitter link"
-      },
-      {
-        "type": "text",
-        "id": "social_facebook_link",
-        "label": "Facebook link"
-      },
-      {
-        "type": "checkbox",
-        "id": "footer_newsletter_enable",
-        "label": "Show Newsletter Field"
-      },
-      {
-        "type": "text",
-        "id": "newsletter_form_action",
-        "label": "MailChimp Form Action URL",
-        "info": "[Where do I find my MailChimp form action URL?](http:\/\/docs.shopify.com\/support\/configuration\/store-customization\/where-do-i-get-my-mailchimp-form-action)"
-      }
-    ]
-  },
-  {
-    "name": "Cart Page",
-    "settings": [
-      {
-        "type": "checkbox",
-        "id": "cart_notes_enable",
-        "label": "Allow notes with orders"
-      },
-      {
-        "type": "checkbox",
-        "id": "cart_vendor_enable",
-        "label": "Show product vendor"
-      },
-      {
-        "type": "checkbox",
-        "id": "ajax_cart_enable",
-        "label": "Enable Ajax Cart Drawer",
-        "info": "[View Documentation](http:\/\/shopify.com\/timber#ajax-cart)"
-      },
-      {
-        "type": "text",
-        "id": "cart_subtitle",
-        "label": "Cart subtitle"
-      }
-    ]
-  },
-  {
-    "name": "Social Sharing",
-    "settings": [
-      {
-        "type": "text",
-        "id": "twittercard_handle",
-        "label": "Twitter Handle",
-        "default": "@"
-      }
-    ]
-  },
-  {
-    "name": "Login Page",
-    "settings": [
-      {
-        "type": "textarea",
-        "id": "login-text",
-        "label": "Login paragraph"
-      }
-    ]
-  },
-  {
-    "name": "Product Page",
-    "settings": [
-      {
-        "type": "select",
-        "id": "product_slideshow_animation",
-        "label": "Product Image Gallery",
-        "options": [
-          {
-            "value": "none",
-            "label": "None"
-          },
-          {
-            "value": "slide",
-            "label": "Slide"
-          },
-          {
-            "value": "fade",
-            "label": "Fade"
-          },
-          {
-            "value": "zoom",
-            "label": "Hover to Zoom"
-          }
-        ]
-      },
-      {
-        "type": "text",
-        "id": "free-text",
-        "label": "Free Shipping text"
-      },
-      {
-        "type": "text",
-        "id": "in-stock-text",
-        "label": "In stock text"
-      },
-      {
-        "type": "text",
-        "id": "out-stock-text",
-        "label": "Out of stock text",
-        "default": "*This product will delay your order by approximately 4-7 days."
-      }
-    ]
-  }
+},
+{
+  "name": "Homepage Featured Images",
+  "settings": [
+    {
+      "type": "image",
+      "id": "feat1.png",
+      "label": "Featured Image #1"
+    },
+    {
+      "type": "text",
+      "id": "link_feat1",
+      "label": "Featured Image #1 Link"
+    },
+    {
+      "type": "text",
+      "id": "captiontitle_feat1",
+      "label": "Featured Image #1 Caption Title"
+    },
+    {
+      "type": "text",
+      "id": "alt_feat1",
+      "label": "Featured Image #1 Alt tag text"
+    },
+    {
+      "type": "text",
+      "id": "caption_feat1",
+      "label": "Featured Image #1 Caption"
+    },
+    {
+      "type": "text",
+      "id": "button_feat1",
+      "label": "Featured Image #1 Button Text"
+    },
+    {
+      "type": "radio",
+      "id": "position_feat1",
+      "label": "Featured Image #1 Text Alignment",
+      "options": [
+        {
+          "value": "feat1_left",
+          "label": "Left"
+        },
+        {
+          "value": "feat1_center",
+          "label": "Center"
+        },
+        {
+          "value": "feat1_right",
+          "label": "Right"
+        }
+      ],
+      "default": "feat1_left"
+    },
+    {
+      "type": "image",
+      "id": "feat2.png",
+      "label": "Featured Image #2"
+    },
+    {
+      "type": "text",
+      "id": "link_feat2",
+      "label": "Featured Image #2 Link"
+    },
+    {
+      "type": "text",
+      "id": "captiontitle_feat2",
+      "label": "Featured Image #2 Caption Title"
+    },
+    {
+      "type": "text",
+      "id": "alt_feat2",
+      "label": "Featured Image #1 Alt tag text"
+    },
+    {
+      "type": "text",
+      "id": "caption_feat2",
+      "label": "Featured Image #2 Caption"
+    },
+    {
+      "type": "text",
+      "id": "button_feat2",
+      "label": "Featured Image #2 Button Text"
+    },
+    {
+      "type": "radio",
+      "id": "position_feat2",
+      "label": "Featured Image #2 Text Alignment",
+      "options": [
+        {
+          "value": "feat2_left",
+          "label": "Left"
+        },
+        {
+          "value": "feat2_center",
+          "label": "Center"
+        },
+        {
+          "value": "feat2_right",
+          "label": "Right"
+        }
+      ],
+      "default": "feat2_left"
+    },
+    {
+      "type": "image",
+      "id": "feat3.png",
+      "label": "Featured Image #3"
+    },
+    {
+      "type": "text",
+      "id": "link_feat3",
+      "label": "Featured Image #3 Link"
+    },
+    {
+      "type": "text",
+      "id": "captiontitle_feat3",
+      "label": "Featured Image #3 Caption Title"
+    },
+    {
+      "type": "text",
+      "id": "alt_feat3",
+      "label": "Featured Image #1 Alt tag text"
+    },
+    {
+      "type": "text",
+      "id": "caption_feat3",
+      "label": "Featured Image #3 Caption"
+    },
+    {
+      "type": "text",
+      "id": "button_feat3",
+      "label": "Featured Image #3 Button Text"
+    },
+    {
+      "type": "radio",
+      "id": "position_feat3",
+      "label": "Featured Image #3 Text Alignment",
+      "options": [
+        {
+          "value": "feat3_left",
+          "label": "Left"
+        },
+        {
+          "value": "feat3_center",
+          "label": "Center"
+        },
+        {
+          "value": "feat3_right",
+          "label": "Right"
+        }
+      ],
+      "default": "feat3_left"
+    }
+  ]
+},
+{
+  "name": "Footer",
+  "settings": [
+    {
+      "type": "checkbox",
+      "id": "footer_social_enable",
+      "label": "Show social media links"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_payment_type",
+      "label": "Show payment type logo"
+    },
+    {
+      "type": "text",
+      "id": "social_twitter_link",
+      "label": "Twitter link"
+    },
+    {
+      "type": "text",
+      "id": "social_facebook_link",
+      "label": "Facebook link"
+    },
+    {
+      "type": "checkbox",
+      "id": "footer_newsletter_enable",
+      "label": "Show Newsletter Field"
+    },
+    {
+      "type": "text",
+      "id": "newsletter_form_action",
+      "label": "MailChimp Form Action URL",
+      "info": "[Where do I find my MailChimp form action URL?](http:\/\/docs.shopify.com\/support\/configuration\/store-customization\/where-do-i-get-my-mailchimp-form-action)"
+    }
+  ]
+},
+{
+  "name": "Cart Page",
+  "settings": [
+    {
+      "type": "checkbox",
+      "id": "cart_notes_enable",
+      "label": "Allow notes with orders"
+    },
+    {
+      "type": "checkbox",
+      "id": "cart_vendor_enable",
+      "label": "Show product vendor"
+    },
+    {
+      "type": "checkbox",
+      "id": "ajax_cart_enable",
+      "label": "Enable Ajax Cart Drawer",
+      "info": "[View Documentation](http:\/\/shopify.com\/timber#ajax-cart)"
+    },
+    {
+      "type": "text",
+      "id": "cart_subtitle",
+      "label": "Cart subtitle"
+    }
+  ]
+},
+{
+  "name": "Social Sharing",
+  "settings": [
+    {
+      "type": "text",
+      "id": "twittercard_handle",
+      "label": "Twitter Handle",
+      "default": "@"
+    }
+  ]
+},
+{
+  "name": "Login Page",
+  "settings": [
+    {
+      "type": "textarea",
+      "id": "login-text",
+      "label": "Login paragraph"
+    }
+  ]
+},
+{
+  "name": "Product Page",
+  "settings": [
+    {
+      "type": "select",
+      "id": "product_slideshow_animation",
+      "label": "Product Image Gallery",
+      "options": [
+        {
+          "value": "none",
+          "label": "None"
+        },
+        {
+          "value": "slide",
+          "label": "Slide"
+        },
+        {
+          "value": "fade",
+          "label": "Fade"
+        },
+        {
+          "value": "zoom",
+          "label": "Hover to Zoom"
+        }
+      ]
+    },
+    {
+      "type": "text",
+      "id": "free-text",
+      "label": "Free Shipping text"
+    },
+    {
+      "type": "text",
+      "id": "in-stock-text",
+      "label": "In stock text"
+    },
+    {
+      "type": "text",
+      "id": "out-stock-text",
+      "label": "Out of stock text",
+      "default": "*This product will delay your order by approximately 4-7 days."
+    }
+  ]
+},
+{
+  "name": "Filter Menu - Mobile Accordion",
+  "settings": [
+    {
+      "type": "header",
+      "content": "Options"
+    },
+    {
+      "type": "checkbox",
+      "id": "pt_mobile_enable",
+      "label": "Show Mobile Accordion",
+      "default": true
+    },
+    {
+      "type": "text",
+      "id": "pt_mobile_text",
+      "label": "Filter Button Text",
+      "default": "Filter"
+    },        
+    {
+      "type": "color",
+      "id": "pt_mobile_color",
+      "label": "Color",
+      "default": "#222"
+    },
+    {
+      "type": "text",
+      "id": "pt_mobile_max_width",
+      "label": "CSS Max Width For Display",
+      "default": "767px"
+    }, 
+    {
+      "type": "select",
+      "id": "pt_mobile_vertical",
+      "label": "Vertical Offset",
+      "options": [
+        {
+          "value": "35px",
+          "label": "35px"
+        },
+        {
+          "value": "32px",
+          "label": "32px"
+        },
+        {
+          "value": "30px",
+          "label": "30px"
+        },
+        {
+          "value": "25px",
+          "label": "25px"
+        },
+        {
+          "value": "22px",
+          "label": "22px"
+        },
+        {
+          "value": "20px",
+          "label": "20px"
+        },
+        {
+          "value": "18px",
+          "label": "18px"
+        },
+        {
+          "value": "16px",
+          "label": "16px"
+        },
+        {
+          "value": "14px",
+          "label": "14px"
+        },
+        {
+          "value": "12px",
+          "label": "12px"
+        },
+        {
+          "value": "10px",
+          "label": "10px"
+        },
+        {
+          "value": "8px",
+          "label": "8px"
+        },
+        {
+          "value": "6px",
+          "label": "6px"
+        },
+        {
+          "value": "4px",
+          "label": "4px"
+        },
+        {
+          "value": "2px",
+          "label": "2px"
+        },
+        {
+          "value": "0px",
+          "label": "0px"
+        },
+        {
+          "value": "-2px",
+          "label": "-2px"
+        },
+        {
+          "value": "-4px",
+          "label": "-4px"
+        },
+        {
+          "value": "-6px",
+          "label": "-6px"
+        },
+        {
+          "value": "-8px",
+          "label": "-8px"
+        },
+        {
+          "value": "-10px",
+          "label": "-10px"
+        },
+        {
+          "value": "-12px",
+          "label": "-12px"
+        },
+        {
+          "value": "-14px",
+          "label": "-14px"
+        },
+        {
+          "value": "-16px",
+          "label": "-16px"
+        },
+        {
+          "value": "-18px",
+          "label": "-18px"
+        },
+        {
+          "value": "-20px",
+          "label": "-20px"
+        },
+        {
+          "value": "-22px",
+          "label": "-22px"
+        },
+        {
+          "value": "-24px",
+          "label": "-24px"
+        },
+        {
+          "value": "-26px",
+          "label": "-26px"
+        },
+        {
+          "value": "-28px",
+          "label": "-28px"
+        },
+        {
+          "value": "-30px",
+          "label": "-30px"
+        }
+      ],
+      "default": "0px"
+    },
+    {
+      "type": "select",
+      "id": "pt_mobile_text_vertical",
+      "label": "Vertical Offset - Text",
+      "default": "-16px",
+      "options": [
+        {
+          "value": "35px",
+          "label": "35px"
+        },
+        {
+          "value": "30px",
+          "label": "30px"
+        },
+        {
+          "value": "25px",
+          "label": "25px"
+        },
+        {
+          "value": "22px",
+          "label": "22px"
+        },
+        {
+          "value": "20px",
+          "label": "20px"
+        },
+        {
+          "value": "18px",
+          "label": "18px"
+        },
+        {
+          "value": "16px",
+          "label": "16px"
+        },
+        {
+          "value": "14px",
+          "label": "14px"
+        },
+        {
+          "value": "12px",
+          "label": "12px"
+        },
+        {
+          "value": "10px",
+          "label": "10px"
+        },
+        {
+          "value": "8px",
+          "label": "8px"
+        },
+        {
+          "value": "6px",
+          "label": "6px"
+        },
+        {
+          "value": "4px",
+          "label": "4px"
+        },
+        {
+          "value": "2px",
+          "label": "2px"
+        },
+        {
+          "value": "0px",
+          "label": "0px"
+        },
+        {
+          "value": "-2px",
+          "label": "-2px"
+        },
+        {
+          "value": "-4px",
+          "label": "-4px"
+        },
+        {
+          "value": "-6px",
+          "label": "-6px"
+        },
+        {
+          "value": "-8px",
+          "label": "-8px"
+        },
+        {
+          "value": "-10px",
+          "label": "-10px"
+        },
+        {
+          "value": "-12px",
+          "label": "-12px"
+        },
+        {
+          "value": "-14px",
+          "label": "-14px"
+        },
+        {
+          "value": "-16px",
+          "label": "-16px"
+        },
+        {
+          "value": "-18px",
+          "label": "-18px"
+        },
+        {
+          "value": "-20px",
+          "label": "-20px"
+        },
+        {
+          "value": "-22px",
+          "label": "-22px"
+        },
+        {
+          "value": "-24px",
+          "label": "-24px"
+        },
+        {
+          "value": "-26px",
+          "label": "-26px"
+        },
+        {
+          "value": "-28px",
+          "label": "-28px"
+        },
+        {
+          "value": "-30px",
+          "label": "-30px"
+        }
+      ],
+      "default": "0px"
+    },
+    {
+      "type": "select",
+      "id": "pt_mobile_font",
+      "label": "Base Typeface",
+      "options": [
+        {
+          "value": "none",
+          "label": "Use theme default"
+        },
+        {
+          "value": "Helvetica, Arial, sans-serif",
+          "label": "Helvetica\/Arial",
+          "group": "Sans-serif"
+        },
+        {
+          "value": "Impact, Charcoal, Helvetica, Arial, sans-serif",
+          "label": "Impact",
+          "group": "Sans-serif"
+        },
+        {
+          "value": "'Lucida Grande', 'Lucida Sans Unicode', 'Lucida Sans', Lucida, Helvetica, Arial, sans-serif",
+          "label": "Lucida Grande",
+          "group": "Sans-serif"
+        },
+        {
+          "value": "Trebuchet MS, sans-serif",
+          "label": "Trebuchet MS",
+          "group": "Sans-serif"
+        },
+        {
+          "value": "Verdana, Helvetica, Arial, sans-serif",
+          "label": "Verdana",
+          "group": "Sans-serif"
+        },
+        {
+          "value": "Garamond, Baskerville, Caslon, serif",
+          "label": "Garamond",
+          "group": "Serif"
+        },
+        {
+          "value": "Georgia, Utopia, 'Times New Roman', Times, serif",
+          "label": "Georgia",
+          "group": "Serif"
+        },
+        {
+          "value": "Palatino, 'Palatino Linotype', 'Book Antiqua', serif",
+          "label": "Palatino",
+          "group": "Serif"
+        },
+        {
+          "value": "'Times New Roman', Times, serif",
+          "label": "Times New Roman",
+          "group": "Serif"
+        },
+        {
+          "value": "'Courier New', Courier, monospace",
+          "label": "Courier New",
+          "group": "Monospace"
+        },
+        {
+          "value": "Monaco, 'Lucida Console', 'DejaVu Sans Mono', monospace",
+          "label": "Monaco\/Lucida Console",
+          "group": "Monospace"
+        }
+      ],
+      "default": "none"
+    }
+  ]
+}
 ]

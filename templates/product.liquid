@@ -162,7 +162,7 @@
 
         <div class="grid">
           <div class="grid__item large--one-sixth medium--one-third">
-            <p class="vendor-title">by {{ product.vendor | link_to_vendor }}</p>
+            <p class="vendor-title">by <a href="/collections/{{product.vendor | replace: " ", "-" | downcase }}">{{ product.vendor | replace: "-", " " }}</a></p>
             {% comment %}<p class="vendor-title">by {{ product.vendor | replace: "-", " " | link_to_vendor }}</p>{% endcomment %}
 
           </div>

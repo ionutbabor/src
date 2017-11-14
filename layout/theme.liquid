@@ -843,7 +843,44 @@
     });
   </script>
 
+{% comment %}xs subcollections filters{% endcomment %}
+{% unless settings.pt_mobile_enable == false %}
+<script type="text/javascript">
+  function deferFilterjQuery() {
+    if (window.jQuery) {
+      $('body').on('click', '.filter-menu .pt-mobile-header a', function(e){
+          if(e.handled !== true) {
+            $('#nav-toggle').toggleClass('active');
+            $('.filter-menu .filter-group').not('.has_group_selected').find('h4, ul,.filter-clear').toggle('fast');
+            e.preventDefault();
+            e.handled = true;
+          }
+      });
 
+      var windowWidth = $(window).width();
+      $(window).resize(function() {
+        if ($(window).width() != windowWidth) {
+        windowWidth = $(window).width();
+
+            if ($( window ).width() > {{ settings.pt_mobile_max_width  | default: '767' | replace: 'px', '' }}) {
+              $('.filter-menu .filter-group').find('h4, ul, .filter-clear').show();
+              $('#nav-toggle').removeClass('active');
+            } /* else {
+              $('#nav-toggle').removeClass('active');
+              $('.filter-menu .filter-group').not('.has_group_selected').find('h4, ul, .filter-clear').hide();
+            } */
+        }
+      });
+  }
+  else {
+    setTimeout(function() { deferFilterjQuery() }, 50);
+  }
+}
+
+deferFilterjQuery();
+</script>
+{% endunless %}
+{% comment %}xs subcollections filters{% endcomment %}
 
 </body>
 </html>

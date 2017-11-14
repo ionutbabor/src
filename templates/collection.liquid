@@ -32,8 +32,8 @@
         <h2><a href="/collections/prosthetic-textiles" >Prosthetic Textiles</a></h2>
         {% elsif collection.handle contains 'prosthesis-suspension' %}
         <h2><a href="/collections/prosthesis-suspension" >Sleeves, Linners &amp; More</a></h2>
-        {% elsif collection.handle contains 'prosthetic-gel-products' %}      
-        <h2><a href="/collections/prosthetic-gel-products" >Gel Solutions</a></h2>
+        {% elsif collection.handle contains 'prosthetic-gel-pads-sheaths-to-solve-fitting-issues' %}      
+        <h2><a href="/collections/prosthetic-gel-pads-sheaths-to-solve-fitting-issues" >Gel Solutions</a></h2>
         {% elsif collection.handle contains 'featured-products' %}
         <h2 style="width: 300px;"><a href="/collections/featured-products" >Featured Amputee Supplies</a></h2>
         {% endif %}
@@ -81,7 +81,7 @@
           <li><a href="{{ link.url }}">{{ link.title }}</a></li>
           {% endfor %}
 
-          {% elsif collection.handle contains 'friction-fighting' or collection.handle contains 'prosthetic-gel-products' %}
+          {% elsif collection.handle contains 'friction-fighting' or collection.handle contains 'prosthetic-gel-pads-sheaths-to-solve-fitting-issues' %}
           {% for link in linklists.prosthetic-gel-products-for-amputees.links %}
           <li><a href="{{ link.url }}">{{ link.title }}</a></li>
           {% endfor %}
@@ -484,7 +484,7 @@
 
   <div class="grid--full grid-padding">
     <div class="grid__item large--one-half medium--one-half">
-      <h2 id="title-collection-current">{{collection.title | replace: "for Amputees", ""}}</h2>
+      <h2 id="title-collection-current">{{collection.title | replace: "for Amputees", "" | replace: "-"," " }}</h2>
     </div>
     <div class="grid__item large--one-half text-right  medium--one-half">
       {% include 'collection-sorting' %}
@@ -581,7 +581,7 @@ div.yotpo.bottomLine.yotpo-small {
 
 <div class="grid--full grid-padding">
   <div id="colect-descr">
-    <h1>{{ collection.title }}</h1>
+    <h1>{{ collection.title | replace: "-"," "}}</h1>
     {{ collection.description }}
   </div> 
 </div> 
