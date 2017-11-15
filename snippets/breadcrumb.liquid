@@ -2,7 +2,7 @@
 <div class="grid--full grid-padding">
 {% if template != 'index' or template != 'cart' %}
 <nav class="breadcrumb" role="navigation" aria-label="breadcrumbs">
-
+  
   <a href="/" title="{{ 'general.breadcrumbs.home_link_title' | t }}">{{ 'general.breadcrumbs.home' | t }}</a>
 
   {% comment %}{% unless template == 'product' %}
@@ -43,7 +43,7 @@
   {% capture url %}/collections/{{ collection.handle }}{% endcapture %}
   {{ collection.title | link_to: url }}
   <span aria-hidden="true">&rsaquo;</span>
-  <span>{{ current_tags | join: " + " }}</span>
+  <span>{{ current_tags | join: " + " | replace: "-"," " }}</span>
   {% else %}
   <span>{{ collection.title }}</span>
   {% endif %}

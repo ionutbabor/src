@@ -1,6 +1,26 @@
 <div id="top">
   <div class="main-content">
     <div class="grid--full grid-padding">
+
+      <div class="grid__item large--hide medium--one-whole title-filters">
+       <nav class="breadcrumb large--hide" role="navigation" aria-label="breadcrumbs">
+        <a href="/" title="{{ 'general.breadcrumbs.home_link_title' | t }}">{{ 'general.breadcrumbs.home' | t }}</a>
+        <span aria-hidden="true">&rsaquo;</span>
+        <span><a href="/pages/prosthetic-guides-to-learn-about-prosthetic-products"> Prosthetic Guides </a></span>
+      </nav>
+      <h2>{{ page.title }}</h2>
+
+      <div class="large--hide page-nav">
+        <select onChange="window.location.href=this.value">
+          <option>Select other guide</option>
+          {% for link in linklists.submenu-new-pages.links %}
+          <option value="{{ link.url }}" id="{{ link.title | handleize | split: "-" | last }}"><a href="{{ link.url }}">{{ link.title }}</a></option>
+          {% endfor %}
+        </select>
+
+      </div>
+    </div>
+
       <div class="grid__item large--one-quarter title-filters medium-down--hide">
         <h2 class="no-border-line">Prosthetic Guides</h2>
       </div>
@@ -17,7 +37,7 @@
 
 <hr>
 
-<div class="grid--full grid-padding page-breadcrumb">
+<div class="grid--full grid-padding page-breadcrumb medium-down--hide">
   <nav class="breadcrumb" role="navigation" aria-label="breadcrumbs">
     <a href="/" title="{{ 'general.breadcrumbs.home_link_title' | t }}">{{ 'general.breadcrumbs.home' | t }}</a>
     <span aria-hidden="true">&rsaquo;</span>
@@ -29,24 +49,39 @@
 </div><!-- #top -->
 
 
-
+{% assign foo = 0 %}
 {% for block in section.blocks %}
 {% if block.type == 'top' %}
 
+
 <div id="main">
- <div class="grid">
-  <div class="grid__item {% if block.settings.banner-img != blank %}  medium--one-half small--one-whole two-quarters {% else %} one-quarters {% endif %}">
+ <div class="grid--full grid-padding medium-down--hide">
+  <div class="grid__item {% if block.settings.banner-img != blank %}large--one-half medium--one-whole small--one-whole{% else %} one-quarters {% endif %}">
     <h2 class="title">{{ block.settings.title }}</h2>
     <p>{{ block.settings.content }}</p>
   </div>
 
   {% if block.settings.banner-img != blank %}
-  <div class="grid__item two-quarters text-center small--one-whole">
+  <div class="grid__item large--one-half medium--one-whole small--one-whole text-center">
    <img class="img-responsive" src="{{ block.settings.banner-img | img_url: 'master' }}" alt="{{ block.settings.banner-img | remove_first: 'files/' }}">
  </div>
  {% endif %}
 
 </div>
+<div class="grid--full grid-padding large--hide">
+  {% if block.settings.banner-img != blank %}
+  <div class="grid__item large--one-half medium--one-whole small--one-whole text-center">
+   <img class="img-responsive" src="{{ block.settings.banner-img | img_url: 'master' }}" alt="{{ block.settings.banner-img | remove_first: 'files/' }}">
+ </div>
+ {% endif %}
+
+  <div class="grid__item {% if block.settings.banner-img != blank %}large--one-half medium--one-whole small--one-whole{% else %} one-quarters {% endif %}">
+    <h2 class="title title{% increment foo %}">{{ block.settings.title }}</h2>
+    <p>{{ block.settings.content }}</p>
+  </div>
+
+</div>
+
 <hr>
 </div>
 
@@ -55,7 +90,7 @@
 
 
 <div id="bottom">
- <div class="grid">
+ <div class="grid--full grid-padding">
   <div class="grid__item one-quarters small--one-whole">
     <h2 class="title">{{ block.settings.title }}</h2>
     <h3 class="subtitle">{{ block.settings.subtitle }}</h3>
