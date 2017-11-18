@@ -1,6 +1,12 @@
 /*-------------------------BEGIN global style---------------------*/
 /*-------------------------BEGIN global style---------------------*/
 /*-------------------------BEGIN global style---------------------*/
+.pagination>span{
+	a{
+		color: #000;
+		font-size: 16px;
+	}
+}
 #sortme{
 	display: inline;
 	margin: 0 0 10px 0;
@@ -346,6 +352,7 @@
 			left: 50%;
 			margin-left: -55px;
 			font-weight: 600;
+			opacity: 0.75;
 		}
 	}
 	
@@ -1632,11 +1639,10 @@
 														.title-filters{
 															h2{
 																width: auto;
-																padding-top: 15px;
 																font-weight: 700;
-																font-size: 26px;
-																margin-bottom: 0;
-																border-bottom: 2px solid #7BCEC6;
+																font-size: 22px;
+																margin: 10px 0;
+																/*border-bottom: 2px solid #7BCEC6;*/
 																a{
 																	color: #000;
 																}
@@ -1646,8 +1652,7 @@
 															}
 														}
 														.parent-filters{
-															margin-top: 15px;
-															margin-bottom: 15px;
+															margin: 15px 0 10px;
 															border-left: 1px solid #ccc;
 															ul{
 																margin: 0 25px;
@@ -1655,7 +1660,7 @@
 
 																	a{
 																		font-weight: 500;
-																		font-size: 20px;
+																		font-size: 18px;
 																		color: #000;
 																		font-family: 'Quicksand', sans-serif !important;
 																	}
@@ -2373,7 +2378,6 @@
 																										}
 																										#title-collection, .template-collection #title-collection-current{
 																											font-size: 16px;
-																											text-transform: uppercase;
 																										}
 																										/*index page*/
 																										.template-index{
@@ -2483,7 +2487,6 @@
 																												}
 																												#title-collection, .template-collection #title-collection-current{
 																													font-size: 16px;
-																													text-transform: uppercase;
 																												}
 																												.grid-padding{
 																													padding: 0 20px;
@@ -2596,8 +2599,8 @@
 																														.template-page{
 																															#top{
 																																page-nav{
-																																text-align: center!important;
-																															}
+																																	text-align: center!important;
+																																}
 																															}
 																															
 																														}
@@ -2635,7 +2638,7 @@
 																															#title-collection,  
 																															#title-collection-current{
 																																font-size: 22px;
-																																text-transform: uppercase;
+																																/*text-transform: uppercase;*/
 																															}
 																															#collection-link a{
 																																font-size: 15px;
@@ -2679,6 +2682,11 @@
 																														}
 
 																														@media only screen and (max-width: 942px){
+																															#title-collection, .template-collection #title-collection-current{
+																															
+																																text-transform: uppercase;
+																																margin-top: 20px;
+																															}
 
 																															.template-product{
 																																.fancybox-overlay{
@@ -2833,14 +2841,14 @@
 																																	.page-nav{
 																																		text-align: right;
 																																		margin-bottom: 15px;
-																																		}
-																																		select{
-																																			font-family: 'Quicksand', sans-serif;
-																																			font-size: 14px;
-																																			color: #3c3c3c;
-																																			font-weight: 800;
-																																			background: url("{{ 'ico-select.svg' | asset_url }}") no-repeat #fff 90% 50%;
-																																			border: 1px solid #cbcbcb;
+																																	}
+																																	select{
+																																		font-family: 'Quicksand', sans-serif;
+																																		font-size: 14px;
+																																		color: #3c3c3c;
+																																		font-weight: 800;
+																																		background: url("{{ 'ico-select.svg' | asset_url }}") no-repeat #fff 90% 50%;
+																																		border: 1px solid #cbcbcb;
 																																	} 
 
 																																}

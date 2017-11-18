@@ -367,7 +367,10 @@
               {% assign child_list_handle = link.title | handle %}
               {% if linklists[child_list_handle] and linklists[child_list_handle].links.size > 0 %}
               <li class="has-dropdown">
-                <a {% if template contains 'page.guide-category-textiles' or template contains 'page.guide-category-suspension' or template contains 'page.guide-category-personal' or template contains 'page.guide-article-textile' or template contains 'page.guide-article-suspension' or template contains 'page.guide-article-personal' or template contains 'page.guide-home' %} class="current" {% endif %} href="{{ link.url }}">{{ link.title }}</a>
+                <a 
+                {% if template contains 'page.guide-category-textiles' or template contains 'page.guide-category-suspension' or template contains 'page.guide-category-personal' or template contains 'page.guide-article-textile' or template contains 'page.guide-article-suspension' or template contains 'page.guide-article-personal' or template contains 'page.guide-home' %} class="current" {% endif %} 
+
+                href="{{ link.url }}">{{ link.title }}</a>
                 <ul>
                   <span class="triangle-up"></span>
                   {% for child_link in linklists[child_list_handle].links %}
@@ -393,7 +396,18 @@
               </li>
               {% else %}
               <li>
-                {{ link.title | link_to: link.url }}
+                
+                <a {% comment %}{% if link.title == 'Prosthetic Textiles 2' %}{% if collection.handle contains 'amputee-socks' or collection.handle contains 'socks' or collection.handle contains 'shrinkers' or collection.handle contains 'sheaths' or collection.handle contains 'cosmetic-hosiery' or collection.handle contains 'textile-accessories' %} class="current" {% endif %}{% endif %} {% endcomment %} 
+
+               {% if link.title == 'Personal Care & Equipment' %}{% if collection.handle contains 'personal-care' or collection.handle contains 'skin-care-treatments' or collection.handle contains 'prosthetic-cleansers' or collection.handle contains 'sweat-control' or collection.handle contains 'moisturizers' or collection.handle contains 'skin-care-collections' %} class="current" {% endif %}{% endif %}
+
+               {% if link.title == 'Sleeves, Liners & More' %}{% if collection.handle contains 'prosthesis-suspension' or collection.handle contains 'suspension-sleeves' or collection.handle contains 'suspension-belts' or collection.handle contains 'prosthetic-liners' or collection.handle contains 'suspension-accessories' %} class="current" {% endif %}{% endif %}
+
+                {% if link.title == 'Gel Solutions' %}{% if collection.handle contains 'prosthetic-gel-pads-sheaths-to-solve-fitting-issues' or collection.handle contains 'distal-end-prosthetic-gel-pads' or collection.handle contains 'gel-socks-sheaths-and-pads-to-adjust-socket-size' or collection.handle contains 'scar-and-wound-care' %} class="current" {% endif %}{% endif %}
+
+
+                href="{{ link.url }}">{{ link.title }}</a>
+              
               </li>
               {% endif %}
               {% endfor %}

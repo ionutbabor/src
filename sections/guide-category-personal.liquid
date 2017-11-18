@@ -12,7 +12,7 @@
       
       <div class="large--hide page-nav">
         <select onChange="window.location.href=this.value">
-          <option>Select other guide</option>
+          <option>Read another guide</option>
           {% for link in linklists.submenu-new-pages.links %}
           <option value="{{ link.url }}" id="{{ link.title | handleize | split: "-" | last }}"><a href="{{ link.url }}">{{ link.title }}</a></option>
           {% endfor %}
