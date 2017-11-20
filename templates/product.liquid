@@ -224,7 +224,7 @@
      <div class="size-box">
 
       {% if product.tags contains 'Size Chart' %}
-      <div id="size-trigger">
+      <div id="size-trigger" style="{% if product.variants.size > 1 %}position: absolute;left: 236px;top: 30px;{%else%}margin-top:10px;{%endif%}">
         <a href="#!"><img src="{{ 'ruler.png' | asset_url }}">Size Chart Guide</a>
       </div>
       {% endif %}

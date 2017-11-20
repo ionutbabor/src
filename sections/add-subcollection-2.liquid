@@ -1,0 +1,76 @@
+  <!-- begin add-subcollection-2 -->
+
+  {% for block in section.blocks limit: section.blocks.size %}
+  <div class="grid--full grid-padding">
+   {% assign collection = collections[block.settings.collection-1] %}
+   {%- assign collection_image_url = '' -%}
+   {% capture collection_image_url %}{{ collection.products.first | img_url: collection_image_size, crop: 'top' }}{% endcapture %}
+
+   {% assign products = collections[block.settings.collection-1].products %}
+
+   <div class="grid__item header-line medium-down--hide">
+    <span id="title-collection">{{block.settings.title-1}}</span><span id="collection-link"><a href="{{ collection.url }}"> {{block.settings.text-link-1}}</a></span>
+  </div>
+
+  <div class="grid__item medium-down--hide">
+    {% include 'product-loop' %}
+  </div>
+
+</div>
+<hr class="medium-down--hide">
+{% endfor %}
+
+
+{% schema %}
+{
+  "name": "SubCollections",
+  "class": "subcollection-section",
+  "max_blocks": 12,
+  "blocks": [
+  {
+    "type": "featured_collection",
+    "name": "SubCollections",
+    "settings": [
+    {
+      "type": "text",
+      "id": "title-1",
+      "label": "Heading",
+      "default": "Subcollection title"
+    },
+    {
+      "type": "collection",
+      "id": "collection-1",
+      "label": "Collection"
+    },
+    {
+      "type": "text",
+      "id": "text-link-1",
+      "label": "Link text"
+    }
+    ]
+  }
+  ],
+  "presets": [
+  {
+    "name": "Collection list",
+    "category": "Collection",
+    "blocks": [
+    {
+      "type": "featured_collection"
+    },
+    {
+      "type": "featured_collection"
+    }
+    ]
+  }
+  ]
+}
+{% endschema %}
+
+
+{% stylesheet %}
+{% endstylesheet %}
+
+{% javascript %}
+{% endjavascript %}
+

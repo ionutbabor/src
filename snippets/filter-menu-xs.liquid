@@ -9,7 +9,7 @@
 </style>
 <div class="filter-menu filter-selected-{{ collection.handle }}{% for tag in current_tags %} filter-selected-{{ tag | handleize }}{% endfor %} medium-down--show large--hide">
   <div class="pt-mobile-header">
-    <a id="nav-toggle" href="#"><span></span> <p>{{ settings.pt_mobile_text | default: 'Filter' }}</p></a>
+    <a id="nav-toggle" href="#"> <img src="{{ 'mobile-filter-icon.png' | asset_url }}" alt="mobile-filter-icon" /><p>{{ settings.pt_mobile_text | default: 'Filter' }}</p></a>
   </div>
 
   {% comment %}<div class="filter-group refine-header">

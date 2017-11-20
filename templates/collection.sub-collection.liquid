@@ -7,21 +7,32 @@
     <div class="main-content">
       <!-- left part -->
       <div class="grid--full grid-padding">
+
+
+
+
         <div class="grid__item large--one-quarter title-filters medium--one-whole">
           {% if collection.handle contains 'personal' or collection.handle contains 'skin-care' or collection.handle contains 'cleansers' or collection.handle contains 'sweat-control' or collection.handle contains 'moisturizers' or collection.handle contains 'wound-care' %}
-          <h2><a href="/collections/personal-care">{{collections.personal-care.title}}</a></h2>
+          <h4 class="large--hide"><a href="/collections/personal-care">< {{collections.personal-care.title}}</a></h4>
+          <h2 class="medium-down--hide"><a href="/collections/personal-care">{{collections.personal-care.title}}</a></h2>
+          <h2 class="large--hide">{{ collection.title }}</h2>
           
-          {% elsif collection.handle contains 'textiles' or collection.handle contains 'socks' or collection.handle contains 'shrinkers' or collection.handle contains 'sheaths' or collection.handle contains 'cosmetic-hosiery' or collection.handle contains 'textile-accessories' %}     
-          <h2><a href="/collections/prosthetic-textiles">{{collections.prosthetic-textiles.title}}</a></h2>
+          {% elsif collection.handle contains 'textiles' or collection.handle contains 'socks' or collection.handle contains 'shrinkers' or collection.handle contains 'sheaths' or collection.handle contains 'cosmetic-hosiery' or collection.handle contains 'textile-accessories' %} 
+          <h4 class="large--hide"><a href="/collections/prosthetic-textiles">< {{collections.prosthesis-suspension.title}}</a></h4>
+          <h2 class="medium-down--hide"><a href="/collections/prosthetic-textiles">{{collections.prosthetic-textiles.title}}</a></h2>
+          <h2 class="large--hide">{{ collection.title }}</h2>
 
-          {% elsif collection.handle contains 'prosthesis-suspension' or collection.handle contains 'suspension-belts' or collection.handle contains 'suspension-sleeves' or collection.handle contains 'prosthetic-liners' or collection.handle contains 'suspension-accessories' %}
-          <h2><a href="/collections/prosthesis-suspension">{{collections.prosthesis-suspension.title}}</a></h2>
+          {% elsif collection.handle contains 'prosthesis-suspension' or collection.handle contains 'suspension-belts' or collection.handle contains 'suspension-sleeves' or collection.handle contains 'prosthetic-liners' or collection.handle contains 'suspension-accessories' or collection.handle contains 'slip-on-aids'%}
+          <h4 class="large--hide"><a href="/collections/prosthesis-suspension">< {{collections.prosthesis-suspension.title}}</a></h4>
+          <h2 class="medium-down--hide"><a href="/collections/prosthesis-suspension">{{collections.prosthesis-suspension.title}}</a></h2>
+          <h2 class="large--hide">{{ collection.title }}</h2>
 
           {% comment %}{% elsif collection.handle contains 'cosmetic-finishing' or collection.handle contains 'cushion-and-volume-aids' or collection.handle contains 'slip-on-aids' or collection.handle contains 'travel-and-mobility' or collection.handle contains 'arm-amputee-supplies' or collection.handle contains 'friction-fighting' or collection.handle contains 'prosthetic-remedies' %} {% endcomment %}
 
           {% elsif collection.handle contains 'distal-end-prosthetic-gel-pads' or collection.handle contains 'gel-socks-sheaths-and-pads-to-adjust-socket-size' or collection.handle contains 'scar-and-wound-care' %} 
-
-          <h2><a href="/collections/prosthetic-gel-pads-sheaths-to-solve-fitting-issues">{{collections.prosthetic-gel-pads-sheaths-to-solve-fitting-issues.title}}</a></h2>
+          <h4 class="large--hide"><a href="/collections/prosthetic-gel-pads-sheaths-to-solve-fitting-issues">< {{collections.prosthetic-gel-pads-sheaths-to-solve-fitting-issues.title}}</a></h4>
+          <h2 class="medium-down--hide"><a href="/collections/prosthetic-gel-pads-sheaths-to-solve-fitting-issues">{{collections.prosthetic-gel-pads-sheaths-to-solve-fitting-issues.title}}</a></h2>
+          <h2 class="large--hide">{{ collection.title }}</h2>
           {% comment %}{% elsif collection.handle contains 'featured-products' %}
           <h2 style="width: 300px;"><a href="/collections/featured-products">Featured Amputee Supplies</a></h2>{% endcomment %}
           {% endif %}
@@ -42,7 +53,7 @@
             <li><a href="{{ link.url }}" class="menu-link {% if link.active %}current{% endif %}">{{ link.title }}</a></li>
             {% endfor %}
 
-            {% elsif collection.handle contains 'prosthesis-suspension' or collection.handle contains 'suspension-belts' or collection.handle contains 'suspension-sleeves' or collection.handle contains 'prosthetic-liners' or collection.handle contains 'suspension-accessories' %}
+            {% elsif collection.handle contains 'prosthesis-suspension' or collection.handle contains 'suspension-belts' or collection.handle contains 'suspension-sleeves' or collection.handle contains 'prosthetic-liners' or collection.handle contains 'suspension-accessories' or collection.handle contains 'slip-on-aids' %}
             {% for link in linklists.prosthetic-suspension.links %}
             <li><a href="{{ link.url }}" class="menu-link {% if link.active %}current{% endif %}">{{ link.title }}</a></li>
             {% endfor %}

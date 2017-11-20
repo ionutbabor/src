@@ -13,15 +13,18 @@
 
   {% if template contains 'collection' %}
   <span aria-hidden="true">&rsaquo;</span>
+
   {% if collection.handle contains 'prosthetic-sheaths' or collection.handle contains 'amputee-socks' or collection.handle contains 'stump-shrinkers' or collection.handle contains 'cosmetic-hosiery' or collection.handle contains 'textile-accessories' %}
   <a href="/collections/prosthetic-textiles">{{collections.prosthetic-textiles.title}}</a>
-  {% elsif collection.handle contains 'suspension' or collection.handle contains 'prosthetic-liners' %}
+
+  {% elsif collection.handle contains 'suspension' or collection.handle contains 'prosthetic-liners' or collection.handle contains 'slip-on-aids' %}
   <a href="/collections/prosthesis-suspension">{{collections.prosthesis-suspension.title}}</a>
+
   {% elsif collection.handle contains 'skin-care-treatments' or collection.handle contains 'prosthetic-cleansers' or collection.handle contains 'sweat-control' or collection.handle contains 'moisturizers' or collection.handle contains 'scar-and-wound-care' or collection.handle contains 'skin-care-collections' %}
   <a href="/collections/personal-care">{{collections.personal-care.title}}</a>
 
   {% elsif collection.handle contains 'distal-end-prosthetic-gel-pads' or collection.handle contains 'gel-socks-sheaths-and-pads-to-adjust-socket-size' or collection.handle contains 'scar-and-wound-care' %}
-  <a href="/collections/prosthetic-remedies">{{collections.prosthetic-gel-pads-sheaths-to-solve-fitting-issues.title}}</a>  
+  <a href="/collections/prosthetic-gel-pads-sheaths-to-solve-fitting-issues">{{collections.prosthetic-gel-pads-sheaths-to-solve-fitting-issues.title}}</a>  
   
   {% endif %}
   {% endif %}

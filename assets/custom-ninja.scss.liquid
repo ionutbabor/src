@@ -1080,13 +1080,10 @@
 					margin: 12px 0 20px;
 				}
 				#size-trigger{
-					position: absolute;
-					left: 236px;
-					top: 30px;
+				
 					a{
 						color: {{settings.text_link_color}};
 					}
-
 				}
 
 			}
@@ -1651,6 +1648,10 @@
 																border-bottom: none;
 															}
 														}
+														h4{
+															margin: 10px 0 0;
+															text-transform: uppercase;
+														}
 														.parent-filters{
 															margin: 15px 0 10px;
 															border-left: 1px solid #ccc;
@@ -1683,12 +1684,12 @@
 													#guide-category{
 
 														#main{
-															.grid{
-																margin-left: 0;
-																.title{
+															.grid--full{
+																
+																/*.title{
 																	border-bottom: 2px solid #7BCEC6;
 																	display: inline-block;
-																}
+																}*/
 																.one-quarters{
 																	.title{
 																		border-bottom: none;
@@ -1700,6 +1701,20 @@
 																	}
 																}
 															}
+															ul{
+																		margin: 0;
+																		list-style: none;
+																		li{
+																			color: {{ settings.text_link_color }};
+																			a{
+																				color: {{ settings.text_link_color }};
+
+																				&:hover{
+																					text-decoration: underline;
+																				}
+																			}
+																		}
+																	}
 															}/*#main*/
 
 															#bottom{
@@ -1713,6 +1728,9 @@
 																			color: {{ settings.text_link_color }};
 																			a{
 																				color: {{ settings.text_link_color }};
+																				&:hover{
+																					text-transform: underline!important;
+																				}
 																			}
 																		}
 																	}
@@ -1764,7 +1782,15 @@
 																			a{
 																				color: {{ settings.text_link_color }};
 																				text-decoration:none;
+																				&:hover{
+																					text-decoration:underline!important;
+																				}
 																			}
+																		}
+																	}
+																	p{
+																		a{
+																		 color: {{ settings.text_link_color }};	
 																		}
 																	}
 																} 
@@ -1875,6 +1901,20 @@
 																								border-bottom:1px solid #e5e5e5;
 																								padding: 20px;
 																								height: 404px;
+																								b{
+																									font-size: 20px;
+																									text-transform: initial;
+																								}
+																							}
+																							.out-of-stock{
+																								color: #9b9b9b;
+
+																								.h6{
+																									a{
+																										color: #9b9b9b;
+																									}
+
+																								}
 																							}
 																							.border{
 																								border-top: 1px solid #e5e5e5;
@@ -1897,6 +1937,7 @@
 																							.thumbnail{
 																								border-left:1px solid #e5e5e5;
 																							}
+
 																						}
 																						.form-horizontal{
 																							margin-bottom: 10px;
@@ -1951,9 +1992,20 @@
 																									}
 																									b{
 																										font-size: 20px;
+																										text-transform: initial;
 																									}
 																									.h6 a{
 																										color: #333;
+																									}
+																								}
+																								.out-of-stock{
+																									color: #9b9b9b;
+																								
+																									.h6{
+																										a{
+																											color: #9b9b9b;
+																										}
+																										
 																									}
 																								}
 																								.toolbar {
@@ -2673,7 +2725,7 @@
 																															.main-content{
 																																.title-filters{
 																																	h2{
-																																		padding-top: 10px;
+																																	
 																																		margin-bottom: 10px;
 																																	}
 																																}
@@ -2683,7 +2735,7 @@
 
 																														@media only screen and (max-width: 942px){
 																															#title-collection, .template-collection #title-collection-current{
-																															
+
 																																text-transform: uppercase;
 																																margin-top: 20px;
 																															}
@@ -3077,19 +3129,21 @@
 																																		}
 																																	}
 
-																																	/* This is for a CSS hamburger */
+																																	/* This is for a filter-icon */
 																																	#nav-toggle { 
 																																			/*position: absolute; 
 																																			left: 50%; */
 																																			top: {{ settings.pt_mobile_vertical  | default: '0' }};
 																																			/*transform: translate(-40%, {{ settings.pt_mobile_vertical  | default: '0' }}); 
 																																			-webkit-transform: translate(-40%, {{ settings.pt_mobile_vertical  | default: '0' }});*/
+																																			cursor: pointer; 
+																																			img{
+																																				position: relative;
+																																				top:6px;
+																																			}
 																																		}
 
-																																		#nav-toggle { 
-																																			cursor: pointer; 
-																																			/*padding: 10px 35px 16px 0px; */
-																																		}
+																																	
 
 																																		#nav-toggle span, #nav-toggle span:before, #nav-toggle span:after {
 																																			cursor: pointer;
@@ -3129,7 +3183,7 @@
 
 																																		#nav-toggle p {
 																																			display: inline;
-																																			margin-left: 32px;  
+																																			margin-left: 12px;  
 																																			font-size: 20px;
 																																			position: relative;
 																																			top: {{ settings.pt_mobile_text_vertical  | default: '-15px' }};  
