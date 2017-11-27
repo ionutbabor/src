@@ -23,63 +23,56 @@
       <div class="grid__item large--one-quarter title-filters medium--one-whole">
         {% if collection.handle contains 'all' %}
         <!-- begin mobile-nav -->
-      <ul class="mobile-nav large--hide">
-
-        <li class="mobile-nav__item"><a href="#">ALL Prosthetic Categories</a></li>
-        {% for link in linklists.main-menu.links %}
-        {% assign child_list_handle = link.title | handleize %}
-        {% if linklists[child_list_handle].links != blank %}
-        <li class="mobile-nav__item{% if link.active %} mobile-nav__item--active{% endif %}" aria-haspopup="true">
-          <div class="mobile-nav__has-sublist">
-
-            <div class="mobile-nav__toggle">
-              <div class="grid--full">
-                <div class="grid__item large--one-half medium--one-half small--one-half">
-                  <a href="#" class="mobile-nav__link">{{ link.title | replace: "Prosthetic", "" }}</a>
-                </div>
-                <div class="grid__item large--one-half medium--one-half small--one-half text-right">
-                  <button type="button" class="icon-fallback-text mobile-nav__toggle-open">
-                    <span class="fa fa-angle-down" aria-hidden="true"></span>
-                    <span class="fallback-text">See More</span>
-                  </button>
-                  <button type="button" class="icon-fallback-text mobile-nav__toggle-close">
-                    {% comment %}<span class="icon icon-minus" aria-hidden="true"></span>{% endcomment %}
-                    <span class="fa fa-angle-up" aria-hidden="true"></span>
-                    <span class="fallback-text">{{ 'cart.general.close_cart' | t | json }}</span>
-                  </button>
-                  
+        <h2 class="large--hide" style="border-bottom: 2px solid {{ settings.link_color }}">ALL Prosthetic Categories</h2>
+        <ul class="collection-mobile-nav large--hide">
+          {% for link in linklists.main-menu-new.links %}
+          {% assign child_list_handle = link.title | handleize %}
+          {% if linklists[child_list_handle].links != blank %}
+          <li class="mobile-nav__item">
+            <div class="mobile-nav__has-sublist">
+              <div class="mobile-nav__toggle">
+                <div class="grid--full">
+                  <div class="grid__item medium--five-sixths small--five-sixths">
+                    <a href="#" class="mobile-nav__link">{{ link.title }}</a>
+                  </div>
+                  <div class="grid__item medium--one-sixth small--one-sixth text-right">
+                    <button type="button" class="icon-fallback-text mobile-nav__toggle-open">
+                      <span class="fa fa-angle-down" aria-hidden="true"></span>
+                    </button>
+                    <button type="button" class="icon-fallback-text mobile-nav__toggle-close">
+                      {% comment %}<span class="icon icon-minus" aria-hidden="true"></span>{% endcomment %}
+                      <span class="fa fa-angle-up" aria-hidden="true"></span>
+                      <span class="fallback-text">{{ 'cart.general.close_cart' | t | json }}</span>
+                    </button>
+                  </div>
                 </div>
               </div>
-
-              
-              
             </div>
-          </div>
-          <ul class="mobile-nav__sublist">
-            {% for childlink in linklists[child_list_handle].links %}
-            <li class="mobile-nav__item {% if childlink.active %} mobile-nav__item--active{% endif %}">
-              <a href="{{ childlink.url }}" class="mobile-nav__link">{{ childlink.title | escape }}</a>
-            </li>
-            {% endfor %}
-          </ul>
-        </li>
-        {% else %}
-        <li class="mobile-nav__item{% if link.active %} mobile-nav__item--active{% endif %}">
-          <a href="{{ link.url }}" class="mobile-nav__link">{{ link.title }}</a>
-        </li>
-        {% endif %}
-        {% endfor %}
-        <!-- Coin app by ShopPad -->
-      </ul>
-      <!-- //mobile-nav -->
+            <ul class="mobile-nav__sublist">
+              {% for childlink in linklists[child_list_handle].links %}
+              <li class="mobile-nav__item ">
+                <a href="{{ childlink.url }}" class="mobile-nav__link">{{ childlink.title | escape }}</a>
+              </li>
+              {% endfor %}
+            </ul>
+          </li>
+          {% else %}
+          <li class="mobile-nav__item">
+            <a href="{{ link.url }}" class="mobile-nav__link">{{ link.title }}</a>
+          </li>
+          {% endif %}
+          {% endfor %}
+          <!-- Coin app by ShopPad -->
+        </ul>
+        <!-- //mobile-nav -->
 
         {%else%}
-        <h4 class="large--hide"><a href="/collections/all">< all Prosthetic Categories</a></h4>
+        <h4 class="large--hide"><a class="all-categories" href="/collections/all" >< all Prosthetic Categories</a></h4>
         {%endif%}
 
-        {% if collection.handle contains 'personal' %}
+        {% if collection.handle contains 'personal-care' %}
         <h2 style="border-bottom: 2px solid {{ settings.link_color }}"><a href="/collections/personal-care" >{{collections.personal-care.title}}</a></h2>
-        {% elsif collection.handle contains 'textiles' %}     
+        {% elsif collection.handle contains 'prosthetic-textiles' %}     
         <h2 style="border-bottom: 2px solid {{ settings.link_color }}"><a href="/collections/prosthetic-textiles" >{{collections.prosthetic-textiles.title}}</a></h2>
         {% elsif collection.handle contains 'prosthesis-suspension' %}
         <h2 style="border-bottom: 2px solid {{ settings.link_color }}"><a href="/collections/prosthesis-suspension" >{{collections.prosthesis-suspension.title}}</a></h2>
@@ -94,35 +87,14 @@
       <!-- right part -->
       {% unless collection.handle contains 'featured' %}
       <div class="grid__item large--three-quarters parent-filters medium-down--hide" style="border-left: 1px solid #ccc;">
-        {% comment %}<ul class="collection-tags">
-          {% if collection.handle contains 'personal' or collection.handle contains 'skin-care' or collection.handle contains 'cleansers' or collection.handle contains 'sweat-control' or collection.handle contains 'moisturizers' or collection.handle contains 'wound-care' %}
-          {% for link in linklists.personal-care.links %}
-          <li><a href="{{ link.url }}">{{ link.title }}</a></li>
-          {% endfor %}
-
-          {% elsif collection.handle contains 'textiles' or collection.handle contains 'socks' or collection.handle contains 'shrinkers' or collection.handle contains 'sheaths' or collection.handle contains 'cosmetic-hosiery' or collection.handle contains 'textile-accessories' %}
-          {% for link in linklists.prosthetic-textiles.links %}
-          <li><a href="{{ link.url }}">{{ link.title }}</a></li>
-          {% endfor %}
-
-          {% elsif collection.handle contains 'prosthesis-suspension' or collection.handle contains 'suspension-belts' or collection.handle contains 'suspension-sleeves' or collection.handle contains 'prosthetic-liners' or collection.handle contains 'suspension-accessories' %}
-          {% for link in linklists.prosthetic-suspension.links %}
-          <li><a href="{{ link.url }}">{{ link.title }}</a></li>
-          {% endfor %}
-
-          {% elsif collection.handle contains 'cosmetic-finishing' or collection.handle contains 'cushion-and-volume-aids' or collection.handle contains 'slip-on-aids' or collection.handle contains 'travel-and-mobility' or collection.handle contains 'arm-amputee-supplies' or collection.handle contains 'friction-fighting' or collection.handle contains 'prosthetic-remedies' %}
-          {% for link in linklists.prosthetic-remedies.links %}
-          <li><a href="{{ link.url }}">{{ link.title }}</a></li>
-          {% endfor %}
-          {% endif %}
-        </ul>{% endcomment %}
+       
         <ul class="collection-tags">
-          {% if collection.handle contains 'personal' %}
+          {% if collection.handle contains 'personal-care' %}
           {% for link in linklists.personal-care.links %}
           <li><a href="{{ link.url }}">{{ link.title }}</a></li>
           {% endfor %}
 
-          {% elsif collection.handle contains 'textiles' %}
+          {% elsif collection.handle contains 'prosthetic-textiles' %}
           {% for link in linklists.prosthetic-textiles.links %}
           <li><a href="{{ link.url }}">{{ link.title }}</a></li>
           {% endfor %}
@@ -141,28 +113,9 @@
       </div>
       {% endunless %}
       <!--end right part -->
-      {% comment %}<hr>{% endcomment %}
     </div> <!-- main-content -->
   </div>
 </div><!-- #top -->
-
-
-
-
-
-
-{% comment %}{% if collection.image != blank %}
-<!-- title page -->
-<div class="grid--full grid-padding">
-  <div class="grid__item large--one-quarter">
-   <h2 id="title-collection">{{collection.title  |  replace_first: "Prosthetic", "" | replace: "for Amputees", "" }}</h2>
- <!-- {% if collection.handle contains 'prosthetic-textiles' %}
-  <h2 id="title-collection">TEXTILES</h2>
-  {% endif %} -->
-</div>
-</div>
-<!-- end title page -->
-{% endif %}{% endcomment %}
 
 <!-- banner top -->
 {% if collection.image %}
@@ -171,8 +124,6 @@
 </div> 
 {% endif %}
 <!-- end banner top -->
-
-
 
 <!-- begin prosthetic-textiles subcollections -->
 {% if collection.handle == 'prosthetic-textiles' %}
@@ -211,7 +162,7 @@
 
 <div class="grid--full grid-padding">
   <div class="grid__item large--one-half medium--one-half">
-    <h2 id="title-collection-current">{{collection.title | replace: "for Amputees", "" | replace: "-"," " }}{% if collection.handle == "all" %} Prosthetic Categories{%endif%}</h2>
+    <h2 id="title-collection-current">{{collection.title | replace: "for Amputees", "" | replace: "-"," " }}{% if collection.handle == "all" %} Prosthetic Products{%endif%}</h2>
   </div>
   <div class="grid__item large--one-half text-right  medium--one-half">
     {% include 'collection-sorting' %}
@@ -230,26 +181,6 @@
 
 </div>
 <!-- end grid uniform -->
-
-<!-- original pagination -->
-{% comment %}
-{% if paginate.pages > 1 %}
-<hr>
-<div class="pagination">
-  {% if paginate.previous %}
-  <a href="{{ paginate.prev.url }}" style="display: inline-block;" rel="prev" >
-    <img src="{{ 'arrow-left.png' | asset_url }}">
-  </a>
-  {% endif %}
-  {{ paginate | default_pagination | replace: '&laquo; Previous', '' | replace: 'Next &raquo;', '' }}
-  {% if paginate.next.is_link %}
-  <a href="{{ paginate.next.url }}" style="display: inline-block;" rel="next" ><img src="{{ 'arrow-right.png' | asset_url }}"></a>
-  {% endif %}
-</div>
-{% endif %}
-{% endcomment %}
-<!-- end original pagination -->
-
 
 <!-- new pagination -->
 <div class="pagination">
@@ -306,13 +237,15 @@ div.yotpo.bottomLine.yotpo-small {
 {%endif%}
 {% comment %}end  main collection list menu only for mobile{% endcomment %}
 
-
+{% if collection.handle contains 'all' %}
+{%else%}
 <div class="grid--full grid-padding">
   <div id="colect-descr">
     <h1>{{ collection.title | replace: "-"," "}}</h1>
     {{ collection.description }}
   </div> 
-</div> 
+</div>
+{%endif%} 
 
 {% include 'top-of-page' %}
 

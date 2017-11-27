@@ -165,7 +165,7 @@
           {% include 'search-bar' %}
         </li>{% endcomment %}
         <li class="mobile-nav__item"><a href="/index">Home</a></li>
-        {% for link in linklists.main-menu.links %}
+        {% for link in linklists.main-menu-new.links %}
         {% assign child_list_handle = link.title | handleize %}
         {% if linklists[child_list_handle].links != blank %}
         <li class="mobile-nav__item{% if link.active %} mobile-nav__item--active{% endif %}" aria-haspopup="true">
@@ -365,7 +365,8 @@
             <ul class="main-menu">
               {% for link in linklists.main-menu-new.links %}
               {% assign child_list_handle = link.title | handle %}
-              {% if linklists[child_list_handle] and linklists[child_list_handle].links.size > 0 %}
+     
+              {% if linklists[child_list_handle] and linklists[child_list_handle].links.size > 0 and link.title == "Resources" %}
               <li class="has-dropdown">
                 <a 
                 {% if template contains 'page.guide-category-textiles' or template contains 'page.guide-category-suspension' or template contains 'page.guide-category-personal' or template contains 'page.guide-article-textile' or template contains 'page.guide-article-suspension' or template contains 'page.guide-article-personal' or template contains 'page.guide-home' %} class="current" {% endif %} 
@@ -396,18 +397,18 @@
               </li>
               {% else %}
               <li>
-                
-                <a {% comment %}{% if link.title == 'Prosthetic Textiles 2' %}{% if collection.handle contains 'amputee-socks' or collection.handle contains 'socks' or collection.handle contains 'shrinkers' or collection.handle contains 'sheaths' or collection.handle contains 'cosmetic-hosiery' or collection.handle contains 'textile-accessories' %} class="current" {% endif %}{% endif %} {% endcomment %} 
 
-               {% if link.title == 'Personal Care & Equipment' %}{% if collection.handle contains 'personal-care' or collection.handle contains 'skin-care-treatments' or collection.handle contains 'prosthetic-cleansers' or collection.handle contains 'sweat-control' or collection.handle contains 'moisturizers' or collection.handle contains 'skin-care-collections' %} class="current" {% endif %}{% endif %}
+                <a {% if link.title == 'Prosthetic Textiles' %}{% if collection.handle contains 'prosthetic-textiles' or collection.handle contains 'amputee-socks' or collection.handle contains 'stump-shrinkers' or collection.handle contains 'prosthetic-sheaths' or collection.handle contains 'cosmetic-hosiery' or collection.handle contains 'textile-accessories' %} class="current" {% endif %}{% endif %} 
 
-               {% if link.title == 'Sleeves, Liners & More' %}{% if collection.handle contains 'prosthesis-suspension' or collection.handle contains 'suspension-sleeves' or collection.handle contains 'suspension-belts' or collection.handle contains 'prosthetic-liners' or collection.handle contains 'suspension-accessories' %} class="current" {% endif %}{% endif %}
+                {% if link.title == 'Personal Care & Equipment' %}{% if collection.handle contains 'personal-care' or collection.handle contains 'skin-care-treatments' or collection.handle contains 'prosthetic-cleansers' or collection.handle contains 'sweat-control' or collection.handle contains 'moisturizers' or collection.handle contains 'skin-care-collections' %} class="current" {% endif %}{% endif %}
+
+                {% if link.title == 'Sleeves, Liners & More' %}{% if collection.handle contains 'prosthesis-suspension' or collection.handle contains 'suspension-sleeves' or collection.handle contains 'suspension-belts' or collection.handle contains 'prosthetic-liners' or collection.handle contains 'suspension-accessories' or collection.handle contains 'slip-on-aids' %} class="current" {% endif %}{% endif %}
 
                 {% if link.title == 'Gel Solutions' %}{% if collection.handle contains 'prosthetic-gel-pads-sheaths-to-solve-fitting-issues' or collection.handle contains 'distal-end-prosthetic-gel-pads' or collection.handle contains 'gel-socks-sheaths-and-pads-to-adjust-socket-size' or collection.handle contains 'scar-and-wound-care' %} class="current" {% endif %}{% endif %}
 
 
                 href="{{ link.url }}">{{ link.title }}</a>
-              
+
               </li>
               {% endif %}
               {% endfor %}
@@ -831,7 +832,7 @@
     });
   </script>
 
-  <script>
+  {% comment %}<script>
     /* Product Tag Filters - Good for any number of filters on any type of collection pages */
     var collFilters = jQuery('.coll-filter');
     collFilters.change(function() {
@@ -855,26 +856,26 @@
         {% endif %}
       }
     });
-  </script>
+  </script>{% endcomment %}
 
-{% comment %}xs subcollections filters{% endcomment %}
-{% unless settings.pt_mobile_enable == false %}
-<script type="text/javascript">
-  function deferFilterjQuery() {
-    if (window.jQuery) {
-      $('body').on('click', '.filter-menu .pt-mobile-header a', function(e){
+  {% comment %}xs filters subcollections{% endcomment %}
+  {% unless settings.pt_mobile_enable == false %}
+  <script type="text/javascript">
+    function deferFilterjQuery() {
+      if (window.jQuery) {
+        $('body').on('click', '.filter-menu .pt-mobile-header a', function(e){
           if(e.handled !== true) {
             $('#nav-toggle').toggleClass('active');
             $('.filter-menu .filter-group').not('.has_group_selected').find('h4, ul,.filter-clear').toggle('fast');
             e.preventDefault();
             e.handled = true;
           }
-      });
+        });
 
-      var windowWidth = $(window).width();
-      $(window).resize(function() {
-        if ($(window).width() != windowWidth) {
-        windowWidth = $(window).width();
+        var windowWidth = $(window).width();
+        $(window).resize(function() {
+          if ($(window).width() != windowWidth) {
+            windowWidth = $(window).width();
 
             if ($( window ).width() > {{ settings.pt_mobile_max_width  | default: '767' | replace: 'px', '' }}) {
               $('.filter-menu .filter-group').find('h4, ul, .filter-clear').show();
@@ -883,18 +884,18 @@
               $('#nav-toggle').removeClass('active');
               $('.filter-menu .filter-group').not('.has_group_selected').find('h4, ul, .filter-clear').hide();
             } */
-        }
-      });
-  }
-  else {
-    setTimeout(function() { deferFilterjQuery() }, 50);
-  }
-}
+          }
+        });
+      }
+      else {
+        setTimeout(function() { deferFilterjQuery() }, 50);
+      }
+    }
 
-deferFilterjQuery();
-</script>
-{% endunless %}
-{% comment %}xs subcollections filters{% endcomment %}
+    deferFilterjQuery();
+  </script>
+  {% endunless %}
+  {% comment %}xs subcollections filters{% endcomment %}
 
 </body>
 </html>

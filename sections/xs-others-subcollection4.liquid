@@ -1,18 +1,17 @@
 {% if section.settings.handles != blank %}
 {% capture handles %}{{section.settings.handles}}{% endcapture %}
-{% assign handles = handles | split: ',' %}
+{% assign handles1 = handles | split: ',' %}
 
-{% for tag in handles %}
+{% for tag in handles1 %}
 
-{% if tag == collection.handle %}
-{{tag}}
+{% if collection.handle contains tag %}
 
 {%- assign collection_image_size = 'x630' -%}
 
-  <div class="grid--full grid-padding large--hide" {{ block.shopify_attributes }}>
-    {% if section.settings.title != blank %}
-    <h4 class="home__subtitle">{{ section.settings.title }}</h4>
-    {% endif %}
+<div class="grid--full grid-padding large--hide" {{ block.shopify_attributes }}>
+  {% if section.settings.title != blank %}
+  <h4 class="home__subtitle">{{ section.settings.title }}</h4>
+  {% endif %}
 
  {% comment %} <li{% unless current_tags %} class="active"{% endunless %}>
     <a href="{% if collection.handle == "all" %}/collections/all{% else %}{{ collection.url }}{% endif %}">All levels</a>
@@ -33,61 +32,59 @@
     {% endif %}
     {% endfor %}{% endcomment %}
 
-    <div class="grid grid--full" >
+    <div class="grid grid--full">
       {% for block in section.blocks limit: section.blocks.size %}
 
       {%- assign collection = collections[block.settings.collection] -%}
       {%- assign collection_image_url = '' -%}
 
+      {%- assign handle2 = collection.handle -%}
+
       {% capture collection_image_url %}{{ collection.products.first | img_url: collection_image_size, crop: 'top' }}{% endcapture %}
 
-      {% if tag != collection.handle %}
-      <div class="grid__item medium--one-whole small--one-whole" >
-        
 
-        <div class="collection-grid-item homepage-image">
-          <a href="{% if collection.empty? %}#{% else %}{{ collection.url }}{% endif %}" class="collection-grid-item__link">
+      <div class="grid__item medium--one-whole small--one-whole {% if handle2 == tag %}medium-down--hide{% endif %}">
 
-            <div class="grid--full">
-              <div class="grid__item large--one-quarter medium--one-quarter small--one-quarter collection-grid-item__overlay">
+        <a href="{% if collection.empty? %}#{% else %}{{ collection.url }}{% endif %}" class="collection-grid-item__link">
 
-                {% if block.settings.thumb-image != blank %}
-                <img src="{{ block.settings.thumb-image | img_url: collection_image_size , crop: 'top' }}" alt="{{ block.settings.thumb-image.alt | escape }}" />
-                {% else %}
+          <div class="grid--full">
+            <div class="grid__item large--one-quarter medium--one-quarter small--one-quarter collection-grid-item__overlay">
 
-                <img src="{{ collection_image_url }}" alt="amputee-product">
-                {% if collection.empty? %}
-                {% capture current %}{% cycle 1, 2, 3, 4, 5, 6 %}{% endcapture %}
-                {{ 'collection-' | append: current | placeholder_svg_tag: 'placeholder-svg' }}
-                {% endif %}
+              {% if block.settings.thumb-image != blank %}
+              <img src="{{ block.settings.thumb-image | img_url: collection_image_size , crop: 'top' }}" alt="{{ block.settings.thumb-image.alt | escape }}" />
+              {% else %}
 
-                {%endif%}
-              </div>
+              <img src="{{ collection_image_url }}" alt="amputee-product">
+              {% if collection.empty? %}
+              {% capture current %}{% cycle 1, 2, 3, 4, 5, 6 %}{% endcapture %}
+              {{ 'collection-' | append: current | placeholder_svg_tag: 'placeholder-svg' }}
+              {% endif %}
 
-              <div class="grid__item large--three-quarters medium--three-quarters small--three-quarters">
+              {%endif%}
+            </div>
 
-                <p class="categ-title">{% unless block.settings.link_text == '' %}{{ block.settings.link_text }}{% endunless %}<span><i class="fa fa-arrow-right" aria-hidden="true"></i></span></p>
+            <div class="grid__item large--three-quarters medium--three-quarters small--three-quarters">
 
-              </div>
+              <p class="categ-title">{% unless block.settings.link_text == '' %}{{ block.settings.link_text }}{% endunless %}<span><i class="fa fa-arrow-right" aria-hidden="true"></i></span></p>
 
             </div>
 
-          </a>
-        </div>
+          </div>
 
+        </a>
       </div>
-      <hr class="separator">
-       {%endif%}
+      <hr class="separator {% if handle2 == tag %}medium-down--hide{% endif %}">
+
 
       {% endfor %}
     </div>
   </div>
 
 
-
-{% endif %}
-{% endfor %}
-{% endif %}
+  {% break %}
+  {% endif %}
+  {% endfor %}
+  {% endif %}
 
 {% schema %}
 {
@@ -98,13 +95,14 @@
   {
     "type": "textarea",
     "id": "handles",
-    "label": "Enter collections handles comma-separated:"
+    "label": "Enter collections handles comma-separated:",
+    "info": "Enter collections handles comma-separated and the others categories are showing."
   },
   {
     "type": "text",
     "id": "title",
     "label": "Heading",
-    "default": "Other Prosthetic Categories"
+    "default": "Other Gel Categories"
   }
 
   ],

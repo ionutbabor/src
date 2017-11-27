@@ -1,5 +1,5 @@
-{% include 'bold-product' with product, hide_action: 'break' %}{% if bold_hidden_product %}{% break %}{%endif %}
 <!-- /templates/product.liquid -->
+{% include 'bold-product' with product, hide_action: 'break' %}{% if bold_hidden_product %}{% break %}{%endif %}
 
 <div itemscope itemtype="http://schema.org/Product">
 
@@ -10,7 +10,6 @@
   {% assign my_description = product.description | split: '<!-- split -->'  %}
 
 
-
   <div id="top">
     <div class="main-content">
       <!-- left part -->
@@ -18,98 +17,45 @@
         <div class="grid__item large--one-quarter title-filters medium--one-quarter">
 
           {% if product.tags contains 'Textiles' %}
-          <h2><a href="/collections/all/textiles">Textiles</a></h2>
+          <h2><a href="/collections/prosthetic-textiles" >{{collections.prosthetic-textiles.title}}</a></h2>
           {% elsif product.tags contains 'Personal Care' %}
-          <h2><a href="/collections/all/personal-care">Personal Care</a></h2>
-          {% elsif product.tags contains 'Prosthesis Suspension' or product.tags contains 'Suspension Belts' or product.tags contains 'Suspension Sleeves' or product.tags contains 'Prosthetic Liners' or product.tags contains 'Suspension Accessories' %}
-          <h2><a href="/collections/all/prosthesis-suspension">Suspension</a></h2>
-          {% elsif product.tags contains 'Cosmetic Finishing' or product.tags contains 'Cushion and Volume Aids' or product.tags contains 'Slip on Aids' or product.tags contains 'Travel and Mobility' or product.tags contains 'Arm Amputee Supplies' or product.tags contains 'Friction Fighting' or product.tags contains 'Prosthetic Remedies' %} 
-          <h2><a href="/collections/all/prosthetic-remedies">Personal Care</a></h2>
+          <h2><a href="/collections/prosthetic-textiles" >{{collections.prosthetic-textiles.title}}</a></h2>
+          {% elsif product.tags contains 'Suspension' %}
+          {% comment %}{% elsif product.tags contains 'Prosthesis Suspension' or product.tags contains 'Suspension Belts' or product.tags contains 'Suspension Sleeves' or product.tags contains 'Prosthetic Liners' or product.tags contains 'Suspension Accessories' %}{% endcomment %}
+          <h2><a href="/collections/prosthesis-suspension" >{{collections.prosthesis-suspension.title}}</a></h2>
+          {% comment %}{% elsif product.tags contains 'Cosmetic Finishing' or product.tags contains 'Cushion and Volume Aids' or product.tags contains 'Slip on Aids' or product.tags contains 'Travel and Mobility' or product.tags contains 'Arm Amputee Supplies' or product.tags contains 'Friction Fighting' or product.tags contains 'Prosthetic Remedies' %} {% endcomment %}
+          {% elsif product.tags contains 'Gel Solutions' or product.tags contains 'Socket Sizing' or product.tags contains 'Bottom End Pad' or product.tags contains 'Scar and Wound Care' or product.tags contains 'Distal End Pad'%}
+          <h2><a href="/collections/prosthetic-gel-pads-sheaths-to-solve-fitting-issues" >{{collections.prosthetic-gel-pads-sheaths-to-solve-fitting-issues.title}}</a></h2>
           {% endif %}
 
-        {% comment %}{% if product.tags contains 'Personal Care' or product.tags contains 'Textiles' or product.tags contains 'Suspension Sleeves' or product.tags contains 'sweat-control' or product.tags contains 'moisturizers' or product.tags contains 'wound-care' %}
-        <h2><a href="/collections/personal-care" style="color: #000;">Personal Care</a></h2>
-        {% elsif product.tags contains 'Textiles' or product.tags contains 'socks' or product.tags contains 'shrinkers' or product.tags contains 'sheaths' or product.tags contains 'cosmetic-hosiery' or product.tags contains 'textile-accessories' %}     
-        <h2><a href="/collections/prosthetic-textiles" style="color: #000;">Textiles</a></h2>
-        {% elsif product.tags contains 'prosthesis-suspension' or product.tags contains 'suspension-belts' or product.tags contains 'suspension-sleeves' or product.tags contains 'prosthetic-liners' or product.tags contains 'suspension-accessories' %}
-        <h2><a href="/collections/prosthesis-suspension" style="color: #000;">Suspension</a></h2>
-        {% elsif product.tags contains 'cosmetic-finishing' or product.tags contains 'cushion-and-volume-aids' or product.tags contains 'slip-on-aids' or product.tags contains 'travel-and-mobility' or product.tags contains 'arm-amputee-supplies' or product.tags contains 'friction-fighting' or product.tags contains 'prosthetic-remedies' %}      
-        <h2><a href="/collections/prosthetic-remedies" style="color: #000;">Remedies</a></h2>
-        {% elsif product.tags contains 'featured-products' %}
-        <h2 style="width: 300px;"><a href="/collections/featured-products" style="color: #000;">Featured Amputee Supplies</a></h2>
-        {% endif %}
-
-        {% if product.tags contains 'Personal Care' or product.tags contains 'skin-care' or product.tags contains 'cleansers' or product.tags contains 'sweat-control' or product.tags contains 'moisturizers' or product.tags contains 'wound-care' %}
-        <h2><a href="/collections/personal-care" style="color: #000;">Personal Care</a></h2>
-        {% elsif product.tags contains 'Textiles' or product.tags contains 'socks' or product.tags contains 'shrinkers' or product.tags contains 'sheaths' or product.tags contains 'cosmetic-hosiery' or product.tags contains 'textile-accessories' %}     
-        <h2><a href="/collections/prosthetic-textiles" style="color: #000;">Textiles</a></h2>
-        {% elsif product.tags contains 'prosthesis-suspension' or product.tags contains 'suspension-belts' or product.tags contains 'suspension-sleeves' or product.tags contains 'prosthetic-liners' or product.tags contains 'suspension-accessories' %}
-        <h2><a href="/collections/prosthesis-suspension" style="color: #000;">Suspension</a></h2>
-        {% elsif product.tags contains 'cosmetic-finishing' or product.tags contains 'cushion-and-volume-aids' or product.tags contains 'slip-on-aids' or product.tags contains 'travel-and-mobility' or product.tags contains 'arm-amputee-supplies' or product.tags contains 'friction-fighting' or product.tags contains 'prosthetic-remedies' %}      
-        <h2><a href="/collections/prosthetic-remedies" style="color: #000;">Remedies</a></h2>
-        {% elsif product.tags contains 'featured-products' %}
-        <h2 style="width: 300px;"><a href="/collections/featured-products" style="color: #000;">Featured Amputee Supplies</a></h2>
-        {% endif %}{% endcomment %}
       </div>
       <!-- end left part -->
 
       <!-- right part -->
-
       <div class="grid__item large--three-quarters parent-filters medium--three-quarters" style="border-left: 1px solid #ccc;">
 
-
         <ul class="collection-tags">
-          {% if product.tags contains 'Textiles' %}
+          {% if product.tags contains 'Textiles' or product.tags contains 'Shrinkers' or product.tags contains 'Shrinkers' or product.tags contains 'Sheaths' or product.tags contains 'Cosmetic Hosiery'%}
           {% for link in linklists.prosthetic-textiles.links %}
-          <li><a href="{{ link.url }}">{{ link.title }}</a></li>
+           <li><a href="{{ link.url }}" class="menu-link {% if link.active %}current{% endif %}">{{ link.title }}</a></li>
           {% endfor %}
 
-          {% elsif product.tags contains 'Personal Care' %}
+          {% elsif product.tags contains 'Personal Care' or product.tags contains 'Skin Care Treatments' or product.tags contains 'Cleansers' or product.tags contains 'Sweat Control' or product.tags contains 'Moisturizers' or product.tags contains 'Skin Care Collections'%}
           {% for link in linklists.personal-care.links %}
-          <li><a href="{{ link.url }}">{{ link.title }}</a></li>
+           <li><a href="{{ link.url }}" class="menu-link {% if link.active %}current{% endif %}">{{ link.title }}</a></li>
           {% endfor %}
 
-          {% elsif product.tags contains 'Prosthesis Suspension' or product.tags contains 'Suspension Belts' or product.tags contains 'Suspension Sleeves' or product.tags contains 'Prosthetic Liners' or product.tags contains 'Suspension Accessories' %}
+          {% elsif product.tags contains 'Suspension' or product.tags contains 'Suspension Belts' or product.tags contains 'Suspension Sleeves' or product.tags contains 'Prosthetic Liners' or product.tags contains 'Suspension Accessories' or product.tags contains 'Slip-On Aids' %}
           {% for link in linklists.prosthetic-suspension.links %}
-          <li><a href="{{ link.url }}">{{ link.title }}</a></li>
+           <li><a href="{{ link.url }}" class="menu-link {% if link.active %}current{% endif %}">{{ link.title }}</a></li>
           {% endfor %}
 
-          {% elsif product.tags contains 'socks' %}
-          {% for link in linklists.personal-care.links %}
-          <li><a href="{{ link.url }}">{{ link.title }}</a></li>
-          {% endfor %}
-
-          {% elsif product.tags contains 'prosthetic-remedies' %}
-          {% for link in linklists.prosthetic-remedies.links %}
-          <li><a href="{{ link.url }}">{{ link.title }}</a></li>
+          {% elsif product.tags contains 'Gel Solutions' or product.tags contains 'Socket Sizing' or product.tags contains 'Bottom End Pad' or product.tags contains 'Scar and Wound Care' or product.tags contains 'Distal End Pad'%}
+          {% for link in linklists.gel-solutions.links %}
+           <li><a href="{{ link.url }}" class="menu-link {% if link.active %}current{% endif %}">{{ link.title }}</a></li>
           {% endfor %}
           {%endif%}
         </ul>
-
-
-
-        {% comment %}<ul>
-          {% if product.tags contains 'socks' %}
-          {% for link in linklists.personal-care.links %}
-          <li><a href="{{ link.url }}">{{ link.title }}</a></li>
-          {% endfor %}
-
-          {% elsif product.tags contains 'textiles' or product.tags contains 'socks' or product.tags contains 'shrinkers' or product.tags contains 'sheaths' or product.tags contains 'cosmetic-hosiery' or product.tags contains 'textile-accessories' %}
-          {% for link in linklists.prosthetic-textiles.links %}
-          <li><a href="{{ link.url }}">{{ link.title }}</a></li>
-          {% endfor %}
-
-          {% elsif product.tags contains 'prosthesis-suspension' or product.tags contains 'suspension-belts' or product.tags contains 'suspension-sleeves' or product.tags contains 'prosthetic-liners' or product.tags contains 'suspension-accessories' %}
-          {% for link in linklists.prosthetic-suspension.links %}
-          <li><a href="{{ link.url }}">{{ link.title }}</a></li>
-          {% endfor %}
-
-          {% elsif product.tags contains 'cosmetic-finishing' or product.tags contains 'cushion-and-volume-aids' or product.tags contains 'slip-on-aids' or product.tags contains 'travel-and-mobility' or product.tags contains 'arm-amputee-supplies' or product.tags contains 'friction-fighting' or product.tags contains 'prosthetic-remedies' %}
-          {% for link in linklists.prosthetic-remedies.links %}
-          <li><a href="{{ link.url }}">{{ link.title }}</a></li>
-          {% endfor %}
-          {% endif %}
-        </ul>{% endcomment %}
       </div>
 
       <!--end right part -->
@@ -118,15 +64,9 @@
   </div>
 </div><!-- #top -->
 
-
-
-
-
-
 {% include 'breadcrumb' %}
 
-
-<div class="grid grid-padding product-single">
+<div class="grid--full grid-padding product-single">
   <div class="grid__item large--one-half text-center">
       {% comment %}<div class="product-single__photos" id="ProductPhoto">
         {% assign featured_image = product.featured_image %}
@@ -161,12 +101,12 @@
         <h1 itemprop="name">{{ product.title }}</h1>
 
         <div class="grid">
-          <div class="grid__item large--one-sixth medium--one-third">
+          <div class="grid__item large--one-third medium--one-third">
             <p class="vendor-title">by <a href="/collections/{{product.vendor | replace: " ", "-" | downcase }}">{{ product.vendor | replace: "-", " " }}</a></p>
             {% comment %}<p class="vendor-title">by {{ product.vendor | replace: "-", " " | link_to_vendor }}</p>{% endcomment %}
 
           </div>
-          <div class="grid__item large--one-quarter medium--one-third">
+          <div class="grid__item large--one-third medium--one-third">
             <div class="yotpo bottomLine"
             data-appkey="NuT1UIlxTbSur2znb49km0JEX7gsE8Xqwiqw1r1b"
             data-domain="{{ shop.permanent_domain | escape }}"
@@ -180,7 +120,7 @@
           </div>
 
         </div>
-        <div class="grid__item large--one-quarter medium--one-third">
+        <div class="grid__item large--one-third medium--one-third">
           <div class='yotpo QABottomLine'
           data-appkey='NuT1UIlxTbSur2znb49km0JEX7gsE8Xqwiqw1r1b'
           data-product-id='{{ product.id }}'></div>
@@ -262,10 +202,6 @@
       {% endif %}
       {% endfor %}
       {% endif %}
-
-
-
-
 
 
       {% comment %}{% if product.tags contains 'Select Option' %}
