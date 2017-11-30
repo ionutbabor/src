@@ -1122,10 +1122,17 @@
 					float: left!important;
 				}
 			}
-			.flexslider .slides img{
-				width: initial;
-				margin:0 auto;
-			}
+			.flexslider{
+				.flex-direction-nav{
+					display: none;
+				}
+				z-index: 0;
+				.slides img{
+					width: initial;
+					margin:0 auto;
+				}
+
+			} 
 			.green{
 				color:{{settings.product_free}};
 				margin-bottom: 5px;
@@ -3070,8 +3077,8 @@
 																													padding-right: 30px;
 																												}
 																											}
-																										
-																												
+
+
 
 
 																										}
