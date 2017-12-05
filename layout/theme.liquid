@@ -73,10 +73,10 @@
 
 
     {{ 'jquery.fancybox.css' | asset_url | stylesheet_tag }}
+    {{ 'flexslider.css' | asset_url | stylesheet_tag }}
+    {{ 'animate.css' | asset_url | stylesheet_tag }}
 
     <!-- custom css ninja   -->
-    
-    {{ 'flexslider.css' | asset_url | stylesheet_tag }}
     {{ 'custom-ninja.scss.css' | asset_url | stylesheet_tag }}
     {% comment %}product swatches style{% endcomment %}
     {{ 'swatches.scss.css' | asset_url | stylesheet_tag }}
@@ -333,22 +333,26 @@
                    <div id="cart-main">
                     <div id="cart">
                       {% if template == "cart" %}
-                      <i class="fa fa-shopping-cart"></i>
+                      {% comment %}<i class="fa fa-shopping-cart"></i>{% endcomment %}
+                       <img class="img-responsive" src="{{ 'shopping-cart.png' | asset_url }}" alt="cart">
                       <span class="icon-cart-count" id="CartCount">{{ cart.item_count }}</span>
+                      <span id="label">Cart</span>
                       {%else%}
                       <a href="/cart" class="js-drawer-open-right" >
-                        <i class="fa fa-shopping-cart"></i>
+                        {% comment %}<i class="fa fa-shopping-cart"></i>{% endcomment %}
+                          <img class="img-responsive" src="{{ 'shopping-cart.png' | asset_url }}" alt="cart">
                         <span class="icon-cart-count" id="CartCount">{{ cart.item_count }}</span>
-                        {% comment %}Cart{% endcomment %}
+                       <span id="label">Cart</span>
                       </a>
                       {%endif%}
 
                     </div>
                   </div>  
+
                 </li>
-                <li>    
+                {% comment %}<li>    
                   <span id="label">Cart</span>
-                </li>
+                </li>{% endcomment %}
               </ul>
             </div>
           </div>
@@ -799,7 +803,7 @@
      });
 
       $('#slider').flexslider({
-        animation: "fade",
+        animation: "slide",
         controlNav: false,
         animationLoop: false,
         slideshow: false,

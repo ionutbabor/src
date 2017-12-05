@@ -28,46 +28,46 @@
           <h2><a href="/collections/prosthetic-gel-pads-sheaths-to-solve-fitting-issues" >{{collections.prosthetic-gel-pads-sheaths-to-solve-fitting-issues.title}}</a></h2>
           {% endif %}
 
-      </div>
-      <!-- end left part -->
+        </div>
+        <!-- end left part -->
 
-      <!-- right part -->
-      <div class="grid__item large--three-quarters parent-filters medium--three-quarters" style="border-left: 1px solid #ccc;">
+        <!-- right part -->
+        <div class="grid__item large--three-quarters parent-filters medium--three-quarters" style="border-left: 1px solid #ccc;">
 
-        <ul class="collection-tags">
-          {% if product.tags contains 'Textiles' or product.tags contains 'Shrinkers' or product.tags contains 'Shrinkers' or product.tags contains 'Sheaths' or product.tags contains 'Cosmetic Hosiery'%}
-          {% for link in linklists.prosthetic-textiles.links %}
-           <li><a href="{{ link.url }}" class="menu-link {% if link.active %}current{% endif %}">{{ link.title }}</a></li>
-          {% endfor %}
+          <ul class="collection-tags">
+            {% if product.tags contains 'Textiles' or product.tags contains 'Shrinkers' or product.tags contains 'Shrinkers' or product.tags contains 'Sheaths' or product.tags contains 'Cosmetic Hosiery'%}
+            {% for link in linklists.prosthetic-textiles.links %}
+            <li><a href="{{ link.url }}" class="menu-link {% if link.active %}current{% endif %}">{{ link.title }}</a></li>
+            {% endfor %}
 
-          {% elsif product.tags contains 'Personal Care' or product.tags contains 'Skin Care Treatments' or product.tags contains 'Cleansers' or product.tags contains 'Sweat Control' or product.tags contains 'Moisturizers' or product.tags contains 'Skin Care Collections'%}
-          {% for link in linklists.personal-care.links %}
-           <li><a href="{{ link.url }}" class="menu-link {% if link.active %}current{% endif %}">{{ link.title }}</a></li>
-          {% endfor %}
+            {% elsif product.tags contains 'Personal Care' or product.tags contains 'Skin Care Treatments' or product.tags contains 'Cleansers' or product.tags contains 'Sweat Control' or product.tags contains 'Moisturizers' or product.tags contains 'Skin Care Collections'%}
+            {% for link in linklists.personal-care.links %}
+            <li><a href="{{ link.url }}" class="menu-link {% if link.active %}current{% endif %}">{{ link.title }}</a></li>
+            {% endfor %}
 
-          {% elsif product.tags contains 'Suspension' or product.tags contains 'Suspension Belts' or product.tags contains 'Suspension Sleeves' or product.tags contains 'Prosthetic Liners' or product.tags contains 'Suspension Accessories' or product.tags contains 'Slip-On Aids' %}
-          {% for link in linklists.prosthetic-suspension.links %}
-           <li><a href="{{ link.url }}" class="menu-link {% if link.active %}current{% endif %}">{{ link.title }}</a></li>
-          {% endfor %}
+            {% elsif product.tags contains 'Suspension' or product.tags contains 'Suspension Belts' or product.tags contains 'Suspension Sleeves' or product.tags contains 'Prosthetic Liners' or product.tags contains 'Suspension Accessories' or product.tags contains 'Slip-On Aids' %}
+            {% for link in linklists.prosthetic-suspension.links %}
+            <li><a href="{{ link.url }}" class="menu-link {% if link.active %}current{% endif %}">{{ link.title }}</a></li>
+            {% endfor %}
 
-          {% elsif product.tags contains 'Gel Solutions' or product.tags contains 'Socket Sizing' or product.tags contains 'Bottom End Pad' or product.tags contains 'Scar and Wound Care' or product.tags contains 'Distal End Pad'%}
-          {% for link in linklists.gel-solutions.links %}
-           <li><a href="{{ link.url }}" class="menu-link {% if link.active %}current{% endif %}">{{ link.title }}</a></li>
-          {% endfor %}
-          {%endif%}
-        </ul>
-      </div>
+            {% elsif product.tags contains 'Gel Solutions' or product.tags contains 'Socket Sizing' or product.tags contains 'Bottom End Pad' or product.tags contains 'Scar and Wound Care' or product.tags contains 'Distal End Pad'%}
+            {% for link in linklists.gel-solutions.links %}
+            <li><a href="{{ link.url }}" class="menu-link {% if link.active %}current{% endif %}">{{ link.title }}</a></li>
+            {% endfor %}
+            {%endif%}
+          </ul>
+        </div>
 
-      <!--end right part -->
-      <hr class="separator">
-    </div> <!-- main-content -->
-  </div>
-</div><!-- #top -->
+        <!--end right part -->
+        <hr class="separator">
+      </div> <!-- main-content -->
+    </div>
+  </div><!-- #top -->
 
-{% include 'breadcrumb' %}
+  {% include 'breadcrumb' %}
 
-<div class="grid--full grid-padding product-single">
-  <div class="grid__item large--one-half text-center right-spacing">
+  <div class="grid--full grid-padding product-single">
+    <div class="grid__item large--one-half text-center right-spacing">
       {% comment %}<div class="product-single__photos" id="ProductPhoto">
         {% assign featured_image = product.featured_image %}
         <img src="{{ featured_image | img_url: 'original' }}" alt="{{ featured_image.alt | escape }}" id="ProductPhotoImg" data-imagezoom="true">
@@ -161,30 +161,34 @@
       <br class="clear"> {% endcomment %}
       <hr>
 
-     <div class="size-box">
+      <div class="size-box">
 
-      {% if product.tags contains 'Size Chart' %}
-      <div id="size-trigger" style="{% if product.variants.size > 1 %}position: absolute;left: 236px;top: 30px;{%else%}margin-top:10px;{%endif%}">
-        <a href="#!"><img src="{{ 'ruler.png' | asset_url }}">Size Chart Guide</a>
-      </div>
-      {% endif %}
-
-      <select name="id" id="productSelect" class="product-single__variants">
-        {% for variant in product.variants %}
-        {% include 'bold-hidden-variants' with variant, bold_loop: 'loop' %}
-
-        {% if variant.available %}
-        <option value="{{ variant.id }}" data-price="{{ variant.price | money_without_currency | remove: ',' }}">{{ variant.title }} - {{ variant.price | money }}</option>
-        {% else %}
-        <option disabled="disabled">
-          {{ variant.title }} - {{ 'products.product.sold_out' | t }}
-        </option>
+        {% if product.tags contains 'Size Chart' %}
+        <div id="size-trigger" style="{% if product.variants.size > 1 %}position: absolute;left: 236px;top: 30px;{%else%}margin-top:10px;{%endif%}">
+          <a href="#!"><img src="{{ 'ruler.png' | asset_url }}">Size Chart Guide</a>
+        </div>
         {% endif %}
-        
-        {% endfor %}
-      </select>
 
-    </div>
+  {% if bold_variants_size == 1 and product.variants.first.title contains 'Default' %}
+  {%else%}
+        <select name="id" id="productSelect" class="product-single__variants">
+          {% for variant in product.variants %}
+          {% include 'bold-hidden-variants' with variant, bold_loop: 'loop' %}
+
+          {% if variant.available %}
+          {% comment %}<option value="" selected="selected" autocomplete="off">Select {{ product.options[forloop.index0] | json }} </option>{% endcomment %}
+          <option value="{{ variant.id }}" data-price="{{ variant.price | money_without_currency | remove: ',' }}">{{ variant.title }} - {{ variant.price | money }}</option>
+          {% else %}
+          <option disabled="disabled">
+            {{ variant.title }} - {{ 'products.product.sold_out' | t }}
+          </option>
+          {% endif %}
+
+          {% endfor %}
+        </select>
+        {%endif%}
+
+      </div>
 
       <img src="{{ 'close.png' | asset_url }}" id="size-close" style="display: none;">
 
@@ -192,7 +196,7 @@
         {{ my_description[1] }}
       </div>
 
-    
+
       {% if product.available and product.options.first != 'Title' %}
       {% for option in product.options %}
       {% capture option_index %}option{{ forloop.index }}{% endcapture %}
@@ -227,7 +231,7 @@
       <input name="zip" type="hidden" value="{{ customer.default_address.zip }}" >
       {% include 'bold-ro' with product %}
 
-     {% comment %} <br class="clear">{% endcomment %}
+      {% comment %} <br class="clear">{% endcomment %}
 
 
       {% comment %}<div class="quantity-field">
@@ -236,8 +240,10 @@
        <button type="button" class="ajaxcart__qty-adjust ajaxcart__qty--plus" data-id="{{id}}" data-qty="{{itemAdd}}">+</button>
      </div>{% endcomment %} 
 
-
-     <div class="add-to-cart">
+     <p class="height-txt">
+      You must select an option above!
+    </p>
+    <div class="add-to-cart">
       <div class="quantity-box">
         {% comment %}{% assign quantityOptions = '1,2,3,4,5,6,7,8,9,10' | split:',' %}
         <label for="quantity" >QTY: </label>
@@ -257,10 +263,10 @@
         </select>
         
       </div>
-
+      
       <button type="submit" name="add" id="AddToCart" class="btn addtocart">
-        <!-- bold-ro-liquid --> {% comment %}<div class="title-box">{% endcomment %}<div class="bold_add_to_orders" style="display: inline-block;">{% comment %}{{ 'btn-icon.png' | asset_url | img_tag: shop.name }} ADD AUTO RE-STOCK TO CART{% endcomment %}</div> <!-- bold-ro-liquid -->
-        <span id="AddToCartText">{{ 'products.product.add_to_cart' | t }}</span>{% comment %}</div>{% endcomment %}
+        <!-- bold-ro-liquid --> <div class="title-box"><div class="bold_add_to_orders" style="display: inline-block;">{{ 'autoship-add-to-cart.png' | asset_url | img_tag: shop.name }} ADD AUTO RE-STOCK TO CART</div> <!-- bold-ro-liquid -->
+        <span id="AddToCartText">Add to Cart</span></div>
       </button>
 
     </div>
@@ -312,6 +318,8 @@
     {{ my_description[2] }}
   </div>
 </div>
+
+{% include 'related-products' %}
 
 <div id="cbb-frequently-bought-box"></div>
 
@@ -376,15 +384,23 @@ jQuery(function($) {
     enableHistoryState: true
   });
 
-  // {% if bold_variants_size > 1 %}
-  // {% for option in product.options %}
-  // $('.single-option-selector:eq({{ forloop.index0 }})')
-  // .filter(function() { return $(this).find('option').size() > 1  })
-  // .prepend('<option value="" selected="selected" autocomplete="off">Select ' + {{ product.options[forloop.index0] | json }} + '</option>')
-  // .val('')
-  // .trigger('change');
-  // {% endfor %}
-  // {% endif %}
+  {% if bold_variants_size > 1 %}
+  {% for option in product.options %}
+  $('.single-option-selector:eq({{ forloop.index0 }})')
+  .filter(function() { return $(this).find('option').size() > 1  })
+  .prepend('<option value="" selected="selected" autocomplete="off">Select ' + {{ product.options[forloop.index0] | json }} + '</option>')
+  .val('')
+  .trigger('change');
+  {% endfor %}
+  {% endif %}
+
+   {% if bold_variants_size == 1 %}
+  $('.single-option-selector')
+
+  .prepend('<option value="" selected="selected" autocomplete="off">Select ' + {{ product.options | json }} + '</option>')
+  .trigger('change');
+
+  {% endif %}
   
 
   // Add label if only one product option and it isn't 'Title'. Could be 'Size'.
@@ -400,7 +416,7 @@ jQuery(function($) {
 
 </script>
 
-{% include 'related-products' %}
+
 
 
 </div>
@@ -412,5 +428,42 @@ jQuery(function($) {
 </style>
 
 
+<script>
+ $('.bold_add_to_orders').hide();
+
+ if($('#AddToCart').is(':enabled')){
+  $('.height-txt').addClass('height-no-visible');
+}
+if($('#AddToCart').is(':disabled')){
+  $('.height-txt').removeClass('height-no-visible');
+}
 
 
+    // $('.js--animations').change(function(){
+    //   var anim = $(this).val();
+    //   testAnim(anim);
+    // });
+
+
+//  $(document).ready(function(){
+//     $('#AddToCart').click(function(e){
+//       e.preventDefault();
+//                if ($(".selector-wrapper").val() === "") {
+//     $('.height-txt').addClass('height-visible');
+// }
+//     });
+
+//     // $('.js--animations').change(function(){
+//     //   var anim = $(this).val();
+//     //   testAnim(anim);
+//     // });
+//   });
+
+</script>
+
+{% comment %}<script>
+    $(document).ready(function(){
+$(".promoted-products-box").insertAfter(".yotpo-reviews");
+    });
+</script>
+{% endcomment %}

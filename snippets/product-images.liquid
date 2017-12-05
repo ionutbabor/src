@@ -68,15 +68,15 @@
 
           <div class="video-container {% if image.alt contains 'vimeo' %}vimeo{% else %}youtube{% endif %}">
             <div>
-              <a href="{{ src }}" class="fancybox fancybox.iframe" data-fancybox-group="{{ product.id }}" title="{{ product.title | escape }}">
+              <a href="{{ src }}" {% comment %}class="fancybox fancybox.iframe" data-fancybox-group="{{ product.id }}"{% endcomment %} title="{{ product.title | escape }}">
                 {{ image.alt }}
               </a>
             </div>
           </div>
           {% else %}
-          <a href="{{ image | product_img_url: 'master' }}" class="fancybox" data-fancybox-group="{{ product.id }}" title="{{ image.alt | escape }}">
+         {% comment %} <a href="{{ image | product_img_url: 'master' }}" class="fancybox" data-fancybox-group="{{ product.id }}" title="{{ image.alt | escape }}">{% endcomment %}
             <img src="{{ image | product_img_url: 'large' }}" data-src-retina="{{ image | product_img_url: '1024x1024' }}" alt="{{ image.alt | escape }}" data-index="{{ forloop.index0 }}" data-image-id="{{ image.id }}" data-cloudzoom="zoomImage: '{{ image | product_img_url: 'master' }}', zoomPosition: 'inside', zoomOffsetX: 0, hoverIntentDelay: 100, touchStartDelay: 250" class="cloudzoom {% if featured_image.id == image.id %}featured_image{% endif %}" />
-          </a>
+          {% comment %}</a>{% endcomment %}
          
           {% endif %}
         </li>

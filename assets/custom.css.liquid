@@ -504,7 +504,7 @@ html {
     font-family: 'Quicksand', sans-serif;
     text-transform: uppercase;
     font-weight: 700;
-    min-width: 200px;
+    min-width: 220px;
     margin-right: 20px;
   }
 
@@ -562,7 +562,7 @@ html {
     color: #000;
     font-family: 'bebas', sans-serif !important;
     text-transform: uppercase;
-    font-size: 32px;
+    font-size: 30px;
     margin-bottom: 0px;
     letter-spacing: 2px;
   }
@@ -691,6 +691,7 @@ p.sku-title {
     background-color: #F0F0F0;
     overflow: auto;
     padding: 40px 0px;
+
   }
 
   .left-side, .right-side {
@@ -714,8 +715,12 @@ p.sku-title {
     font-family: 'Lato', sans-serif !important;
     line-height: 28px;
     font-weight: normal;
+    font-size: 16px;
+    color: {{settings.initial_color}};
   }
-
+  .sub-description a{
+    color: #0970a7;
+  }
   .product-description h2, h2.section-header__title {
     font-family: 'Quicksand', sans-serif !important;
     text-transform: uppercase;
@@ -871,11 +876,11 @@ p.sku-title {
 ul.collection-tags li {
   display: inline;
   list-style-type: none;
-/*  font-family: 'Quicksand', sans-serif !important;*/
+  /*  font-family: 'Quicksand', sans-serif !important;*/
   text-transform: uppercase;
 /*  font-weight: 700;
-  font-size: 14px;*/
-  padding-right: 24px;
+font-size: 14px;*/
+padding-right: 24px;
 }
 
 .form-horizontal {
@@ -1374,85 +1379,85 @@ span.next a, span.prev a {
 
      /* .breadcrumb {
         padding-top: 25px;
-      }*/
+        }*/
 
-      .icon-cart {
-        margin-top: -4px;
+        .icon-cart {
+          margin-top: -4px;
+        }
+
+        .mobile-menu, .copyright-text {
+          text-align: center !important;
+        }
+
+      }
+      @media only screen and (min-width: 960px) and (max-width: 1199px){
+        .slick-prev, .slick-next{
+          top:30%;
+        }
+        .slider-caption.align-center{
+          height: 100%;
+        }
       }
 
-      .mobile-menu, .copyright-text {
-        text-align: center !important;
+      @media (max-width: 1380px) {
+        .caption-button p {
+          font-size: 22px !important;
+        }
+
+        .feat-caption {
+          width: 70% !important;
+        }
       }
 
-    }
-    @media only screen and (min-width: 960px) and (max-width: 1199px){
-      .slick-prev, .slick-next{
-        top:30%;
-      }
-      .slider-caption.align-center{
-        height: 100%;
-      }
-    }
-
-    @media (max-width: 1380px) {
-      .caption-button p {
-        font-size: 22px !important;
-      }
-
-      .feat-caption {
-        width: 70% !important;
-      }
-    }
-
-    @media (max-width: 1015px) {
-      .feat-caption p.interior {
-       display: none;
+      @media (max-width: 1015px) {
+        .feat-caption p.interior {
+         display: none;
+       }
      }
-   }
 
-   @media (max-width: 479px) {
-    #fsb_bar{
-      padding: 7px 4px!important;
-    }
-    .left-side, .right-side {
-      width: 100%;
-      float: none;
-      text-align: center;
-    }
-    
-    .right-side img {
-      padding-left: 0px;
-    }
-    
-    .template-product h2 {
-      text-align: center;
-      width: 100%;
-    }
-    
-    .single-option-selector {
-      clear: both !important;
-    }
-    
-    .sign_up {
-      font-size: 12px !important;
-      padding: 11px 6px !important;
-    }
-  }
+     @media (max-width: 479px) {
+      #fsb_bar{
+        padding: 7px 4px!important;
+      }
+      .left-side, .right-side {
+        width: 100%;
+        float: none;
+        text-align: center;
+      }
 
-  @font-face {
-    font-family: bebas;
-    src: url("{{ 'bebas.otf' | asset_url }}") format("opentype");
-  }
+      .right-side img {
+        padding-left: 0px;
+      }
 
-  /* Shipping Rates Calculator+ customization */
-  .cbb-shipping-rates-calculator-header {
-    font-size: 1em !important;
-  }
-  .cbb-shipping-rates-rate-list {
-    width: 100% !important;
-    padding-left: 0 !important;
-  }
-  .cbb-shipping-rates-calculator-totals {
-    background-color: #e8e8e8 !important;
-    padding: 2px !important;
-  }
+      .template-product h2 {
+        text-align: center;
+        width: 100%;
+      }
+
+      .single-option-selector {
+        clear: both !important;
+      }
+
+      .sign_up {
+        font-size: 12px !important;
+        padding: 11px 6px !important;
+      }
+    }
+
+    @font-face {
+      font-family: bebas;
+      src: url("{{ 'bebas.otf' | asset_url }}") format("opentype");
+    }
+
+    /* Shipping Rates Calculator+ customization */
+    .cbb-shipping-rates-calculator-header {
+      font-size: 1em !important;
+    }
+    .cbb-shipping-rates-rate-list {
+      width: 100% !important;
+      padding-left: 0 !important;
+    }
+    .cbb-shipping-rates-calculator-totals {
+      background-color: #e8e8e8 !important;
+      padding: 2px !important;
+    }

@@ -234,7 +234,8 @@ timber.productPage = function (options) {
     if (variant.available) {
       // Available, enable the submit button, change text, show quantity elements
       $addToCart.removeClass('disabled').prop('disabled', false);
-      $addToCartText.html('<i class="fa fa-shopping-cart" style="margin-right: 20px;"></i>' + {{ 'products.product.add_to_cart' | t | json }});
+	  // $addToCartText.html('<i class="fa fa-shopping-cart" style="margin-right: 20px;"></i>' + {{ 'products.product.add_to_cart' | t | json }});
+      $addToCartText.html({{ 'products.product.add_to_cart' | t | json }});
       $quantityElements.show();
     } else {
       // Sold out, disable the submit button, change text, hide quantity elements
