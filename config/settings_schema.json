@@ -486,8 +486,8 @@
   "name": "Homepage Featured Images",
   "settings": [
     {
-      "type": "image",
-      "id": "feat1.png",
+      "type": "image_picker",
+      "id": "feat_1",
       "label": "Featured Image #1"
     },
     {
@@ -536,8 +536,8 @@
       "default": "feat1_left"
     },
     {
-      "type": "image",
-      "id": "feat2.png",
+      "type": "image_picker",
+      "id": "feat_2",
       "label": "Featured Image #2"
     },
     {
@@ -586,8 +586,8 @@
       "default": "feat2_left"
     },
     {
-      "type": "image",
-      "id": "feat3.png",
+      "type": "image_picker",
+      "id": "feat_3",
       "label": "Featured Image #3"
     },
     {
@@ -696,6 +696,11 @@
       "type": "text",
       "id": "cart_subtitle",
       "label": "Cart subtitle"
+    },
+    {
+      "type": "textarea",
+      "id": "international-message",
+      "label": "Cart international message"
     }
   ]
 },
@@ -748,8 +753,17 @@
     },
     {
       "type": "text",
-      "id": "free-text",
-      "label": "Free Shipping text"
+      "id": "free-text-50",
+      "label": "Free Shipping over $50",
+      "default": "Free Shipping on orders over $50",
+      "info": "product tag: Free Ship Near Price"
+    },
+    {
+      "type": "text",
+      "id": "free-shipping",
+      "label": "Free Shipping",
+      "default": "Free Shipping",
+      "info": "product tag: free-shipping"
     },
     {
       "type": "text",
@@ -758,9 +772,10 @@
     },
     {
       "type": "text",
-      "id": "out-stock-text",
-      "label": "Out of stock text",
-      "default": "*This product will delay your order by approximately 4-7 days."
+      "id": "product-delay",
+      "label": "Product delay text",
+      "default": "*This product will delay your order by approximately 4-7 days.",
+      "info": "product tag: product-delay"
     }
   ]
 },

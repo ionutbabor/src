@@ -9,24 +9,24 @@
 
         <div class="grid__item large--one-quarter title-filters medium--one-whole">
           {% if collection.handle contains 'skin-care-treatments' or collection.handle contains 'prosthetic-cleansers' or collection.handle contains 'sweat-control' or collection.handle contains 'moisturizers' or collection.handle contains 'skin-care-collections' %}
-          <h4 class="large--hide"><a class="all-categories" href="/collections/personal-care">< {{collections.personal-care.title}}</a></h4>
+          <h4 class="large--hide"><a class="all-categories" href="/collections/personal-care"><i class="fa fa-angle-left" aria-hidden="true"></i> {{collections.personal-care.title}}</a></h4>
           <h2 class="medium-down--hide"><a href="/collections/personal-care">{{collections.personal-care.title}}</a></h2>
           <h2 class="large--hide">{{ collection.title }}</h2>
           
           {% elsif collection.handle contains 'amputee-socks' or collection.handle contains 'stump-shrinkers' or collection.handle contains 'prosthetic-sheaths' or collection.handle contains 'cosmetic-hosiery' or collection.handle contains 'textile-accessories' %} 
-          <h4 class="large--hide"><a class="all-categories" href="/collections/prosthetic-textiles">< {{collections.prosthesis-suspension.title}}</a></h4>
+          <h4 class="large--hide"><a class="all-categories" href="/collections/prosthetic-textiles"><i class="fa fa-angle-left" aria-hidden="true"></i> {{collections.prosthetic-textiles.title}}</a></h4>
           <h2 class="medium-down--hide"><a href="/collections/prosthetic-textiles">{{collections.prosthetic-textiles.title}}</a></h2>
           <h2 class="large--hide">{{ collection.title }}</h2>
 
           {% elsif collection.handle contains 'suspension-belts' or collection.handle contains 'suspension-sleeves' or collection.handle contains 'prosthetic-liners' or collection.handle contains 'suspension-accessories' or collection.handle contains 'slip-on-aids'%}
-          <h4 class="large--hide"><a class="all-categories" href="/collections/prosthesis-suspension">< {{collections.prosthesis-suspension.title}}</a></h4>
+          <h4 class="large--hide"><a class="all-categories" href="/collections/prosthesis-suspension"><i class="fa fa-angle-left" aria-hidden="true"></i> {{collections.prosthesis-suspension.title}}</a></h4>
           <h2 class="medium-down--hide"><a href="/collections/prosthesis-suspension">{{collections.prosthesis-suspension.title}}</a></h2>
           <h2 class="large--hide">{{ collection.title }}</h2>
 
           {% comment %}{% elsif collection.handle contains 'cosmetic-finishing' or collection.handle contains 'cushion-and-volume-aids' or collection.handle contains 'slip-on-aids' or collection.handle contains 'travel-and-mobility' or collection.handle contains 'arm-amputee-supplies' or collection.handle contains 'friction-fighting' or collection.handle contains 'prosthetic-remedies' %} {% endcomment %}
 
           {% elsif collection.handle contains 'distal-end-prosthetic-gel-pads' or collection.handle contains 'gel-socks-sheaths-and-pads-to-adjust-socket-size' or collection.handle contains 'scar-and-wound-care' %} 
-          <h4 class="large--hide"><a class="all-categories" href="/collections/prosthetic-gel-pads-sheaths-to-solve-fitting-issues">< {{collections.prosthetic-gel-pads-sheaths-to-solve-fitting-issues.title}}</a></h4>
+          <h4 class="large--hide"><a class="all-categories" href="/collections/prosthetic-gel-pads-sheaths-to-solve-fitting-issues"><i class="fa fa-angle-left" aria-hidden="true"></i> {{collections.prosthetic-gel-pads-sheaths-to-solve-fitting-issues.title}}</a></h4>
           <h2 class="medium-down--hide"><a href="/collections/prosthetic-gel-pads-sheaths-to-solve-fitting-issues">{{collections.prosthetic-gel-pads-sheaths-to-solve-fitting-issues.title}}</a></h2>
           <h2 class="large--hide">{{ collection.title }}</h2>
           {% comment %}{% elsif collection.handle contains 'featured-products' %}

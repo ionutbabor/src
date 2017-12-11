@@ -1,107 +1,124 @@
 {% assign featured_image = product.selected_or_first_available_variant.featured_image | default: product.featured_image %}
 <div class="grid--full">
-  
 
-    <div class="my-visible-xs">
-      <h1 itemprop="name">{{ product.title }}</h1>
 
-      <div class="grid--full">
-        <div class="grid__item medium--one-third small--one-whole">
-          <p class="vendor-title"> by {{ product.vendor | link_to_vendor }}</p>
-          {% comment %}<p class="vendor-title">by {{ product.vendor | replace: "-", " " | link_to_vendor }}</p>{% endcomment %}
-        </div>
+  <div class="my-visible-xs">
+    <h1 itemprop="name">{{ product.title }}</h1>
 
-        <div class="grid__item medium--one-third small--one-half">
-          <div class="yotpo bottomLine"
-          data-appkey="NuT1UIlxTbSur2znb49km0JEX7gsE8Xqwiqw1r1b"
-          data-domain="{{ shop.permanent_domain | escape }}"
-          data-product-id="{{ product.id }}"
-          data-product-models="{{ product.id }}"
-          data-name="{{ product.title | escape }}"
-          data-url="{{ shop.url }}{{ product.url }}"
-          data-image-url="{{ product.featured_image | product_img_url: 'large' |replace: '?', '%3F' | replace: '&','%26'}}"
-          data-description="{{ product.description | escape }}"
-          data-bread-crumbs="{% for tag in product.tags %}{{ tag | escape }};{% endfor %}">
-        </div>
+    <div class="grid--full">
+      <div class="grid__item medium--one-third small--one-whole">
+        <p class="vendor-title"> by {{ product.vendor | link_to_vendor }}</p>
+        {% comment %}<p class="vendor-title">by {{ product.vendor | replace: "-", " " | link_to_vendor }}</p>{% endcomment %}
       </div>
 
       <div class="grid__item medium--one-third small--one-half">
-        <div class='yotpo QABottomLine'
-        data-appkey='NuT1UIlxTbSur2znb49km0JEX7gsE8Xqwiqw1r1b'
-        data-product-id='{{ product.id }}'></div>
+        <div class="yotpo bottomLine"
+        data-appkey="NuT1UIlxTbSur2znb49km0JEX7gsE8Xqwiqw1r1b"
+        data-domain="{{ shop.permanent_domain | escape }}"
+        data-product-id="{{ product.id }}"
+        data-product-models="{{ product.id }}"
+        data-name="{{ product.title | escape }}"
+        data-url="{{ shop.url }}{{ product.url }}"
+        data-image-url="{{ product.featured_image | product_img_url: 'large' |replace: '?', '%3F' | replace: '&','%26'}}"
+        data-description="{{ product.description | escape }}"
+        data-bread-crumbs="{% for tag in product.tags %}{{ tag | escape }};{% endfor %}">
       </div>
     </div>
-    </div>
 
-    <div class="grid__item large--one-quarter medium--hide my-collumn">
-
-    <div id="carousel" class="flexslider">
-      <ul class="slides slides_carousel">
-        {% for image in product.images %}
-        <li>
-          {% comment %} <img  width="96" height="96" src="{{ image | product_img_url: 'small' }}" alt="{{ image.alt }}"> {% endcomment %}
-          <div class="thumbnail " style="background-image: url('{{ image | product_img_url: '96x96' }}');" >
-            {% if image.alt contains 'youtube' or image.alt contains 'vimeo' %}{{ 'video-play-icon.png' | asset_url | img_tag ,'play-btn'}}{% endif %}
-          </div>
-        </li>
-        {% endfor %}
-      </ul>
+    <div class="grid__item medium--one-third small--one-half">
+      <div class='yotpo QABottomLine'
+      data-appkey='NuT1UIlxTbSur2znb49km0JEX7gsE8Xqwiqw1r1b'
+      data-product-id='{{ product.id }}'></div>
     </div>
   </div>
+</div>
 
-  <div class="grid__item large--three-quarters medium--one-whole my-collumn-2">
+<div class="grid__item large--one-quarter medium--hide my-collumn">
 
-    <div id="slider" class="flexslider product_gallery {% if product-images == blank %}product_slider{% endif %}" id="product-{{ product.id }}-gallery">
-
-      <ul class="slides">
-        {% for image in product.images %}
-        <li data-thumb="{{ image | product_img_url: 'grande' }}" data-title="{% if image.alt contains 'youtube' or image.alt contains 'vimeo' %}{{ product.title }}{% else %}{{ image.alt | escape }}{% endif %}">
-          {% if image.alt contains 'youtube' or image.alt contains 'vimeo' %}
-          {% assign src = image.alt | split: 'src="' %}
-          {% assign src = src[1] | split: '"' | first %}
-
-          {% if src contains '?' %}
-          {% assign src = src | append: '&amp;autoplay=1' %}
-          {% else %}
-          {% assign src = src | append: '?autoplay=1' %}
-          {% endif %}
-
-          <div class="video-container {% if image.alt contains 'vimeo' %}vimeo{% else %}youtube{% endif %}">
-            <div>
-              <a href="{{ src }}" {% comment %}class="fancybox fancybox.iframe" data-fancybox-group="{{ product.id }}"{% endcomment %} title="{{ product.title | escape }}">
-                {{ image.alt }}
-              </a>
-            </div>
-          </div>
-          {% else %}
-         {% comment %} <a href="{{ image | product_img_url: 'master' }}" class="fancybox" data-fancybox-group="{{ product.id }}" title="{{ image.alt | escape }}">{% endcomment %}
-            <img src="{{ image | product_img_url: 'large' }}" data-src-retina="{{ image | product_img_url: '1024x1024' }}" alt="{{ image.alt | escape }}" data-index="{{ forloop.index0 }}" data-image-id="{{ image.id }}" data-cloudzoom="zoomImage: '{{ image | product_img_url: 'master' }}', zoomPosition: 'inside', zoomOffsetX: 0, hoverIntentDelay: 100, touchStartDelay: 250" class="cloudzoom {% if featured_image.id == image.id %}featured_image{% endif %}" />
-          {% comment %}</a>{% endcomment %}
-         
-          {% endif %}
-        </li>
-        {% endfor %}
-      </ul>
-    </div>
-    <p class="text-center">Roll over image to zoom in</p>
-
-    <div id="carousel-2" class="flexslider large--hide ">
-      <ul class="slides slides_carousel">
-        {% for image in product.images %}
-        <li>
-          {% comment %} <img  width="96" height="96" src="{{ image | product_img_url: 'small' }}" alt="{{ image.alt }}"> {% endcomment %}
-          <div class="thumbnail " style="background-image: url('{{ image | product_img_url: '96x96' }}');" >
-            {% if image.alt contains 'youtube' or image.alt contains 'vimeo' %}{{ 'video-play-icon.png' | asset_url | img_tag ,'play-btn'}}{% endif %}
-          </div>
-        </li>
-        {% endfor %}
-      </ul>
-    </div>
-
+  <div id="carousel" class="flexslider">
+    <ul class="slides slides_carousel">
+      {% for image in product.images %}
+      <li>
+        {% comment %} <img  width="96" height="96" src="{{ image | product_img_url: 'small' }}" alt="{{ image.alt }}"> {% endcomment %}
+        <div class="thumbnail " style="background-image: url('{{ image | product_img_url: '96x96' }}');" >
+          {% if image.alt contains 'youtube' or image.alt contains 'vimeo' %}{{ 'video-play-icon.png' | asset_url | img_tag ,'play-btn'}}{% endif %}
+        </div>
+      </li>
+      {% endfor %}
+    </ul>
   </div>
+</div>
+
+<div class="grid__item large--three-quarters medium--one-whole my-collumn-2">
+
+  <div id="slider" class="flexslider product_gallery {% if product-images == blank %}product_slider{% endif %}" id="product-{{ product.id }}-gallery">
+
+    <ul class="slides">
+      {% for image in product.images %}
+      <li data-thumb="{{ image | product_img_url: 'grande' }}" data-title="{% if image.alt contains 'youtube' or image.alt contains 'vimeo' %}{{ product.title }}{% else %}{{ image.alt | escape }}{% endif %}">
+        {% if image.alt contains 'youtube' or image.alt contains 'vimeo' %}
+        {% assign src = image.alt | split: 'src="' %}
+        {% assign src = src[1] | split: '"' | first %}
+
+        {% if src contains '?' %}
+        {% assign src = src | append: '&amp;autoplay=1' %}
+        {% else %}
+        {% assign src = src | append: '?autoplay=1' %}
+        {% endif %}
+
+        <div class="video-container {% if image.alt contains 'vimeo' %}vimeo{% else %}youtube{% endif %}">
+          <div>
+            <a href="{{ src }}" {% comment %}class="fancybox fancybox.iframe" data-fancybox-group="{{ product.id }}"{% endcomment %} title="{{ product.title | escape }}">
+              {{ image.alt }}
+            </a>
+          </div>
+        </div>
+        {% else %}
+        {% comment %} <a href="{{ image | product_img_url: 'master' }}" class="fancybox" data-fancybox-group="{{ product.id }}" title="{{ image.alt | escape }}">{% endcomment %}
+          <img src="{{ image | product_img_url: 'large' }}" data-src-retina="{{ image | product_img_url: '1024x1024' }}" alt="{{ image.alt | escape }}" data-index="{{ forloop.index0 }}" data-image-id="{{ image.id }}" data-cloudzoom="zoomImage: '{{ image | product_img_url: 'master' }}', zoomPosition: 'inside', zoomOffsetX: 0, hoverIntentDelay: 100, touchStartDelay: 250" class="cloudzoom {% if featured_image.id == image.id %}featured_image{% endif %}" />
+        {% comment %}</a>{% endcomment %}
+
+        {% endif %}
+      </li>
+      {% endfor %}
+    </ul>
+  </div>
+  <p class="text-center medium-down--hide">Roll over image to zoom in</p>
+
+  <div id="carousel-2" class="flexslider large--hide ">
+    <ul class="slides slides_carousel">
+      {% for image in product.images %}
+      <li>
+        {% comment %} <img  width="96" height="96" src="{{ image | product_img_url: 'small' }}" alt="{{ image.alt }}"> {% endcomment %}
+        <div class="thumbnail " style="background-image: url('{{ image | product_img_url: '96x96' }}');" >
+          {% if image.alt contains 'youtube' or image.alt contains 'vimeo' %}{{ 'video-play-icon.png' | asset_url | img_tag ,'play-btn'}}{% endif %}
+        </div>
+      </li>
+      {% endfor %}
+    </ul>
+  </div>
+
+</div>
 
 </div>
 
 
 
 
+
+
+
+{% comment %}<script>
+
+  
+ $(function() {
+  {% for image in product.images %}
+  {% if image.alt contains 'youtube' or image.alt contains 'vimeo' %}
+  $('ol.flex-control-nav li a').addClass( "test" );
+  
+  alert('e ok');
+  {%endif%}
+  {% endfor %}
+});
+ 
+</script>{% endcomment %}

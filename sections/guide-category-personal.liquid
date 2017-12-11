@@ -75,10 +75,10 @@
  </div>
  {% endif %}
 
-  <div class="grid__item {% if block.settings.banner-img != blank %}large--one-half medium--one-whole small--one-whole{% else %} one-quarters {% endif %}">
-    <h2 class="title title{% increment foo %}">{{ block.settings.title }}</h2>
-    <p>{{ block.settings.content }}</p>
-  </div>
+ <div class="grid__item {% if block.settings.banner-img != blank %}large--one-half medium--one-whole small--one-whole{% else %} one-quarters {% endif %}">
+  <h2 class="title title{% increment foo %}">{{ block.settings.title }}</h2>
+  <p>{{ block.settings.content }}</p>
+</div>
 
 </div>
 
@@ -101,15 +101,21 @@
           <li>{{ block.settings.content1 }}</li>
           <li>{{ block.settings.content2 }}</li>
           <li>{{ block.settings.content3 }}</li>
+          <li>{{ block.settings.content4 }}</li>
+          <li>{{ block.settings.content5 }}</li>
+          <li>{{ block.settings.content6 }}</li>
         </ul>
 
       </div>
 
       <div class="grid__item large--one-third small--one-whole">
        <ul>
-        <li>{{ block.settings.content4 }}</li>
-        <li>{{ block.settings.content5 }}</li>
-        <li>{{ block.settings.content6 }}</li>
+        <li>{{ block.settings.content7 }}</li>
+        <li>{{ block.settings.content8 }}</li>
+        <li>{{ block.settings.content9 }}</li>
+        <li>{{ block.settings.content10 }}</li>
+        <li>{{ block.settings.content11 }}</li>
+        <li>{{ block.settings.content12 }}</li>
       </ul>
 
     </div>
@@ -207,6 +213,48 @@
       "id": "content6",
       "type": "textarea",
       "label": "Content",
+      "default": "Lorem ipsum dolor sit amet, consectetur adipisicing elit."
+    },
+    {
+      "id": "content7",
+      "type": "textarea",
+      "label": "Content",
+      "info":"The content is showing in second column",
+      "default": "Lorem ipsum dolor sit amet, consectetur adipisicing elit."
+    },
+    {
+      "id": "content8",
+      "type": "textarea",
+      "label": "Content",
+      "info":"The content is showing in second column",
+      "default": "Lorem ipsum dolor sit amet, consectetur adipisicing elit."
+    },
+    {
+      "id": "content9",
+      "type": "textarea",
+      "label": "Content",
+      "info":"The content is showing in second column",
+      "default": "Lorem ipsum dolor sit amet, consectetur adipisicing elit."
+    },
+    {
+      "id": "content10",
+      "type": "textarea",
+      "label": "Content",
+      "info":"The content is showing in second column",
+      "default": "Lorem ipsum dolor sit amet, consectetur adipisicing elit."
+    },
+    {
+      "id": "content11",
+      "type": "textarea",
+      "label": "Content",
+      "info":"The content is showing in second column",
+      "default": "Lorem ipsum dolor sit amet, consectetur adipisicing elit."
+    },
+    {
+      "id": "content12",
+      "type": "textarea",
+      "label": "Content",
+      "info":"The content is showing in second column",
       "default": "Lorem ipsum dolor sit amet, consectetur adipisicing elit."
     }
 

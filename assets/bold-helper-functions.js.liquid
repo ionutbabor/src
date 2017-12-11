@@ -394,14 +394,14 @@ BOLD.helpers.propertiesDisplay = function(properties){
 
 BOLD.helpers.recurringDisplay = function(properties){
   if(properties && properties.frequency_num && properties.frequency_type_text){
-    return (BOLD.language['recurring_desc_prefix'] || 'Delivered every ') + properties.frequency_num + (BOLD.language['recurring_desc_spacer'] || ' ') + properties.frequency_type_text + (BOLD.language['recurring_desc_suffix'] || '');
+    return (BOLD.language['recurring_desc_prefix'] || 'Ship every ') + properties.frequency_num + (BOLD.language['recurring_desc_spacer'] || ' ') + properties.frequency_type_text + (BOLD.language['recurring_desc_suffix'] || '');
   }
   return '';
 };
 
 BOLD.helpers.recurringFormattedDisplay = function(properties){
   if(properties && properties.frequency_num && properties.frequency_type_text){
-    return '<div class = "bold_recurring_desc"><span class="bold_ro_every"  data-bold-lang="recurring_desc_prefix">' + (BOLD.language['recurring_desc_prefix'] || 'Delivered every ') + '</\span><span class="bold_ro_frequency_num">' + properties.frequency_num + '</\span>' + (BOLD.language['recurring_desc_spacer'] ? '<span class="bold_ro_frequency_spacer" data-bold-lang="recurring_desc_spacer">' + BOLD.language['recurring_desc_spacer'] + '</\span>' : ' ') + '<span class="bold_ro_frequency_type_text">' + properties.frequency_type_text + '</span>' + (BOLD.language['recurring_desc_suffix'] ? '<span class="bold_ro_frequency_suffix" data-bold-lang="recurring_desc_suffix">' + BOLD.language['recurring_desc_suffix'] + '</\span>' : '') + '</div>';
+    return '<div class = "bold_recurring_desc"><span class="bold_ro_every"  data-bold-lang="recurring_desc_prefix">' + (BOLD.language['recurring_desc_prefix'] || 'Ship every ') + '</\span><span class="bold_ro_frequency_num">' + properties.frequency_num + '</\span>' + (BOLD.language['recurring_desc_spacer'] ? '<span class="bold_ro_frequency_spacer" data-bold-lang="recurring_desc_spacer">' + BOLD.language['recurring_desc_spacer'] + '</\span>' : ' ') + '<span class="bold_ro_frequency_type_text">' + properties.frequency_type_text + '</span>' + (BOLD.language['recurring_desc_suffix'] ? '<span class="bold_ro_frequency_suffix" data-bold-lang="recurring_desc_suffix">' + BOLD.language['recurring_desc_suffix'] + '</\span>' : '') + '</div>';
   }
   return '';
 };

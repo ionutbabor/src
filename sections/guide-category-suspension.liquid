@@ -21,18 +21,18 @@
       </div>
     </div>
 
-      <div class="grid__item large--one-quarter title-filters medium-down--hide">
-        <h2 class="no-border-line">Prosthetic Guides</h2>
-      </div>
-
-      <div class="grid__item large--three-quarters parent-filters medium-down--hide">
-       <ul class="main-menu">
-        {% for link in linklists.submenu-new-pages.links %}
-        <li><a href="{{ link.url }}" class="menu-link"><span {% if link.active %} class="current" {% endif %}>{{ link.title }}</span></a></li>
-        {% endfor %}
-      </ul>
+    <div class="grid__item large--one-quarter title-filters medium-down--hide">
+      <h2 class="no-border-line">Prosthetic Guides</h2>
     </div>
+
+    <div class="grid__item large--three-quarters parent-filters medium-down--hide">
+     <ul class="main-menu">
+      {% for link in linklists.submenu-new-pages.links %}
+      <li><a href="{{ link.url }}" class="menu-link"><span {% if link.active %} class="current" {% endif %}>{{ link.title }}</span></a></li>
+      {% endfor %}
+    </ul>
   </div>
+</div>
 </div> <!-- main-content -->
 
 <hr>
@@ -75,10 +75,10 @@
  </div>
  {% endif %}
 
-  <div class="grid__item {% if block.settings.banner-img != blank %}large--one-half medium--one-whole small--one-whole{% else %} one-quarters {% endif %}">
-    <h2 class="title title{% increment foo %}">{{ block.settings.title }}</h2>
-    <p>{{ block.settings.content }}</p>
-  </div>
+ <div class="grid__item {% if block.settings.banner-img != blank %}large--one-half medium--one-whole small--one-whole{% else %} one-quarters {% endif %}">
+  <h2 class="title title{% increment foo %}">{{ block.settings.title }}</h2>
+  <p>{{ block.settings.content }}</p>
+</div>
 
 </div>
 
@@ -101,15 +101,21 @@
           <li>{{ block.settings.content1 }}</li>
           <li>{{ block.settings.content2 }}</li>
           <li>{{ block.settings.content3 }}</li>
+          <li>{{ block.settings.content4 }}</li>
+          <li>{{ block.settings.content5 }}</li>
+          <li>{{ block.settings.content6 }}</li>
         </ul>
 
       </div>
 
       <div class="grid__item large--one-third small--one-whole">
        <ul>
-        <li>{{ block.settings.content4 }}</li>
-        <li>{{ block.settings.content5 }}</li>
-        <li>{{ block.settings.content6 }}</li>
+        <li>{{ block.settings.content7 }}</li>
+        <li>{{ block.settings.content8 }}</li>
+        <li>{{ block.settings.content9 }}</li>
+        <li>{{ block.settings.content10 }}</li>
+        <li>{{ block.settings.content11 }}</li>
+        <li>{{ block.settings.content12 }}</li>
       </ul>
 
     </div>
@@ -135,87 +141,129 @@
 {
   "blocks": [
   {
-  "type": "top",
-  "name": "Content",
-  "settings": [
+    "type": "top",
+    "name": "Content",
+    "settings": [
+    {
+      "id": "title",
+      "type": "text",
+      "label": "Title",
+      "default": "Textiles Prosthetic Buying Guide"
+    },
+    {
+      "id": "content",
+      "type": "textarea",
+      "label": "Content",
+      "default": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Suscipit ipsum omnis accusamus, repudiandae provident quaerat odit illo vitae dolor unde laboriosam quam. Ipsum veniam repudiandae, temporibus quos, nesciunt ullam. Mollitia!"
+    },
+    {
+      "id": "banner-img",
+      "type": "image_picker",
+      "label": "Image"
+    }
+    ]
+  },
   {
-  "id": "title",
-  "type": "text",
-  "label": "Title",
-  "default": "Textiles Prosthetic Buying Guide"
-},
-{
-  "id": "content",
-  "type": "textarea",
-  "label": "Content",
-  "default": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Suscipit ipsum omnis accusamus, repudiandae provident quaerat odit illo vitae dolor unde laboriosam quam. Ipsum veniam repudiandae, temporibus quos, nesciunt ullam. Mollitia!"
-},
-{
-  "id": "banner-img",
-  "type": "image_picker",
-  "label": "Image"
-}
-]
-},
-{
-  "type": "services",
-  "name": "Services",
-  "settings": [
-  {
-  "id": "title",
-  "type": "text",
-  "label": "Title",
-  "default": "Sheath Buying Guide"
-},  
-{
-  "id": "subtitle",
-  "type": "text",
-  "label": "SubTitle",
-  "default": "Articles"
-},
-{
-  "id": "content1",
-  "type": "textarea",
-  "label": "Content",
-  "default": "Lorem ipsum dolor sit amet, consectetur adipisicing elit."
-},
-{
-  "id": "content2",
-  "type": "textarea",
-  "label": "Content",
-  "default": "Lorem ipsum dolor sit amet, consectetur adipisicing elit."
-},
-{
-  "id": "content3",
-  "type": "textarea",
-  "label": "Content",
-  "default": "Lorem ipsum dolor sit amet, consectetur adipisicing elit."
-},
-{
-  "id": "content4",
-  "type": "textarea",
-  "label": "Content",
-  "default": "Lorem ipsum dolor sit amet, consectetur adipisicing elit."
-},
-{
-  "id": "content5",
-  "type": "textarea",
-  "label": "Content",
-  "default": "Lorem ipsum dolor sit amet, consectetur adipisicing elit."
-},
-{
-  "id": "content6",
-  "type": "textarea",
-  "label": "Content",
-  "default": "Lorem ipsum dolor sit amet, consectetur adipisicing elit."
-}
+    "type": "services",
+    "name": "Services",
+    "settings": [
+    {
+      "id": "title",
+      "type": "text",
+      "label": "Title",
+      "default": "Sheath Buying Guide"
+    },  
+    {
+      "id": "subtitle",
+      "type": "text",
+      "label": "SubTitle",
+      "default": "Articles"
+    },
+    {
+      "id": "content1",
+      "type": "textarea",
+      "label": "Content",
+      "default": "Lorem ipsum dolor sit amet, consectetur adipisicing elit."
+    },
+    {
+      "id": "content2",
+      "type": "textarea",
+      "label": "Content",
+      "default": "Lorem ipsum dolor sit amet, consectetur adipisicing elit."
+    },
+    {
+      "id": "content3",
+      "type": "textarea",
+      "label": "Content",
+      "default": "Lorem ipsum dolor sit amet, consectetur adipisicing elit."
+    },
+    {
+      "id": "content4",
+      "type": "textarea",
+      "label": "Content",
+      "default": "Lorem ipsum dolor sit amet, consectetur adipisicing elit."
+    },
+    {
+      "id": "content5",
+      "type": "textarea",
+      "label": "Content",
+      "default": "Lorem ipsum dolor sit amet, consectetur adipisicing elit."
+    },
+    {
+      "id": "content6",
+      "type": "textarea",
+      "label": "Content",
+      "default": "Lorem ipsum dolor sit amet, consectetur adipisicing elit."
+    },
+    {
+      "id": "content7",
+      "type": "textarea",
+      "label": "Content",
+      "info":"The content is showing in second column",
+      "default": "Lorem ipsum dolor sit amet, consectetur adipisicing elit."
+    },
+    {
+      "id": "content8",
+      "type": "textarea",
+      "label": "Content",
+      "info":"The content is showing in second column",
+      "default": "Lorem ipsum dolor sit amet, consectetur adipisicing elit."
+    },
+    {
+      "id": "content9",
+      "type": "textarea",
+      "label": "Content",
+      "info":"The content is showing in second column",
+      "default": "Lorem ipsum dolor sit amet, consectetur adipisicing elit."
+    },
+    {
+      "id": "content10",
+      "type": "textarea",
+      "label": "Content",
+      "info":"The content is showing in second column",
+      "default": "Lorem ipsum dolor sit amet, consectetur adipisicing elit."
+    },
+    {
+      "id": "content11",
+      "type": "textarea",
+      "label": "Content",
+      "info":"The content is showing in second column",
+      "default": "Lorem ipsum dolor sit amet, consectetur adipisicing elit."
+    },
+    {
+      "id": "content12",
+      "type": "textarea",
+      "label": "Content",
+      "info":"The content is showing in second column",
+      "default": "Lorem ipsum dolor sit amet, consectetur adipisicing elit."
+    }
 
-]
-}
+    ]
+  }
 
 
 
-]
+  ]
 
 }
 {% endschema %}

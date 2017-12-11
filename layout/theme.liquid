@@ -72,7 +72,7 @@
     <link href='//fonts.googleapis.com/css?family=Lato' rel='stylesheet' type='text/css'>
 
 
-    {{ 'jquery.fancybox.css' | asset_url | stylesheet_tag }}
+   {% comment %} {{ 'jquery.fancybox.css' | asset_url | stylesheet_tag }}{% endcomment %}
     {{ 'flexslider.css' | asset_url | stylesheet_tag }}
     {{ 'animate.css' | asset_url | stylesheet_tag }}
 
@@ -84,7 +84,7 @@
 
 
 
-    <script type="text/javascript" src="https://cdn.shopify.com/s/files/1/0824/6797/files/jquery.fancybox.pack.js?7348962287354414472"></script>
+    {% comment %}<script type="text/javascript" src="https://cdn.shopify.com/s/files/1/0824/6797/files/jquery.fancybox.pack.js?7348962287354414472"></script>{% endcomment %}
 
     <!-- Coin app by ShopPad -->
     <script type="text/javascript" src="//d1liekpayvooaz.cloudfront.net/apps/coin/coin.js?shop={{shop.permanent_domain}}"></script>
@@ -168,18 +168,24 @@
         {% for link in linklists.main-menu-new.links %}
         {% assign child_list_handle = link.title | handleize %}
         {% if linklists[child_list_handle].links != blank %}
-        <li class="mobile-nav__item{% if link.active %} mobile-nav__item--active{% endif %}" aria-haspopup="true">
+        <li class="mobile-nav__item {% if link.active %} mobile-nav__item--active{% endif %}" aria-haspopup="true">
           <div class="mobile-nav__has-sublist">
 
             <div class="mobile-nav__toggle">
               <div class="grid--full">
-                <div class="grid__item large--one-half medium--one-half small--one-half">
-                  <a href="#" class="mobile-nav__link">{{ link.title | replace: "Prosthetic", "" }}</a>
+                <div class="grid__item medium--eleven-twelfths small--eleven-twelfths">
+                  <a href="#" {% if link.title == 'Prosthetic Textiles' %}{% if collection.handle contains 'prosthetic-textiles' or collection.handle contains 'amputee-socks' or collection.handle contains 'stump-shrinkers' or collection.handle contains 'prosthetic-sheaths' or collection.handle contains 'cosmetic-hosiery' or collection.handle contains 'textile-accessories' %} class="current" {% endif %}{% endif %} 
+
+                {% if link.title == 'Personal Care & Equipment' %}{% if collection.handle contains 'personal-care' or collection.handle contains 'skin-care-treatments' or collection.handle contains 'prosthetic-cleansers' or collection.handle contains 'sweat-control' or collection.handle contains 'moisturizers' or collection.handle contains 'skin-care-collections' %} class="current" {% endif %}{% endif %}
+
+                {% if link.title == 'Sleeves, Liners & More' %}{% if collection.handle contains 'prosthesis-suspension' or collection.handle contains 'suspension-sleeves' or collection.handle contains 'suspension-belts' or collection.handle contains 'prosthetic-liners' or collection.handle contains 'suspension-accessories' or collection.handle contains 'slip-on-aids' %} class="current" {% endif %}{% endif %}
+
+                {% if link.title == 'Gel Solutions' %}{% if collection.handle contains 'prosthetic-gel-pads-sheaths-to-solve-fitting-issues' or collection.handle contains 'distal-end-prosthetic-gel-pads' or collection.handle contains 'gel-socks-sheaths-and-pads-to-adjust-socket-size' or collection.handle contains 'scar-and-wound-care' %} class="current" {% endif %}{% endif %} ><span class="parent-item">{{ link.title }}</span></a>
                 </div>
-                <div class="grid__item large--one-half medium--one-half small--one-half text-right">
+                <div class="grid__item medium--one-twelfth small--one-twelfth text-right">
                   <button type="button" class="icon-fallback-text mobile-nav__toggle-open">
                     <span class="fa fa-angle-down" aria-hidden="true"></span>
-                    <span class="fallback-text">See More</span>
+                    {% comment %}<span class="fallback-text">See More</span>{% endcomment %}
                   </button>
                   <button type="button" class="icon-fallback-text mobile-nav__toggle-close">
                     {% comment %}<span class="icon icon-minus" aria-hidden="true"></span>{% endcomment %}
@@ -197,23 +203,23 @@
           <ul class="mobile-nav__sublist">
             {% for childlink in linklists[child_list_handle].links %}
             <li class="mobile-nav__item {% if childlink.active %} mobile-nav__item--active{% endif %}">
-              <a href="{{ childlink.url }}" class="mobile-nav__link">{{ childlink.title | escape }}</a>
+              <a href="{{ childlink.url }}" class="mobile-nav__link"><span class="child-item">{{ childlink.title | escape }}</span></a>
             </li>
             {% endfor %}
           </ul>
         </li>
         {% else %}
-        <li class="mobile-nav__item{% if link.active %} mobile-nav__item--active{% endif %}">
-          <a href="{{ link.url }}" class="mobile-nav__link">{{ link.title }}</a>
+        <li class="mobile-nav__item {% if link.active %} mobile-nav__item--active{% endif %}">
+          <a href="{{ link.url }}" class="mobile-nav__link"><span>{{ link.title }}</span></a>
         </li>
         {% endif %}
         {% endfor %}
 
-        <div class="drawer__title h3 subtitle">Know-How</div>
+        {% comment %}<div class="drawer__title h3 subtitle">Know-How</div>{% endcomment %}
         <hr class="nav-separation">
         {% for link in linklists.know-how.links %}
-        <li class="mobile-nav__item subtitle-item{% if link.active %} mobile-nav__item--active{% endif %}">
-          <a href="{{ link.url }}" class="mobile-nav__link">{{ link.title }}</a>
+        <li class="mobile-nav__item subtitle-item">
+          <a href="{{ link.url }}" class="mobile-nav__link"><span>{{ link.title }}</span> <span class="fa fa-angle-right"></span></a> 
         </li>
         {% endfor %}
         <!-- Coin app by ShopPad -->
@@ -295,11 +301,11 @@
           <div class="top-row">
             <div class="move-right">
 
-              <div class="grid__item large--two-quarters">
+              <div class="grid__item large--two-quarters nav-first-collumn">
                 {% include 'search-bar' %}
               </div>
 
-              <div class="grid__item large--one-quarter">
+              <div class="grid__item large--one-quarter nav-second-collumn">
                 <ul class="social-menu">
                   <li> 
                     <span id="content">{{settings.content-header}}</span>
@@ -317,11 +323,11 @@
                 <!-- add dropdown menu -->    
                 <nav id="primary_nav_wrap">
                   <ul>
-                    <li><a href="/account">account <i class="fa fa-angle-down" aria-hidden="true"></i></a>
+                    <li><a href="#">account <i class="fa fa-angle-down" aria-hidden="true"></i></a>
                       <ul>
                         <li><a href="/account">Your Orders</a></li>
-                        <li><a href="#">Manage Autoship</a></li>
-                        <li><a href="#">Your Inner Circle Rewards</a></li>
+                        <li><a href="/account/login?manage-subscriptions">Manage Autoship</a></li>
+                        <li><a href="/pages/inner-circle-rewards">Your Inner Circle Rewards</a></li>
                       </ul>
                     </li>
                   </ul>
@@ -334,15 +340,15 @@
                     <div id="cart">
                       {% if template == "cart" %}
                       {% comment %}<i class="fa fa-shopping-cart"></i>{% endcomment %}
-                       <img class="img-responsive" src="{{ 'shopping-cart.png' | asset_url }}" alt="cart">
+                      <img class="img-responsive" src="{{ 'shopping-cart.png' | asset_url }}" alt="cart">
                       <span class="icon-cart-count" id="CartCount">{{ cart.item_count }}</span>
                       <span id="label">Cart</span>
                       {%else%}
                       <a href="/cart" class="js-drawer-open-right" >
                         {% comment %}<i class="fa fa-shopping-cart"></i>{% endcomment %}
-                          <img class="img-responsive" src="{{ 'shopping-cart.png' | asset_url }}" alt="cart">
+                        <img class="img-responsive" src="{{ 'shopping-cart.png' | asset_url }}" alt="cart">
                         <span class="icon-cart-count" id="CartCount">{{ cart.item_count }}</span>
-                       <span id="label">Cart</span>
+                        <span id="label">Cart</span>
                       </a>
                       {%endif%}
 
@@ -369,7 +375,7 @@
             <ul class="main-menu">
               {% for link in linklists.main-menu-new.links %}
               {% assign child_list_handle = link.title | handle %}
-     
+
               {% if linklists[child_list_handle] and linklists[child_list_handle].links.size > 0 and link.title == "Resources" %}
               <li class="has-dropdown">
                 <a 
@@ -451,17 +457,17 @@
                 </li>
                 {%endif%}
                 <li>    
-                  <div class="help-item"><a href="#">?</a></div>
+                 <a href="https://help.amputeestore.com/portal/home"><i class="fa fa-question-circle" aria-hidden="true"></i></a>
                 </li>
                 <li> 
                  <div id="cart-main">
                   <div id="cart">
                     {% if template == "cart" %}
-                    <i class="fa fa-shopping-cart"></i>
+                     <img class="img-responsive" src="{{ 'shopping-cart.png' | asset_url }}" alt="cart">
                     <span class="icon-cart-count" id="CartCount2">{{ cart.item_count }}</span>
                     {%else%}
                     <a href="/cart" class="js-drawer-open-right" >
-                      <i class="fa fa-shopping-cart"></i>
+                       <img class="img-responsive" src="{{ 'shopping-cart.png' | asset_url }}" alt="cart">
                       <span class="icon-cart-count" id="CartCount2">{{ cart.item_count }}</span>
                       
                     </a>
@@ -628,18 +634,24 @@
           {{ 'fastclick.min.js' | asset_url | script_tag }}
           {{ 'timber.js' | asset_url | script_tag }}
           {{ 'custom.js' | asset_url | script_tag }}
-          {{ 'slick.min.js' | asset_url | script_tag }}
+         
 
           {% comment %}{% if template contains 'product' %}
           {{ 'imagezoom.js' | asset_url | script_tag }}
           {% endif %}{% endcomment %}
           {{ 'cloudzoom.js' | asset_url | script_tag }}
 
+           {{ 'slick.min.js' | asset_url | script_tag }}
+
 
           <script>
             $( document ).ready(function() {
               $('#size-chart img').wrapAll('<div class="sizeguide-slideshow" />');
-              $('#size-chart img').wrap('<div>');      
+              $('#size-chart img').wrap('<div>');  
+			  
+			    $('#size-chart-xs img').wrapAll('<div class="sizeguide-slideshow" />');
+              $('#size-chart-xs img').wrap('<div>'); 
+    
 
               $('.homepage-slideshow').slick({
                 dots: true,
@@ -743,18 +755,44 @@
           });
         });
 
-        jQuery('body').on('ajaxCart.afterCartLoad', function(evt, cart) {
+
+  jQuery('body').on('ajaxCart.afterCartLoad', function(evt, cart) {
         // Bind to 'ajaxCart.afterCartLoad' to run any javascript after the cart has loaded in the DOM
+         
+        //Begin Get a customer's location
+        jQuery.ajax( {
+          url: '//freegeoip.net/json/',
+          type: 'POST',
+          dataType: 'jsonp',
+          success: function(location) {
+        // If the visitor is browsing from US.
+        if (location.country_code === 'US') {
+      // US message.
+      $( ".us-message" ).show();
+      $( ".us-shipping-message" ).show();
+    }
+      // If the visitor is browsing outside of the US.
+      else {
+        $( ".int-shipping-message" ).show();
+        $( ".international-green-text" ).show();
+      }
+    }
+  } );  
+  //End Get a customer's location
+
         timber.RightDrawer.open();
       });
-    </script>
-    {% endif %}
 
-    <script type="text/javascript">
+</script>
+{% endif %}
+
+
+
+    {% comment %}<script type="text/javascript">
       $(document).ready(function() {
         $(".fancybox").fancybox();
       });
-    </script>
+    </script>{% endcomment %}
 
     <input type="hidden" name="_pc_params" value="{{ shop.permanent_domain }}:{{ customer.id }}" />
 
@@ -804,11 +842,10 @@
 
       $('#slider').flexslider({
         animation: "slide",
-        controlNav: false,
         animationLoop: false,
-        slideshow: false,
-        controlNav: "thumbnails",
-        sync: "#carousel"
+        slideshow: false
+        // controlNav: "thumbnails",
+        // sync: "#carousel"
       });
 
     });
@@ -900,6 +937,7 @@
   </script>
   {% endunless %}
   {% comment %}xs subcollections filters{% endcomment %}
+
 
 </body>
 </html>

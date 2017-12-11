@@ -27,6 +27,14 @@
                   {{/if}}
                   
                   {{{bold_recurring_desc}}}
+
+                  {{#properties}}
+                    {{#each this}}
+                      {{#if this}}
+                        <span class="ajaxcart__product-meta product-delay">{{@key}}: {{this}}</span>
+                      {{/if}}
+                    {{/each}}
+                  {{/properties}}
                   
                   {% endraw %}{% if settings.cart_vendor_enable %}{% raw %}
                   <span class="ajaxcart__product-meta">{{ vendor }}</span>
@@ -62,6 +70,37 @@
         </div>
         {% endraw %}{% endif %}{% raw %}
       </div>
+
+
+      <div id="bar-box" >
+
+        <div class="us-shipping-message" style="display:none">
+          <p>{{{shippingMessageHTML}}}</p>
+            <span>$0</span><span class="max">$50</span>
+            <div id="progressbar">
+              <div class="line1">|</div>
+              <div class="line2">|</div>
+              <div class="line3">|</div>
+              <div class="meter" style="width: calc(100% - {{usRange}}%);"></div>
+            </div>
+        </div>
+        
+        <div class="int-shipping-message" style="display:none"">
+          <p>{{{intShippingMessage}}}</p>
+          <span>$0</span><span class="max">$350</span>
+          <div id="progressbar">
+            <div class="line1">|</div>
+            <div class="line2">|</div>
+            <div class="line3">|</div>
+            <div class="meter" style="width: calc(100% - {{intRange}}%);"></div>
+          </div>
+        </div>
+
+      </div>
+
+
+
+
       <div class="ajaxcart__footer">
         <div class="grid">
           <div class="grid__item two-thirds">
@@ -72,44 +111,53 @@
           </div>
         </div>
 
-        <p class="green-text">{% endraw %}{{ 'cart.general.shipping_at_checkout' | t }}{% raw %}</p>
-        <p>Shipping and taxes calculated at checkout.</p>
-        <button type="submit" class="btn btn--full cart__checkout" name="checkout">
-          {% endraw %}{{ 'cart.general.checkout' | t }}{% raw %}
-        </button>
-        {% endraw %}{% if additional_checkout_buttons and show_paypal %}
-        <p class="separation-line"><span>OR</span></p>
-        <div>{{ content_for_additional_checkout_buttons }}</div>
-        {% endif %}{% raw %}
-      </div>
-      
-      
-      
-      <div class="shipping-rates-calculator-desktop-container shipping-rates-calculator-mobile-container"></div>
-    </form>
-    {% endraw %}
+        <div class="us-message" style="display:none">
+          <p class="green-text" >{% endraw %}{{ 'cart.general.shipping_at_checkout' | t }}{% raw %}</p>
+          <p>Shipping and taxes calculated at checkout.</p>
+        </div>
+        
+        <div class="international-green-text" style="display:none">
+          {% endraw %}{{ settings.international-message }}{% raw %}
+       </div>
 
-    <script>
-      $("#paypal-express-button").prepend('CHECK OUT WITH ');
-    </script>
-
-
-  </script>
-  <script id="AjaxQty" type="text/template">
-    {% raw %}
-    <div class="ajaxcart__qty">
-      <button type="button" class="ajaxcart__qty-adjust ajaxcart__qty--minus" data-id="{{id}}" data-qty="{{itemMinus}}">&minus;</button>
-      <input type="text" name="updates[]" class="ajaxcart__qty-num" value="{{itemQty}}" min="0" data-id="{{id}}" aria-label="quantity" pattern="[0-9]*">
-      <button type="button" class="ajaxcart__qty-adjust ajaxcart__qty--plus" data-id="{{id}}" data-qty="{{itemAdd}}">+</button>
+       <button type="submit" class="btn btn--full cart__checkout" name="checkout">
+        {% endraw %}{{ 'cart.general.checkout' | t }}{% raw %}
+      </button>
+      {% endraw %}{% if additional_checkout_buttons and show_paypal %}
+      <p class="separation-line"><span>OR</span></p>
+      <div>{{ content_for_additional_checkout_buttons }}</div>
+      {% endif %}{% raw %}
     </div>
-    {% endraw %}
+
+
+
+    <div class="shipping-rates-calculator-desktop-container shipping-rates-calculator-mobile-container"></div>
+  </form>
+  {% endraw %}
+
+  <script>
+    $("#paypal-express-button").prepend('CHECK OUT WITH ');
   </script>
-  <script id="JsQty" type="text/template">
-    {% raw %}
-    <div class="js-qty">
-      <button type="button" class="js-qty__adjust js-qty__adjust--minus" data-id="{{id}}" data-qty="{{itemMinus}}">&minus;</button>
-      <input type="text" class="js-qty__num" value="{{itemQty}}" min="1" data-id="{{id}}" aria-label="quantity" pattern="[0-9]*" name="{{inputName}}" id="{{inputId}}">
-      <button type="button" class="js-qty__adjust js-qty__adjust--plus" data-id="{{id}}" data-qty="{{itemAdd}}">+</button>
-    </div>
-    {% endraw %}
-  </script>
+
+
+</script>
+<script id="AjaxQty" type="text/template">
+  {% raw %}
+  <div class="ajaxcart__qty">
+    <button type="button" class="ajaxcart__qty-adjust ajaxcart__qty--minus" data-id="{{id}}" data-qty="{{itemMinus}}">&minus;</button>
+    <input type="text" name="updates[]" class="ajaxcart__qty-num" value="{{itemQty}}" min="0" data-id="{{id}}" aria-label="quantity" pattern="[0-9]*">
+    <button type="button" class="ajaxcart__qty-adjust ajaxcart__qty--plus" data-id="{{id}}" data-qty="{{itemAdd}}">+</button>
+  </div>
+  {% endraw %}
+</script>
+<script id="JsQty" type="text/template">
+  {% raw %}
+  <div class="js-qty">
+    <button type="button" class="js-qty__adjust js-qty__adjust--minus" data-id="{{id}}" data-qty="{{itemMinus}}">&minus;</button>
+    <input type="text" class="js-qty__num" value="{{itemQty}}" min="1" data-id="{{id}}" aria-label="quantity" pattern="[0-9]*" name="{{inputName}}" id="{{inputId}}">
+    <button type="button" class="js-qty__adjust js-qty__adjust--plus" data-id="{{id}}" data-qty="{{itemAdd}}">+</button>
+  </div>
+  {% endraw %}
+</script>
+
+

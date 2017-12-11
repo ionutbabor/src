@@ -341,6 +341,7 @@ ShopifyAPI.changeItem = function(variant_id, quantity, callback) {
         img: prodImg,
         name: prodName,
         variation: prodVariation,
+        properties: cartItem.properties,
         itemAdd: itemAdd,
         itemMinus: itemMinus,
         itemQty: itemQty,
@@ -356,7 +357,13 @@ ShopifyAPI.changeItem = function(variant_id, quantity, callback) {
     data = {
       items: items,
       note: cart.note,
-      totalPrice: Shopify.formatMoney(cart.total_price, settings.moneyFormat)
+      totalPrice: Shopify.formatMoney(cart.total_price, settings.moneyFormat),
+    //show message on ajax cart depends of country code
+      shippingMessageHTML: cart.total_price < 5000 ? 'Only ' + Shopify.formatMoney(5000 - cart.total_price, settings.moneyFormat) + ' to go for FREE SHIPING!' : "You've got FREE SHIPPING!" ,
+      intShippingMessage: cart.total_price < 35000 ? 'Only ' + Shopify.formatMoney(35000 - cart.total_price, settings.moneyFormat) + ' to go for FREE SHIPING!' : "You've got FREE SHIPPING!" ,
+      usRange: (5000 - cart.total_price)*100/5000 > 0 ? (5000 - cart.total_price)*100/5000 : 0,
+      intRange: (35000 - cart.total_price)*100/35000 > 0 ? (35000 - cart.total_price)*100/35000 : 0,
+    //end message on ajax cart depends of country code
     }
 
     $cartContainer.append(template(data));

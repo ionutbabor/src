@@ -21,25 +21,25 @@ For info on test orders:
     <div class="cart__row medium-down--hide cart__header-labels">
       <div class="grid--full">
         <div class="grid__item large--one-half">
-      
-            <div class="grid__item two-thirds push--one-third">
-              {{ 'cart.label.product' | t }}
-            </div>
-       
+
+          <div class="grid__item two-thirds push--one-third">
+            {{ 'cart.label.product' | t }}
+          </div>
+
         </div>
         <div class="grid__item large--one-half">
-         
-            <div class="grid__item one-third medium-down--one-third">
-              {{ 'cart.label.price' | t }}
-            </div>
-            <div class="grid__item one-third medium-down--one-third text-center">
-              {{ 'cart.label.quantity' | t }}
-            </div>
-            <div class="grid__item one-third medium-down--one-third text-right">
-              {{ 'cart.label.total' | t }}
-            </div>
+
+          <div class="grid__item one-third medium-down--one-third">
+            {{ 'cart.label.price' | t }}
           </div>
-     
+          <div class="grid__item one-third medium-down--one-third text-center">
+            {{ 'cart.label.quantity' | t }}
+          </div>
+          <div class="grid__item one-third medium-down--one-third text-right">
+            {{ 'cart.label.total' | t }}
+          </div>
+        </div>
+
       </div>
     </div>
 
@@ -58,10 +58,10 @@ For info on test orders:
     <div class="grid--full cart__row--table-large">
 
       <div class="grid__item large--one-half">
-    
 
-          <div class="grid__item one-third">
-            <a href="{{ item.url | within: collections.all }}" class="cart__image">
+
+        <div class="grid__item one-third">
+          <a href="{{ item.url | within: collections.all }}" class="cart__image">
 
               {% comment %}
               More image size options at:
@@ -74,17 +74,16 @@ For info on test orders:
 
           <div class="grid__item two-thirds info-collumn">
             <div class="description">
-            <a href="{{ item.url }}" class="h4">
-              {{ item.product.title }}
-            </a>
-            {% unless item.variant.title contains 'Default' %}
-            <br>
-            <small>{{ item.variant.title }}</small>
-            {% endunless %}
+              <a href="{{ item.url }}" class="h4">
+                {{ item.product.title }}
+              </a>
+              {% unless item.variant.title contains 'Default' %}
+              <small>{{ item.variant.title }}</small>
+              {% endunless %}
 
-            {% if settings.cart_vendor_enable %}
-            <p>{{ item.vendor }}</p>
-            {% endif %}
+              {% if settings.cart_vendor_enable %}
+              <p>{{ item.vendor }}</p>
+              {% endif %}
 
             {% comment %}
             Optional, loop through custom product line items if available
@@ -96,7 +95,7 @@ For info on test orders:
             {% if item.properties.frequency_num %}
             <script>mixed_cart = true;</script>
             <br>
-            <span class="bold_ro_every">Every</span>
+            <span class="bold_ro_every">Ship every</span>
             <input type="hidden" name="{{ prod_index }}[number]" value="{{ item.properties.frequency_num }}" />
             <span class="bold_ro_frequency_num">{{ item.properties.frequency_num }}</span>
             {% endif %}
@@ -113,6 +112,14 @@ For info on test orders:
             {% if item.properties._ro_unformatted_price %}
             <br><span class="bold_ro_discounted_price">Discounted Price</span>
             <span class="discounted_price_in_cart">{{ item.properties._ro_unformatted_price | money }}</span> <span class="bold_ro_each">each</span>
+            {% elsif item.properties %}
+
+            <p class="product-delay">
+              {% for p in item.properties %}
+              {{ p }}
+              {% endfor %}
+            </p>
+
             {% endif %}
             <!-- bold-ro-liquid -->
 
@@ -120,9 +127,9 @@ For info on test orders:
               <small>{{ 'cart.general.remove' | t }}</small>
             </a>
           </div>
-          </div>
+        </div>
 
-    
+
       </div>
 
       <div class="grid__item large--one-half">
@@ -135,13 +142,13 @@ For info on test orders:
 
           <div class="grid__item one-third text-center">
             <div class="border-box">
-            <span class="cart__mini-labels qty">{% comment %}{{ 'cart.label.quantity' | t }}{% endcomment %}Qty: </span>
-            {% comment %}<input type="number" name="updates[]" id="updates_{{ item.id }}" value="{{ item.quantity }}" min="0">{% endcomment %}
-            <select id="updates_{{ item.id }}" name="updates[]" class="quantity"> 
-              {% for i in (1..10) %} {% assign q = i %}
-              <option value="{{ q }}"{% if item.quantity == q %} selected{% endif %}>{{ i }}</option>
-              {% endfor %}
-            </select>
+              <span class="cart__mini-labels qty">{% comment %}{{ 'cart.label.quantity' | t }}{% endcomment %}Qty: </span>
+              {% comment %}<input type="number" name="updates[]" id="updates_{{ item.id }}" value="{{ item.quantity }}" min="0">{% endcomment %}
+              <select id="updates_{{ item.id }}" name="updates[]" class="quantity"> 
+                {% for i in (1..10) %} {% assign q = i %}
+                <option value="{{ q }}"{% if item.quantity == q %} selected{% endif %}>{{ i }}</option>
+                {% endfor %}
+              </select>
             </div>
           </div>
 
@@ -176,46 +183,96 @@ For info on test orders:
       </div>
 
       <div class="grid__item large--one-third medium--one-whole small--one-whole">
-       <p>All orders are processed in {{ shop.currency }} at the most recent exchange rate available.</p>
+       {% comment %}<p>All orders are processed in {{ shop.currency }} at the most recent exchange rate available.</p>
         <p><b>International taxes &amp; duties</b> are the responsibility of the buyer and are not pre-paid.  Please read <a href="/pages/shipping-information" target="_blank">our Shipping Policy.</a></p>
-        <p>Domestic shipping &amp; taxes calculated at checkout.</p>
+        <p>Domestic shipping &amp; taxes calculated at checkout.</p>{% endcomment %}
       </div>
 
       <div class="grid__item text-right{% if settings.cart_notes_enable %} large--one-half{% endif %} large--one-third medium--one-whole small--one-whole">
-        <div class="border-line">
-        <p>
-          <span class="cart__subtotal-title">{{ 'cart.general.subtotal' | t }}</span>
-          <span class="h3 cart__subtotal">{{ ro_cart_total | money }}</span>
-        </p>
-        
-        <p><em>{{ 'cart.general.shipping_at_checkout' | t }}</em></p>
-        <p>Shipping &amp; taxes calculated at checkout.</p>
-        <input name="shopify_customer_id" type="hidden" value="{{ customer.id }}" > 
-        <input name="email" type="hidden" value="{{ customer.email }}" > 
-        <input name="address1" type="hidden" value="{{ customer.default_address.address1 }}" > 
-        <input name="address2" type="hidden" value="{{ customer.default_address.address2 }}" > 
-        <input name="city" type="hidden" value="{{ customer.default_address.city }}" > 
-        <input name="company" type="hidden" value="{{ customer.default_address.company }}" > 
-        <input name="country" type="hidden" value="{{ customer.default_address.country }}" > 
-        <input name="first_name" type="hidden" value="{{ customer.default_address.first_name }}" > 
-        <input name="last_name" type="hidden" value="{{ customer.default_address.last_name }}" > 
-        <input name="phone" type="hidden" value="{{ customer.default_address.phone }}" > 
-        <input name="province" type="hidden" value="{{ customer.default_address.province }}" > 
-        <input name="zip" type="hidden" value="{{ customer.default_address.zip }}" >
-        {% include 'bold-ro-cart' %}
-        <input type="submit" name="update" class="btn--secondary update-cart" value="{{ 'cart.general.update' | t }}">
-        <input type="submit" name="checkout" class="btn" value="{{ 'cart.general.checkout' | t }}">
-        
-        {% if additional_checkout_buttons and show_paypal %}
-        <p class="separation-line"><span>OR</span></p>
-        <div class="text-center">{{ content_for_additional_checkout_buttons }}</div>
-        {% endif %}
 
+        {% assign us_amount = 5000 %}
+        {% assign int_amount = 35000 %}
+
+        <div id="bar-box" >
+
+         <div class="us-shipping-message" style="display:none">
+          {% if cart.total_price < us_amount %}
+          {% assign us_bar = us_amount | minus: cart.total_price | times: 100 | divided_by: us_amount %}
+          <p>Only {{ us_amount | minus: cart.total_price | money }} to go for FREE SHIPING!</p>
+          {% else %}
+          <p class="green-text">You've got FREE SHIPPING!</p>
+          {% endif %}
+          <p><span class="min">$0</span><span class="max">$50</span></p>
+          
+          <div id="progressbar">
+            <div class="line1">|</div>
+            <div class="line2">|</div>
+            <div class="line3">|</div>
+            <div class="meter" style="width: calc(100% - {{us_bar}}%);"></div>
+          </div>
+        </div>
+
+        <div class="int-shipping-message" style="display:none"">
+         {% if cart.total_price < int_amount %}
+         {% assign int_bar = int_amount | minus: cart.total_price | times: 100 | divided_by: int_amount %}
+         <p>Only {{ int_amount | minus: cart.total_price | money }} to go for FREE SHIPING!</p>
+         {% else %}
+         {% assign int_bar = 0 %}
+         <p class="green-text">You've got FREE SHIPPING!</p>
+
+         {% endif %}
+         <p><span class="min">$0</span><span class="max">$350</span></p>
+         <div id="progressbar">
+          <div class="line1">|</div>
+          <div class="line2">|</div>
+          <div class="line3">|</div>
+          <div class="meter" style="width: calc(100% - {{int_bar}}%);"></div>
+        </div>
       </div>
-      </div>
+
     </div>
 
-  </div>
+    <div class="border-line">
+      <p>
+        <span class="cart__subtotal-title">{{ 'cart.general.subtotal' | t }}</span>
+        <span class="h3 cart__subtotal">{{ ro_cart_total | money }}</span>
+      </p>
+
+      <div class="cart-us-message" style="display:none">
+        <p class="green-text" >{{ 'cart.general.shipping_at_checkout' | t }}</p>
+        <p>Shipping and taxes calculated at checkout.</p>
+      </div>
+
+      <div class="cart-int-message" style="display:none">
+       {{ settings.international-message }}
+     </div>
+
+     <input name="shopify_customer_id" type="hidden" value="{{ customer.id }}" > 
+     <input name="email" type="hidden" value="{{ customer.email }}" > 
+     <input name="address1" type="hidden" value="{{ customer.default_address.address1 }}" > 
+     <input name="address2" type="hidden" value="{{ customer.default_address.address2 }}" > 
+     <input name="city" type="hidden" value="{{ customer.default_address.city }}" > 
+     <input name="company" type="hidden" value="{{ customer.default_address.company }}" > 
+     <input name="country" type="hidden" value="{{ customer.default_address.country }}" > 
+     <input name="first_name" type="hidden" value="{{ customer.default_address.first_name }}" > 
+     <input name="last_name" type="hidden" value="{{ customer.default_address.last_name }}" > 
+     <input name="phone" type="hidden" value="{{ customer.default_address.phone }}" > 
+     <input name="province" type="hidden" value="{{ customer.default_address.province }}" > 
+     <input name="zip" type="hidden" value="{{ customer.default_address.zip }}" >
+     {% include 'bold-ro-cart' %}
+     <input type="submit" name="update" class="btn--secondary update-cart" value="{{ 'cart.general.update' | t }}">
+     <input type="submit" name="checkout" class="btn" value="{{ 'cart.general.checkout' | t }}">
+
+     {% if additional_checkout_buttons and show_paypal %}
+     <p class="separation-line"><span>OR</span></p>
+     <div class="text-center">{{ content_for_additional_checkout_buttons }}</div>
+     {% endif %}
+
+   </div>
+ </div>
+</div>
+
+</div>
 
 </form>
 
@@ -229,12 +286,12 @@ For info on test orders:
 The cart is empty
 {% endcomment %}
 <div class="grid--full grid-padding text-center">
-<h2 class="text-left">{{ 'cart.general.title' | t }}</h2>
-<h2 class="subtitle">{{ settings.cart_subtitle}}</h2>
-<p class="paragraph">{{ 'cart.general.empty' | t }}</p>
-{{ 'empty_cart.png' | asset_url | img_tag , 'empty-cart', 'img-empty-cart'}}
-{% comment %}<p>{{ 'cart.general.continue_browsing_html' | t }}</p>{% endcomment %}
-<p><a class="btn empty-cart-btn" href="/collections/all">Continue shopping</a></p>
+  <h2 class="text-left">{{ 'cart.general.title' | t }}</h2>
+  <h2 class="subtitle">{{ settings.cart_subtitle}}</h2>
+  <p class="paragraph">{{ 'cart.general.empty' | t }}</p>
+  {{ 'empty_cart.png' | asset_url | img_tag , 'empty-cart', 'img-empty-cart'}}
+  {% comment %}<p>{{ 'cart.general.continue_browsing_html' | t }}</p>{% endcomment %}
+  <p><a class="btn empty-cart-btn" href="/collections/all">Shop by Amputation Level</a></p>
 
 </div>
 {% endif %}
@@ -250,4 +307,28 @@ The cart is empty
 
   $("#paypal-express-button").prepend('CHECK OUT WITH ');
 
+</script>
+
+
+<script>
+  //Begin Get a customer's location
+  jQuery.ajax( {
+    url: '//freegeoip.net/json/',
+    type: 'POST',
+    dataType: 'jsonp',
+    success: function(location) {
+        // If the visitor is browsing from US.
+        if (location.country_code === 'US') {
+      // US message.
+      $( ".cart-us-message" ).show();
+      $( ".us-shipping-message" ).show();
+    }
+      // If the visitor is browsing outside of the US.
+      else {
+        $( ".int-shipping-message" ).show();
+        $( ".cart-int-message" ).show();
+      }
+    }
+  } );  
+  //End Get a customer's location
 </script>

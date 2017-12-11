@@ -67,17 +67,17 @@
         <!-- //mobile-nav -->
 
         {%else%}
-        <h4 class="large--hide"><a class="all-categories" href="/collections/all" >< all Prosthetic Categories</a></h4>
+        <h4 class="large--hide"><a class="all-categories" href="/collections/all" ><i class="fa fa-angle-left" aria-hidden="true"></i> all Prosthetic Categories</a></h4>
         {%endif%}
 
         {% if collection.handle contains 'personal-care' %}
-        <h2 style="border-bottom: 2px solid {{ settings.link_color }}"><a href="/collections/personal-care" >{{collections.personal-care.title}}</a></h2>
+        <h2><a href="/collections/personal-care" style="border-bottom: 2px solid {{ settings.link_color }}">{{collections.personal-care.title}}</a></h2>
         {% elsif collection.handle contains 'prosthetic-textiles' %}     
-        <h2 style="border-bottom: 2px solid {{ settings.link_color }}"><a href="/collections/prosthetic-textiles" >{{collections.prosthetic-textiles.title}}</a></h2>
+        <h2><a href="/collections/prosthetic-textiles" style="border-bottom: 2px solid {{ settings.link_color }}">{{collections.prosthetic-textiles.title}}</a></h2>
         {% elsif collection.handle contains 'prosthesis-suspension' %}
-        <h2 style="border-bottom: 2px solid {{ settings.link_color }}"><a href="/collections/prosthesis-suspension" >{{collections.prosthesis-suspension.title}}</a></h2>
+        <h2><a href="/collections/prosthesis-suspension" style="border-bottom: 2px solid {{ settings.link_color }}">{{collections.prosthesis-suspension.title}}</a></h2>
         {% elsif collection.handle contains 'prosthetic-gel-pads-sheaths-to-solve-fitting-issues' %}      
-        <h2 style="border-bottom: 2px solid {{ settings.link_color }}"><a href="/collections/prosthetic-gel-pads-sheaths-to-solve-fitting-issues" >{{collections.prosthetic-gel-pads-sheaths-to-solve-fitting-issues.title}}</a></h2>
+        <h2><a href="/collections/prosthetic-gel-pads-sheaths-to-solve-fitting-issues" style="border-bottom: 2px solid {{ settings.link_color }}">{{collections.prosthetic-gel-pads-sheaths-to-solve-fitting-issues.title}}</a></h2>
         {% comment %}{% elsif collection.handle contains 'featured-products' %}
         <h2 style="width: 300px;"><a href="/collections/featured-products" >Featured Amputee Supplies</a></h2>{% endcomment %}
         {% endif %}

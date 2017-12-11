@@ -2,7 +2,7 @@
   
   {% assign alt_text = product.featured_image.alt %}
 
-  <a href="{{ product.url | within: collection }}" title="{{ product.title | escape }}">
+  <a class="{% if product.available %}{% else %}out-of-stock{% endif %}"href="{{ product.url | within: collection }}" title="{{ product.title | escape }}">
     <div class="relative product_image">
       <img src="{{ product.featured_image | product_img_url: 'large' }}" alt="{{ alt_text | escape }}" />
 
@@ -10,6 +10,12 @@
       <p class="h6">
        {{ product.title }}
      </p>
+
+     {% if product.available %}
+    {%else%}
+    <b>Out of stock</b>
+    {% endif %}
+
    </div>
 
    
