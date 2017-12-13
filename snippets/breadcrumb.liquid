@@ -12,7 +12,10 @@
   {% endunless %}{% endcomment %}
 
   {% if template contains 'collection' %}
+
+  {% unless collection.handle contains 'warehouse-deals' %}
   <span aria-hidden="true">&rsaquo;</span>
+  {% endunless %}
 
   {% if collection.handle contains 'prosthetic-sheaths' or collection.handle contains 'amputee-socks' or collection.handle contains 'stump-shrinkers' or collection.handle contains 'cosmetic-hosiery' or collection.handle contains 'textile-accessories' %}
   <a href="/collections/prosthetic-textiles">{{collections.prosthetic-textiles.title}}</a>

@@ -233,13 +233,15 @@ timber.productPage = function (options) {
     // Select a valid variant if available
     if (variant.available) {
       // Available, enable the submit button, change text, show quantity elements
-      $addToCart.removeClass('disabled').prop('disabled', false);
+	   // $addToCart.removeClass('disabled').prop('disabled', false);
+       $addToCart.removeClass('disabled');
 	  // $addToCartText.html('<i class="fa fa-shopping-cart" style="margin-right: 20px;"></i>' + {{ 'products.product.add_to_cart' | t | json }});
       $addToCartText.html({{ 'products.product.add_to_cart' | t | json }});
       $quantityElements.show();
     } else {
       // Sold out, disable the submit button, change text, hide quantity elements
-      $addToCart.addClass('disabled').prop('disabled', true);
+	  // $addToCart.addClass('disabled').prop('disabled', true);
+      $addToCart.addClass('disabled');
       $addToCartText.html({{ 'products.product.sold_out' | t | json }});
     }
 
@@ -260,7 +262,8 @@ timber.productPage = function (options) {
     // This may be an error or notice that a specific variant is not available.
     // To only show available variants, implement linked product options:
     //   - http://docs.shopify.com/manual/configuration/store-customization/advanced-navigation/linked-product-options
-    $addToCart.addClass('disabled').prop('disabled', true);
+    // $addToCart.addClass('disabled').prop('disabled', true);
+	$addToCart.addClass('disabled');
     $addToCartText.html({{ 'products.product.unavailable' | t | json }});
   }
 };

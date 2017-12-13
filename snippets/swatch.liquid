@@ -50,11 +50,11 @@
         {% endif %}{% endcomment %}
         <input id="swatch-{{ option_index }}-{{ value | handle }}" type="radio" name="option-{{ option_index }}" value="{{ value | escape }}"{% comment %}{% if forloop.first %} checked{% endif %}{% endcomment %} {% unless variant.available %}disabled{% endunless %} />
         {% if is_color %}
-        <label for="swatch-{{ option_index }}-{{ value | handle }}" style="background-color: {{ value | split: ' ' | last | handle }}; background-image: url({{ value | handle | append: '.' | append: file_extension | asset_url }})">
+        <label class="swatch-variant" for="swatch-{{ option_index }}-{{ value | handle }}" style="background-color: {{ value | split: ' ' | last | handle }}; background-image: url({{ value | handle | append: '.' | append: file_extension | asset_url }})">
           <img class="crossed-out" src="{{ 'soldout.png' | asset_url }}" />
         </label>
         {% else %}
-        <label for="swatch-{{ option_index }}-{{ value | handle }}">
+        <label class="swatch-variant" for="swatch-{{ option_index }}-{{ value | handle }}">
           {{ value }}
           <img class="crossed-out" src="{{ 'soldout.png' | asset_url }}" />
         </label>

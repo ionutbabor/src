@@ -1,4 +1,5 @@
 <!-- /templates/customers/order.liquid -->
+<div class="grid--full grid-padding">
 
 <h1>{{ 'customer.account.title' | t }}</h1>
 
@@ -6,7 +7,7 @@
 
 <p><a href="/account">{{ 'customer.account.return' | t }}</a></p>
 
-<div class="grid">
+<div class="grid--full grid-padding">
 
   <div class="grid__item two-thirds medium-down--one-whole">
     <h4>{{ 'customer.order.title' | t: name: order.name }}</h4>
@@ -133,4 +134,5 @@
 
   </div>
 
+</div>
 </div>

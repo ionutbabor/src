@@ -1,0 +1,116 @@
+<!-- /templates/collection.warehouse.liquid -->
+{% paginate collection.products by 16 %}
+<div id="sub-collection">
+
+   <div id="top">
+    <div class="main-content">
+      <!-- left part -->
+      <div class="grid--full grid-padding">
+
+        <div class="grid__item large--one-whole title-filters medium--one-whole">
+          <h2>{{ collection.title }}</h2>
+        </div>
+        <!-- end left part -->
+
+        <!-- right part -->
+      
+        <!--end right part -->
+
+      </div> <!-- main-content -->
+      <hr class="first-line">
+    </div>
+  </div><!-- #top -->
+
+  <!-- begin breadcrumb -->
+  {% include 'breadcrumb' %}
+  <!-- end breadcrumb -->
+
+
+  <!-- begin filter -->
+  {% include 'toolbar' %}
+  <!-- end filter -->
+
+  <div class="grid--full grid-padding">
+    <div class="grid__item large--one-half medium--one-half">
+     <!--  <h2 id="title-collection-current">{{collection.title | replace: "for Amputees", ""}}</h2> -->
+   </div>
+   <div class="grid__item large--one-half text-right  medium--one-half">
+    
+  </div>  
+</div>
+
+
+<!-- begin grid uniform -->
+<div class="grid--full grid-padding">
+  {% assign products = collection.products %}
+  {% for product in products limit:8 %}
+
+  {% include 'bold-product' with product, hide_action: 'skip' %}
+  {% include 'product-grid-item' %}
+  {% endfor %}
+
+</div>
+<!-- end grid uniform -->
+
+
+
+
+<!-- new pagination -->
+<div class="pagination">
+  {% if paginate.previous %}
+  <a class="pagination-item" style="display: inline-block;" href="{{ paginate.previous.url }}"><img src="{{ 'arrow-left.png' | asset_url }}"><span class="arrow-text">Back</span></a>
+  {% endif %}
+  {% for part in paginate.parts %}
+  {% if part.is_link %}
+  <span class="page"> 
+    <a href="{{ part.url }}">{{ part.title }}</a>
+  </span>
+  {% else %}
+  {% if part.title == '&hellip;' %}
+  {{ part.title }}
+  {% else %}
+  <span class="current page">{{ part.title }}</span>
+  {% endif %}
+  {% endif %}
+  {% endfor %}
+  {% if paginate.next %}
+  <a class="pagination-item" style="display: inline-block;" href="{{ paginate.next.url }}"><span class="arrow-text">Next</span> <img src="{{ 'arrow-right.png' | asset_url }}"></a>
+  {% endif %}
+</div>
+{% endpaginate %}
+<!-- end new pagination -->
+
+
+</div><!-- #sub-collection -->
+
+<!-- Yotpo Style for Collection Star Rating -->
+{% comment %}<style>
+div.yotpo.bottomLine .pull-left {
+  float: none;
+  margin: 0 5px 5px 0; 
+}
+div.yotpo.bottomLine.yotpo-small {
+  display: block;
+  margin: 0 5px 5px 0; 
+}
+.yotpo a.text-m {
+  display: inline-block;
+}
+</style>{% endcomment %}
+
+<hr>
+
+{% comment %}begin list menu only for mobile{% endcomment %}
+{% section 'mobile-warehouse-others' %}
+{% comment %}end  list menu only for mobile{% endcomment %}
+
+<div class="grid--full grid-padding">
+  <div id="colect-descr">
+    <h1>{{ collection.title | append: " from amputeestore.com"}}</h1>
+    {{ collection.description }}
+  </div> 
+</div> 
+
+{% include 'top-of-page' %} 
+
+{{ 'bootstrap.min.js' | asset_url | script_tag }} 

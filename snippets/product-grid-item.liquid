@@ -20,7 +20,7 @@
 <div class="grid__item large--one-quarter medium--one-half small--one-half product-grid">
   <div class="thumbnail {% cycle '', '', '', '', 'border1','border2','border3','border4' %} {% if product.available %}{%else%}out-of-stock{%endif%}" >
     <!-- begin staff pick badge -->
-    {% if product.tags contains 'STAFF PICK' %}
+    {% if product.tags contains 'staff-pick' %}
     <div id="corner">
       <img src="{{ 'logo-xs-small.png' | asset_url }}" alt="logo-small"> <span>STAFF PICK</span>
     </div>
@@ -43,7 +43,7 @@
     {% endif %}
 
     {% if product.available %}
-    <b>{{ bold_price | money }}</b>
+    <b {% if collection.handle contains 'warehouse-deals' %} style="color:#F1361D;" {% endif %}>{{ bold_price | money }}</b>
     <s>{{ bold_compare_at_price | money }}</s>
     {%else%}
     <b>Out of stock</b>

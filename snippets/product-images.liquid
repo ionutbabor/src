@@ -5,32 +5,32 @@
   <div class="my-visible-xs">
     <h1 itemprop="name">{{ product.title }}</h1>
 
-    <div class="grid--full">
-      <div class="grid__item medium--one-third small--one-whole">
-        <p class="vendor-title"> by {{ product.vendor | link_to_vendor }}</p>
-        {% comment %}<p class="vendor-title">by {{ product.vendor | replace: "-", " " | link_to_vendor }}</p>{% endcomment %}
-      </div>
+    <div class="vendor-line">
 
-      <div class="grid__item medium--one-third small--one-half">
+          <p class="vendor-title">by <a href="/collections/{{product.vendor | replace: " ", "-" | downcase }}">{{ product.vendor | replace: "-", " " }}</a></p>
+          {% comment %}<p class="vendor-title">by {{ product.vendor | replace: "-", " " | link_to_vendor }}</p>{% endcomment %}
+      <div class="top-reviews">
         <div class="yotpo bottomLine"
-        data-appkey="NuT1UIlxTbSur2znb49km0JEX7gsE8Xqwiqw1r1b"
-        data-domain="{{ shop.permanent_domain | escape }}"
-        data-product-id="{{ product.id }}"
-        data-product-models="{{ product.id }}"
-        data-name="{{ product.title | escape }}"
-        data-url="{{ shop.url }}{{ product.url }}"
-        data-image-url="{{ product.featured_image | product_img_url: 'large' |replace: '?', '%3F' | replace: '&','%26'}}"
-        data-description="{{ product.description | escape }}"
-        data-bread-crumbs="{% for tag in product.tags %}{{ tag | escape }};{% endfor %}">
+          data-appkey="NuT1UIlxTbSur2znb49km0JEX7gsE8Xqwiqw1r1b"
+          data-domain="{{ shop.permanent_domain | escape }}"
+          data-product-id="{{ product.id }}"
+          data-product-models="{{ product.id }}"
+          data-name="{{ product.title | escape }}"
+          data-url="{{ shop.url }}{{ product.url }}"
+          data-image-url="{{ product.featured_image | product_img_url: 'large' |replace: '?', '%3F' | replace: '&','%26'}}"
+          data-description="{{ product.description | escape }}"
+          data-bread-crumbs="{% for tag in product.tags %}{{ tag | escape }};{% endfor %}">
+        </div>
+        <span class="vertical-line">|</span>
+        <div class='yotpo QABottomLine'
+        data-appkey='NuT1UIlxTbSur2znb49km0JEX7gsE8Xqwiqw1r1b'
+        data-product-id='{{ product.id }}'>
       </div>
+        
+      </div>
+          
     </div>
-
-    <div class="grid__item medium--one-third small--one-half">
-      <div class='yotpo QABottomLine'
-      data-appkey='NuT1UIlxTbSur2znb49km0JEX7gsE8Xqwiqw1r1b'
-      data-product-id='{{ product.id }}'></div>
-    </div>
-  </div>
+ 
 </div>
 
 <div class="grid__item large--one-quarter medium--hide my-collumn">
