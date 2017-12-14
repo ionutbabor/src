@@ -568,6 +568,7 @@ body{
 		}
 		.cbb-shipping-rates-calculator{
 			width: 100%;
+			padding: 20px 8px!important;
 			span{
 				text-align: left;
 			}
@@ -1105,7 +1106,7 @@ body{
 				.border-line{
 					position: relative;
 					border:1px solid #ccc;
-					padding: 45px;
+					padding: 20px;
 					em{
 						font-weight: 600;
 					}
@@ -1113,10 +1114,10 @@ body{
 						margin-bottom: 5px;
 					}
 					.btn{
-						display: block;
-						float: right;
+						/*display: block;
+						float: right;*/
 						width: 100%;
-						margin-bottom: 46px;
+						/*margin-bottom: 46px;*/
 						border-radius: 0;
 						text-transform: uppercase;
 						background-color: {{settings.btn_bkg}};
@@ -1154,14 +1155,15 @@ body{
 						}
 					}
 					.separation-line{
-						position: absolute;	
-						bottom: 108px;
+						/*position: absolute;	
+						bottom: 108px;*/
 						border-bottom: 1px solid #ccc;
 						/*width: 400px;*/
 						text-align: center;
-						left: 0;
-						right: 0;
-						margin: 0 auto;
+						/*left: 0;
+						right: 0;*/
+						/*margin: 0 auto;*/
+						margin-bottom: 20px;
 						span{
 							position: relative;
 							padding: 0 10px;
@@ -1420,7 +1422,7 @@ body{
 				}
 			}
 			.vertical-line{
-				margin: -2px 10px;
+				margin: -2px 5px;
 			}
 
 			.product-description{
@@ -2909,8 +2911,19 @@ body{
 																					/* end responsive */
 
 																					}/* end sub-collection */
-																					/*.template-page{
+																					.template-page{
 																						.main-content{
+																							.breadcrumb{
+																								a{
+																									color: inherit;
+																									&:hover{
+																									color: inherit;
+																								}
+																								&:focus{
+																									color: inherit;
+																								}
+																								}
+																							}
 																							a{
 																								color: #0970a7;
 																								&:hover{
@@ -2922,15 +2935,15 @@ body{
 																							}
 																						}
 
-																						}*/
+																					}
 
 
-																						/*=============================GLOBAL RESPONSIVE=============================*/
+																					/*=============================GLOBAL RESPONSIVE=============================*/
 
-																						@media (max-width: 480px) {
-																							.nav-bar .grid--full{
-																								padding: 0 10px!important;
-																							}
+																					@media (max-width: 480px) {
+																						.nav-bar .grid--full{
+																							padding: 0 10px!important;
+																						}
 																							/*.yotpo .text-m{
 																								display: block;
 																								}*/
@@ -3021,7 +3034,7 @@ body{
 																											.title-box{
 																												width: 100%;
 																												.bold_add_to_orders{
-																													padding: 0 6px;
+																													padding: 0 4px;
 																													img{
 																														display: none;
 																													}
@@ -3060,198 +3073,84 @@ body{
 																												font-size: 12px;
 																												top: -2px;
 																												left: 5px;	
-																											}*/
-																										}
-																									}
-
-
-
-																								}
-																								.slides_carousel li .thumbnail{
-
-																									width: 47px;
-																									height: 60px;
-																								}
-																								.nav-bar form.input-group.search-bar input{
-																									border-radius: 3px;
-																								}
-
-																								.collection-link{
-																									font-size: 14px;
-																								}
-
-																								.slider-button p{
-																									font-size: 22px!important;
-																									letter-spacing: 2px;
-
-																								}
-																								.slider-caption h1{
-																									font-size: 22px!important;
-
-																								}
-																								.grid-padding{
-																									padding: 0 10px;
-																								}
-																								.subscribe-section{
-																									height: auto;
-																									padding: 35px 0;
-																								}
-																								input.required.email{
-																									width: 80%;
-																								}
-																								/* begin cart page */
-																								.template-cart{
-																									.empty-cart-btn{
-																										text-align: center;
-																										padding: 12px;
-																										width: 100%;
-																									}
-																									.border-line{
-																										padding: 20px;
-																										.separation-line{
-																											bottom: 90px;
-																											width: 80%;
-																										}
-																									}
-																									.description{
-																										.h4{
-																											font-size: 16px;
-																										}
-																									}
-																								}
-																								.template-collection {
-																									.categ-title{
-																										padding: 12% 0 12% 10px;
-																									}
-																									.collection-mobile-nav{
-																										margin: 56px 0 0!important;
-																									}
-																									.all-categories{
-																										font-size: 14px;
-																									}
-																									.form-horizontal{
-																										text-align: left;
-																									}
-																									.large--one-quarter{
-																										.thumbnail{
-																											padding: 10px;
-
-																											#corner{
-																												display: none;
-																												/*img{
-																													position: relative;
-																													left: 5px;
-																													top: 3px;
-																												}
-																												padding: 0;
-																												top: 0;
-																												left: 0;
-																												width: 98px;
-																												span{
-																													font-size: 12px;
-																													top: -2px;
-																													left: 5px;	
 																												}*/
 																											}
-
 																										}
+
+
+
 																									}
-																									
-																									.shopify-section{
-																										.collection-grid-item__overlay{
-																											padding: 0 !important;
-																										}
+																									.slides_carousel li .thumbnail{
+
+																										width: 47px;
+																										height: 60px;
+																									}
+																									.nav-bar form.input-group.search-bar input{
+																										border-radius: 3px;
 																									}
 
-
-																								}
-
-																								.yotpo-reviews-carousel .carousel-display-wrapper #carousel-top-panel .headline{
-																									font-size: 16px!important;
-																								}
-																								#title-collection, .template-collection #title-collection-current{
-																									font-size: 16px;
-																								}
-																								/*index page*/
-																								.template-index{
-
-																									.product-grid{
-																										p{
-																											font-size: 10px;
-																										}
-																									} 
-																									.wrapper0{
-																										.collection-link{
-																											font-size: 20px!important;
-																										}
+																									.collection-link{
+																										font-size: 14px;
 																									}
-																									.slick-prev, .slick-next{
-																										display: none!important;
+
+																									.slider-button p{
+																										font-size: 22px!important;
+																										letter-spacing: 2px;
+
 																									}
-																									h2{font-size: 16px;}
+																									.slider-caption h1{
+																										font-size: 22px!important;
 
-																								}
-
-																								#guides{
-																									.banner-page{
-																										.banner-caption {
-																											font-size: 14px;
-																											margin: 0;
+																									}
+																									.grid-padding{
+																										padding: 0 10px;
+																									}
+																									.subscribe-section{
+																										height: auto;
+																										padding: 35px 0;
+																									}
+																									input.required.email{
+																										width: 80%;
+																									}
+																									/* begin cart page */
+																									.template-cart{
+																										.empty-cart-btn{
+																											text-align: center;
+																											padding: 12px;
 																											width: 100%;
-
 																										}
-																									}
-																									.btn{
-																										padding: 8px 5px;
-																										font-size: 13px;
-																									}
-
-																								}
-																								.template-page{																						
-																									#top{
-																										.title-filters h2 {
-																											font-size: 20px!important;
-																										}
-																										.page-nav{
-																											select{
-																												width: 100%;
+																										/*.border-line{
+																											padding: 20px;
+																											.separation-line{
+																												bottom: 90px;
+																												width: 80%;
+																											}
+																										}*/
+																										.description{
+																											.h4{
+																												font-size: 16px;
 																											}
 																										}
-
 																									}
-																								}
-
-																								/*begin top*/
-																								#top{
-																									.main-content{
-																										.title-filters{
-																											h2{
-																												font-size: 16px!important;
-																												margin-bottom: 20px!important;
-
-																											}
+																									.template-collection {
+																										.categ-title{
+																											padding: 12% 0 12% 10px;
 																										}
-																										hr{
-																											margin: 30px 0 10px;
-																										}
-																									}
-																									}/*end top*/
-
-																									#sub-collection{
-																										.sortby{
-																											margin: 8px 0!important;
-																											label{
-																												display: block;
-																												margin-top: 0!important;
-																											}
+																										.collection-mobile-nav{
+																											margin: 56px 0 0!important;
 																										}
 																										.all-categories{
 																											font-size: 14px;
 																										}
-																										.thumbnail{
-																											padding: 10px!important;
-																											#corner{
-																												display: none;
+																										.form-horizontal{
+																											text-align: left;
+																										}
+																										.large--one-quarter{
+																											.thumbnail{
+																												padding: 10px;
+
+																												#corner{
+																													display: none;
 																												/*img{
 																													position: relative;
 																													left: 5px;
@@ -3265,303 +3164,417 @@ body{
 																													font-size: 12px;
 																													top: -2px;
 																													left: 5px;	
-																												}*/
+																													}*/
+																												}
+
 																											}
 																										}
+
+																										.shopify-section{
+																											.collection-grid-item__overlay{
+																												padding: 0 !important;
+																											}
+																										}
+
 
 																									}
 
+																									.yotpo-reviews-carousel .carousel-display-wrapper #carousel-top-panel .headline{
+																										font-size: 16px!important;
+																									}
+																									#title-collection, .template-collection #title-collection-current{
+																										font-size: 16px;
+																									}
+																									/*index page*/
+																									.template-index{
 
-
-
-																									}/* (max-width: 480px) */
-
-																									@media only screen and (min-width: 481px) and (max-width: 767px){
-																										.template-product{
-																											.add-to-cart{
-																												width: 440px;
-																												padding: 25px 15px;
-																												#AddToCart{
-																													width: 309px;
-																													margin-left: 5px;
-																													font-size: 16px;
-																													.title-box{
-																														width: 262px;
-																														.bold_add_to_orders{
-																															padding: 0 39px;
-																														}
-																													}
-																												}
+																										.product-grid{
+																											p{
+																												font-size: 10px;
 																											}
-																											.slides_carousel li{
-
-																												margin: 0 0 10px 0!important;
-																											}
-																											
-
-																										}
-																										.slides_carousel li .thumbnail{
-																											width: 70px;
-																											height: 86px;
-																										}
-																										.template-index{
-																											h2{font-size: 16px;}
-																										}
-																										.yotpo-reviews-carousel .carousel-display-wrapper #carousel-top-panel .headline{
-																											font-size: 16px!important;
-																										}
-																										#title-collection, .template-collection #title-collection-current{
-																											font-size: 16px;
-																										}
-																										.grid-padding{
-																											padding: 0 20px;
-																										}
-																										#guides{
-																											.banner-page{
-																												.banner-caption {
-																													width: 100%;
-																													padding: 10px;
-
-																												}
+																										} 
+																										.wrapper0{
+																											.collection-link{
+																												font-size: 20px!important;
 																											}
 																										}
-																										/*begin top*/
+																										.slick-prev, .slick-next{
+																											display: none!important;
+																										}
+																										h2{font-size: 16px;}
+
+																									}
+
+																									#guides{
+																										.banner-page{
+																											.banner-caption {
+																												font-size: 14px;
+																												margin: 0;
+																												width: 100%;
+
+																											}
+																										}
+																										.btn{
+																											padding: 8px 5px;
+																											font-size: 13px;
+																										}
+
+																									}
+																									.template-page{																						
 																										#top{
-																											.main-content{
-																												.title-filters{
-																													h2{
-																														margin-bottom: 20px;
-																													}
-																												}
-																												hr{
-																													margin: 30px 0 10px;
+																											.title-filters h2 {
+																												font-size: 20px!important;
+																											}
+																											.page-nav{
+																												select{
+																													width: 100%;
 																												}
 																											}
-																											}/*end top*/
-																											}/* (min-width: 481px) and (max-width: 767px) */
 
-																											@media only screen and (max-width: 768px){
+																										}
+																									}
 
+																									/*begin top*/
+																									#top{
+																										.main-content{
+																											.title-filters{
+																												h2{
+																													font-size: 16px!important;
+																													margin-bottom: 20px!important;
 
-																												.fa-shopping-cart{
-																													font-size: 24px;
 																												}
-																												.flex-control-thumbs li, .flex-control-thumbs li:first-child {
-																													width: 16%;
-																													vertical-align: top;
-																													margin: 15px 5% 0 0;
+																											}
+																											hr{
+																												margin: 30px 0 10px;
+																											}
+																										}
+																										}/*end top*/
+
+																										#sub-collection{
+																											.sortby{
+																												margin: 8px 0!important;
+																												label{
+																													display: block;
+																													margin-top: 0!important;
 																												}
-																												.visible-xs{
-																													display:block;
-																												}
-																												.hidden-xs{
+																											}
+																											.all-categories{
+																												font-size: 14px;
+																											}
+																											.thumbnail{
+																												padding: 10px!important;
+																												#corner{
 																													display: none;
+																												/*img{
+																													position: relative;
+																													left: 5px;
+																													top: 3px;
 																												}
+																												padding: 0;
+																												top: 0;
+																												left: 0;
+																												width: 98px;
+																												span{
+																													font-size: 12px;
+																													top: -2px;
+																													left: 5px;	
+																													}*/
+																												}
+																											}
 
-																												.slider-button{
-																													width: 80%!important;
-																												}
-																												.template-collection{
-																													.large--one-quarter:nth-child(3),.large--one-quarter:nth-child(7) {
-																														.thumbnail{
-																															border-left:1px solid #e5e5e5; 
+																										}
+
+
+
+
+																										}/* (max-width: 480px) */
+
+																										@media only screen and (min-width: 481px) and (max-width: 767px){
+																											.template-product{
+																												.add-to-cart{
+																													width: 440px;
+																													padding: 25px 15px;
+																													#AddToCart{
+																														width: 309px;
+																														margin-left: 5px;
+																														font-size: 16px;
+																														.title-box{
+																															width: 262px;
+																															.bold_add_to_orders{
+																																padding: 0 39px;
+																															}
 																														}
 																													}
-																													.large--one-quarter:first-child,.large--one-quarter:nth-child(2){
-																														.thumbnail{
-																															border-bottom:transparent; 
-																														}
-																													} 
 																												}
-																												/*index page*/
-																												.template-index{
+																												.slides_carousel li{
 
-																													.wrapper0{
-																														text-align: center;
-																														.grid__item{
-																															padding-left: 0;
-																														}
-																													}
-																													.grid-item2{
-																														padding-left: 0;
-																														margin-bottom: 30px;
-																													}
-																													.homepage-collection-grid{
-																														display: block;
-																														margin-top: 50px;
-																													}
-
-																													.grid-item1{
-																														padding-left: 0;
-																														margin-bottom: 30px;
-
-																													}
+																													margin: 0 0 10px 0!important;
 																												}
-																												.template-product{
-																													.skincare-prod{
-																														h2{
-																															text-align:left;
-																															border-bottom: 1px solid #000;
-																														}
-																														img{
-																															margin-bottom: 15px;
-																														}
-																													}
 
-																													.breadcrumb{
-																														display: none;
-																													}
-
-																													.fancybox-title-float-wrap .child{
-																														display: none;
-																													}
-
-																												}
-																												.template-page{
-																													#top{
-																														page-nav{
-																															text-align: center!important;
-																														}
-																													}
-
-																												}
 
 																											}
-																											@media only screen and (min-width: 768px) and (max-width: 959px){
-																												.template-product{
-																													.add-to-cart{
-																														width: 480px;
-																														padding: 25px 15px;
-																														#AddToCart{
-																															width: 349px;
-																															margin-left: 5px;
+																											.slides_carousel li .thumbnail{
+																												width: 70px;
+																												height: 86px;
+																											}
+																											.template-index{
+																												h2{font-size: 16px;}
+																											}
+																											.yotpo-reviews-carousel .carousel-display-wrapper #carousel-top-panel .headline{
+																												font-size: 16px!important;
+																											}
+																											#title-collection, .template-collection #title-collection-current{
+																												font-size: 16px;
+																											}
+																											.grid-padding{
+																												padding: 0 20px;
+																											}
+																											#guides{
+																												.banner-page{
+																													.banner-caption {
+																														width: 100%;
+																														padding: 10px;
 
-																															.title-box{
-																																width: 314px;
+																													}
+																												}
+																											}
+																											/*begin top*/
+																											#top{
+																												.main-content{
+																													.title-filters{
+																														h2{
+																															margin-bottom: 20px;
+																														}
+																													}
+																													hr{
+																														margin: 30px 0 10px;
+																													}
+																												}
+																												}/*end top*/
+																												}/* (min-width: 481px) and (max-width: 767px) */
+
+																												@media only screen and (max-width: 768px){
+
+
+																													.fa-shopping-cart{
+																														font-size: 24px;
+																													}
+																													.flex-control-thumbs li, .flex-control-thumbs li:first-child {
+																														width: 16%;
+																														vertical-align: top;
+																														margin: 15px 5% 0 0;
+																													}
+																													.visible-xs{
+																														display:block;
+																													}
+																													.hidden-xs{
+																														display: none;
+																													}
+
+																													.slider-button{
+																														width: 80%!important;
+																													}
+																													.template-collection{
+																														.large--one-quarter:nth-child(3),.large--one-quarter:nth-child(7) {
+																															.thumbnail{
+																																border-left:1px solid #e5e5e5; 
 																															}
 																														}
+																														.large--one-quarter:first-child,.large--one-quarter:nth-child(2){
+																															.thumbnail{
+																																border-bottom:transparent; 
+																															}
+																														} 
 																													}
+																													/*index page*/
+																													.template-index{
 
-																												}
-																												.template-index{
-																													h2{font-size: 22px;}
-																												}
-																												.yotpo-reviews-carousel .carousel-display-wrapper #carousel-top-panel .headline{
-																													font-size: 22px!important;
-																												}
+																														.wrapper0{
+																															text-align: center;
+																															.grid__item{
+																																padding-left: 0;
+																															}
+																														}
+																														.grid-item2{
+																															padding-left: 0;
+																															margin-bottom: 30px;
+																														}
+																														.homepage-collection-grid{
+																															display: block;
+																															margin-top: 50px;
+																														}
 
-																												/*template-collection*/
-																												.template-collection{
-																													#title-collection,  
-																													#title-collection-current{
-																														font-size: 22px;
-																														/*text-transform: uppercase;*/
-																													}
-																													#collection-link a{
-																														font-size: 15px;
-																													}																	
+																														.grid-item1{
+																															padding-left: 0;
+																															margin-bottom: 30px;
 
-
-																													.large--one-quarter {
-																														.border3{
-																															border-left:1px solid #e5e5e5; 
 																														}
 																													}
-																													.large--one-quarter:nth-child(3) {
-																														.thumbnail{
-																															border-left:1px solid #e5e5e5; 
-																														}
-																													}
-																												}
-
-																												.grid-padding{
-																													padding: 0 20px;
-																												}
-																												#guides{
-																													.banner-page{
-																														.banner-caption {
-																															width: 70%;
-																															padding: 10px;
-																														}
-																													}
-																												}
-																												/*begin top*/
-																												#top{
-																													.main-content{
-																														.title-filters{
+																													.template-product{
+																														.skincare-prod{
 																															h2{
-
-																																margin-bottom: 10px;
+																																text-align:left;
+																																border-bottom: 1px solid #000;
+																															}
+																															img{
+																																margin-bottom: 15px;
 																															}
 																														}
-																													}
-																													}/*end top*/
-																												}
 
-																												@media only screen and (max-width: 942px){
-																													#top .main-content {
-																														.title-filters h2{
-																															font-size: 20px;
+																														.breadcrumb{
+																															display: none;
 																														}
-																														.parent-filters{
-																															margin: 5px 0;
-																															ul{
-																																margin: 0;
-																																li a{
-																																	font-size: 16px;
+
+																														.fancybox-title-float-wrap .child{
+																															display: none;
+																														}
+
+																													}
+																													.template-page{
+																														#top{
+																															page-nav{
+																																text-align: center!important;
+																															}
+																														}
+
+																													}
+
+																												}
+																												@media only screen and (min-width: 768px) and (max-width: 959px){
+																													.template-product{
+																														.add-to-cart{
+																															width: 480px;
+																															padding: 25px 15px;
+																															#AddToCart{
+																																width: 349px;
+																																margin-left: 5px;
+
+																																.title-box{
+																																	width: 314px;
 																																}
 																															}
 																														}
+
 																													}
-																													#NavDrawer .subtitle-item {
-																														font-size: 16px;
-																														.fa-angle-right{
-																															float: right;
-																															font-size: 18px;
-																															position: relative;
-																															top: 3px;
+																													.template-index{
+																														h2{font-size: 22px;}
+																													}
+																													.yotpo-reviews-carousel .carousel-display-wrapper #carousel-top-panel .headline{
+																														font-size: 22px!important;
+																													}
+
+																													/*template-collection*/
+																													.template-collection{
+																														#title-collection,  
+																														#title-collection-current{
+																															font-size: 22px;
+																															/*text-transform: uppercase;*/
+																														}
+																														#collection-link a{
+																															font-size: 15px;
+																														}																	
+
+
+																														.large--one-quarter {
+																															.border3{
+																																border-left:1px solid #e5e5e5; 
+																															}
+																														}
+																														.large--one-quarter:nth-child(3) {
+																															.thumbnail{
+																																border-left:1px solid #e5e5e5; 
+																															}
 																														}
 																													}
-																													.nav-bar .grid--full{
+
+																													.grid-padding{
 																														padding: 0 20px;
-																														.one-whole{
-																															padding-left: 0;
+																													}
+																													#guides{
+																														.banner-page{
+																															.banner-caption {
+																																width: 70%;
+																																padding: 10px;
+																															}
 																														}
 																													}
+																													/*begin top*/
+																													#top{
+																														.main-content{
+																															.title-filters{
+																																h2{
 
-																													#title-collection, .template-collection #title-collection-current{
-
-																														text-transform: uppercase;
-																														margin-top: 20px;
+																																	margin-bottom: 10px;
+																																}
+																															}
+																														}
+																														}/*end top*/
 																													}
 
-																													.template-product{
-																														.size-box{
-																															#size-trigger{
-																																margin:20px 0 0;
+																													@media only screen and (max-width: 942px){
+																														#top .main-content {
+																															.title-filters h2{
+																																font-size: 20px;
 																															}
-																															.selector-wrapper select{
-																																padding: 6px 10px;
+																															.parent-filters{
+																																margin: 5px 0;
+																																ul{
+																																	margin: 0;
+																																	li a{
+																																		font-size: 16px;
+																																	}
+																																}
 																															}
+																														}
+																														#NavDrawer .subtitle-item {
+																															font-size: 16px;
+																															.fa-angle-right{
+																																float: right;
+																																font-size: 18px;
+																																position: relative;
+																																top: 3px;
+																															}
+																														}
+																														.nav-bar .grid--full{
+																															padding: 0 20px;
+																															.one-whole{
+																																padding-left: 0;
+																															}
+																														}
 
+																														#title-collection, .template-collection #title-collection-current{
+
+																															text-transform: uppercase;
+																															margin-top: 20px;
 																														}
-																														#ProductPrice{
-																															margin-bottom: 8px;
-																														}
-																														.sub-description{
-																															padding: 20px 0px;
-																															margin-bottom: 30px;
-																															h2{
-																																display: none;
+
+																														.template-product{
+																															.size-box{
+																																#size-trigger{
+																																	margin:20px 0 0;
+																																}
+																																.selector-wrapper select{
+																																	padding: 6px 10px;
+																																}
+
 																															}
-																														}
-																														.vendor-title{
-																															margin-right: 22px;
-																															font-size: 12px;
-																														}
-																														.top-reviews{
-																															display: inline-flex;
-																														}
+																															#ProductPrice{
+																																margin-bottom: 8px;
+																															}
+																															.sub-description{
+																																padding: 20px 0px;
+																																margin-bottom: 30px;
+																																h2{
+																																	display: none;
+																																}
+																															}
+																															.vendor-title{
+																																margin-right: 22px;
+																																font-size: 12px;
+																															}
+																															.top-reviews{
+																																display: inline-flex;
+																															}
 																														/*.fancybox-overlay{
 																															z-index: 100100;
 																														}
@@ -3850,7 +3863,7 @@ body{
 																												}
 																												.template-cart{
 																													.cbb-shipping-rates-calculator{
-																														width: 32.2%;
+																														width: 33.333%;
 																													}
 																												}
 																												.template-product{
@@ -3917,13 +3930,13 @@ body{
 																														padding: 0;
 																													}
 																												}
-																												.template-cart{
+																												/*.template-cart{
 																													.border-line{
 																														.separation-line{
 																															bottom: 152px;
 																														}
 																													} 
-																												} 
+																												}*/ 
 																												.template-index{
 																													h2{font-size: 22px;}
 																												}

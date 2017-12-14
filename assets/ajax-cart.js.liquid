@@ -84,6 +84,7 @@ ShopifyAPI.onError = function(XMLHttpRequest, textStatus) {
               if(mixed_cart == true){
                 console.log('subscription');
                 $('.additional-checkout-button').hide();
+				 $('.ajaxcart__footer .separation-line').hide();
               }else{
                 console.log('one-time');
               }

@@ -165,7 +165,7 @@ For info on test orders:
   {% endfor %}
 
   <div class="cart__row">
-    <div class="grid">
+    <div class="grid--full">
       {% comment %}
       Optional, add a textarea for special notes
       - Your theme settings can turn this on or off. Default is on.
@@ -300,8 +300,10 @@ The cart is empty
 
     if($('.recurring_div').hasClass('bold_active')){
       $('.additional-checkout-buttons').hide();
+	   $('.ajaxcart__footer .separation-line').hide();
     }else{
-      $('.additional-checkout-buttons').show();
+      $('.additional-checkout-buttons').show(); 
+	  $('.ajaxcart__footer .separation-line').show();
     }
   });
 
