@@ -1,7 +1,11 @@
 <!-- /templates/collection.sub-collection.liquid -->
-{% paginate collection.products by 16 %}
+{% paginate collection.products by 8 %}
+
 <div id="sub-collection">
 
+
+{% if collection.handle contains 'above-knee-amputee' or collection.handle contains 'below-knee-amputee' or collection.handle contains 'arm-amputee-supplies' or collection.handle contains 'partial-foot-symes' %}
+{% else %}
    <div id="top">
     <div class="main-content">
       <!-- left part -->
@@ -68,6 +72,7 @@
       <hr class="first-line">
     </div>
   </div><!-- #top -->
+  {% endif %}
 
   <!-- begin breadcrumb -->
   {% include 'breadcrumb' %}
@@ -91,17 +96,12 @@
 <!-- begin grid uniform -->
 <div class="grid--full grid-padding">
   {% assign products = collection.products %}
-  {% for product in products limit:8 %}
-
+  {% for product in products %}
   {% include 'bold-product' with product, hide_action: 'skip' %}
   {% include 'product-grid-item' %}
   {% endfor %}
-
 </div>
 <!-- end grid uniform -->
-
-
-
 
 <!-- new pagination -->
 <div class="pagination">
@@ -128,23 +128,7 @@
 {% endpaginate %}
 <!-- end new pagination -->
 
-
 </div><!-- #sub-collection -->
-
-<!-- Yotpo Style for Collection Star Rating -->
-{% comment %}<style>
-div.yotpo.bottomLine .pull-left {
-  float: none;
-  margin: 0 5px 5px 0; 
-}
-div.yotpo.bottomLine.yotpo-small {
-  display: block;
-  margin: 0 5px 5px 0; 
-}
-.yotpo a.text-m {
-  display: inline-block;
-}
-</style>{% endcomment %}
 
 <hr>
 

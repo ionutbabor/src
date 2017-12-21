@@ -768,7 +768,8 @@
     {
       "type": "text",
       "id": "in-stock-text",
-      "label": "In stock text"
+      "label": "In stock text",
+      "info": "product tag: in-stock"
     },
     {
       "type": "text",

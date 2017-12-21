@@ -3,240 +3,195 @@
 
 <div itemscope itemtype="http://schema.org/Product">
 
-  <meta itemprop="url" content="{{ shop.url }}{{ product.url }}">
-  <meta itemprop="image" content="{{ product.featured_image.src | img_url: 'grande' }}">
+	<meta itemprop="url" content="{{ shop.url }}{{ product.url }}">
+	<meta itemprop="image" content="{{ product.featured_image.src | img_url: 'grande' }}">
 
-  {% assign current_variant = bold_selected_or_first_available_variant %}
-  {% assign my_description = product.description | split: '<!-- split -->'  %}
-
-
-  <div id="top">
-    <div class="main-content">
-      <!-- left part -->
-      <div class="grid--full grid-padding hidden-xs">
-        <div class="grid__item large--one-quarter title-filters medium--one-quarter">
-
-          {% if product.tags contains 'Textiles' %}
-          <h2><a href="/collections/prosthetic-textiles" >{{collections.prosthetic-textiles.title}}</a></h2>
-          {% elsif product.tags contains 'Personal Care' %}
-          <h2><a href="/collections/prosthetic-textiles" >{{collections.prosthetic-textiles.title}}</a></h2>
-          {% elsif product.tags contains 'Suspension' %}
-          {% comment %}{% elsif product.tags contains 'Prosthesis Suspension' or product.tags contains 'Suspension Belts' or product.tags contains 'Suspension Sleeves' or product.tags contains 'Prosthetic Liners' or product.tags contains 'Suspension Accessories' %}{% endcomment %}
-          <h2><a href="/collections/prosthesis-suspension" >{{collections.prosthesis-suspension.title}}</a></h2>
-          {% comment %}{% elsif product.tags contains 'Cosmetic Finishing' or product.tags contains 'Cushion and Volume Aids' or product.tags contains 'Slip on Aids' or product.tags contains 'Travel and Mobility' or product.tags contains 'Arm Amputee Supplies' or product.tags contains 'Friction Fighting' or product.tags contains 'Prosthetic Remedies' %} {% endcomment %}
-          {% elsif product.tags contains 'Gel Solutions' or product.tags contains 'Socket Sizing' or product.tags contains 'Bottom End Pad' or product.tags contains 'Scar and Wound Care' or product.tags contains 'Distal End Pad'%}
-          <h2><a href="/collections/prosthetic-gel-pads-sheaths-to-solve-fitting-issues" >{{collections.prosthetic-gel-pads-sheaths-to-solve-fitting-issues.title}}</a></h2>
-          {% endif %}
-
-        </div>
-        <!-- end left part -->
-
-        <!-- right part -->
-        <div class="grid__item large--three-quarters parent-filters medium--three-quarters" style="border-left: 1px solid #ccc;">
-
-          <ul class="collection-tags">
-            {% if product.tags contains 'Textiles' or product.tags contains 'Shrinkers' or product.tags contains 'Shrinkers' or product.tags contains 'Sheaths' or product.tags contains 'Cosmetic Hosiery'%}
-            {% for link in linklists.prosthetic-textiles.links %}
-            <li><a href="{{ link.url }}" class="menu-link {% if link.active %}current{% endif %}">{{ link.title }}</a></li>
-            {% endfor %}
-
-            {% elsif product.tags contains 'Personal Care' or product.tags contains 'Skin Care Treatments' or product.tags contains 'Cleansers' or product.tags contains 'Sweat Control' or product.tags contains 'Moisturizers' or product.tags contains 'Skin Care Collections'%}
-            {% for link in linklists.personal-care.links %}
-            <li><a href="{{ link.url }}" class="menu-link {% if link.active %}current{% endif %}">{{ link.title }}</a></li>
-            {% endfor %}
-
-            {% elsif product.tags contains 'Suspension' or product.tags contains 'Suspension Belts' or product.tags contains 'Suspension Sleeves' or product.tags contains 'Prosthetic Liners' or product.tags contains 'Suspension Accessories' or product.tags contains 'Slip-On Aids' %}
-            {% for link in linklists.prosthetic-suspension.links %}
-            <li><a href="{{ link.url }}" class="menu-link {% if link.active %}current{% endif %}">{{ link.title }}</a></li>
-            {% endfor %}
-
-            {% elsif product.tags contains 'Gel Solutions' or product.tags contains 'Socket Sizing' or product.tags contains 'Bottom End Pad' or product.tags contains 'Scar and Wound Care' or product.tags contains 'Distal End Pad'%}
-            {% for link in linklists.gel-solutions.links %}
-            <li><a href="{{ link.url }}" class="menu-link {% if link.active %}current{% endif %}">{{ link.title }}</a></li>
-            {% endfor %}
-            {%endif%}
-          </ul>
-        </div>
-
-        <!--end right part -->
-        <hr class="separator">
-      </div> <!-- main-content -->
-    </div>
-  </div><!-- #top -->
-
-  {% include 'breadcrumb' %}
-
-  <div class="grid--full grid-padding product-single">
-    <div class="grid__item large--one-half right-spacing">
-      {% comment %}<div class="product-single__photos" id="ProductPhoto">
-        {% assign featured_image = product.featured_image %}
-        <img src="{{ featured_image | img_url: 'original' }}" alt="{{ featured_image.alt | escape }}" id="ProductPhotoImg" data-imagezoom="true">
-      </div>
-
-     {% if product.images.size > 1 %}
-      <ul class="product-single__thumbnails grid-uniform" id="ProductThumbs">
-
-        {% for image in product.images %}
-        <li class="grid__item one-quarter">
-          <a href="{{ image.src | img_url: 'large' }}" class="product-single__thumbnail">
-            <img src="{{ image.src | img_url: 'compact' }}" alt="{{ image.alt | escape }}">
-          </a>
-        </li>
-        {% endfor %}
-
-      </ul>
-      {% endif %}
-      {% endcomment %}
-
-      <!-- begin flexslider product -->
-      {% include 'product-images' %}
-      <!-- end flexslider product -->
-
-    </div>
+	{% assign current_variant = bold_selected_or_first_available_variant %}
+	{% assign my_description = product.description | split: '<!-- split -->'  %}
 
 
-    <div class="grid__item large--one-half">
-      <div class="my-hidden-xs">
+	<div id="top">
+		<div class="main-content">
+			<!-- left part -->
+			<div class="grid--full grid-padding hidden-xs">
+				<div class="grid__item large--one-quarter title-filters medium--one-quarter">
 
-        <h1 itemprop="name">{{ product.title }}</h1>
+					{% if product.tags contains 'Textiles' %}
+					<h2><a href="/collections/prosthetic-textiles" >{{collections.prosthetic-textiles.title}}</a></h2>
+					{% elsif product.tags contains 'Personal Care' %}
+					<h2><a href="/collections/prosthetic-textiles" >{{collections.prosthetic-textiles.title}}</a></h2>
+					{% elsif product.tags contains 'Suspension' %}
+					{% comment %}{% elsif product.tags contains 'Prosthesis Suspension' or product.tags contains 'Suspension Belts' or product.tags contains 'Suspension Sleeves' or product.tags contains 'Prosthetic Liners' or product.tags contains 'Suspension Accessories' %}{% endcomment %}
+					<h2><a href="/collections/prosthesis-suspension" >{{collections.prosthesis-suspension.title}}</a></h2>
+					{% comment %}{% elsif product.tags contains 'Cosmetic Finishing' or product.tags contains 'Cushion and Volume Aids' or product.tags contains 'Slip on Aids' or product.tags contains 'Travel and Mobility' or product.tags contains 'Arm Amputee Supplies' or product.tags contains 'Friction Fighting' or product.tags contains 'Prosthetic Remedies' %} {% endcomment %}
+					{% elsif product.tags contains 'Gel Solutions' or product.tags contains 'Socket Sizing' or product.tags contains 'Bottom End Pad' or product.tags contains 'Scar and Wound Care' or product.tags contains 'Distal End Pad'%}
+					<h2><a href="/collections/prosthetic-gel-pads-sheaths-to-solve-fitting-issues" >{{collections.prosthetic-gel-pads-sheaths-to-solve-fitting-issues.title}}</a></h2>
+					{% endif %}
 
+				</div>
+				<!-- end left part -->
 
-        <div class="vendor-line">
+				<!-- right part -->
+				<div class="grid__item large--three-quarters parent-filters medium--three-quarters" style="border-left: 1px solid #ccc;">
 
-          <p class="vendor-title">by <a href="/collections/{{product.vendor | replace: " ", "-" | downcase }}">{{ product.vendor | replace: "-", " " }}</a></p>
-          {% comment %}<p class="vendor-title">by {{ product.vendor | replace: "-", " " | link_to_vendor }}</p>{% endcomment %}
+					<ul class="collection-tags">
+						{% if product.tags contains 'Textiles' or product.tags contains 'Shrinkers' or product.tags contains 'Shrinkers' or product.tags contains 'Sheaths' or product.tags contains 'Cosmetic Hosiery'%}
+						{% for link in linklists.prosthetic-textiles.links %}
+						<li><a href="{{ link.url }}" class="menu-link {% if link.active %}current{% endif %}">{{ link.title }}</a></li>
+						{% endfor %}
 
-          <div class="yotpo bottomLine"
-          data-appkey="NuT1UIlxTbSur2znb49km0JEX7gsE8Xqwiqw1r1b"
-          data-domain="{{ shop.permanent_domain | escape }}"
-          data-product-id="{{ product.id }}"
-          data-product-models="{{ product.id }}"
-          data-name="{{ product.title | escape }}"
-          data-url="{{ shop.url }}{{ product.url }}"
-          data-image-url="{{ product.featured_image | product_img_url: 'large' |replace: '?', '%3F' | replace: '&','%26'}}"
-          data-description="{{ product.description | escape }}"
-          data-bread-crumbs="{% for tag in product.tags %}{{ tag | escape }};{% endfor %}">
-        </div>
-        <span class="vertical-line">|</span>
-        <div class='yotpo QABottomLine'
-        data-appkey='NuT1UIlxTbSur2znb49km0JEX7gsE8Xqwiqw1r1b'
-        data-product-id='{{ product.id }}'>
-      </div>
-    </div>
+						{% elsif product.tags contains 'Personal Care' or product.tags contains 'Skin Care Treatments' or product.tags contains 'Cleansers' or product.tags contains 'Sweat Control' or product.tags contains 'Moisturizers' or product.tags contains 'Skin Care Collections'%}
+						{% for link in linklists.personal-care.links %}
+						<li><a href="{{ link.url }}" class="menu-link {% if link.active %}current{% endif %}">{{ link.title }}</a></li>
+						{% endfor %}
 
-  </div>
+						{% elsif product.tags contains 'Suspension' or product.tags contains 'Suspension Belts' or product.tags contains 'Suspension Sleeves' or product.tags contains 'Prosthetic Liners' or product.tags contains 'Suspension Accessories' or product.tags contains 'Slip-On Aids' %}
+						{% for link in linklists.prosthetic-suspension.links %}
+						<li><a href="{{ link.url }}" class="menu-link {% if link.active %}current{% endif %}">{{ link.title }}</a></li>
+						{% endfor %}
 
-  <div itemprop="offers" itemscope itemtype="http://schema.org/Offer">
-    <meta itemprop="priceCurrency" content="{{ shop.currency }}">
+						{% elsif product.tags contains 'Gel Solutions' or product.tags contains 'Socket Sizing' or product.tags contains 'Bottom End Pad' or product.tags contains 'Scar and Wound Care' or product.tags contains 'Distal End Pad'%}
+						{% for link in linklists.gel-solutions.links %}
+						<li><a href="{{ link.url }}" class="menu-link {% if link.active %}current{% endif %}">{{ link.title }}</a></li>
+						{% endfor %}
+						{%endif%}
+					</ul>
+				</div>
 
-    <link itemprop="availability" href="http://schema.org/{% if product.available %}InStock{% else %}OutOfStock{% endif %}">
+				<!--end right part -->
+				<hr class="separator">
+			</div> <!-- main-content -->
+		</div>
+	</div><!-- #top -->
 
-    <form action="/cart/add" method="post" enctype="multipart/form-data" id="AddToCartForm" class="form-vertical shapp_qb_prod">
+	{% include 'breadcrumb' %}
 
-      <span id="ProductPrice" class="h2" itemprop="price">
-        {% if product.price_varies %}{{ product.price_min | money }}-{{ product.price_max | money }}{% else %}{{ current_variant.price | money }}{% endif %}
-      </span>
+	<div class="grid--full grid-padding product-single">
+		<div class="grid__item large--one-half right-spacing">
 
+			<!-- begin flexslider product -->
+			{% include 'product-images' %}
+			<!-- end flexslider product -->
 
-      {% if bold_compare_at_price_max > bold_price %}
-      <p id="ComparePrice">
-       {% if product.compare_at_price_varies %}{{ product.compare_at_price_min | money }}-{{ product.compare_at_price_max | money }}{% else %}{{ current_variant.compare_at_price | money }}{% endif %}
-     </p>
-     {% endif %}
-
-
-     {% if product.tags contains 'Free Ship Near Price' %}
-     <div class="instock-freeship-alert">
-      <p class="green">{{settings.free-text-50}}</p>
-    </div>
-    {% endif %}
-
-
-
-    {% if product.tags contains 'free-shipping' %}
-    <div class="instock-freeship-alert">
-      <p class="green">{{settings.free-shipping}}</p>
-    </div>
-    {% endif %}
-
-      {% comment %}{% if product.tags contains 'Free Ship Near Price' %}
-       <div class="instock-freeship-alert">
-        <p class="green">{{settings.free-text}}</p>
-      </div>
-      {% endif %}{% endcomment %}
-
-      {% if product.available %}
-      <p class="text-left in-stock">{{settings.in-stock-text}}</p>
-      {% comment %}{% else %}
-      <div class="shipping-alert">
-        <p>{{settings.out-stock-text}}</p>
-      </div>{% endcomment %}
-      {% endif %}
-
-      {% if product.tags contains 'product-delay' %}
-      <div class="shipping-alert">
-        <p class="line-item-property__field">
-          <input id="this-product-will-delay-your-order-by-approximately-4-7-days" type="checkbox" name="properties[{{settings.product-delay}}]" value="*" class="hidden-label" checked="checked">
-          <label class="product-delay" for="this-product-will-delay-your-order-by-approximately-4-7-days">{{settings.product-delay}}</label>
-        </p>
-      </div>
-      {% endif %}
+		</div>
 
 
-      {% comment %}<br class="clear">
-      <div class="line-separator"></div>
-      <br class="clear"> {% endcomment %}
-      <hr>
+		<div class="grid__item large--one-half">
+			<div class="my-hidden-xs">
+
+				<h1 itemprop="name">{{ product.title }}</h1>
 
 
-      {% if product.tags contains 'Size Chart' %}
-      <div id="size-trigger" class="size-xs">
-        <a href="#!"><img src="{{ 'ruler.png' | asset_url }}">Size Chart Guide</a>
-      </div>
-      {% endif %}
+				<div class="vendor-line">
+
+					<p class="vendor-title">by <a href="/collections/{{product.vendor | replace: " ", "-" | downcase }}">{{ product.vendor | replace: "-", " " }}</a></p>
+					{% comment %}<p class="vendor-title">by {{ product.vendor | replace: "-", " " | link_to_vendor }}</p>{% endcomment %}
+
+					<div class="yotpo bottomLine"
+					data-appkey="NuT1UIlxTbSur2znb49km0JEX7gsE8Xqwiqw1r1b"
+					data-domain="{{ shop.permanent_domain | escape }}"
+					data-product-id="{{ product.id }}"
+					data-product-models="{{ product.id }}"
+					data-name="{{ product.title | escape }}"
+					data-url="{{ shop.url }}{{ product.url }}"
+					data-image-url="{{ product.featured_image | product_img_url: 'large' |replace: '?', '%3F' | replace: '&','%26'}}"
+					data-description="{{ product.description | escape }}"
+					data-bread-crumbs="{% for tag in product.tags %}{{ tag | escape }};{% endfor %}">
+				</div>
+				<span class="vertical-line">|</span>
+				<div class='yotpo QABottomLine'
+				data-appkey='NuT1UIlxTbSur2znb49km0JEX7gsE8Xqwiqw1r1b'
+				data-product-id='{{ product.id }}'>
+			</div>
+		</div>
+
+	</div>
+
+	<div itemprop="offers" itemscope itemtype="http://schema.org/Offer">
+		<meta itemprop="priceCurrency" content="{{ shop.currency }}">
+
+		<link itemprop="availability" href="http://schema.org/{% if product.available %}InStock{% else %}OutOfStock{% endif %}">
+
+		<form action="/cart/add" method="post" enctype="multipart/form-data" id="AddToCartForm" class="form-vertical shapp_qb_prod">
+
+			<span id="ProductPrice" class="h2" itemprop="price">
+				{% if product.price_varies %}{{ product.price_min | money }}-{{ product.price_max | money }}{% else %}{{ current_variant.price | money }}{% endif %}
+			</span>
 
 
+			{% if bold_compare_at_price_max > bold_price %}
+			<p id="ComparePrice">
+				{% if product.compare_at_price_varies %}{{ product.compare_at_price_min | money }}-{{ product.compare_at_price_max | money }}{% else %}{{ current_variant.compare_at_price | money }}{% endif %}
+			</p>
+			{% endif %}
 
-      <div class="size-box">
-        <select name="id" id="productSelect" class="product-single__variants" required>
-          {% for variant in product.variants %}
-          {% include 'bold-hidden-variants' with variant, bold_loop: 'loop' %}
+			{% if product.tags contains 'free-shipping' %}
+			<div class="instock-freeship-alert">
+				<p class="green">{{settings.free-shipping}}</p>
+			</div>
+			{% endif %}
 
-          {% if variant.available %}
-          <option value="{{ variant.id }}" data-price="{{ variant.price | money_without_currency | remove: ',' }}">{{ variant.title }} - {{ variant.price | money }}</option>
-          {% else %}
-          <option disabled="disabled">
-            {{ variant.title }} - {{ 'products.product.sold_out' | t }}
-          </option>
-          {% endif %}
+			{% if product.tags contains 'Free Ship Near Price' %}
+			<div class="instock-freeship-alert">
+				<p class="green">{{settings.free-text-50}}</p>
+			</div>
+			{% endif %}
 
-          {% endfor %}
-        </select>
-      </div>
+			{% if product.tags contains 'in-stock' %}
+			<p class="text-left in-stock">{{settings.in-stock-text}}</p>
+			{% endif %}
 
-      {% if product.tags contains 'Size Chart' %}
-      <div id="size-trigger" class="size-large">
-        <a href="#!"><img src="{{ 'ruler.png' | asset_url }}">Size Chart Guide</a>
-      </div>
-      {% endif %}
+			{% if product.tags contains 'product-delay' %}
+			<div class="shipping-alert">
+				<p class="line-item-property__field">
+					<input id="this-product-will-delay-your-order-by-approximately-4-7-days" type="checkbox" name="properties[{{settings.product-delay}}]" value="*" class="hidden-label" checked="checked">
+					<label class="product-delay" for="this-product-will-delay-your-order-by-approximately-4-7-days">{{settings.product-delay}}</label>
+				</p>
+			</div>
+			{% endif %}
+
+			<hr>
+
+			{% if product.tags contains 'Size Chart' %}
+			<div id="size-trigger" >
+				<a href="#!"><img src="{{ 'ruler.png' | asset_url }}">Size Chart Guide</a>
+			</div>
+
+			<img src="{{ 'close.png' | asset_url }}" id="size-close" style="display: none;">
+
+			<div id="size-chart" style="display: none;">
+				{{ my_description[1] }}
+			</div>
+			{% endif %}
 
 
-      <img src="{{ 'close.png' | asset_url }}" id="size-close" style="display: none;">
+			<div class="size-box">
+				<select name="id" id="productSelect" class="product-single__variants" required>
+					{% for variant in product.variants %}
+					{% include 'bold-hidden-variants' with variant, bold_loop: 'loop' %}
 
-      <div id="size-chart" style="display: none;">
-        {{ my_description[1] }}
-      </div>
+					{% if variant.available %}
+					<option value="{{ variant.id }}" data-price="{{ variant.price | money_without_currency | remove: ',' }}">{{ variant.title }} - {{ variant.price | money }}</option>
+					{% else %}
+					<option disabled="disabled">
+						{{ variant.title }} - {{ 'products.product.sold_out' | t }}
+					</option>
+					{% endif %}
+
+					{% endfor %}
+				</select>
+			</div>
 
 
-      {% if product.available and product.options.first != 'Title' %}
-      {% for option in product.options %}
-      {% capture option_index %}option{{ forloop.index }}{% endcapture %}
-      {% assign option_values = product.variants | map: option_index | uniq %}
-      {% if option_values.size <= 3 %}
-      {% include 'swatch' with option %}
-      {% endif %}
-      {% endfor %}
-      {% endif %}
+			{% if product.available and product.options.first != 'Title' %}
+			{% for option in product.options %}
+			{% capture option_index %}option{{ forloop.index }}{% endcapture %}
+			{% assign option_values = product.variants | map: option_index | uniq %}
+			{% if option_values.size <= 3 %}
+			{% include 'swatch' with option %}
+			{% endif %}
+			{% endfor %}
+			{% endif %}
 
 
       {% comment %}{% if product.tags contains 'Select Option' %}
@@ -260,7 +215,9 @@
       <input name="phone" type="hidden" value="{{ customer.default_address.phone }}" > 
       <input name="province" type="hidden" value="{{ customer.default_address.province }}" > 
       <input name="zip" type="hidden" value="{{ customer.default_address.zip }}" >
-      {% include 'bold-ro' with product %}
+
+      {% comment %}{% include 'bold-ro' with product %}{% endcomment %}
+      <div class="ro_widget"></div>
 
       {% comment %} <br class="clear">{% endcomment %}
 
@@ -269,7 +226,7 @@
        <button type="button" class="ajaxcart__qty-adjust ajaxcart__qty--minus" data-id="{{id}}" data-qty="{{itemMinus}}">&minus;</button>
        <input type="text" class="ajaxcart__qty-num" id="Quantity" name="quantity" min="1" value="{{itemQty}}" placeholder="1" data-id="{{id}}" aria-label="quantity" pattern="[0-9]*">
        <button type="button" class="ajaxcart__qty-adjust ajaxcart__qty--plus" data-id="{{id}}" data-qty="{{itemAdd}}">+</button>
-     </div>{% endcomment %} 
+   </div>{% endcomment %} 
      {% comment %}{% if product.options > 0 %}
      <p class="height-txt">
       *You must select option(s) above!
@@ -277,53 +234,52 @@
     {%endif%}{% endcomment %}
 
     <div class="add-to-cart">
-      <div class="quantity-box">
+    	<div class="quantity-box">
         {% comment %}{% assign quantityOptions = '1,2,3,4,5,6,7,8,9,10' | split:',' %}
         <label for="quantity" >QTY: </label>
         <select id="quantity" name="quantity">
           {% for q in quantityOptions %}
           <option value="{{ q }}">{{ q }}</option>
           {% endfor %}
-        </select>{% endcomment %}
+      </select>{% endcomment %}
 
 
-        <span class="qty">{% comment %}{{ 'cart.label.quantity' | t }}{% endcomment %}QTY: </span>
-        {% comment %}<input type="number" name="updates[]" id="updates_{{ item.id }}" value="{{ item.quantity }}" min="0">{% endcomment %}
-        <select id="quantity" name="quantity" class="quantity"> 
-          {% for i in (1..10) %} {% assign q = i %}
-          <option value="{{ q }}"{% if item.quantity == q %} selected{% endif %}>{{ i }}</option>
-          {% endfor %}
-        </select>
-        
-      </div>
-      
-      <button type="submit" name="add" id="AddToCart" class="btn addtocart">
-        {% if product.available %}
-        <!-- bold-ro-liquid --> <div class="title-box"><div class="bold_add_to_orders" style="display: inline-block;">{{ 'autoship-add-to-cart.png' | asset_url | img_tag: shop.name }} ADD AUTOSHIP TO CART</div> <!-- bold-ro-liquid -->
-        <span id="AddToCartText">Add to Cart</span></div>
-        {% else %}
-        <span id="AddToCartText">{{ 'products.product.sold_out' | t | json }}</span>
-        {%endif%}
-      </button>
+      <span class="qty">{% comment %}{{ 'cart.label.quantity' | t }}{% endcomment %}QTY: </span>
+      {% comment %}<input type="number" name="updates[]" id="updates_{{ item.id }}" value="{{ item.quantity }}" min="0">{% endcomment %}
+      <select id="quantity" name="quantity" class="quantity"> 
+      	{% for i in (1..10) %} {% assign q = i %}
+      	<option value="{{ q }}"{% if item.quantity == q %} selected{% endif %}>{{ i }}</option>
+      	{% endfor %}
+      </select>
 
-    </div>
+  </div>
 
+  <button type="submit" name="add" id="AddToCart" class="btn addtocart  {{ bold_add_to_cart_class }} ">
+  	{% if product.available %}
+  	 <div class="title-box">
+  	 	<!-- bold-ro-liquid --><div class="bold_add_to_orders" style="display: inline-block;">{{ 'autoship-add-to-cart.png' | asset_url | img_tag: shop.name }} ADD AUTOSHIP TO CART</div> <!-- bold-ro-liquid -->
+  	<span id="AddToCartText">Add to Cart</span>
+  </div>
+  	{% else %}
+  	<span id="AddToCartText">{{ 'products.product.sold_out' | t | json }}</span>
+  	{%endif%}
+  </button>
 
-
-    
-
-  </form>
+</div>
 
 
-  {% unless qb_loaded == 'true' %}
-  <div class="shappify-qty-msg">{{bold_selected_or_first_available_variant.metafields.shappify_qb.pricing_html}}</div>
-  {% assign qb_loaded = 'true' %}
-  {% endunless %}
-  <br>
+</form>
+
+
+{% unless qb_loaded == 'true' %}
+<div class="shappify-qty-msg">{{bold_selected_or_first_available_variant.metafields.shappify_qb.pricing_html}}</div>
+{% assign qb_loaded = 'true' %}
+{% endunless %}
+<br>
 </div>
 
 <div class="product-description rte" itemprop="description">
- {{ my_description[0] }}
+	{{ my_description[0] }}
 </div>
 </div>
 </div>
@@ -340,36 +296,38 @@
 
 
 <div class="sub-description">
-  <div class="grid--full grid-padding">
-    <h2>Product Description</h2>
-    {{ my_description[2] }}
-  </div>
+	<div class="grid--full grid-padding">
+		{% comment %}<h2>Product Description</h2>{% endcomment %}
+		{{ my_description[2] }}
+	</div>
 </div>
+
+
+
+{% comment %}<div id="cbb-frequently-bought-box"></div>{% endcomment %}
+
+<main class="grid--full grid-padding" >
+	<div class="yotpo yotpo-main-widget"
+	data-product-id="{{ product.id }}"
+	data-name="{{ product.title | escape }}"
+	data-url="{{ shop.url }}{{ product.url }}"
+	data-image-url="{{ product.featured_image | product_img_url: "large" |replace: '?', '%3F' | replace: '&','%26'}}"
+	data-description="{{ product.description | escape }}">
+</div>
+</main>
 
 {% include 'related-products' %}
 
-<div id="cbb-frequently-bought-box"></div>
 
-<main class="grid--full grid-padding yotpo-top" >
-  <div class="yotpo yotpo-main-widget"
-  data-product-id="{{ product.id }}"
-  data-name="{{ product.title | escape }}"
-  data-url="{{ shop.url }}{{ product.url }}"
-  data-image-url="{{ product.featured_image | product_img_url: "large" |replace: '?', '%3F' | replace: '&','%26'}}"
-  data-description="{{ product.description | escape }}">
+{% comment %}<main class="grid--full grid-padding yotpo-bottom" >
+	<div class="yotpo yotpo-main-widget"
+	data-product-id="{{ product.id }}"
+	data-name="{{ product.title | escape }}"
+	data-url="{{ shop.url }}{{ product.url }}"
+	data-image-url="{{ product.featured_image | product_img_url: "large" |replace: '?', '%3F' | replace: '&','%26'}}"
+	data-description="{{ product.description | escape }}">
 </div>
-</main>
-
-
-<main class="grid--full grid-padding yotpo-bottom" >
-  <div class="yotpo yotpo-main-widget"
-  data-product-id="{{ product.id }}"
-  data-name="{{ product.title | escape }}"
-  data-url="{{ shop.url }}{{ product.url }}"
-  data-image-url="{{ product.featured_image | product_img_url: "large" |replace: '?', '%3F' | replace: '&','%26'}}"
-  data-description="{{ product.description | escape }}">
-</div>
-</main>
+</main>{% endcomment %}
 
 
 
@@ -393,44 +351,44 @@
       {% endcomment %}
       {{ 'option_selection.js' | shopify_asset_url | script_tag }}
       <script>
-        var selectCallback = function(variant, selector) {
+      	var selectCallback = function(variant, selector) {
           // BEGIN SWATCHES
           if (variant) {
-            var form = jQuery('#' + selector.domIdPrefix).closest('form');
-            for (var i=0,length=variant.options.length; i<length; i++) {
-              var radioButton = form.find('.swatch[data-option-index="' + i + '"] :radio[value="' + variant.options[i] +'"]');
-              if (radioButton.size()) {
-                radioButton.get(0).checked = true;
-              }
-            }
+          	var form = jQuery('#' + selector.domIdPrefix).closest('form');
+          	for (var i=0,length=variant.options.length; i<length; i++) {
+          		var radioButton = form.find('.swatch[data-option-index="' + i + '"] :radio[value="' + variant.options[i] +'"]');
+          		if (radioButton.size()) {
+          			radioButton.get(0).checked = true;
+          		}
+          	}
           }
 // END SWATCHES
 
 timber.productPage({
-  money_format: "{{ shop.money_format }}",
-  variant: variant,
-  selector: selector
+	money_format: "{{ shop.money_format }}",
+	variant: variant,
+	selector: selector
 });
 
 };
 
 jQuery(function($) {
 
-  new Shopify.OptionSelectors('productSelect', {
-    product: 	bold_product_json[{{ product.id }}],
-    onVariantSelected: selectCallback,
-    enableHistoryState: true
-  });
+	new Shopify.OptionSelectors('productSelect', {
+		product: 	bold_product_json[{{ product.id }}],
+		onVariantSelected: selectCallback,
+		enableHistoryState: true
+	});
 
-  {% if bold_variants_size > 1 %}
-  {% for option in product.options %}
-  $('.single-option-selector:eq({{ forloop.index0 }})')
-  .filter(function() { return $(this).find('option').size() > 1  })
-  .prepend('<option value="" selected="selected" autocomplete="off">Select ' + {{ product.options[forloop.index0] | json }} + '</option>')
-  .val('')
-  .trigger('change');
-  {% endfor %}
-  {% endif %}
+	{% if bold_variants_size > 1 %}
+	{% for option in product.options %}
+	$('.single-option-selector:eq({{ forloop.index0 }})')
+	.filter(function() { return $(this).find('option').size() > 1  })
+	.prepend('<option value="" selected="selected" autocomplete="off">Select ' + {{ product.options[forloop.index0] | json }} + '</option>')
+	.val('')
+	.trigger('change');
+	{% endfor %}
+	{% endif %}
 
 // if is only one selector
 
@@ -442,7 +400,7 @@ $('.single-option-selector')
 {% endunless %}
 {% endif %}
 
-$('.selector-wrapper:eq(0)').addClass('first-selector');
+// $('.selector-wrapper:eq(0)').addClass('first-selector');
 
 
 
@@ -460,7 +418,7 @@ $('.selector-wrapper:eq(0)').addClass('first-selector');
     $('.selector-wrapper').hide();
     {% endif %}
 
-  });
+});
 
 </script>
 
@@ -471,108 +429,108 @@ $('.selector-wrapper:eq(0)').addClass('first-selector');
 
 <style>
 .hover_modal {
- pointer-events: none !Important; 
+	pointer-events: none !Important; 
 }
 </style>
 
 
 <script>
-function testAnim(x) {
+	function testAnim(x) {
 
-  $('.selector-wrapper select').removeClass('bounce animated').addClass(x + ' animated').one('webkitAnimationEnd mozAnimationEnd MSAnimationEnd oanimationend animationend', function(){
-    $(this).removeClass('bounce animated');
-  });
-};
+		$('.selector-wrapper select').removeClass('bounce animated').addClass(x + ' animated').one('webkitAnimationEnd mozAnimationEnd MSAnimationEnd oanimationend animationend', function(){
+			$(this).removeClass('bounce animated');
+		});
+	};
 
-function testAnim2(x) {
-  $('.swatch-variant').removeClass('bounce animated').addClass(x + ' animated').one('webkitAnimationEnd mozAnimationEnd MSAnimationEnd oanimationend animationend', function(){
-    $(this).removeClass('bounce animated');
-  });
-};
+	function testAnim2(x) {
+		$('.swatch-variant').removeClass('bounce animated').addClass(x + ' animated').one('webkitAnimationEnd mozAnimationEnd MSAnimationEnd oanimationend animationend', function(){
+			$(this).removeClass('bounce animated');
+		});
+	};
 
-  function setColor()
-  {
-   if($("#productSelect-option-0 option:selected").filter(":contains('Select')").length === 0) {
-    $('#productSelect-option-0').css({'background-color':'rgb(254, 220, 184)','border':'1px solid rgb(255, 101, 1)'}); 
-  } else {
- $('#productSelect-option-0').css({'background-color':'#f5f5f5','border':'1px solid #a1a1a1'}); 
-   }
-}
+	function setColor()
+	{
+		if($("#productSelect-option-0 option:selected").filter(":contains('Select')").length === 0) {
+			$('#productSelect-option-0').css({'background-color':'rgb(254, 220, 184)','border':'1px solid rgb(255, 101, 1)'}); 
+		} else {
+			$('#productSelect-option-0').css({'background-color':'#f5f5f5','border':'1px solid #a1a1a1'}); 
+		}
+	}
 
-  function setColorOne()
-  {
-   if($("#productSelect-option-1 option:selected").filter(":contains('Select')").length === 0) {
-    $('#productSelect-option-1').css({'background-color':'rgb(254, 220, 184)','border':'1px solid rgb(255, 101, 1)'}); 
-  } else {
- $('#productSelect-option-1').css({'background-color':'#f5f5f5','border':'1px solid #a1a1a1'}); 
-   }
-}
+	function setColorOne()
+	{
+		if($("#productSelect-option-1 option:selected").filter(":contains('Select')").length === 0) {
+			$('#productSelect-option-1').css({'background-color':'rgb(254, 220, 184)','border':'1px solid rgb(255, 101, 1)'}); 
+		} else {
+			$('#productSelect-option-1').css({'background-color':'#f5f5f5','border':'1px solid #a1a1a1'}); 
+		}
+	}
 
-  function setColorTwo()
-  {
-   if($("#productSelect-option-2 option:selected").filter(":contains('Select')").length === 0) {
-    $('#productSelect-option-2').css({'background-color':'rgb(254, 220, 184)','border':'1px solid rgb(255, 101, 1)'}); 
-  } else {
- $('#productSelect-option-2').css({'background-color':'#f5f5f5','border':'1px solid #a1a1a1'}); 
-   }
-}
+	function setColorTwo()
+	{
+		if($("#productSelect-option-2 option:selected").filter(":contains('Select')").length === 0) {
+			$('#productSelect-option-2').css({'background-color':'rgb(254, 220, 184)','border':'1px solid rgb(255, 101, 1)'}); 
+		} else {
+			$('#productSelect-option-2').css({'background-color':'#f5f5f5','border':'1px solid #a1a1a1'}); 
+		}
+	}
 
-  function setColorThree()
-  {
-   if($("#productSelect-option-3 option:selected").filter(":contains('Select')").length === 0) {
-    $('#productSelect-option-3').css({'background-color':'rgb(254, 220, 184)','border':'1px solid rgb(255, 101, 1)'}); 
-  } else {
- $('#productSelect-option-3').css({'background-color':'#f5f5f5','border':'1px solid #a1a1a1'}); 
-   }
-}
+	function setColorThree()
+	{
+		if($("#productSelect-option-3 option:selected").filter(":contains('Select')").length === 0) {
+			$('#productSelect-option-3').css({'background-color':'rgb(254, 220, 184)','border':'1px solid rgb(255, 101, 1)'}); 
+		} else {
+			$('#productSelect-option-3').css({'background-color':'#f5f5f5','border':'1px solid #a1a1a1'}); 
+		}
+	}
 
-  function setColorFour()
-  {
-   if($("#productSelect-option-4 option:selected").filter(":contains('Select')").length === 0) {
-    $('#productSelect-option-4').css({'background-color':'rgb(254, 220, 184)','border':'1px solid rgb(255, 101, 1)'}); 
-  } else {
- $('#productSelect-option-4').css({'background-color':'#f5f5f5','border':'1px solid #a1a1a1'}); 
-   }
-}
-
-
-
-$(document).ready(function(){
-  $('.bold_add_to_orders').hide();
+	function setColorFour()
+	{
+		if($("#productSelect-option-4 option:selected").filter(":contains('Select')").length === 0) {
+			$('#productSelect-option-4').css({'background-color':'rgb(254, 220, 184)','border':'1px solid rgb(255, 101, 1)'}); 
+		} else {
+			$('#productSelect-option-4').css({'background-color':'#f5f5f5','border':'1px solid #a1a1a1'}); 
+		}
+	}
 
 
-  $( "#AddToCart" ).click(function() {
-    if ( $( this ).hasClass( "disabled" ) ) {
-      var anim = "bounce";
-      testAnim(anim);
-      testAnim2(anim);
-    }
-  });
+
+	$(document).ready(function(){
+		$('.bold_add_to_orders').hide();
 
 
-  $('#productSelect-option-0').change(function(){
-    setColor();       
-  });
+		$( "#AddToCart" ).click(function() {
+			if ( $( this ).hasClass( "disabled" ) ) {
+				var anim = "bounce";
+				testAnim(anim);
+				testAnim2(anim);
+			}
+		});
 
 
-$('#productSelect-option-1').change(function(){
-    setColorOne();       
-  });
+		$('#productSelect-option-0').change(function(){
+			setColor();       
+		});
 
 
-$('#productSelect-option-2').change(function(){
-    setColorTwo();       
-  });
+		$('#productSelect-option-1').change(function(){
+			setColorOne();       
+		});
 
-$('#productSelect-option-3').change(function(){
-    setColorThree();       
-  });
 
-$('#productSelect-option-4').change(function(){
-    setColorFour();       
-  });
+		$('#productSelect-option-2').change(function(){
+			setColorTwo();       
+		});
 
-});
+		$('#productSelect-option-3').change(function(){
+			setColorThree();       
+		});
+
+		$('#productSelect-option-4').change(function(){
+			setColorFour();       
+		});
+
+	});
 </script>
 
 

@@ -1,5 +1,5 @@
 <!-- /templates/collection.warehouse.liquid -->
-{% paginate collection.products by 16 %}
+{% paginate collection.products by 8 %}
 <div id="sub-collection">
 
    <div id="top">
@@ -12,10 +12,6 @@
         </div>
         <!-- end left part -->
 
-        <!-- right part -->
-      
-        <!--end right part -->
-
       </div> <!-- main-content -->
       <hr class="first-line">
     </div>
@@ -24,7 +20,6 @@
   <!-- begin breadcrumb -->
   {% include 'breadcrumb' %}
   <!-- end breadcrumb -->
-
 
   <!-- begin filter -->
   {% include 'toolbar' %}
@@ -39,21 +34,15 @@
   </div>  
 </div>
 
-
 <!-- begin grid uniform -->
 <div class="grid--full grid-padding">
   {% assign products = collection.products %}
-  {% for product in products limit:8 %}
-
+  {% for product in products %}
   {% include 'bold-product' with product, hide_action: 'skip' %}
   {% include 'product-grid-item' %}
   {% endfor %}
-
 </div>
 <!-- end grid uniform -->
-
-
-
 
 <!-- new pagination -->
 <div class="pagination">
@@ -80,23 +69,7 @@
 {% endpaginate %}
 <!-- end new pagination -->
 
-
 </div><!-- #sub-collection -->
-
-<!-- Yotpo Style for Collection Star Rating -->
-{% comment %}<style>
-div.yotpo.bottomLine .pull-left {
-  float: none;
-  margin: 0 5px 5px 0; 
-}
-div.yotpo.bottomLine.yotpo-small {
-  display: block;
-  margin: 0 5px 5px 0; 
-}
-.yotpo a.text-m {
-  display: inline-block;
-}
-</style>{% endcomment %}
 
 <hr>
 

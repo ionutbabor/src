@@ -13,7 +13,7 @@
 
   {% if template contains 'collection' %}
 
-  {% unless collection.handle contains 'warehouse-deals' %}
+  {% unless collection.handle contains 'warehouse-deals' or collection.handle contains 'above-knee-amputee' or collection.handle contains 'below-knee-amputee' or collection.handle contains 'arm-amputee-supplies' or collection.handle contains 'partial-foot-symes' %}
   <span aria-hidden="true">&rsaquo;</span>
   {% endunless %}
 
@@ -48,10 +48,12 @@
   {% elsif template contains 'collection' %}
   <span aria-hidden="true">&rsaquo;</span>
   {% if current_tags %}
+  
   {% capture url %}/collections/{{ collection.handle }}{% endcapture %}
   {{ collection.title | link_to: url }}
   <span aria-hidden="true">&rsaquo;</span>
   <span>{{ current_tags | join: " + " | replace: "-"," " }}</span>
+
   {% else %}
   <span>{{ collection.title }}</span>
   {% endif %}

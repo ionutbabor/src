@@ -29,25 +29,25 @@ html {
   /*.site-nav--mobile {
     margin-left: 10px;
     margin-top: 7px;
-  }*/
+    }*/
 
  /* .text-right .site-nav--mobile {
     margin-right: 10px;
     margin-top: 7px;
-  }*/
+    }*/
 
-  .site-header {
-    z-index: 9999999;
-    padding-top: 60px;
-  }
+    .site-header {
+      z-index: 9999999;
+      padding-top: 60px;
+    }
 
-  .site-header__logo-link img {
-    width: 200px;
-  }
+    .site-header__logo-link img {
+      width: 200px;
+    }
 
-  .nav-bar {
-    background-color: #000;
-  }
+    .nav-bar {
+      background-color: #000;
+    }
 
 /*.top-row {
   position: absolute;
@@ -178,7 +178,8 @@ html {
 }
 
 .feat-caption {
-  width: 240px;
+  /*width: 240px;*/
+  width: 330px;
   position: absolute;
   transform: translateY(-50%);
   top:50%;
@@ -373,7 +374,7 @@ html {
 
   .test-name, .test-name a {
     font-family: 'Quicksand', sans-serif;
-    color: #7BCEC6 !important;
+    /*    color: #7BCEC6 !important;*/
     font-weight: 700;
     letter-spacing: 1px;
   }
@@ -507,7 +508,7 @@ html {
     text-transform: uppercase;
     font-weight: 700;
     min-width: 220px;
-   /* margin-right: 20px;*/
+    /* margin-right: 20px;*/
   }
 
   .site-footer {
@@ -639,7 +640,7 @@ p.sku-title {
   margin-left: 20px;
   font-size: 18px;
   line-height: 20px;
-/*  width: 344px;*/
+  /*  width: 344px;*/
 }
 
 .quantity-selector {
@@ -725,16 +726,16 @@ p.sku-title {
   }
   .product-description h2, h2.section-header__title {
     font-family: 'Quicksand', sans-serif !important;
-/*    text-transform: uppercase;*/
+    /*    text-transform: uppercase;*/
     font-size: 20px;
-     font-weight: 500;
+    font-weight: 500;
   }
 
   #size-trigger {
     text-transform: uppercase;
     font-size: 14px;
     font-weight: 700;
- /*   margin-bottom: 20px;*/
+    /*   margin-bottom: 20px;*/
   }
 
   #size-trigger:hover {
@@ -872,15 +873,15 @@ p.sku-title {
 }
 /*.small-slider{
   margin-top: 102px;
-}*/
+  }*/
 
-/* COLLECTION PAGE STYLING */
+  /* COLLECTION PAGE STYLING */
 
-ul.collection-tags li {
-  display: inline;
-  list-style-type: none;
-  /*  font-family: 'Quicksand', sans-serif !important;*/
-  text-transform: uppercase;
+  ul.collection-tags li {
+    display: inline;
+    list-style-type: none;
+    /*  font-family: 'Quicksand', sans-serif !important;*/
+    text-transform: uppercase;
 /*  font-weight: 700;
 font-size: 14px;*/
 padding-right: 24px;
@@ -1181,6 +1182,7 @@ table td {
   color: #7BCEC6;
   font-family: 'Quicksand', sans-serif;
   font-weight: 700;
+  font-size: 16px;
 }
 
 .pagination .page a {
@@ -1229,7 +1231,7 @@ span.next a, span.prev a {
     display: none !important;
   }
   .main-content {
-    margin-top: 5px;
+    margin-top: 0;
   }
 
   @media (max-width: 1015px) {
@@ -1286,17 +1288,17 @@ span.next a, span.prev a {
   }
   /*.main-content {
     margin-top: 143px;
-  }*/
+    }*/
   /*.small-slider{
     margin-top: 143px;
-  }*/
+    }*/
 
-  .slider-caption.align-center {
-    height: 62% !important;
-    width: 100% !important;
-    text-align: center;
-  }
-  
+    .slider-caption.align-center {
+      height: 62% !important;
+      width: 100% !important;
+      text-align: center;
+    }
+
   /*.template-index {
     padding-top: 102px;
     }*/
@@ -1375,7 +1377,7 @@ span.next a, span.prev a {
         padding-top: 36px;
          top: 36px;
         z-index: 10000;
-      }*/
+        }*/
 
      /* .breadcrumb {
         padding-top: 25px;
@@ -1409,55 +1411,55 @@ span.next a, span.prev a {
         }
       }
 
-      @media (max-width: 1015px) {
+     /* @media (max-width: 1015px) {
         .feat-caption p.interior {
          display: none;
        }
-     }
+       }*/
 
-     @media (max-width: 479px) {
-      #fsb_bar{
-        padding: 7px 4px!important;
+       @media (max-width: 479px) {
+        #fsb_bar{
+          padding: 7px 4px!important;
+        }
+        .left-side, .right-side {
+          width: 100%;
+          float: none;
+          text-align: center;
+        }
+
+        .right-side img {
+          padding-left: 0px;
+        }
+
+        .template-product h2 {
+          text-align: center;
+          width: 100%;
+        }
+
+        .single-option-selector {
+          clear: both !important;
+        }
+
+        .sign_up {
+          font-size: 12px !important;
+          padding: 11px 6px !important;
+        }
       }
-      .left-side, .right-side {
-        width: 100%;
-        float: none;
-        text-align: center;
+
+      @font-face {
+        font-family: bebas;
+        src: url("{{ 'bebas.otf' | asset_url }}") format("opentype");
       }
 
-      .right-side img {
-        padding-left: 0px;
+      /* Shipping Rates Calculator+ customization */
+      .cbb-shipping-rates-calculator-header {
+        font-size: 1em !important;
       }
-
-      .template-product h2 {
-        text-align: center;
-        width: 100%;
+      .cbb-shipping-rates-rate-list {
+        width: 100% !important;
+        padding-left: 0 !important;
       }
-
-      .single-option-selector {
-        clear: both !important;
+      .cbb-shipping-rates-calculator-totals {
+        background-color: #e8e8e8 !important;
+        padding: 2px !important;
       }
-
-      .sign_up {
-        font-size: 12px !important;
-        padding: 11px 6px !important;
-      }
-    }
-
-    @font-face {
-      font-family: bebas;
-      src: url("{{ 'bebas.otf' | asset_url }}") format("opentype");
-    }
-
-    /* Shipping Rates Calculator+ customization */
-    .cbb-shipping-rates-calculator-header {
-      font-size: 1em !important;
-    }
-    .cbb-shipping-rates-rate-list {
-      width: 100% !important;
-      padding-left: 0 !important;
-    }
-    .cbb-shipping-rates-calculator-totals {
-      background-color: #e8e8e8 !important;
-      padding: 2px !important;
-    }

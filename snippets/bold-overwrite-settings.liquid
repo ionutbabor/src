@@ -1,0 +1,13 @@
+<script>
+if (typeof BOLD.recurring_orders.setSettings !== 'undefined') {
+    BOLD.recurring_orders.setSettings({
+        previewEnabled: true
+    }, true);
+} else {
+    BOLD = BOLD || {};
+    BOLD.recurring_orders = BOLD.recurring_orders || {};
+    BOLD.recurring_orders.settings = {
+        previewEnabled: true
+    };
+}
+</script>

@@ -68,25 +68,6 @@
 
   <div class="grid--full grid-padding product-single">
     <div class="grid__item large--one-half right-spacing">
-      {% comment %}<div class="product-single__photos" id="ProductPhoto">
-        {% assign featured_image = product.featured_image %}
-        <img src="{{ featured_image | img_url: 'original' }}" alt="{{ featured_image.alt | escape }}" id="ProductPhotoImg" data-imagezoom="true">
-      </div>
-
-     {% if product.images.size > 1 %}
-      <ul class="product-single__thumbnails grid-uniform" id="ProductThumbs">
-
-        {% for image in product.images %}
-        <li class="grid__item one-quarter">
-          <a href="{{ image.src | img_url: 'large' }}" class="product-single__thumbnail">
-            <img src="{{ image.src | img_url: 'compact' }}" alt="{{ image.alt | escape }}">
-          </a>
-        </li>
-        {% endfor %}
-
-      </ul>
-      {% endif %}
-      {% endcomment %}
 
       <!-- begin flexslider product -->
       {% include 'product-images' %}
@@ -145,98 +126,73 @@
      {% endif %}
 
 
-     {% if product.tags contains 'Free Ship Near Price' %}
+     {% if product.tags contains 'free-shipping' %}
      <div class="instock-freeship-alert">
-      <p class="green">{{settings.free-text-50}}</p>
-    </div>
-    {% endif %}
-
-
-
-    {% if product.tags contains 'free-shipping' %}
-    <div class="instock-freeship-alert">
       <p class="green">{{settings.free-shipping}}</p>
     </div>
     {% endif %}
 
-      {% comment %}{% if product.tags contains 'Free Ship Near Price' %}
-       <div class="instock-freeship-alert">
-        <p class="green">{{settings.free-text}}</p>
-      </div>
-      {% endif %}{% endcomment %}
+    {% if product.tags contains 'Free Ship Near Price' %}
+    <div class="instock-freeship-alert">
+      <p class="green">{{settings.free-text-50}}</p>
+    </div>
+    {% endif %}
 
-      {% if product.available %}
-      <p class="text-left in-stock">{{settings.in-stock-text}}</p>
-      {% comment %}{% else %}
-      <div class="shipping-alert">
-        <p>{{settings.out-stock-text}}</p>
-      </div>{% endcomment %}
-      {% endif %}
+    {% if product.tags contains 'in-stock' %}
+    <p class="text-left in-stock">{{settings.in-stock-text}}</p>
+    {% endif %}
 
-      {% if product.tags contains 'product-delay' %}
-      <div class="shipping-alert">
-        <p class="line-item-property__field">
-          <input id="this-product-will-delay-your-order-by-approximately-4-7-days" type="checkbox" name="properties[{{settings.product-delay}}]" value="*" class="hidden-label" checked="checked">
-          <label class="product-delay" for="this-product-will-delay-your-order-by-approximately-4-7-days">{{settings.product-delay}}</label>
-        </p>
-      </div>
-      {% endif %}
+    {% if product.tags contains 'product-delay' %}
+    <div class="shipping-alert">
+      <p class="line-item-property__field">
+        <input id="this-product-will-delay-your-order-by-approximately-4-7-days" type="checkbox" name="properties[{{settings.product-delay}}]" value="*" class="hidden-label" checked="checked">
+        <label class="product-delay" for="this-product-will-delay-your-order-by-approximately-4-7-days">{{settings.product-delay}}</label>
+      </p>
+    </div>
+    {% endif %}
+    
+    <hr>
 
+    {% if product.tags contains 'Size Chart' %}
+    <div id="size-trigger" >
+      <a href="#!"><img src="{{ 'ruler.png' | asset_url }}">Size Chart Guide</a>
+    </div>
 
-      {% comment %}<br class="clear">
-      <div class="line-separator"></div>
-      <br class="clear"> {% endcomment %}
-      <hr>
+    <img src="{{ 'close.png' | asset_url }}" id="size-close" style="display: none;">
 
-
-      {% if product.tags contains 'Size Chart' %}
-      <div id="size-trigger" class="size-xs">
-        <a href="#!"><img src="{{ 'ruler.png' | asset_url }}">Size Chart Guide</a>
-      </div>
-      {% endif %}
+    <div id="size-chart" style="display: none;">
+      {{ my_description[1] }}
+    </div>
+    {% endif %}
 
 
+    <div class="size-box">
+      <select name="id" id="productSelect" class="product-single__variants" required>
+        {% for variant in product.variants %}
+        {% include 'bold-hidden-variants' with variant, bold_loop: 'loop' %}
 
-      <div class="size-box">
-        <select name="id" id="productSelect" class="product-single__variants" required>
-          {% for variant in product.variants %}
-          {% include 'bold-hidden-variants' with variant, bold_loop: 'loop' %}
+        {% if variant.available %}
+        <option value="{{ variant.id }}" data-price="{{ variant.price | money_without_currency | remove: ',' }}">{{ variant.title }} - {{ variant.price | money }}</option>
+        {% else %}
+        <option disabled="disabled">
+          {{ variant.title }} - {{ 'products.product.sold_out' | t }}
+        </option>
+        {% endif %}
 
-          {% if variant.available %}
-          <option value="{{ variant.id }}" data-price="{{ variant.price | money_without_currency | remove: ',' }}">{{ variant.title }} - {{ variant.price | money }}</option>
-          {% else %}
-          <option disabled="disabled">
-            {{ variant.title }} - {{ 'products.product.sold_out' | t }}
-          </option>
-          {% endif %}
-
-          {% endfor %}
-        </select>
-      </div>
-
-      {% if product.tags contains 'Size Chart' %}
-      <div id="size-trigger" class="size-large">
-        <a href="#!"><img src="{{ 'ruler.png' | asset_url }}">Size Chart Guide</a>
-      </div>
-      {% endif %}
+        {% endfor %}
+      </select>
+    </div>
 
 
-      <img src="{{ 'close.png' | asset_url }}" id="size-close" style="display: none;">
-
-      <div id="size-chart" style="display: none;">
-        {{ my_description[1] }}
-      </div>
-
-
-      {% if product.available and product.options.first != 'Title' %}
-      {% for option in product.options %}
-      {% capture option_index %}option{{ forloop.index }}{% endcapture %}
-      {% assign option_values = product.variants | map: option_index | uniq %}
-      {% if option_values.size <= 3 %}
-      {% include 'swatch' with option %}
-      {% endif %}
-      {% endfor %}
-      {% endif %}
+    {% if product.available and product.options.first != 'Title' %}
+    {% for option in product.options %}
+    {% capture option_index %}option{{ forloop.index }}{% endcapture %}
+    {% assign option_values = product.variants | map: option_index | uniq %}
+    {% if option_values.size <= 3 %}
+    {% include 'swatch' with option %}
+    {% endif %}
+    {% endfor %}
+    {% endif %}
 
 
       {% comment %}{% if product.tags contains 'Select Option' %}
@@ -260,7 +216,9 @@
       <input name="phone" type="hidden" value="{{ customer.default_address.phone }}" > 
       <input name="province" type="hidden" value="{{ customer.default_address.province }}" > 
       <input name="zip" type="hidden" value="{{ customer.default_address.zip }}" >
-      {% include 'bold-ro' with product %}
+
+      {% comment %}{% include 'bold-ro' with product %}{% endcomment %}
+      <div class="ro_widget"></div>
 
       {% comment %} <br class="clear">{% endcomment %}
 
@@ -297,10 +255,12 @@
         
       </div>
       
-      <button type="submit" name="add" id="AddToCart" class="btn addtocart">
+      <button type="submit" name="add" id="AddToCart" class="btn addtocart  {{ bold_add_to_cart_class }} ">
         {% if product.available %}
-        <!-- bold-ro-liquid --> <div class="title-box"><div class="bold_add_to_orders" style="display: inline-block;">{{ 'autoship-add-to-cart.png' | asset_url | img_tag: shop.name }} ADD AUTOSHIP TO CART</div> <!-- bold-ro-liquid -->
-        <span id="AddToCartText">Add to Cart</span></div>
+        <div class="title-box">
+          <!-- bold-ro-liquid --><div class="bold_add_to_orders" style="display: inline-block;">{{ 'autoship-add-to-cart.png' | asset_url | img_tag: shop.name }} ADD AUTOSHIP TO CART</div> <!-- bold-ro-liquid -->
+          <span id="AddToCartText">Add to Cart</span>
+        </div>
         {% else %}
         <span id="AddToCartText">{{ 'products.product.sold_out' | t | json }}</span>
         {%endif%}
@@ -442,7 +402,7 @@ $('.single-option-selector')
 {% endunless %}
 {% endif %}
 
-$('.selector-wrapper:eq(0)').addClass('first-selector');
+// $('.selector-wrapper:eq(0)').addClass('first-selector');
 
 
 
@@ -477,62 +437,62 @@ $('.selector-wrapper:eq(0)').addClass('first-selector');
 
 
 <script>
-function testAnim(x) {
+  function testAnim(x) {
 
-  $('.selector-wrapper select').removeClass('bounce animated').addClass(x + ' animated').one('webkitAnimationEnd mozAnimationEnd MSAnimationEnd oanimationend animationend', function(){
-    $(this).removeClass('bounce animated');
-  });
-};
+    $('.selector-wrapper select').removeClass('bounce animated').addClass(x + ' animated').one('webkitAnimationEnd mozAnimationEnd MSAnimationEnd oanimationend animationend', function(){
+      $(this).removeClass('bounce animated');
+    });
+  };
 
-function testAnim2(x) {
-  $('.swatch-variant').removeClass('bounce animated').addClass(x + ' animated').one('webkitAnimationEnd mozAnimationEnd MSAnimationEnd oanimationend animationend', function(){
-    $(this).removeClass('bounce animated');
-  });
-};
+  function testAnim2(x) {
+    $('.swatch-variant').removeClass('bounce animated').addClass(x + ' animated').one('webkitAnimationEnd mozAnimationEnd MSAnimationEnd oanimationend animationend', function(){
+      $(this).removeClass('bounce animated');
+    });
+  };
 
   function setColor()
   {
    if($("#productSelect-option-0 option:selected").filter(":contains('Select')").length === 0) {
     $('#productSelect-option-0').css({'background-color':'rgb(254, 220, 184)','border':'1px solid rgb(255, 101, 1)'}); 
   } else {
- $('#productSelect-option-0').css({'background-color':'#f5f5f5','border':'1px solid #a1a1a1'}); 
-   }
+   $('#productSelect-option-0').css({'background-color':'#f5f5f5','border':'1px solid #a1a1a1'}); 
+ }
 }
 
-  function setColorOne()
-  {
-   if($("#productSelect-option-1 option:selected").filter(":contains('Select')").length === 0) {
-    $('#productSelect-option-1').css({'background-color':'rgb(254, 220, 184)','border':'1px solid rgb(255, 101, 1)'}); 
-  } else {
+function setColorOne()
+{
+ if($("#productSelect-option-1 option:selected").filter(":contains('Select')").length === 0) {
+  $('#productSelect-option-1').css({'background-color':'rgb(254, 220, 184)','border':'1px solid rgb(255, 101, 1)'}); 
+} else {
  $('#productSelect-option-1').css({'background-color':'#f5f5f5','border':'1px solid #a1a1a1'}); 
-   }
+}
 }
 
-  function setColorTwo()
-  {
-   if($("#productSelect-option-2 option:selected").filter(":contains('Select')").length === 0) {
-    $('#productSelect-option-2').css({'background-color':'rgb(254, 220, 184)','border':'1px solid rgb(255, 101, 1)'}); 
-  } else {
+function setColorTwo()
+{
+ if($("#productSelect-option-2 option:selected").filter(":contains('Select')").length === 0) {
+  $('#productSelect-option-2').css({'background-color':'rgb(254, 220, 184)','border':'1px solid rgb(255, 101, 1)'}); 
+} else {
  $('#productSelect-option-2').css({'background-color':'#f5f5f5','border':'1px solid #a1a1a1'}); 
-   }
+}
 }
 
-  function setColorThree()
-  {
-   if($("#productSelect-option-3 option:selected").filter(":contains('Select')").length === 0) {
-    $('#productSelect-option-3').css({'background-color':'rgb(254, 220, 184)','border':'1px solid rgb(255, 101, 1)'}); 
-  } else {
+function setColorThree()
+{
+ if($("#productSelect-option-3 option:selected").filter(":contains('Select')").length === 0) {
+  $('#productSelect-option-3').css({'background-color':'rgb(254, 220, 184)','border':'1px solid rgb(255, 101, 1)'}); 
+} else {
  $('#productSelect-option-3').css({'background-color':'#f5f5f5','border':'1px solid #a1a1a1'}); 
-   }
+}
 }
 
-  function setColorFour()
-  {
-   if($("#productSelect-option-4 option:selected").filter(":contains('Select')").length === 0) {
-    $('#productSelect-option-4').css({'background-color':'rgb(254, 220, 184)','border':'1px solid rgb(255, 101, 1)'}); 
-  } else {
+function setColorFour()
+{
+ if($("#productSelect-option-4 option:selected").filter(":contains('Select')").length === 0) {
+  $('#productSelect-option-4').css({'background-color':'rgb(254, 220, 184)','border':'1px solid rgb(255, 101, 1)'}); 
+} else {
  $('#productSelect-option-4').css({'background-color':'#f5f5f5','border':'1px solid #a1a1a1'}); 
-   }
+}
 }
 
 
@@ -555,20 +515,20 @@ $(document).ready(function(){
   });
 
 
-$('#productSelect-option-1').change(function(){
+  $('#productSelect-option-1').change(function(){
     setColorOne();       
   });
 
 
-$('#productSelect-option-2').change(function(){
+  $('#productSelect-option-2').change(function(){
     setColorTwo();       
   });
 
-$('#productSelect-option-3').change(function(){
+  $('#productSelect-option-3').change(function(){
     setColorThree();       
   });
 
-$('#productSelect-option-4').change(function(){
+  $('#productSelect-option-4').change(function(){
     setColorFour();       
   });
 

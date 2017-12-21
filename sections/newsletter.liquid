@@ -8,16 +8,13 @@
   </div>
 </div>{% endcomment %}
 
-
-
-
-
 {% for block in section.blocks %}
 {% if block.type == 'content' %}
 
 <div id="top">
   <div class="banner-page">
-   <img class="img-responsive" src="{{ block.settings.banner-img | img_url: 'master' }}" alt="{{ block.settings.banner-img | remove_first: 'files/' }}">
+   <img class="img-responsive medium-down--hide" src="{{ block.settings.banner-img | img_url: 'master' }}" alt="{{ block.settings.banner-img | remove_first: 'files/' }}">
+   <img class="img-responsive large--hide" src="{{ block.settings.xs-banner-img | img_url: 'master' }}" alt="{{ block.settings.xs-banner-img | remove_first: 'files/' }}">
    <div class="main">
     <h2>{{ page.title }}</h2>
     {{ page.content }}
@@ -31,13 +28,13 @@
 
 <div id="middle">
   <div class="wrapper">
-    <div class="grid">
+    <div class="grid--full grid-padding">
       <div class="grid__item large--one-half">
        {% if block.settings.text != blank %}
        <p>{{ block.settings.text }}</p>
        {% endif %}
      </div>
-     <div class="grid__item large--one-half text-center">
+     <div class="grid__item large--one-half text-center left-padding">
       <img class="img-responsive" src="{{ block.settings.img-top | img_url: 'original' }}" alt="{{ block.settings.img-top | remove_first: 'files/' }}" >
     </div>
   </div>
@@ -49,11 +46,11 @@
 
 <div id="middle2">
   <div class="wrapper">
-    <div class="grid">
+    <div class="grid--full grid-padding">
      <div class="grid__item large--one-half text-center">
       <img class="img-responsive" src="{{ block.settings.img-top | img_url: 'original' }}" alt="{{ block.settings.img-top | remove_first: 'files/' }}">
     </div>
-    <div class="grid__item large--one-half">
+    <div class="grid__item large--one-half left-padding">
      {% if block.settings.text != blank %}
      <p>{{ block.settings.text }}</p>
      {% endif %}
@@ -151,28 +148,28 @@
 
     </div>
 
-    <div class="grid__item large--one-quarter">
+    <div class="grid__item large--one-quarter medium--one-half small--one-whole">
       {% if block.settings.text1 != blank %}
       <p><a href="{{ block.settings.text1-url }}">{{ block.settings.text1 }}</a></p>
       {% endif %}
       <img class="img-responsive" src="{{ block.settings.img-top1 | img_url: 'original' }}" alt="{{ block.settings.img-top1 | remove_first: 'files/' }}">
     </div> 
 
-    <div class="grid__item large--one-quarter">
+    <div class="grid__item large--one-quarter medium--one-half small--one-whole">
       {% if block.settings.text2 != blank %}
       <p><a href="{{ block.settings.text2-url }}">{{ block.settings.text2 }}</a></p>
       {% endif %}
       <img class="img-responsive" src="{{ block.settings.img-top2 | img_url: 'original' }}" alt="{{ block.settings.img-top2 | remove_first: 'files/' }}">
     </div>  
 
-    <div class="grid__item large--one-quarter">
+    <div class="grid__item large--one-quarter medium--one-half small--one-whole">
       {% if block.settings.text3 != blank %}
       <p><a href="{{ block.settings.text3-url }}">{{ block.settings.text3 }}</a></p>
       {% endif %}
       <img class="img-responsive" src="{{ block.settings.img-top3 | img_url: 'original' }}" alt="{{ block.settings.img-top3 | remove_first: 'files/' }}">
     </div> 
 
-    <div class="grid__item large--one-quarter">
+    <div class="grid__item large--one-quarter medium--one-half small--one-whole">
       {% if block.settings.text4 != blank %}
       <p><a href="{{ block.settings.text4-url }}">{{ block.settings.text4 }}</a></p>
       {% endif %}
@@ -187,11 +184,11 @@
 
 <div id="amputee-store-stocks">
   <div class="wrapper">
-    <div class="grid">
+    <div class="grid--full">
       <div class="grid__item large--one-half">
 
         <div class="grid-box">
-          <div class="grid__item large--one-third">
+          <div class="grid__item large--one-third medium--one-third small--one-third">
            <ul id="left-box">
             <li>
               <img class="img-responsive" src="{{ block.settings.img-top1 | img_url: 'small' }}" alt="{{ block.settings.img-top3 | remove_first: 'files/' }}">
@@ -204,7 +201,7 @@
             </li>
           </ul>
         </div>  
-        <div class="grid__item large--one-third">
+        <div class="grid__item large--one-third medium--one-third small--one-third">
          <ul id="middle-box">
           <li>
             <img class="img-responsive" src="{{ block.settings.img-top4 | img_url: 'small' }}" alt="{{ block.settings.img-top3 | remove_first: 'files/' }}">
@@ -217,7 +214,7 @@
           </li>
         </ul>
       </div>
-      <div class="grid__item large--one-third">
+      <div class="grid__item large--one-third medium--one-third small--one-third">
        <ul id="right-box">
         <li>
           <img class="img-responsive" src="{{ block.settings.img-top7 | img_url: 'small' }}" alt="{{ block.settings.img-top3 | remove_first: 'files/' }}">
@@ -235,7 +232,7 @@
 
 
 </div>
-<div class="grid__item large--one-half no-padding">
+<div class="grid__item large--one-half left-padding">
   {% if block.settings.title != blank %}
   <h2>{{ block.settings.title }}</h2>
   {% endif %}
@@ -250,7 +247,7 @@
 
 <div id="amputee-more-content">
  <div class="wrapper">
-  <div class="grid">
+  <div class="grid--full grid-padding">
     <div class="grid__item large--one-half push--large--one-quarter">
      <p>{{ block.settings.content2 }}</p>
    </div>
@@ -264,28 +261,28 @@
 
 <!-- begin blog -->
 <div class="wrapper main-content">
-<div class="grid">
+  <div class="grid">
 
-  <div class="header-container">
-    <h2 class="page-title" style="margin-left: 30px; margin-top: 30px; margin-bottom: 30px;"><a href="/blogs/amputee-store-blog" style="font-family: 'bebas', sans-serif; color: #000; letter-spacing: 2px; font-size: 30px;">Amputee Store Blog</a></h2>
-  </div>
+    <div class="header-container">
+      <h2 class="page-title" style="margin-left: 30px; margin-top: 30px; margin-bottom: 30px;"><a href="/blogs/amputee-store-blog" style="font-family: 'bebas', sans-serif; color: #000; letter-spacing: 2px; font-size: 30px;">Amputee Store Blog</a></h2>
+    </div>
 
-  {% for article in blogs['amputee-store-blog'].articles limit: 3 %}
+    {% for article in blogs['amputee-store-blog'].articles limit: 3 %}
 
     <div class="grid__item large--one-third">
 
       <div class="rte blog-excerpt">
-          {{ article.excerpt }}
-          <h3><a href="{{ article.url }}">{{ article.title }}</a></h3>
-          <p>{{ article.content | strip_html | truncatewords: 12 }}</p>
+        {{ article.excerpt }}
+        <h3><a href="{{ article.url }}">{{ article.title }}</a></h3>
+        <p>{{ article.content | strip_html | truncatewords: 12 }}</p>
       </div>
       
       <p class="test-name" style="font-size: 20px;"><a href="{{ article.url }}">Read More</a></p>
 
     </div>
 
-  {% endfor %}
-</div>
+    {% endfor %}
+  </div>
 </div>
 <!-- end blog -->
 
@@ -296,254 +293,259 @@
 {
   "blocks": [
   {
-  "type": "content",
-  "name": "Image",
-  "settings": [
+    "type": "content",
+    "name": "Image",
+    "settings": [
+    {
+      "id": "banner-img",
+      "type": "image_picker",
+      "label": "Desktop Image"
+    },
+    {
+      "id": "xs-banner-img",
+      "type": "image_picker",
+      "label": "Mobile Image"
+    }
+    ]
+  },
   {
-  "id": "banner-img",
-  "type": "image_picker",
-  "label": "Image"
-}
-]
-},
-{
-  "type": "our-services-1",
-  "name": "Our Services 1",
-  "settings": [
+    "type": "our-services-1",
+    "name": "Our Services 1",
+    "settings": [
+    {
+      "id": "text",
+      "type": "textarea",
+      "label": "Content",
+      "default":"Lorem ipsum dolor sit amet, consectetur adipisicing elit. Consequatur expedita suscipit quo hic illo id adipisci facere fuga dolore odio sed, veniam vel autem blanditiis, est necessitatibus officiis, corrupti quis."
+    },
+    {
+      "id": "img-top",
+      "type": "image_picker",
+      "label": "Image"
+    }
+    ]
+  },
   {
-  "id": "text",
-  "type": "textarea",
-  "label": "Content",
-  "default":"Lorem ipsum dolor sit amet, consectetur adipisicing elit. Consequatur expedita suscipit quo hic illo id adipisci facere fuga dolore odio sed, veniam vel autem blanditiis, est necessitatibus officiis, corrupti quis."
-},
-{
-  "id": "img-top",
-  "type": "image_picker",
-  "label": "Image"
-}
-]
-},
-{
-  "type": "our-services-2",
-  "name": "Our Services 2",
-  "settings": [
+    "type": "our-services-2",
+    "name": "Our Services 2",
+    "settings": [
+    {
+      "id": "text",
+      "type": "textarea",
+      "label": "Content",
+      "default":"Lorem ipsum dolor sit amet, consectetur adipisicing elit. Consequatur expedita suscipit quo hic illo id adipisci facere fuga dolore odio sed, veniam vel autem blanditiis, est necessitatibus officiis, corrupti quis."
+    },
+    {
+      "id": "img-top",
+      "type": "image_picker",
+      "label": "Image"
+    }
+    ]
+  },
   {
-  "id": "text",
-  "type": "textarea",
-  "label": "Content",
-  "default":"Lorem ipsum dolor sit amet, consectetur adipisicing elit. Consequatur expedita suscipit quo hic illo id adipisci facere fuga dolore odio sed, veniam vel autem blanditiis, est necessitatibus officiis, corrupti quis."
-},
-{
-  "id": "img-top",
-  "type": "image_picker",
-  "label": "Image"
-}
-]
-},
-{
-  "type": "testimonials",
-  "name": "Testimonials",
-  "settings": [
+    "type": "testimonials",
+    "name": "Testimonials",
+    "settings": [
+    {
+      "id": "text",
+      "type": "text",
+      "label": "Title",
+      "default":"AMPUTEES TELL THEIR STORIES"
+    },
+    {
+      "id": "text1",
+      "type": "textarea",
+      "label": "Testimonial 1",
+      "default":"Bill says he's never been too conscious of his prosthesis. He doesn't really think about it anymore, except when his granddaughter calls it a robot leg..."
+    },
+    {
+      "id": "text1_author",
+      "type": "text",
+      "label": "Testimonial 1 Author",
+      "default":"Bill - AK Amputee"
+    },
+    {
+      "id": "text2",
+      "type": "textarea",
+      "label": "Testimonial 2",
+      "default":"Life with a prosthesis was difficult at first. He had expected to master it quickly and go on with his life, he had expectations..."
+    },
+    {
+      "id": "text2_author",
+      "type": "text",
+      "label": "Testimonial 2 Author",
+      "default":"Jake - BK Amputee"
+    },
+    {
+      "id": "text3",
+      "type": "textarea",
+      "label": "Testimonial 3",
+      "default":"Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cupiditate eius qui, officiis facilis repudiandae, eligendi tenetur beatae maxime. Incidunt commodi inventore eligendi velit odio eius quae facilis omnis et harum!"
+    },
+    {
+      "id": "text3_author",
+      "type": "text",
+      "label": "Testimonial 3 Author",
+      "default":"Andy - BK Amputee"
+    },
+    {
+      "id": "text4",
+      "type": "textarea",
+      "label": "Testimonial 4",
+      "default":"Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cupiditate eius qui, officiis facilis repudiandae, eligendi tenetur beatae maxime. Incidunt commodi inventore eligendi velit odio eius quae facilis omnis et harum!"
+    },
+    {
+      "id": "text4_author",
+      "type": "text",
+      "label": "Testimonial 4 Author",
+      "default":"Jake - BK Amputee"
+    } 
+    ]
+  },
   {
-  "id": "text",
-  "type": "text",
-  "label": "Title",
-  "default":"AMPUTEES TELL THEIR STORIES"
-},
-{
-  "id": "text1",
-  "type": "textarea",
-  "label": "Testimonial 1",
-  "default":"Bill says he's never been too conscious of his prosthesis. He doesn't really think about it anymore, except when his granddaughter calls it a robot leg..."
-},
-{
-  "id": "text1_author",
-  "type": "text",
-  "label": "Testimonial 1 Author",
-  "default":"Bill - AK Amputee"
-},
-{
-  "id": "text2",
-  "type": "textarea",
-  "label": "Testimonial 2",
-  "default":"Life with a prosthesis was difficult at first. He had expected to master it quickly and go on with his life, he had expectations..."
-},
-{
-  "id": "text2_author",
-  "type": "text",
-  "label": "Testimonial 2 Author",
-  "default":"Jake - BK Amputee"
-},
-{
-  "id": "text3",
-  "type": "textarea",
-  "label": "Testimonial 3",
-  "default":"Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cupiditate eius qui, officiis facilis repudiandae, eligendi tenetur beatae maxime. Incidunt commodi inventore eligendi velit odio eius quae facilis omnis et harum!"
-},
-{
-  "id": "text3_author",
-  "type": "text",
-  "label": "Testimonial 3 Author",
-  "default":"Andy - BK Amputee"
-},
-{
-  "id": "text4",
-  "type": "textarea",
-  "label": "Testimonial 4",
-  "default":"Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cupiditate eius qui, officiis facilis repudiandae, eligendi tenetur beatae maxime. Incidunt commodi inventore eligendi velit odio eius quae facilis omnis et harum!"
-},
-{
-  "id": "text4_author",
-  "type": "text",
-  "label": "Testimonial 4 Author",
-  "default":"Jake - BK Amputee"
-} 
-]
-},
-{
-  "type": "shop-amputation",
-  "name": "Shop By Amputation Level",
-  "settings": [
+    "type": "shop-amputation",
+    "name": "Shop By Amputation Level",
+    "settings": [
+    {
+      "id": "title",
+      "type": "text",
+      "label": "Title",
+      "default":"Shop by Amputation Level"
+    },  
+    {
+      "id": "text1",
+      "type": "textarea",
+      "label": "Content",
+      "default":"Lorem ipsum dolor sit amet, consectetur adipisicing elit. Consequatur expedita suscipit quo hic illo id adipisci facere fuga dolore odio sed, veniam vel autem blanditiis, est necessitatibus officiis, corrupti quis."
+    },
+    {
+      "id": "text1-url",
+      "type": "text",
+      "label": "Href"
+    },
+    {
+      "id": "img-top1",
+      "type": "image_picker",
+      "label": "Image"
+    },
+    {
+      "id": "text2",
+      "type": "textarea",
+      "label": "Content",
+      "default":"Lorem ipsum dolor sit amet, consectetur adipisicing elit. Consequatur expedita suscipit quo hic illo id adipisci facere fuga dolore odio sed, veniam vel autem blanditiis, est necessitatibus officiis, corrupti quis."
+    },
+    {
+      "id": "text2-url",
+      "type": "text",
+      "label": "Href"
+    },
+    {
+      "id": "img-top2",
+      "type": "image_picker",
+      "label": "Image"
+    },
+    {
+      "id": "text3",
+      "type": "textarea",
+      "label": "Content",
+      "default":"Lorem ipsum dolor sit amet, consectetur adipisicing elit. Consequatur expedita suscipit quo hic illo id adipisci facere fuga dolore odio sed, veniam vel autem blanditiis, est necessitatibus officiis, corrupti quis."
+    },
+    {
+      "id": "text3-url",
+      "type": "text",
+      "label": "Href"
+    },
+    {
+      "id": "img-top3",
+      "type": "image_picker",
+      "label": "Image"
+    },
+    {
+      "id": "text4",
+      "type": "textarea",
+      "label": "Content",
+      "default":"Lorem ipsum dolor sit amet, consectetur adipisicing elit. Consequatur expedita suscipit quo hic illo id adipisci facere fuga dolore odio sed, veniam vel autem blanditiis, est necessitatibus officiis, corrupti quis."
+    },
+    {
+      "id": "text4-url",
+      "type": "text",
+      "label": "Href"
+    },
+    {
+      "id": "img-top4",
+      "type": "image_picker",
+      "label": "Image"
+    }
+    ]
+  },
   {
-  "id": "title",
-  "type": "text",
-  "label": "Title",
-  "default":"Shop by Amputation Level"
-},  
-{
-  "id": "text1",
-  "type": "textarea",
-  "label": "Content",
-  "default":"Lorem ipsum dolor sit amet, consectetur adipisicing elit. Consequatur expedita suscipit quo hic illo id adipisci facere fuga dolore odio sed, veniam vel autem blanditiis, est necessitatibus officiis, corrupti quis."
-},
-{
-  "id": "text1-url",
-  "type": "text",
-  "label": "Href"
-},
-{
-  "id": "img-top1",
-  "type": "image_picker",
-  "label": "Image"
-},
-{
-  "id": "text2",
-  "type": "textarea",
-  "label": "Content",
-  "default":"Lorem ipsum dolor sit amet, consectetur adipisicing elit. Consequatur expedita suscipit quo hic illo id adipisci facere fuga dolore odio sed, veniam vel autem blanditiis, est necessitatibus officiis, corrupti quis."
-},
-{
-  "id": "text2-url",
-  "type": "text",
-  "label": "Href"
-},
-{
-  "id": "img-top2",
-  "type": "image_picker",
-  "label": "Image"
-},
-{
-  "id": "text3",
-  "type": "textarea",
-  "label": "Content",
-  "default":"Lorem ipsum dolor sit amet, consectetur adipisicing elit. Consequatur expedita suscipit quo hic illo id adipisci facere fuga dolore odio sed, veniam vel autem blanditiis, est necessitatibus officiis, corrupti quis."
-},
-{
-  "id": "text3-url",
-  "type": "text",
-  "label": "Href"
-},
-{
-  "id": "img-top3",
-  "type": "image_picker",
-  "label": "Image"
-},
-{
-  "id": "text4",
-  "type": "textarea",
-  "label": "Content",
-  "default":"Lorem ipsum dolor sit amet, consectetur adipisicing elit. Consequatur expedita suscipit quo hic illo id adipisci facere fuga dolore odio sed, veniam vel autem blanditiis, est necessitatibus officiis, corrupti quis."
-},
-{
-  "id": "text4-url",
-  "type": "text",
-  "label": "Href"
-},
-{
-  "id": "img-top4",
-  "type": "image_picker",
-  "label": "Image"
-}
-]
-},
-{
-  "type": "amputee-store-stocks",
-  "name": "Amputee Store Stocks",
-  "settings": [
+    "type": "amputee-store-stocks",
+    "name": "Amputee Store Stocks",
+    "settings": [
+    {
+      "id": "title",
+      "type": "text",
+      "label": "Title",
+      "default":"Amputee Store Stocks The Top Prosthetic Manufacturer Brands"
+    },  
+    {
+      "id": "content",
+      "type": "textarea",
+      "label": "Content",
+      "default":"Lorem ipsum dolor sit amet, consectetur adipisicing elit. Magnam repellat labore autem veniam debitis placeat nostrum cupiditate, velit corrupti nihil quasi commodi nisi quos esse ipsum cum ad dolorem voluptatem!"
+    },
+    {
+      "id": "img-top1",
+      "type": "image_picker",
+      "label": "Image"
+    },
+    {
+      "id": "img-top2",
+      "type": "image_picker",
+      "label": "Image"
+    },
+    {
+      "id": "img-top3",
+      "type": "image_picker",
+      "label": "Image"
+    },
+    {
+      "id": "img-top4",
+      "type": "image_picker",
+      "label": "Image"
+    },
+    {
+      "id": "img-top5",
+      "type": "image_picker",
+      "label": "Image"
+    },
+    {
+      "id": "img-top6",
+      "type": "image_picker",
+      "label": "Image"
+    },{
+    "id": "img-top7",
+    "type": "image_picker",
+    "label": "Image"
+  },
   {
-  "id": "title",
-  "type": "text",
-  "label": "Title",
-  "default":"Amputee Store Stocks The Top Prosthetic Manufacturer Brands"
-},  
-{
-  "id": "content",
-  "type": "textarea",
-  "label": "Content",
-  "default":"Lorem ipsum dolor sit amet, consectetur adipisicing elit. Magnam repellat labore autem veniam debitis placeat nostrum cupiditate, velit corrupti nihil quasi commodi nisi quos esse ipsum cum ad dolorem voluptatem!"
-},
-{
-  "id": "img-top1",
-  "type": "image_picker",
-  "label": "Image"
-},
-{
-  "id": "img-top2",
-  "type": "image_picker",
-  "label": "Image"
-},
-{
-  "id": "img-top3",
-  "type": "image_picker",
-  "label": "Image"
-},
-{
-  "id": "img-top4",
-  "type": "image_picker",
-  "label": "Image"
-},
-{
-  "id": "img-top5",
-  "type": "image_picker",
-  "label": "Image"
-},
-{
-  "id": "img-top6",
-  "type": "image_picker",
-  "label": "Image"
-},{
-"id": "img-top7",
-"type": "image_picker",
-"label": "Image"
-},
-{
-  "id": "img-top8",
-  "type": "image_picker",
-  "label": "Image"
-},
-{
-  "id": "img-top9",
-  "type": "image_picker",
-  "label": "Image"
-},
-{
-  "id": "content2",
-  "type": "textarea",
-  "label": "Content",
-  "default":"Lorem ipsum dolor sit amet, consectetur adipisicing elit. Magnam repellat labore autem veniam debitis placeat nostrum cupiditate, velit corrupti nihil quasi commodi nisi quos esse ipsum cum ad dolorem voluptatem!Lorem ipsum dolor sit amet, consectetur adipisicing elit. Magnam repellat labore autem veniam debitis placeat nostrum cupiditate, velit corrupti nihil quasi commodi nisi quos esse ipsum cum ad dolorem voluptatem!"
-}
+    "id": "img-top8",
+    "type": "image_picker",
+    "label": "Image"
+  },
+  {
+    "id": "img-top9",
+    "type": "image_picker",
+    "label": "Image"
+  },
+  {
+    "id": "content2",
+    "type": "textarea",
+    "label": "Content",
+    "default":"Lorem ipsum dolor sit amet, consectetur adipisicing elit. Magnam repellat labore autem veniam debitis placeat nostrum cupiditate, velit corrupti nihil quasi commodi nisi quos esse ipsum cum ad dolorem voluptatem!Lorem ipsum dolor sit amet, consectetur adipisicing elit. Magnam repellat labore autem veniam debitis placeat nostrum cupiditate, velit corrupti nihil quasi commodi nisi quos esse ipsum cum ad dolorem voluptatem!"
+  }
 
-]
+  ]
 }
 
 ]

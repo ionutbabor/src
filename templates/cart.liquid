@@ -6,6 +6,8 @@ For info on test orders:
 - Shopify Payments - http://docs.shopify.com/manual/more/shopify-payments/testing-shopify-payments
 
 {% endcomment %}
+{% include 'bold-cart' %}
+
 {% if cart.item_count > 0 %}
 <div class="grid--full grid-padding">
 
@@ -49,7 +51,8 @@ For info on test orders:
   <script>mixed_cart = false;</script>
   {% assign show_paypal = true %}
   {% for item in cart.items %}
-  {% include 'bold-ro-price-fix' %}
+{% comment %}  {% include 'bold-ro-price-fix' %}{% endcomment %}
+  {% include 'bold-cart-item' with item %}
   {% assign prod_index = forloop.index0 %}
   <input type="hidden" name="product_id[{{ forloop.index0 }}]" value="{{ item.product.id }}">
   <input type="hidden" name="variant_id[{{ forloop.index0 }}]" value="{{ item.variant.id }}">
@@ -123,7 +126,7 @@ For info on test orders:
             {% endif %}
             <!-- bold-ro-liquid -->
 
-            <a href="/cart/change?line={{ forloop.index }}&amp;quantity=0" class="cart__remove bold-ro-remove">
+            <a href="/cart/change?line={{ forloop.index }}&amp;quantity=0" class="cart__remove bold_remove_class">
               <small>{{ 'cart.general.remove' | t }}</small>
             </a>
           </div>
@@ -137,7 +140,8 @@ For info on test orders:
 
           <div class="grid__item one-third">
             <span class="cart__mini-labels">{{ 'cart.label.price' | t }}</span>
-            <span class="h3">{{ ro_item_price | money }}</span>
+            {% comment %}<span class="h3">{{ ro_item_price | money }}</span>{% endcomment %}
+            <span class="h3">{{ bold_item_price | money }}</span>
           </div>
 
           <div class="grid__item one-third text-center">
@@ -154,7 +158,8 @@ For info on test orders:
 
           <div class="grid__item one-third text-right">
             <span class="cart__mini-labels">{{ 'cart.label.total' | t }}</span>
-            <span class="h3">{{ ro_line_item_price | money }}</span>
+            {% comment %}<span class="h3">{{ ro_line_item_price | money }}</span>{% endcomment %}
+            <span class="h3">{{ bold_item_line_price | money }}</span>
           </div>
 
         </div>
@@ -196,9 +201,9 @@ For info on test orders:
         <div id="bar-box" >
 
          <div class="us-shipping-message" style="display:none">
-          {% if cart.total_price < us_amount %}
-          {% assign us_bar = us_amount | minus: cart.total_price | times: 100 | divided_by: us_amount %}
-          <p>Only {{ us_amount | minus: cart.total_price | money }} to go for FREE SHIPING!</p>
+          {% if bold_cart_total_price < us_amount %}
+          {% assign us_bar = us_amount | minus: bold_cart_total_price | times: 100 | divided_by: us_amount %}
+          <p>Only {{ us_amount | minus: bold_cart_total_price | money }} to go for FREE SHIPING!</p>
           {% else %}
           <p class="green-text">You've got FREE SHIPPING!</p>
           {% endif %}
@@ -213,9 +218,9 @@ For info on test orders:
         </div>
 
         <div class="int-shipping-message" style="display:none"">
-         {% if cart.total_price < int_amount %}
-         {% assign int_bar = int_amount | minus: cart.total_price | times: 100 | divided_by: int_amount %}
-         <p>Only {{ int_amount | minus: cart.total_price | money }} to go for FREE SHIPING!</p>
+         {% if bold_cart_total_price < int_amount %}
+         {% assign int_bar = int_amount | minus: bold_cart_total_price | times: 100 | divided_by: int_amount %}
+         <p>Only {{ int_amount | minus: bold_cart_total_price | money }} to go for FREE SHIPING!</p>
          {% else %}
          {% assign int_bar = 0 %}
          <p class="green-text">You've got FREE SHIPPING!</p>
@@ -235,7 +240,7 @@ For info on test orders:
     <div class="border-line">
       <p>
         <span class="cart__subtotal-title">{{ 'cart.general.subtotal' | t }}</span>
-        <span class="h3 cart__subtotal">{{ ro_cart_total | money }}</span>
+        <span class="h3 cart__subtotal">{{ bold_cart_total_price | money }}</span>
       </p>
 
       <div class="cart-us-message" style="display:none">
@@ -259,7 +264,9 @@ For info on test orders:
      <input name="phone" type="hidden" value="{{ customer.default_address.phone }}" > 
      <input name="province" type="hidden" value="{{ customer.default_address.province }}" > 
      <input name="zip" type="hidden" value="{{ customer.default_address.zip }}" >
+
      {% include 'bold-ro-cart' %}
+     
      <input type="submit" name="update" class="btn--secondary update-cart" value="{{ 'cart.general.update' | t }}">
      <input type="submit" name="checkout" class="btn" value="{{ 'cart.general.checkout' | t }}">
 

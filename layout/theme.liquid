@@ -72,7 +72,7 @@
     <link href='//fonts.googleapis.com/css?family=Lato' rel='stylesheet' type='text/css'>
 
 
-   {% comment %} {{ 'jquery.fancybox.css' | asset_url | stylesheet_tag }}{% endcomment %}
+    {% comment %} {{ 'jquery.fancybox.css' | asset_url | stylesheet_tag }}{% endcomment %}
     {{ 'flexslider.css' | asset_url | stylesheet_tag }}
     {{ 'animate.css' | asset_url | stylesheet_tag }}
 
@@ -80,11 +80,6 @@
     {{ 'custom-ninja.scss.css' | asset_url | stylesheet_tag }}
     {% comment %}product swatches style{% endcomment %}
     {{ 'swatches.scss.css' | asset_url | stylesheet_tag }}
-
-
-
-
-    {% comment %}<script type="text/javascript" src="https://cdn.shopify.com/s/files/1/0824/6797/files/jquery.fancybox.pack.js?7348962287354414472"></script>{% endcomment %}
 
     <!-- Coin app by ShopPad -->
     <script type="text/javascript" src="//d1liekpayvooaz.cloudfront.net/apps/coin/coin.js?shop={{shop.permanent_domain}}"></script>
@@ -101,6 +96,9 @@
   {{ 'bold-helper-functions.js' | asset_url | script_tag }}
   {% include 'bold-ro-ajax-cart' %}
   {% include 'bold-cart' %}
+  {% include 'bold-common' %}
+  {% include 'bold-ro-init' %}
+  {% include 'bold-overwrite-settings' %}
 
   <!-- Start Visual Website Optimizer Asynchronous Code -->
   <script type='text/javascript'>
@@ -113,6 +111,7 @@
       f=false,d=document;return{use_existing_jquery:function(){return use_existing_jquery;},library_tolerance:function(){return library_tolerance;},finish:function(){if(!f){f=true;var a=d.getElementById('_vis_opt_path_hides');if(a)a.parentNode.removeChild(a);}},finished:function(){return f;},load:function(a){var b=d.createElement('script');b.src=a;b.type='text/javascript';b.innerText;b.onerror=function(){_vwo_code.finish();};d.getElementsByTagName('head')[0].appendChild(b);},init:function(){settings_timer=setTimeout('_vwo_code.finish()',settings_tolerance);var a=d.createElement('style'),b='body{opacity:0 !important;filter:alpha(opacity=0) !important;background:none !important;}',h=d.getElementsByTagName('head')[0];a.setAttribute('id','_vis_opt_path_hides');a.setAttribute('type','text/css');if(a.styleSheet)a.styleSheet.cssText=b;else a.appendChild(d.createTextNode(b));h.appendChild(a);this.load('//dev.visualwebsiteoptimizer.com/j.php?a='+account_id+'&u='+encodeURIComponent(d.URL)+'&r='+Math.random());return settings_timer;}};}());_vwo_settings_timer=_vwo_code.init();
     </script>
     <!-- End Visual Website Optimizer Asynchronous Code -->
+
 
   </head>
 
@@ -175,11 +174,11 @@
                 <div class="grid__item medium--eleven-twelfths small--eleven-twelfths">
                   <a href="#" {% if link.title == 'Prosthetic Textiles' %}{% if collection.handle contains 'prosthetic-textiles' or collection.handle contains 'amputee-socks' or collection.handle contains 'stump-shrinkers' or collection.handle contains 'prosthetic-sheaths' or collection.handle contains 'cosmetic-hosiery' or collection.handle contains 'textile-accessories' %} class="current" {% endif %}{% endif %} 
 
-                {% if link.title == 'Personal Care & Equipment' %}{% if collection.handle contains 'personal-care' or collection.handle contains 'skin-care-treatments' or collection.handle contains 'prosthetic-cleansers' or collection.handle contains 'sweat-control' or collection.handle contains 'moisturizers' or collection.handle contains 'skin-care-collections' %} class="current" {% endif %}{% endif %}
+                  {% if link.title == 'Personal Care & Equipment' %}{% if collection.handle contains 'personal-care' or collection.handle contains 'skin-care-treatments' or collection.handle contains 'prosthetic-cleansers' or collection.handle contains 'sweat-control' or collection.handle contains 'moisturizers' or collection.handle contains 'skin-care-collections' %} class="current" {% endif %}{% endif %}
 
-                {% if link.title == 'Sleeves, Liners & More' %}{% if collection.handle contains 'prosthesis-suspension' or collection.handle contains 'suspension-sleeves' or collection.handle contains 'suspension-belts' or collection.handle contains 'prosthetic-liners' or collection.handle contains 'suspension-accessories' or collection.handle contains 'slip-on-aids' %} class="current" {% endif %}{% endif %}
+                  {% if link.title == 'Sleeves, Liners & More' %}{% if collection.handle contains 'prosthesis-suspension' or collection.handle contains 'suspension-sleeves' or collection.handle contains 'suspension-belts' or collection.handle contains 'prosthetic-liners' or collection.handle contains 'suspension-accessories' or collection.handle contains 'slip-on-aids' %} class="current" {% endif %}{% endif %}
 
-                {% if link.title == 'Gel Solutions' %}{% if collection.handle contains 'prosthetic-gel-pads-sheaths-to-solve-fitting-issues' or collection.handle contains 'distal-end-prosthetic-gel-pads' or collection.handle contains 'gel-socks-sheaths-and-pads-to-adjust-socket-size' or collection.handle contains 'scar-and-wound-care' %} class="current" {% endif %}{% endif %} ><span class="parent-item">{{ link.title }}</span></a>
+                  {% if link.title == 'Gel Solutions' %}{% if collection.handle contains 'prosthetic-gel-pads-sheaths-to-solve-fitting-issues' or collection.handle contains 'distal-end-prosthetic-gel-pads' or collection.handle contains 'gel-socks-sheaths-and-pads-to-adjust-socket-size' or collection.handle contains 'scar-and-wound-care' %} class="current" {% endif %}{% endif %} ><span class="parent-item">{{ link.title }}</span></a>
                 </div>
                 <div class="grid__item medium--one-twelfth small--one-twelfth text-right">
                   <button type="button" class="icon-fallback-text mobile-nav__toggle-open">
@@ -218,7 +217,7 @@
         <hr class="nav-separation">
         {% for link in linklists.know-how.links %}
         <li class="mobile-nav__item subtitle-item">
-          <a href="{{ link.url }}" class="mobile-nav__link"><span>{{ link.title }}</span> <span class="fa fa-angle-right"></span></a> 
+          <a href="{{ link.url }}" class="mobile-nav__link" {% if link.title == "Help" %} target="_blank" {% endif %}><span>{{ link.title }}</span> <span class="fa fa-angle-right"></span></a> 
         </li>
         {% endfor %}
         <!-- Coin app by ShopPad -->
@@ -307,7 +306,7 @@
               <div class="grid__item large--one-quarter nav-second-collumn">
                 <ul class="social-menu">
                   <li> 
-                    <span id="content">{{settings.content-header}}</span>
+                    <span id="content"><a target="_blank" href="https://help.amputeestore.com/portal/home">{{settings.content-header}}</a></span>
                   </li>
                   <li>    
                     <!-- Coin app by ShopPad -->
@@ -421,7 +420,7 @@
               </li>
               {% endif %}
               {% endfor %}
-            </ul>{% comment %}test{% endcomment %}
+            </ul>
 
           </div>
         </div>
@@ -456,27 +455,27 @@
                 </li>
                 {%endif%}
                 <li>    
-                 <a href="https://help.amputeestore.com/portal/home"><i class="fa fa-question-circle" aria-hidden="true"></i></a>
-                </li>
-                <li> 
+                 <a target="_blank" href="https://help.amputeestore.com/portal/home"><i class="fa fa-question-circle" aria-hidden="true"></i></a>
+               </li>
+               <li> 
                  <div id="cart-main">
                   <div id="cart">
                     {% if template == "cart" %}
-                     <img class="img-responsive" src="{{ 'shopping-cart.png' | asset_url }}" alt="cart">
+                    <img class="img-responsive" src="{{ 'shopping-cart.png' | asset_url }}" alt="cart">
                     <span class="icon-cart-count" id="CartCount2">{{ cart.item_count }}</span>
                     {%else%}
                     <a href="/cart" class="js-drawer-open-right" >
-                       <img class="img-responsive" src="{{ 'shopping-cart.png' | asset_url }}" alt="cart">
-                      <span class="icon-cart-count" id="CartCount2">{{ cart.item_count }}</span>
-                      
-                    </a>
-                    {%endif%}
+                     <img class="img-responsive" src="{{ 'shopping-cart.png' | asset_url }}" alt="cart">
+                     <span class="icon-cart-count" id="CartCount2">{{ cart.item_count }}</span>
 
-                  </div>
-                </div>  
-              </li>
-            </ul>
-          </div>
+                   </a>
+                   {%endif%}
+
+                 </div>
+               </div>  
+             </li>
+           </ul>
+         </div>
           {% comment %}<a href="/cart" class="js-drawer-open-right site-nav__link" aria-controls="CartDrawer" aria-expanded="false">
                   <span class="icon-fallback-text">
                     <span class="icon icon-cart" aria-hidden="true"></span>
@@ -507,9 +506,7 @@
     {% unless template contains 'index' %}
     <main class="{% if template contains 'newletter' %}wrapper{% endif %} main-content" role="main">
       {% endunless %}
-
       {{ content_for_layout }}
-
     </main>
 
 {% comment %}
@@ -633,24 +630,24 @@
           {{ 'fastclick.min.js' | asset_url | script_tag }}
           {{ 'timber.js' | asset_url | script_tag }}
           {{ 'custom.js' | asset_url | script_tag }}
-         
+
 
           {% comment %}{% if template contains 'product' %}
           {{ 'imagezoom.js' | asset_url | script_tag }}
           {% endif %}{% endcomment %}
           {{ 'cloudzoom.js' | asset_url | script_tag }}
 
-           {{ 'slick.min.js' | asset_url | script_tag }}
+          {{ 'slick.min.js' | asset_url | script_tag }}
 
 
           <script>
             $( document ).ready(function() {
               $('#size-chart img').wrapAll('<div class="sizeguide-slideshow" />');
               $('#size-chart img').wrap('<div>');  
-			  
-			    $('#size-chart-xs img').wrapAll('<div class="sizeguide-slideshow" />');
+
+              $('#size-chart-xs img').wrapAll('<div class="sizeguide-slideshow" />');
               $('#size-chart-xs img').wrap('<div>'); 
-    
+
 
               $('.homepage-slideshow').slick({
                 dots: true,
@@ -755,9 +752,9 @@
         });
 
 
-  jQuery('body').on('ajaxCart.afterCartLoad', function(evt, cart) {
+        jQuery('body').on('ajaxCart.afterCartLoad', function(evt, cart) {
         // Bind to 'ajaxCart.afterCartLoad' to run any javascript after the cart has loaded in the DOM
-         
+
         //Begin Get a customer's location
         jQuery.ajax( {
           url: '//freegeoip.net/json/',
@@ -779,21 +776,13 @@
   } );  
   //End Get a customer's location
 
-        timber.RightDrawer.open();
-      });
+  timber.RightDrawer.open();
+});
 
 </script>
 {% endif %}
 
-
-
-    {% comment %}<script type="text/javascript">
-      $(document).ready(function() {
-        $(".fancybox").fancybox();
-      });
-    </script>{% endcomment %}
-
-    <input type="hidden" name="_pc_params" value="{{ shop.permanent_domain }}:{{ customer.id }}" />
+<input type="hidden" name="_pc_params" value="{{ shop.permanent_domain }}:{{ customer.id }}" />
 
     {% comment %}<style>
     .yotpo-icon-double-bubble, .yotpo-stars { margin: 0 5px 0 0 !important; }

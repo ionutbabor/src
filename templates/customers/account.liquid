@@ -70,7 +70,8 @@
     <h4>{{ 'customer.account.details' | t }}</h4>
 
     <h5>{{ customer.name }}</h5>
-    <h5><a href="/tools/checkout/front_end/login" class="text-link">Update Autoship & Save Subscription</a></h5>
+    <h5><a href="/tools/checkout/front_end/login" class="text-link">Update Autoship &amp; Save Subscription</a></h5>
+    {% comment %}<p><a href="/tools/checkout/front_end/login" class="text-link">Manage Subscription</a></p>{% endcomment %}
 
     {% if customer.default_address != nil %}
       <p>
